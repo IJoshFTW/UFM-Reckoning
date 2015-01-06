@@ -22,6 +22,7 @@ import nl.joshuaslik.UFMReckoning.gui.game.MainGame;
 public class NewGameController {
 	
 		private Team choosenteam;
+		private static String username;
 	
 	 	@FXML
 	    private TableView<Team> teamtable;
@@ -75,7 +76,6 @@ public class NewGameController {
 	    @FXML
 		protected void handleChooseTeam(ActionEvent event) throws IOException {
 	    	if (choosenteam != null) {
-	    		String username = "Bryan";
 				Team chosenTeam = teamtable.getSelectionModel().getSelectedItem();
 				Game Game1 = Save.newGame(chosenTeam, username);
 				MainGame.setGame(Game1);
@@ -92,7 +92,8 @@ public class NewGameController {
 	    	choosenteam = team;
 	    }
 	    
-	    public static void start() throws IOException {
+	    public static void start(String user) throws IOException {
+	    	username = user;
 	    	AnchorPane topmenu = (AnchorPane) FXMLLoader.load(Class.class.getResource("/data/gui/pages-menu/TopMenu.fxml"));
 			Label label = (Label) topmenu.lookup("#title");
 			label.setText("Sorry, you made the game crash!");
