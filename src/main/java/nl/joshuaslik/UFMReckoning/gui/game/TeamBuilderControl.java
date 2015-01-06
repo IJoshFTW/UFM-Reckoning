@@ -80,15 +80,15 @@ public class TeamBuilderControl {
     
     public static void start(Game game) throws IOException {
     	team = game.getUser().getTeam();
-    	AnchorPane topmenu = (AnchorPane) FXMLLoader.load(Class.class.getResource("/data/gui/pages-menu/TopMenu.fxml"));
+    	AnchorPane topmenu = FXMLLoader.load(Class.class.getResource("/data/gui/pages-menu/TopMenu.fxml"));
 		Label label = (Label) topmenu.lookup("#title");
 		label.setText("MainGamemenu");
 		Rectangle2D visualBounds = Screen.getPrimary().getVisualBounds();
 		topmenu.setPrefWidth(visualBounds.getWidth());
 		Main.setTop(topmenu);
-		AnchorPane scene = (AnchorPane) FXMLLoader.load(Class.class.getResource("/data/gui/pages-game/TeamBuilder.fxml"));
+		AnchorPane scene = FXMLLoader.load(Class.class.getResource("/data/gui/pages-game/TeamBuilder.fxml"));
 		Main.setCenter(scene);
-		AnchorPane bottom = (AnchorPane) FXMLLoader.load(Class.class.getResource("/data/gui/pages-game/GameBottomMenuBar.fxml"));
+		AnchorPane bottom = FXMLLoader.load(Class.class.getResource("/data/gui/pages-game/GameBottomMenuBar.fxml"));
 		Main.setBottom(bottom);
 	}
 
