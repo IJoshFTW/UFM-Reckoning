@@ -16,4 +16,14 @@ public class TeamBuilderController {
 	protected void handleChangeSetup(ActionEvent event) throws IOException {
 		MainMenu.start();
 	}
+	
+	@FXML
+	protected void handleViewPlayer(ActionEvent event) throws IOException {
+		MainMenu.start();
+	}
+	
+	@FXML
+	protected void handleTransferMarket(ActionEvent event) throws IOException {
+		MainMenu.start();
+	}
 }
