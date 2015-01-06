@@ -21,5 +21,6 @@
             
          </children>
       </VBox>
+      <Button fx:id="selectteam" layoutX="400.0" layoutY="550.0" mnemonicParsing="false" text="Select this team" />
    </children>
 </AnchorPane>
