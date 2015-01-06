@@ -2,6 +2,7 @@ package nl.joshuaslik.UFMReckoning.gui;
 
 import java.io.IOException;
 
+import nl.joshuaslik.UFMReckoning.backend.User;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -15,64 +16,64 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class ControllerMainMenu {
-	
-	
-	 @FXML
-	 private Button startgame;
-	 
-	 @FXML
-	 private Button newgame;
-	 
-	 @FXML
-	 private Button loadgame;
-	 
-	 @FXML
-	 private void initialize() {
+	//private User username;
+
+	@FXML
+	private Button startgame;
+
+	@FXML
+	private Button newgame;
+
+	@FXML
+	private Button loadgame;
+
+	@FXML
+	private void initialize() {
 		startgame.setOnMouseEntered(new EventHandler<MouseEvent>() {
-			public void handle(MouseEvent me){
+			public void handle(MouseEvent me) {
 				newgame.setVisible(true);
 				loadgame.setVisible(true);
 			}
 		});
 		newgame.setOnMouseEntered(new EventHandler<MouseEvent>() {
-			public void handle(MouseEvent me){
+			public void handle(MouseEvent me) {
 				newgame.setVisible(true);
 				loadgame.setVisible(true);
 			}
 		});
 		loadgame.setOnMouseEntered(new EventHandler<MouseEvent>() {
-			public void handle(MouseEvent me){
+			public void handle(MouseEvent me) {
 				newgame.setVisible(true);
 				loadgame.setVisible(true);
 			}
 		});
 		startgame.setOnMouseExited(new EventHandler<MouseEvent>() {
-			public void handle(MouseEvent me){
+			public void handle(MouseEvent me) {
 				newgame.setVisible(false);
 				loadgame.setVisible(false);
 			}
 		});
 		newgame.setOnMouseExited(new EventHandler<MouseEvent>() {
-			public void handle(MouseEvent me){
+			public void handle(MouseEvent me) {
 				newgame.setVisible(false);
 				loadgame.setVisible(false);
 			}
 		});
 		loadgame.setOnMouseExited(new EventHandler<MouseEvent>() {
-			public void handle(MouseEvent me){
+			public void handle(MouseEvent me) {
 				newgame.setVisible(false);
 				loadgame.setVisible(false);
 			}
 		});
 	}
-	
 
 	@FXML
 	protected void handleNewGame(ActionEvent event) throws IOException {
 		System.out.println("btn_NewGame pressed");
 		System.out.println(event.getSource());
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(Class.class.getResource("/data/gui/pages-menu/ChooseUsernameDialog.fxml"));
+		loader.setLocation(Class.class
+				.getResource("/data/gui/pages-menu/ChooseUsernameDialog.fxml"));
 		AnchorPane page = (AnchorPane) loader.load();
 
 		// Create the dialog Stage.
@@ -82,7 +83,9 @@ public class ControllerMainMenu {
 		dialogStage.initOwner(Main.stage);
 		Scene scene = new Scene(page);
 		dialogStage.setScene(scene);
-		//dialogStage.show();
+
+		dialogStage.show();
+		
 		NewGameController.start();
 	}
 
@@ -92,14 +95,14 @@ public class ControllerMainMenu {
 		System.out.println(event.getSource());
 
 	}
-	
+
 	@FXML
 	protected void handleOptions(ActionEvent event) throws IOException {
 		System.out.println("btn_Options pressed");
 		System.out.println(event.getSource());
 		Options.start();
 	}
-	
+
 	@FXML
 	protected void handleHighscores(ActionEvent event) throws IOException {
 		System.out.println("btn_Highscores pressed");
@@ -112,5 +115,13 @@ public class ControllerMainMenu {
 		System.out.println("btn_QuitMenu pressed");
 		System.out.println(event.getSource());
 		System.exit(0);
+	}
+	
+	@FXML
+	protected void handleReturnMainMenu(ActionEvent event) throws IOException {
+		System.out.println("btn_ReturnMainMenu pressed");
+		System.out.println(event.getSource());
+		
+		MainMenu.start();
 	}
 }
