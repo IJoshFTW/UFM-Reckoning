@@ -23,6 +23,16 @@
                   <Font size="34.0" />
                </font>
             </Label>
+            <ImageView fx:id="teamlogo" fitHeight="273.0" fitWidth="334.0" layoutX="802.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true" />
+            <TableView fx:id="playertable" layoutX="30.0" layoutY="101.0" prefHeight="484.0" prefWidth="588.0">
+              <columns>
+                <TableColumn fx:id="active" prefWidth="75.0" text="Active" />
+                <TableColumn fx:id="name" prefWidth="75.0" text="Name" />
+                  <TableColumn fx:id="attack" prefWidth="75.0" text="Attack" />
+                  <TableColumn fx:id="defence" prefWidth="75.0" text="Defence" />
+                  <TableColumn fx:id="stamina" prefWidth="75.0" text="Stamina" />
+              </columns>
+            </TableView>
          </children>
          </Pane>
 		

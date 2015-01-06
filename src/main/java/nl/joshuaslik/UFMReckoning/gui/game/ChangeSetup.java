@@ -5,7 +5,9 @@ import java.util.ArrayList;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -166,5 +168,20 @@ public class ChangeSetup {
 	public static ObservableList<Player> getBenchPlayerlist() {
 		ObservableList<Player> data = FXCollections.observableArrayList(team.getBenchPlayers());
 		return data;
+	}
+	
+	@FXML
+	protected void handleReturnTeamBuilder(ActionEvent event) throws IOException {
+		TeamBuilderController.start();
+	}
+	
+	@FXML
+	protected void handlePlayerToField(ActionEvent event) {
+		
+	}
+	
+	@FXML
+	protected void handlePlayerToBench(ActionEvent event) {
+		
 	}
 }

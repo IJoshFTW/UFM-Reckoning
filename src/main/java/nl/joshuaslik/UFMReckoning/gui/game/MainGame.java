@@ -20,7 +20,7 @@ public class MainGame {
 		System.out.println("COACH NAME OF MY TEAM: "
 				+ game.getUser().getTeam().getCoachName());
 		
-		TeamBuilderControl.start(game);
+		TeamBuilderController.start();
 		
 	}
 
