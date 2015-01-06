@@ -23,7 +23,7 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <HBox layoutX="876.0" layoutY="650.0" prefHeight="51.0" prefWidth="236.0" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="650.0" AnchorPane.rightAnchor="650.0">
+      <HBox alignment="CENTER" layoutX="876.0" layoutY="650.0" prefHeight="51.0" prefWidth="236.0" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="650.0" AnchorPane.rightAnchor="650.0">
          <children>
             <Button mnemonicParsing="false" onAction="#handleChooseTeam" prefHeight="78.0" prefWidth="600.0" text="Choose this team" />
          </children></HBox>
