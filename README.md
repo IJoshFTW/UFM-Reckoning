@@ -7,16 +7,22 @@ Ultimate Football Manager
     <tr>
       <td>master</td>
       <td>dev</td>
+      <td>Latest Build</td>
     </tr>
     <tr>
       <td>
-        <a href="https://travis-ci.org/IJoshFTW/UFM-Reckoning/branches">
-          <img src="https://travis-ci.org/IJoshFTW/UFM-Reckoning.png?branch=master" alt="Master Build Status" />
+        <a href="https://travis-ci.org/JoshCode/UFM-Reckoning/branches">
+          <img src="https://travis-ci.org/JoshCode/UFM-Reckoning.png?branch=master" alt="Master Build Status" />
         </a>
       </td>
       <td>
-        <a href="https://travis-ci.org/IJoshFTW/UFM-Reckoning/branches">
-          <img src="https://travis-ci.org/IJoshFTW/UFM-Reckoning.png?branch=dev" alt="Dev Build Status" />
+        <a href="https://travis-ci.org/JoshCode/UFM-Reckoning/branches">
+          <img src="https://travis-ci.org/JoshCode/UFM-Reckoning.png?branch=dev" alt="Dev Build Status" />
+        </a>
+      </td>
+      <td>
+        <a href="https://travis-ci.org/JoshCode/UFM-Reckoning/branches">
+          <img src="https://travis-ci.org/JoshCode/UFM-Reckoning.svg" alt="Latest Build" />
         </a>
       </td>
     </tr>
