@@ -16,7 +16,7 @@
             <TableColumn fx:id="averageattack" maxWidth="750.0" prefWidth="200.0" text="Average Attack" />
             <TableColumn fx:id="averagedefence" maxWidth="750.0" prefWidth="150.0" text="Average Defence" />
             <TableColumn fx:id="averagestamina" maxWidth="750.0" prefWidth="150.0" text="Average Stamina" />
-            <TableColumn maxWidth="750.0" minWidth="0.0" prefWidth="150.0" text="Total Players" />
+            <TableColumn fx:id="totalplayers" maxWidth="750.0" minWidth="0.0" prefWidth="150.0" text="Total Players" />
             <TableColumn fx:id="teamvalue" maxWidth="1000.0" prefWidth="200.0" text="Team value" />
         </columns>
          <columnResizePolicy>
