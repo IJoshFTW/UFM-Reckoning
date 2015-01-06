@@ -12,6 +12,8 @@ public class UsernameController {
 	@FXML
 	private Button cancelbutton;
 	@FXML
+	private Button okbutton;
+	@FXML
 	private TextField usertextfield;
 	
 	@FXML
@@ -22,7 +24,7 @@ public class UsernameController {
 		String username = usertextfield.getText();
 		if (username.length()>0) {
 			NewGameController.start(username);
-			Stage stage = (Stage) cancelbutton.getScene().getWindow();
+			Stage stage = (Stage) okbutton.getScene().getWindow();
 			stage.close();
 		}
 		else {
