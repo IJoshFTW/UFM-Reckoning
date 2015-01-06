@@ -29,4 +29,5 @@ public class OtherTeams {
 		Main.setBottom(bottom);
 	}
 	
+	
 }

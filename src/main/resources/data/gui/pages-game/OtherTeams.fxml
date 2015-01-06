@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
@@ -7,6 +8,14 @@
 
 <AnchorPane styleClass="pane" stylesheets="@Competition.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.UFMReckoning.gui.game.CompetitionController">
    <children>
+      <TableView layoutX="140.0" layoutY="135.0" prefHeight="500.0" prefWidth="200.0">
+        <columns>
+          <TableColumn maxWidth="500.0" prefWidth="199.0" text="Team" />
+        </columns>
+         <effect>
+            <InnerShadow />
+         </effect>
+      </TableView>
       <VBox layoutX="79.0" layoutY="-6.0" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="200.0">
          <children>
             
