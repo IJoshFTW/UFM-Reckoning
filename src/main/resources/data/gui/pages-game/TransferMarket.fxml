@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Button?>
 
-<Pane id="pane" prefHeight="1080.0" prefWidth="1920.0" styleClass="pane" stylesheets="@TeamBuilder.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.UFMReckoning.gui.game.TeamBuilderController">
+<AnchorPane id="pane" prefHeight="1080.0" prefWidth="1920.0" styleClass="pane" stylesheets="@TeamBuilder.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.UFMReckoning.gui.game.TeamBuilderController">
 	<children>	
 		<Pane layoutX="360.0" layoutY="150.0" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #101010; -fx-border-color: #CECECE; -fx-opacity: 80%; -fx-border-width: 1px;">
          <children>
@@ -34,4 +34,4 @@
 		<!-- Bottom bar -->
 		<fx:include fx:id="bottommenubar" source="GameBottomMenuBar.fxml" />
 	</children>
-</Pane>
+</AnchorPane>

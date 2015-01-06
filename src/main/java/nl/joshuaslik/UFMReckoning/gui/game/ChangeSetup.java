@@ -17,6 +17,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
@@ -39,7 +40,7 @@ public class ChangeSetup {
 		team = MainGame.game.getUser().getTeam();
 		init();
 
-		Pane root = FXMLLoader.load(Class.class
+		AnchorPane root = FXMLLoader.load(Class.class
 				.getResource("/data/gui/pages-game/ChangeSetup.fxml"));
 
 		// Font voorbereiden voor de Text objecten
@@ -62,9 +63,7 @@ public class ChangeSetup {
 				
 		root.getChildren().addAll(ActivePlayerList, BenchPlayerList);
 
-		Scene scene = new Scene(root, 1080, 1920);
-		Main.setScene(scene);
-		Main.stage.setFullScreen(true);
+		Main.setCenter(root);
 	}
 
 	public static void init() {

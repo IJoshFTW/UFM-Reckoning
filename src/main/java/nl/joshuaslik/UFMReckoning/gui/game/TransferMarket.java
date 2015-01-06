@@ -17,6 +17,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
@@ -39,7 +40,7 @@ public class TransferMarket {
 		team = MainGame.game.getUser().getTeam();
 		init();
 
-		Pane root = FXMLLoader.load(Class.class
+		AnchorPane root = FXMLLoader.load(Class.class
 				.getResource("/data/gui/pages-game/TransferMarket.fxml"));
 
 
@@ -70,9 +71,7 @@ public class TransferMarket {
 				
 		root.getChildren().addAll(sellList, buyList, funds);
 
-		Scene scene = new Scene(root, 1080, 1920);
-		Main.setScene(scene);
-		Main.stage.setFullScreen(true);
+		Main.setCenter(root);
 	}
 
 	public static void init() {

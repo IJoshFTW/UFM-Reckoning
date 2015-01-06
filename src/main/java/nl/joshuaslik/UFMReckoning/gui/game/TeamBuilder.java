@@ -14,6 +14,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -33,7 +34,7 @@ public class TeamBuilder {
 		team = MainGame.game.getUser().getTeam();
 		init();
 
-		Pane root = FXMLLoader.load(Class.class
+		AnchorPane root = FXMLLoader.load(Class.class
 				.getResource("/data/gui/pages-game/TeamBuilder.fxml"));
 
 		// Teamlogo inladen
@@ -141,9 +142,7 @@ public class TeamBuilder {
 				staminaImgView, totalGames, totalWins, totalLosses, totalDraws,
 				totalGoals, funds);
 
-		Scene scene = new Scene(root, 1080, 1920);
-		Main.setScene(scene);
-		Main.stage.setFullScreen(true);
+		Main.setCenter(root);
 	}
 
 	public static void init() {
