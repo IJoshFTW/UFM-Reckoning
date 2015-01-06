@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
@@ -7,17 +9,77 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane styleClass="pane" stylesheets="@TeamBuilder.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.UFMReckoning.gui.game.TeamBuilderControl">
-   <children>
-      <TableView fx:id="playertable" opacity="0.85" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="150.0">
-        <columns>
-          <TableColumn fx:id="fullname" prefWidth="104.0" text="Name" />
-          <TableColumn fx:id="country" prefWidth="90.0" text="Country" />
-            <TableColumn fx:id="price" prefWidth="120.0" text="Price" />
-        </columns>
-      </TableView>
-      <ImageView fx:id="playerimg" fitHeight="160.0" fitWidth="160.0" layoutX="1335.0" layoutY="238.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="200.0" />
-      <ImageView fx:id="teamimg" fitHeight="150.0" fitWidth="150.0" layoutX="21.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0" />
-      <Button layoutY="267.0" mnemonicParsing="false" text="Change Formation" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="267.0" />
-   </children>
-</AnchorPane>
+<Pane id="pane" prefHeight="1080.0" prefWidth="1920.0" styleClass="pane" stylesheets="@TeamBuilder.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.UFMReckoning.gui.game.TeamBuilderController">
+	<children>	
+		<Pane layoutX="360.0" layoutY="150.0" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #101010; -fx-border-color: #CECECE; -fx-opacity: 80%; -fx-border-width: 1px;">
+         <children>
+            
+            <Button layoutX="30" layoutY="700" onAction="#handleChangeSetup" prefHeight="60" prefWidth="250" styleClass="button" text="Change Setup" />
+            <Button layoutX="270" layoutY="700" onAction="#handleViewPlayer" prefHeight="60" prefWidth="250" styleClass="button" text="View Player" />
+            <Button layoutX="520" layoutY="700" onAction="#handleTransferMarket" prefHeight="60" prefWidth="250" styleClass="button" text="Transfer Market" />
+            
+            <Label layoutX="450.0" layoutY="29.0" text="Current Team Setup" textFill="WHITE">
+               <font>
+                  <Font size="34.0" />
+               </font>
+            </Label>
+         </children>
+         </Pane>
+		
+			<Label layoutX="1020.0" layoutY="575.0" text="Attack:" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            
+            <Label layoutX="1020.0" layoutY="605.0" text="Defence:" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            
+            <Label layoutX="1020.0" layoutY="635.0" text="Stamina:" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            
+            <Label layoutX="1020.0" layoutY="665.0" text="Total Games Played:" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            
+            <Label layoutX="1020.0" layoutY="695.0" text="Total Wins:" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            
+            <Label layoutX="1020.0" layoutY="725.0" text="Total Losses:" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            
+            <Label layoutX="1020.0" layoutY="755.0" text="Total Draws:" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            
+            <Label layoutX="1020.0" layoutY="785.0" text="Total Goals:" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            
+			<Label layoutX="1250.0" layoutY="850.0" text="Funds:" textFill="WHITE">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+		<!-- Bottom bar -->
+		<fx:include fx:id="bottommenubar" source="GameBottomMenuBar.fxml" />
+	</children>
+</Pane>
