@@ -554,4 +554,8 @@ public class Team {
 	public int getTeamValue() {
 		return teamValue;
 	}
+
+	public void setTeamValue(int teamValue) {
+		this.teamValue = teamValue;
+	}
 }
