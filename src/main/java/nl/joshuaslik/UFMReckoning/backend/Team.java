@@ -534,6 +534,22 @@ public class Team {
 	public int getPlayers(){
 		return getActivePlayers().size()+getBenchPlayers().size();
 	}
+	
+	/**
+	 * Calculates the value of a team
+	 */
+	public void calcTeamValue() {
+		int result = 0;
+		for(int i = 0; i < activePlayers.size(); i++) {
+				Player player = activePlayers.get(i);
+				result += player.getPrice();
+		}	
+		for(int i = 0; i < benchPlayers.size(); i++) {
+				Player player = benchPlayers.get(i);
+				result += player.getPrice();
+		}
+		teamValue = result;
+	}
 
 	public int getTeamValue() {
 		return teamValue;
