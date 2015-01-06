@@ -11,7 +11,9 @@ import javafx.stage.Stage;
 public class UsernameController {
 	@FXML
 	private Button cancelbutton;
+	@FXML
 	private Button okbutton;
+	@FXML
 	private TextField usertextfield;
 	
 	@FXML
