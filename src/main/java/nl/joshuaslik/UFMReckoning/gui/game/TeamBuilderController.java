@@ -26,4 +26,9 @@ public class TeamBuilderController {
 	protected void handleTransferMarket(ActionEvent event) throws IOException {
 		MainMenu.start();
 	}
+	
+	@FXML
+	protected void handlePlayerList(ActionEvent event) throws IOException {
+		
+	}
 }

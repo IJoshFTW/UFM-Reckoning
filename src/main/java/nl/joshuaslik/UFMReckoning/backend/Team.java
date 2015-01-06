@@ -2,6 +2,9 @@ package nl.joshuaslik.UFMReckoning.backend;
 
 import java.util.ArrayList;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 /**
  * The Team Object stores all players in a given team. It divides them into
  * active and bench players.
@@ -476,5 +479,20 @@ public class Team {
 	
 	public int getPlayers(){
 		return getActivePlayers().size()+getBenchPlayers().size();
+	}
+	
+	public ObservableList<Player> getAllPlayersList() {
+		ArrayList<Player> players = new ArrayList<Player>();
+		
+		for(int i = 0; i < activePlayers.size(); i++) {
+			players.add(activePlayers.get(i));
+		}
+		
+		for(int i= 0; i < benchPlayers.size(); i++) {
+			players.add(benchPlayers.get(i));
+		}
+		
+		ObservableList<Player> returnList = FXCollections.observableArrayList(players);
+		return returnList;
 	}
 }

@@ -12,18 +12,18 @@
 	<children>	
 		<Pane layoutX="360.0" layoutY="150.0" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #101010; -fx-border-color: #CECECE; -fx-opacity: 80%; -fx-border-width: 1px;">
          <children>
-            <Button layoutX="30" layoutY="700" prefWidth="250" prefHeight="60" styleClass="button" text="Change Setup" onAction="#handleChangeSetup" />
-            <Button layoutX="270" layoutY="700" prefWidth="250" prefHeight="60" styleClass="button" text="View Player" onAction="#handleViewPlayer" />
-            <Button layoutX="520" layoutY="700" prefWidth="250" prefHeight="60" styleClass="button" text="Transfer Market" onAction="#handleTransferMarket" />
             
-            <ListView layoutX="30.0" layoutY="110.0" prefHeight="550.0" prefWidth="550.0" style="-fx-border-color: #CECECE; -fx-background-color: #101010;" />
+            <Button layoutX="30" layoutY="700" onAction="#handleChangeSetup" prefHeight="60" prefWidth="250" styleClass="button" text="Change Setup" />
+            <Button layoutX="270" layoutY="700" onAction="#handleViewPlayer" prefHeight="60" prefWidth="250" styleClass="button" text="View Player" />
+            <Button layoutX="520" layoutY="700" onAction="#handleTransferMarket" prefHeight="60" prefWidth="250" styleClass="button" text="Transfer Market" />
             
             <Label layoutX="450.0" layoutY="29.0" text="Current Team Setup" textFill="WHITE">
                <font>
                   <Font size="34.0" />
                </font>
             </Label>
-         </children></Pane>
+         </children>
+         </Pane>
 		
 			<Label layoutX="1020.0" layoutY="575.0" text="AttackPower:" textFill="WHITE">
                <font>
