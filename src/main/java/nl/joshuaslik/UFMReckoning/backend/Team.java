@@ -534,4 +534,8 @@ public class Team {
 	public int getPlayers(){
 		return getActivePlayers().size()+getBenchPlayers().size();
 	}
+
+	public int getTeamValue() {
+		return teamValue;
+	}
 }
