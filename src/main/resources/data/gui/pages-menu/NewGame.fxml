@@ -9,7 +9,7 @@
 
 <AnchorPane styleClass="pane" stylesheets="@NewGame.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.UFMReckoning.gui.NewGameController">
    <children>
-      <TableView fx:id="teamtable" layoutX="157.0" onDragEntered="#handleChooseTeam" opacity="0.75" AnchorPane.bottomAnchor="350.0" AnchorPane.leftAnchor="320.0" AnchorPane.rightAnchor="320.0" AnchorPane.topAnchor="125.0">
+      <TableView fx:id="teamtable" layoutX="157.0" onDragEntered="#handleChooseTeam" opacity="0.75" AnchorPane.bottomAnchor="340.0" AnchorPane.leftAnchor="320.0" AnchorPane.rightAnchor="320.0" AnchorPane.topAnchor="135.0">
         <columns>
           <TableColumn fx:id="teamColumn" maxWidth="2000.0" prefWidth="200.0" text="Team" />
           <TableColumn fx:id="coachColumn" maxWidth="1500.0" prefWidth="200.0" text="Coach" />
@@ -23,9 +23,9 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <HBox layoutX="1563.0" layoutY="908.0" prefHeight="51.0" prefWidth="236.0" AnchorPane.bottomAnchor="2.0" AnchorPane.rightAnchor="2.0">
+      <HBox layoutX="876.0" layoutY="650.0" prefHeight="51.0" prefWidth="236.0" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="650.0" AnchorPane.rightAnchor="650.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#handleChooseTeam" prefHeight="57.0" prefWidth="307.0" text="Choose this team" />
+            <Button mnemonicParsing="false" onAction="#handleChooseTeam" prefHeight="78.0" prefWidth="600.0" text="Choose this team" />
          </children></HBox>
    </children>
 </AnchorPane>
