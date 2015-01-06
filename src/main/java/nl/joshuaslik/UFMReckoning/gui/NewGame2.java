@@ -51,7 +51,7 @@ public class NewGame2 {
 		t2.setFont(Font.font("Maiandra GD", FontWeight.BOLD, 60));
 		Button but = new Button("Choose this team");
 		but.setPrefHeight(100);
-		but.setPrefWidth(600);
+		but.setPrefWidth(650);
 		
 		but.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
