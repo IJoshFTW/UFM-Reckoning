@@ -94,7 +94,7 @@ public class NewGameController {
 	    public static void start() throws IOException {
 	    	AnchorPane topmenu = (AnchorPane) FXMLLoader.load(Class.class.getResource("/data/gui/pages-menu/TopMenu.fxml"));
 			Label label = (Label) topmenu.lookup("#title");
-			label.setText("Loading....");
+			label.setText("Sorry, you made the game crash!");
 			Rectangle2D visualBounds = Screen.getPrimary().getVisualBounds();
 			topmenu.setPrefWidth(visualBounds.getWidth());
 			Main.setTop(topmenu);
