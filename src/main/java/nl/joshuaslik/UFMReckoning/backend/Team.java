@@ -21,6 +21,7 @@ public class Team {
 	private int attackPower, defencePower, stamina = 0;
 	private int averageAttackPower, averageDefencePower, averageStamina;
 	private int teamValue;
+	private int totalPlayers;
 
 	/**
 	 * Initialises the Object
@@ -254,10 +255,6 @@ public class Team {
 			}
 		}
 		return false;
-	}
-
-	public int getTotalPlayers() {
-		return activePlayers.size() + benchPlayers.size();
 	}
 	
 	public ArrayList<Player> getActivePlayers() {
@@ -537,6 +534,7 @@ public class Team {
 	
 	/**
 	 * Calculates the value of a team
+	 * @return 
 	 */
 	public void calcTeamValue() {
 		int result = 0;
@@ -552,10 +550,21 @@ public class Team {
 	}
 
 	public int getTeamValue() {
+		this.calcTeamValue();
 		return teamValue;
 	}
 
 	public void setTeamValue(int teamValue) {
 		this.teamValue = teamValue;
+	}
+	
+	public void calcTotalPlayers() {
+		int result = activePlayers.size() + benchPlayers.size();
+		totalPlayers = result;
+	}
+	
+	public int getTotalPlayers() {
+		this.calcTotalPlayers();
+		return totalPlayers;
 	}
 }
