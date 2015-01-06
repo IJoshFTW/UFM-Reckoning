@@ -6,11 +6,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane styleClass="pane" stylesheets="@Competition.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.UFMReckoning.gui.game.CompetitionController">
+<AnchorPane styleClass="pane" stylesheets="@Competition.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.UFMReckoning.gui.game.OtherTeams">
    <children>
-      <TableView layoutX="140.0" layoutY="135.0" prefHeight="500.0" prefWidth="200.0">
+      <TableView fx:id="otherteamstable" layoutX="140.0" layoutY="135.0" prefHeight="500.0" prefWidth="200.0">
         <columns>
-          <TableColumn fx:id="otherteamstable" maxWidth="500.0" prefWidth="199.0" text="Team" />
+          <TableColumn fx:id="otherteam" maxWidth="500.0" prefWidth="199.0" text="Team" />
         </columns>
          <effect>
             <InnerShadow />
