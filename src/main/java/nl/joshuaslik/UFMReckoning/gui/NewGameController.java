@@ -60,6 +60,7 @@ public class NewGameController {
 					"averageStamina"));
 			averageattack.setCellValueFactory(new PropertyValueFactory<Team, String>(
 					"averageAttackPower"));
+			System.out.println(totalplayers);
 			totalplayers.setCellValueFactory(new PropertyValueFactory<Team, String>(
 					"totalPlayers"));
 			teamvalue.setCellValueFactory(new PropertyValueFactory<Team, String>(
@@ -98,7 +99,7 @@ public class NewGameController {
 			Rectangle2D visualBounds = Screen.getPrimary().getVisualBounds();
 			topmenu.setPrefWidth(visualBounds.getWidth());
 			Main.setTop(topmenu);
-			AnchorPane scene = (AnchorPane) FXMLLoader.load(Class.class.getResource("/data/gui/pages-menu/NewGame.fxml"));
+			AnchorPane scene = FXMLLoader.load(Class.class.getResource("/data/gui/pages-menu/NewGame.fxml"));
 			label.setText("Choose a Team");
 			Main.setCenter(scene);
 		}
