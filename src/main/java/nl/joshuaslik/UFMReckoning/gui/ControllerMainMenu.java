@@ -116,12 +116,4 @@ public class ControllerMainMenu {
 		System.out.println(event.getSource());
 		System.exit(0);
 	}
-	
-	@FXML
-	protected void handleReturnMainMenu(ActionEvent event) throws IOException {
-		System.out.println("btn_ReturnMainMenu pressed");
-		System.out.println(event.getSource());
-		
-		MainMenu.start();
-	}
 }
