@@ -481,7 +481,7 @@ public class Team {
 		return getActivePlayers().size()+getBenchPlayers().size();
 	}
 	
-	public ObservableList<Player> getAllPlayersList() {
+	public ArrayList<Player> getAllPlayersList() {
 		ArrayList<Player> players = new ArrayList<Player>();
 		
 		for(int i = 0; i < activePlayers.size(); i++) {
@@ -492,7 +492,14 @@ public class Team {
 			players.add(benchPlayers.get(i));
 		}
 		
-		ObservableList<Player> returnList = FXCollections.observableArrayList(players);
-		return returnList;
+		return players;
+	}
+	
+	public ObservableList<Player> getObservableActivePlayersList() {
+		return FXCollections.observableArrayList(activePlayers);
+	}
+	
+	public ObservableList<Player> getObservableBenchPlayersList() {
+		return FXCollections.observableArrayList(benchPlayers);
 	}
 }

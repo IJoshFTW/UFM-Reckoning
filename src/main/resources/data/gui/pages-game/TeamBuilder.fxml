@@ -25,7 +25,7 @@
          </children>
          </Pane>
 		
-			<Label layoutX="1020.0" layoutY="575.0" text="AttackPower:" textFill="WHITE">
+			<Label layoutX="1020.0" layoutY="575.0" text="Attack:" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
@@ -70,6 +70,12 @@
             <Label layoutX="1020.0" layoutY="785.0" text="Total Goals:" textFill="WHITE">
                <font>
                   <Font size="20.0" />
+               </font>
+            </Label>
+            
+			<Label layoutX="1250.0" layoutY="850.0" text="Funds:" textFill="WHITE">
+               <font>
+                  <Font size="30.0" />
                </font>
             </Label>
 		<!-- Bottom bar -->

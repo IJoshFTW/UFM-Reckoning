@@ -14,7 +14,7 @@ public class TeamBuilderController {
 
 	@FXML
 	protected void handleChangeSetup(ActionEvent event) throws IOException {
-		MainMenu.start();
+		ChangeSetup.start();
 	}
 	
 	@FXML
@@ -24,11 +24,36 @@ public class TeamBuilderController {
 	
 	@FXML
 	protected void handleTransferMarket(ActionEvent event) throws IOException {
-		MainMenu.start();
+		TransferMarket.start();
 	}
 	
 	@FXML
 	protected void handlePlayerList(ActionEvent event) throws IOException {
+		
+	}
+	
+	@FXML
+	protected void handleReturnTeamBuilder(ActionEvent event) throws IOException {
+		TeamBuilder.start();
+	}
+	
+	@FXML
+	protected void handleSellPlayer(ActionEvent event) {
+		
+	}
+	
+	@FXML
+	protected void handleBuyPlayer(ActionEvent event) {
+		
+	}
+	
+	@FXML
+	protected void handlePlayerToField(ActionEvent event) {
+		
+	}
+	
+	@FXML
+	protected void handlePlayerToBench(ActionEvent event) {
 		
 	}
 }
