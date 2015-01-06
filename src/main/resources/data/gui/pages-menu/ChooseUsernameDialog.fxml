@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane opacity="0.85" prefHeight="430.0" prefWidth="833.0" style="-fx-background-color: black;" stylesheets="@NewGame.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane opacity="0.85" prefHeight="430.0" prefWidth="833.0" style="-fx-background-color: black;" stylesheets="@NewGame.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.UFMReckoning.gui.UsernameController">
    <children>
       <GridPane layoutX="145.0" layoutY="-2.0" prefHeight="370.0" prefWidth="601.0" AnchorPane.bottomAnchor="62.0" AnchorPane.leftAnchor="145.0" AnchorPane.rightAnchor="137.0" AnchorPane.topAnchor="-2.0">
         <columnConstraints>
@@ -34,8 +34,8 @@
       </GridPane>
       <HBox alignment="TOP_CENTER" layoutX="-1.0" layoutY="279.0" prefHeight="151.0" prefWidth="883.0" spacing="10.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="118.0" text="OK" />
-            <Button mnemonicParsing="false" prefHeight="90.0" prefWidth="201.0" text="Cancel" />
+            <Button mnemonicParsing="false" onAction="#handleUsername" prefHeight="51.0" prefWidth="118.0" text="OK" />
+            <Button fx:id="cancelbutton" mnemonicParsing="false" onAction="#handleReturnMainMenu" prefHeight="90.0" prefWidth="201.0" text="Cancel" />
          </children>
       </HBox>
    </children>
