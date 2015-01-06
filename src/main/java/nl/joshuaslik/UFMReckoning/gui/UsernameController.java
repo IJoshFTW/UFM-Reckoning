@@ -20,7 +20,7 @@ public class UsernameController {
 	protected void handleUsername(ActionEvent event) throws IOException {
 		System.out.println("btn_OK pressed");
 		System.out.println(event.getSource());
-
+		
 		String username = usertextfield.getText();
 		if (username.length()>0) {
 			NewGameController.start(username);
