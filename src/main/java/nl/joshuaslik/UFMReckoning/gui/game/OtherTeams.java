@@ -35,9 +35,8 @@ public class OtherTeams {
 	@FXML
 	private void initialize() {
 
-		ObservableList<Team> teams = FXCollections.observableArrayList(Save
-				.loadTeams());
-		otherteamstable.setItems(teams);
+		ObservableList<Team> teams = FXCollections.observableArrayList(MainGame.game.getTeams());
+			otherteamstable.setItems(teams);
 
 		otherteam.setCellValueFactory(new PropertyValueFactory<Team, String>(
 				"teamName"));

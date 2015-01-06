@@ -10,7 +10,7 @@
    <children>
       <TableView layoutX="140.0" layoutY="135.0" prefHeight="500.0" prefWidth="200.0">
         <columns>
-          <TableColumn maxWidth="500.0" prefWidth="199.0" text="Team" />
+          <TableColumn fx:id="otherteamstable" maxWidth="500.0" prefWidth="199.0" text="Team" />
         </columns>
          <effect>
             <InnerShadow />
