@@ -165,60 +165,8 @@ public class TeamBuilderController {
 				totalGoals, funds);
 
 		Main.setCenter(root);
-	}
-
-	public static ArrayList<TableColumn<Player, ?>> getColumn(
-			TableView<Player> playertable) {
-		int i;
-
-		ArrayList<TableColumn<Player, ?>> columns = new ArrayList<TableColumn<Player, ?>>();
-
-		// De te gebruiken gegevens
-		String[] columnNames = { "Active", "Name", "Attack", "Defence",
-				"Stamina" };
-		String[] variableNames = { "activeStatus", "playerName", "atkPwr",
-				"def", "sta" };
-
-		// Kolommen aanmaken
-		i = 0;
-		TableColumn<Player, String> activeStatus = new TableColumn<>(
-				columnNames[i++]);
-		TableColumn<Player, String> playerName = new TableColumn<>(
-				columnNames[i++]);
-		TableColumn<Player, Integer> atkPwr = new TableColumn<>(
-				columnNames[i++]);
-		TableColumn<Player, Integer> def = new TableColumn<>(columnNames[i++]);
-		TableColumn<Player, Integer> sta = new TableColumn<>(columnNames[i++]);
-
-		// Kolom breedtes instellen
-		activeStatus.setPrefWidth(75);
-		playerName.setPrefWidth(235);
-		atkPwr.setPrefWidth(90);
-		def.setPrefWidth(90);
-		sta.setPrefWidth(90);
-
-		// Hier loop ik vast
-		i = 0;
-		activeStatus
-				.setCellValueFactory(new PropertyValueFactory<Player, String>(
-						variableNames[i++]));
-		playerName
-				.setCellValueFactory(new PropertyValueFactory<Player, String>(
-						variableNames[i++]));
-		atkPwr.setCellValueFactory(new PropertyValueFactory<Player, Integer>(
-				variableNames[i++]));
-		def.setCellValueFactory(new PropertyValueFactory<Player, Integer>(
-				variableNames[i++]));
-		sta.setCellValueFactory(new PropertyValueFactory<Player, Integer>(
-				variableNames[i++]));
-
-		columns.add(activeStatus);
-		columns.add(playerName);
-		columns.add(atkPwr);
-		columns.add(def);
-		columns.add(sta);
-
-		return columns;
+		AnchorPane bottom = (AnchorPane) FXMLLoader.load(Class.class.getResource("/data/gui/pages-game/GameBottomMenuBar.fxml"));
+		Main.setBottom(bottom);
 	}
 
 	public static ObservableList<Player> getPlayerlist() {
@@ -249,7 +197,7 @@ public class TeamBuilderController {
 	
 	@FXML
 	protected void handleReturnTeamBuilder(ActionEvent event) throws IOException {
-		TeamBuilder.start();
+		TeamBuilderController.start();
 	}
 	
 	@FXML

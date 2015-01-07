@@ -89,7 +89,5 @@
                   <Font size="30.0" />
                </font>
             </Label>
-		<!-- Bottom bar -->
-		<fx:include fx:id="bottommenubar" source="GameBottomMenuBar.fxml" />
 	</children>
 </AnchorPane>

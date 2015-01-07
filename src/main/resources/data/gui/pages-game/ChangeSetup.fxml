@@ -25,6 +25,5 @@
          </children>
          </Pane>
 		<!-- Bottom bar -->
-		<fx:include fx:id="bottommenubar" source="GameBottomMenuBar.fxml" />
 	</children>
 </AnchorPane>
