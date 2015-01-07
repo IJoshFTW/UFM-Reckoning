@@ -68,7 +68,7 @@ public class Team {
 				stamina += ((Fieldplayer) player).getStamina();
 			}
 
-			player.setActive("yes");
+			player.setActiveState(true);
 			calcAverageStats();
 		}
 	}
@@ -85,7 +85,7 @@ public class Team {
 			benchPlayers.add(player);
 
 			calcAverageStats();
-			player.setActive("no");
+			player.setActiveState(false);
 		}
 	}
 
@@ -192,7 +192,7 @@ public class Team {
 				benchPlayers.remove(benchPlayers.indexOf(player));
 			}
 
-			player.setActive("yes");
+			player.setActiveState(true);
 			calcAverageStats();
 		}
 	}
@@ -219,7 +219,7 @@ public class Team {
 			}
 		}
 		
-		player.setActive("no");
+		player.setActiveState(false);
 		calcAverageStats();
 	}
 

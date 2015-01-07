@@ -75,6 +75,8 @@ public class TeamBuilderController {
 		System.out.println(playerslist.get(0));
 		observablelistplayers = FXCollections.observableArrayList(playerslist);
 		playertable.setItems(observablelistplayers);
+		
+		System.out.println(playerslist.get(0).active);
 
 		active.setCellValueFactory(new PropertyValueFactory<Player, String>(
 				"active"));

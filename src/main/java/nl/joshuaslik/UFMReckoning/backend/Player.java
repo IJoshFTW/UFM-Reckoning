@@ -12,7 +12,8 @@ public abstract class Player {
 	private String lastName;
 	private String country;
 	private int price;
-	private String active = "no";
+	public String active;
+	public Boolean activeState;
 
 	/**
 	 * Is the superconstructor of the subclasses.
@@ -35,6 +36,8 @@ public abstract class Player {
 		this.lastName = lastName;
 		country = heritage;
 		price = pr;
+		active = "✗";
+		activeState = false;
 	}
 
 	public String getID() {
@@ -65,7 +68,15 @@ public abstract class Player {
 		return active;
 	}
 	
-	public void setActive(String input) {
-		active = input;
+	public Boolean getActiveState() {
+		return activeState;
+	}
+	
+	public void setActiveState(Boolean input) {
+		activeState = input;
+		if (input.equals(true))
+			active = "✓";
+		else 
+			active = "✗";
 	}
 }
