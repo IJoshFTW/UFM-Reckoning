@@ -12,6 +12,7 @@ public abstract class Player {
 	private String lastName;
 	private String country;
 	private int price;
+	private String active = "no";
 
 	/**
 	 * Is the superconstructor of the subclasses.
@@ -58,5 +59,13 @@ public abstract class Player {
 
 	public void setlastName(String lastName) {
 		this.lastName = lastName;
+	}
+	
+	public String getActive() {
+		return active;
+	}
+	
+	public void setActive(String input) {
+		active = input;
 	}
 }

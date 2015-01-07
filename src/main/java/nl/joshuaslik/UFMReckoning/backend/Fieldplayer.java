@@ -84,5 +84,4 @@ public class Fieldplayer extends Player {
 	public void setfirstname(String firstname) {
 		this.firstname = firstname;
 	}
-
 }

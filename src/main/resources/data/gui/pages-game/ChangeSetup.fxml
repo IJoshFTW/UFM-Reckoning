@@ -24,6 +24,5 @@
             <Button layoutX="350" layoutY="700" onAction="#handlePlayerToBench" prefHeight="60" prefWidth="600" styleClass="button" text="Send player to Bench" />
          </children>
          </Pane>
-		<!-- Bottom bar -->
 	</children>
 </AnchorPane>
