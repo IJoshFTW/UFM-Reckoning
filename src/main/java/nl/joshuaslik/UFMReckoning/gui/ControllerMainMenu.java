@@ -2,7 +2,6 @@ package nl.joshuaslik.UFMReckoning.gui;
 
 import java.io.IOException;
 
-import nl.joshuaslik.UFMReckoning.backend.User;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -16,7 +15,6 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class ControllerMainMenu {
-	//private User username;
 
 	@FXML
 	private Button startgame;
@@ -84,8 +82,9 @@ public class ControllerMainMenu {
 		Scene scene = new Scene(page);
 		dialogStage.setScene(scene);
 
+		NewGameController.start("Joshua");
+
 		dialogStage.show();
-		
 	}
 
 	@FXML
