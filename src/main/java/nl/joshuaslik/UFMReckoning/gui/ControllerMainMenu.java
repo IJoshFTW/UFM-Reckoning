@@ -85,6 +85,7 @@ public class ControllerMainMenu {
 		dialogStage.setScene(scene);
 
 		dialogStage.show();
+		
 	}
 
 	@FXML
