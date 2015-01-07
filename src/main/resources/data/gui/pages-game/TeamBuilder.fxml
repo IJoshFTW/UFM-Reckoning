@@ -12,12 +12,7 @@
 <AnchorPane id="pane" prefHeight="1080.0" prefWidth="1920.0" styleClass="pane" stylesheets="@TeamBuilder.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.UFMReckoning.gui.game.TeamBuilderController">
 	<children>			
 		<Pane layoutX="360.0" layoutY="150.0" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #101010; -fx-border-color: #CECECE; -fx-opacity: 80%; -fx-border-width: 1px;">
-         <children>
-            
-            <Button layoutX="30" layoutY="700" onAction="#handleChangeSetup" prefHeight="60" prefWidth="250" styleClass="button" text="Change Setup" />
-            <Button layoutX="270" layoutY="700" onAction="#handleViewPlayer" prefHeight="60" prefWidth="250" styleClass="button" text="View Player" />
-            <Button layoutX="520" layoutY="700" onAction="#handleTransferMarket" prefHeight="60" prefWidth="250" styleClass="button" text="Transfer Market" />
-            
+         <children>      
             <Label layoutX="450.0" layoutY="29.0" text="Current Team Setup" textFill="WHITE">
                <font>
                   <Font size="34.0" />
@@ -107,5 +102,9 @@
                   <Font size="20.0" />
                </font>
             </Label>
+            
+            <Button layoutX="390" layoutY="850" onAction="#handleChangeSetup" prefHeight="60" prefWidth="250" styleClass="button" text="Change Setup" />
+            <Button layoutX="640" layoutY="850" onAction="#handleViewPlayer" prefHeight="60" prefWidth="250" styleClass="button" text="View Player" />
+            <Button layoutX="1280" layoutY="850" onAction="#handleTransferMarket" prefHeight="60" prefWidth="250" styleClass="button" text="Transfer Market" />
 	</children>
 </AnchorPane>
