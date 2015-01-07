@@ -26,9 +26,10 @@
             <ImageView fx:id="teamlogo" fitHeight="273.0" fitWidth="334.0" layoutX="802.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true" />
             <TableView fx:id="playertable" layoutX="30.0" layoutY="101.0" prefHeight="484.0" prefWidth="588.0">
               <columns>
-                <TableColumn fx:id="active" prefWidth="100.0" text="Active" />
-                <TableColumn fx:id="name" prefWidth="225.0" text="Name" />
-                  <TableColumn fx:id="country" prefWidth="225.0" text="Country" />
+                <TableColumn fx:id="active" prefWidth="60.0" text="Active" />
+                <TableColumn fx:id="name" prefWidth="200.0" text="Name" />
+                <TableColumn fx:id="country" prefWidth="200.0" text="Country" />
+                <TableColumn fx:id="position" prefWidth= "90.0" text="Position" />
               </columns>
             </TableView>
             <Label fx:id="showTotalGamesPlayed" layoutX="842.0" layoutY="515.0" text="?" textFill="WHITE">

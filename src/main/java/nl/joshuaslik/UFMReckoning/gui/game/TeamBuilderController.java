@@ -44,6 +44,9 @@ public class TeamBuilderController {
 
 	@FXML
 	private TableColumn<Player, String> country;
+	
+	@FXML
+	private TableColumn<Player, String> position;
 
 	@FXML
 	private Label showTotalGamesPlayed;
@@ -74,11 +77,13 @@ public class TeamBuilderController {
 		playertable.setItems(observablelistplayers);
 
 		active.setCellValueFactory(new PropertyValueFactory<Player, String>(
-				"country"));
+				"active"));
 		name.setCellValueFactory(new PropertyValueFactory<Player, String>(
 				"fullName"));
 		country.setCellValueFactory(new PropertyValueFactory<Player, String>(
 				"country"));
+		position.setCellValueFactory(new PropertyValueFactory<Player, String>(
+				"position"));
 
 		// Listen for selection changes
 		playertable
