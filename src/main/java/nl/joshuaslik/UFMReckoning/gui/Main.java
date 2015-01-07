@@ -26,14 +26,16 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws IOException {
-		rootLayout = (BorderPane) FXMLLoader.load(Class.class.getResource("/data/gui/pages-menu/RootLayout.fxml"));
+		rootLayout = (BorderPane) FXMLLoader.load(Class.class
+				.getResource("/data/gui/pages-menu/RootLayout.fxml"));
 		primaryStage.setFullScreen(true);
-		primaryStage.getIcons().add(new Image("file:recources/images/Address_book.png"));
+		primaryStage.getIcons().add(
+				new Image("file:recources/images/Address_book.png"));
 		primaryStage.setTitle("Ultimate Football Manager");
 		primaryStage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
 		Scene scene = new Scene(rootLayout);
-        primaryStage.setScene(scene);
-        primaryStage.show();
+		primaryStage.setScene(scene);
+		primaryStage.show();
 		stage = primaryStage;
 		MainMenu.start();
 	}
@@ -41,18 +43,18 @@ public class Main extends Application {
 	public static void setScene(Scene scn) {
 		stage.setScene(scn);
 	}
-	
-	public static void setCenter(AnchorPane pane){
+
+	public static void setCenter(AnchorPane pane) {
 		rootLayout.setCenter(pane);
 	}
-	
-	public static void setTop(AnchorPane pane){
-			rootLayout.setTop(pane);
+
+	public static void setTop(AnchorPane pane) {
+		rootLayout.setTop(pane);
 	}
-	
-	public static void setBottom(AnchorPane pane){
+
+	public static void setBottom(AnchorPane pane) {
 		rootLayout.setBottom(pane);
-}
+	}
 
 	public static Stage stage() {
 		return stage;
