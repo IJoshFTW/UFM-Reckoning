@@ -37,7 +37,8 @@ public class ViewPlayer {
 
 	@FXML
 	private void initialize() {
-		Image image = new Image("/data/base/player/pictures/" + player.getID()
+		System.out.println(player.getID());
+		Image image = new Image("/data/base/players/pictures/" + player.getID()
 				+ ".png");
 		playerPhoto.setImage(image);
 
@@ -45,10 +46,11 @@ public class ViewPlayer {
 
 
 	public static void start(Player inputPlayer) throws IOException {
+		player = inputPlayer;
 		AnchorPane root = FXMLLoader.load(Class.class
 				.getResource("/data/gui/pages-game/ViewPlayer.fxml"));
 		
-		player = inputPlayer;
+	
 
 		if (player instanceof Fieldplayer) {
 			Fieldplayer fieldplayer = (Fieldplayer) player;
@@ -58,8 +60,8 @@ public class ViewPlayer {
 			ImageView atkPwrImgView = new ImageView();
 			atkPwrImgView.setImage(atkPwrImg);
 			atkPwrImgView.prefHeight(20);
-			atkPwrImgView.prefWidth(fieldplayer.getAttackPower());
-			atkPwrImgView.setFitWidth(fieldplayer.getAttackPower());
+			atkPwrImgView.prefWidth(fieldplayer.getAttackPower() * 3);
+			atkPwrImgView.setFitWidth(fieldplayer.getAttackPower() * 3);
 			atkPwrImgView.setLayoutX(1140);
 			atkPwrImgView.setLayoutY(580);
 
@@ -69,8 +71,8 @@ public class ViewPlayer {
 			ImageView defPwrImgView = new ImageView();
 			defPwrImgView.setImage(defPwrImg);
 			defPwrImgView.prefHeight(20);
-			defPwrImgView.prefWidth(fieldplayer.getDefencePower());
-			defPwrImgView.setFitWidth(fieldplayer.getDefencePower());
+			defPwrImgView.prefWidth(fieldplayer.getDefencePower() * 3);
+			defPwrImgView.setFitWidth(fieldplayer.getDefencePower() * 3);
 			defPwrImgView.setLayoutX(1140);
 			defPwrImgView.setLayoutY(610);
 
@@ -79,8 +81,8 @@ public class ViewPlayer {
 			ImageView staminaImgView = new ImageView();
 			staminaImgView.setImage(staminaImg);
 			staminaImgView.prefHeight(20);
-			staminaImgView.prefWidth(fieldplayer.getStamina());
-			staminaImgView.setFitWidth(fieldplayer.getStamina());
+			staminaImgView.prefWidth(fieldplayer.getStamina() * 3);
+			staminaImgView.setFitWidth(fieldplayer.getStamina() * 3);
 			staminaImgView.setLayoutX(1140);
 			staminaImgView.setLayoutY(640);
 			
@@ -92,7 +94,6 @@ public class ViewPlayer {
 				.getResource("/data/gui/pages-game/GameBottomMenuBar.fxml"));
 		Main.setBottom(bottom);
 	}
-
 
 	@FXML
 	protected void handleReturnTeamBuilder(ActionEvent event)

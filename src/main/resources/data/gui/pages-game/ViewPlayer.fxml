@@ -13,14 +13,14 @@
 	<children>			
 		<Pane layoutX="360.0" layoutY="150.0" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #101010; -fx-border-color: #CECECE; -fx-opacity: 80%; -fx-border-width: 1px;">
          <children>      
-            <Label layoutX="450.0" layoutY="29.0" text="Player" textFill="WHITE">
+            <Label layoutX="554.0" layoutY="29.0" text="Player" textFill="WHITE">
                <font>
                   <Font size="34.0" />
                </font>
             </Label>
          </children>
          </Pane>
-			<ImageView fx:id="playerPhoto" fitHeight="273.0" fitWidth="334.0" layoutX="1099.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true" />
+			<ImageView fx:id="playerPhoto" fitHeight="450.0" fitWidth="377.0" layoutX="395.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true" />
             
             <Button layoutX="390" layoutY="850" onAction="#handleReturnTeamBuilder" prefHeight="60" prefWidth="250" styleClass="button" text="Return" />
 
