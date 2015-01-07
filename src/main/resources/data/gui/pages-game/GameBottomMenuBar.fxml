@@ -13,7 +13,6 @@
          <children>
             <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleTeamBuilder" styleClass="bottombarbutton" text="Team" />
             <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleCompetition" styleClass="bottombarbutton" text="Competition" />
-            <Button layoutX="89.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleMarket" styleClass="bottombarbutton" text="Market" />
             <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="bottombarbutton" text="Save" />
             <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleQuitGame" styleClass="bottombarbutton" text="Quit" />
             <Label fx:id="budgetlabel" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" textFill="#fffefe">
