@@ -84,7 +84,7 @@ public class ControllerMainMenu {
 
 		//NewGameController.start("Joshua");
 
-		//dialogStage.show();
+		dialogStage.show();
 	}
 
 	@FXML

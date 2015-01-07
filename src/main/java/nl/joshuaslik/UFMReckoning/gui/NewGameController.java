@@ -94,12 +94,8 @@ public class NewGameController {
 	    
 	    public static void start(String user) throws IOException {
 	    	username = user;
-	    	AnchorPane topmenu = (AnchorPane) FXMLLoader.load(Class.class.getResource("/data/gui/pages-menu/TopMenu.fxml"));
-			Label label = (Label) topmenu.lookup("#title");
-			label.setText("Sorry, you made the game crash!");
-			Rectangle2D visualBounds = Screen.getPrimary().getVisualBounds();
+	 
 			AnchorPane scene = FXMLLoader.load(Class.class.getResource("/data/gui/pages-menu/NewGame.fxml"));
-			label.setText("Choose a Team");
 			Main.setCenter(scene);
 		}
 
