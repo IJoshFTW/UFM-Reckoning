@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import java.net.*?>
 <?import javafx.scene.control.*?>
@@ -9,18 +10,18 @@
 
 <AnchorPane style="-fx-background-color: black;" stylesheets="@GameBottomMenuBar.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.UFMReckoning.gui.game.MainGameController">
    <children>
-      <HBox>
+      <HBox alignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleTeamBuilder" styleClass="bottombarbutton" text="Team" />
             <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleCompetition" styleClass="bottombarbutton" text="Competition" />
             <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="bottombarbutton" text="Save" />
             <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleQuitGame" styleClass="bottombarbutton" text="Quit" />
-            <Label fx:id="budgetlabel" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" textFill="#fffefe">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Label>
          </children>
       </HBox>
+      <Label fx:id="budgetlabel" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" textFill="#fffefe" AnchorPane.rightAnchor="0.0">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

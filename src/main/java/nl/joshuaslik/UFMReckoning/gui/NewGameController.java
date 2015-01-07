@@ -98,8 +98,6 @@ public class NewGameController {
 			Label label = (Label) topmenu.lookup("#title");
 			label.setText("Sorry, you made the game crash!");
 			Rectangle2D visualBounds = Screen.getPrimary().getVisualBounds();
-			topmenu.setPrefWidth(visualBounds.getWidth());
-			Main.setTop(topmenu);
 			AnchorPane scene = FXMLLoader.load(Class.class.getResource("/data/gui/pages-menu/NewGame.fxml"));
 			label.setText("Choose a Team");
 			Main.setCenter(scene);
