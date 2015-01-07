@@ -82,7 +82,7 @@ public class ControllerMainMenu {
 		Scene scene = new Scene(page);
 		dialogStage.setScene(scene);
 
-		NewGameController.start("Joshua");
+		//NewGameController.start("Joshua");
 
 		dialogStage.show();
 	}

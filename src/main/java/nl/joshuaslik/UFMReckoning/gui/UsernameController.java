@@ -14,14 +14,14 @@ public class UsernameController {
 	@FXML
 	private Button okbutton;
 	@FXML
-	private TextField usertextfield;
+	private TextField textfield;
 	
 	@FXML
 	protected void handleUsername(ActionEvent event) throws IOException {
 		System.out.println("btn_OK pressed");
 		System.out.println(event.getSource());
 		
-		String username = usertextfield.getText();
+		String username = textfield.getText();
 		if (username.length()>0) {
 			NewGameController.start(username);
 			Stage stage = (Stage) okbutton.getScene().getWindow();
@@ -42,3 +42,4 @@ public class UsernameController {
 	}
 
 }
+
