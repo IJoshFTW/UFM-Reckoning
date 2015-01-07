@@ -157,7 +157,7 @@ public class TeamBuilderController {
 
 	@FXML
 	protected void handleViewPlayer(ActionEvent event) throws IOException {
-		MainMenu.start();
+		ViewPlayer.start(selectedplayer);
 	}
 
 	@FXML
