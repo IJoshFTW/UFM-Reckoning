@@ -7,7 +7,7 @@
 
 <AnchorPane styleClass="pane" stylesheets="@Competition.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.UFMReckoning.gui.game.RankingController">
    <children>
-      <TableView fx:id="rankingtable" layoutX="171.0" layoutY="137.0" opacity="0.9" prefHeight="233.0" prefWidth="427.0" AnchorPane.bottomAnchor="180.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="1145.0" AnchorPane.topAnchor="210.0">
+      <TableView fx:id="rankingtable" layoutX="171.0" layoutY="137.0" opacity="0.9" prefHeight="233.0" prefWidth="427.0" AnchorPane.bottomAnchor="180.0" AnchorPane.leftAnchor="750.0" AnchorPane.rightAnchor="750.0" AnchorPane.topAnchor="210.0">
         <columns>
           <TableColumn fx:id="nr" prefWidth="83.0" text="Rank" />
           <TableColumn fx:id="team" prefWidth="345.0" text="Team" />
