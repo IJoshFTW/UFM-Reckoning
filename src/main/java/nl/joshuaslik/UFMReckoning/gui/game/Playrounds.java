@@ -177,10 +177,6 @@ public class Playrounds {
 	}
 	
 	
-	
-
-
-
 	public static ObservableList<Match> getMatchList() {
 		Playround pr = MainGame.game.getCompetition().getPlayround(round);
 		ArrayList<Match> matches = new ArrayList<Match>();

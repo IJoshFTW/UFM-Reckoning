@@ -29,7 +29,7 @@ public class MainGameController {
 	protected void handleNextround(ActionEvent event) throws IOException {
 		
     	MainGame.game.resultplayround();
-    	Playrounds.start();
+    	ResultRoundDialogcontroller.start();
 	}
 	
 	@SuppressWarnings("unused")
