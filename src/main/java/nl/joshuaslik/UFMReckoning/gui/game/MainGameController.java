@@ -18,7 +18,7 @@ public class MainGameController {
 	
 	@FXML
 	 private void initialize() {
-		budgetlabel.setText("Budget: " + MainGame.game.getUser().getBudget());
+		budgetlabel.setText("Budget:  €" + MainGame.game.getUser().getBudget());
 	}
 	
 	@SuppressWarnings("unused")
@@ -29,7 +29,6 @@ public class MainGameController {
 
 	@FXML
 	protected void handleMainGame(ActionEvent event) throws IOException {
-		System.out.println(event.getSource());
 		MainGame.start();
 	}
 	
@@ -40,7 +39,18 @@ public class MainGameController {
 	}
 	
 	@FXML
-	protected void handleCompetition(ActionEvent event) throws IOException {
-		Competition.start();
+	protected void handlePlayrounds(ActionEvent event) throws IOException {
+		Playrounds.start();
 	}
+
+	@FXML
+	protected void handleRanking(ActionEvent event) throws IOException {
+		RankingController.start();
+	}
+	
+	@FXML
+	protected void handleOtherTeams(ActionEvent event) throws IOException {
+		OtherTeams.start();
+	}
+	
 }

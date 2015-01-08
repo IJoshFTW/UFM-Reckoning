@@ -10,6 +10,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -17,8 +18,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.util.Callback;
 import nl.joshuaslik.UFMReckoning.backend.Player;
 import nl.joshuaslik.UFMReckoning.backend.Team;
 import nl.joshuaslik.UFMReckoning.gui.Main;
@@ -77,7 +80,30 @@ public class TeamBuilderController {
 		playertable.setItems(observablelistplayers);
 
 		active.setCellValueFactory(new PropertyValueFactory<Player, String>(
-				"active"));
+				"ID"));
+		active.setCellFactory(new Callback<TableColumn<Player, String>, TableCell<Player, String>>(){
+			@Override
+			public TableCell<Player, String> call(TableColumn<Player, String> param){
+				TableCell<Player, String> cell = new TableCell<Player, String>(){
+					@Override
+					public void updateItem(String item, boolean empty){
+						if(item!= null){
+							boolean active = false;
+							for(int i = 0; i<team.getActivePlayers().size(); i++){
+								if(team.getActivePlayers().get(i).getID().equals(item)){
+									setText("✓");
+									active = true;
+								}
+							}
+							if(!active){
+								setText("✗");
+							}
+						}
+					}
+				};
+				return cell;
+			}
+		});
 		name.setCellValueFactory(new PropertyValueFactory<Player, String>(
 				"fullName"));
 		country.setCellValueFactory(new PropertyValueFactory<Player, String>(

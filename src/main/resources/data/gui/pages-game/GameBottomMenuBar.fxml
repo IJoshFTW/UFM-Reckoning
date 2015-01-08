@@ -8,20 +8,29 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane style="-fx-background-color: black;" stylesheets="@GameBottomMenuBar.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.UFMReckoning.gui.game.MainGameController">
+<AnchorPane opacity="0.87" style="-fx-background-color: black;" stylesheets="@GameBottomMenuBar.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.UFMReckoning.gui.game.MainGameController">
    <children>
       <HBox alignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleTeamBuilder" styleClass="bottombarbutton" text="Team" />
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleCompetition" styleClass="bottombarbutton" text="Competition" />
+            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleRanking" styleClass="bottombarbutton" text="Ranking" />
+            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handlePlayrounds" styleClass="bottombarbutton" text="Playrounds" />
+            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleOtherTeams" styleClass="bottombarbutton" text="Other Teams" />
             <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="bottombarbutton" text="Save" />
             <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleQuitGame" styleClass="bottombarbutton" text="Quit" />
          </children>
       </HBox>
-      <Label fx:id="budgetlabel" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" textFill="#fffefe" AnchorPane.rightAnchor="0.0">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
+      <HBox alignment="CENTER_LEFT" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label fx:id="budgetlabel" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" textFill="GOLD">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets right="10.0" />
+         </padding>
+      </HBox>
    </children>
 </AnchorPane>
