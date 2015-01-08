@@ -2,6 +2,8 @@ package nl.joshuaslik.UFMReckoning.gui.game;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -49,6 +51,7 @@ public class Playrounds {
     private void initialize() {
     	ObservableList<Playround> playroundnr = FXCollections.observableArrayList(getPlayroundList());
     	round = MainGame.game.currentround;
+    	
     	 playround.setItems(playroundnr);
     	 playround.setConverter(new StringConverter<Playround>(){
     		 @Override
@@ -61,6 +64,7 @@ public class Playrounds {
     			 return null;
     		 }
     	 });
+    	 
     	 
     	 playround.valueProperty().addListener(new ChangeListener<Playround>() {
 				@Override
@@ -174,12 +178,7 @@ public class Playrounds {
 	
 	
 	
-	@FXML
-	protected void handlenNextround(ActionEvent event) throws IOException {
-		
-    	MainGame.game.resultplayround();
-    	Playrounds.start();
-	}
+
 
 
 	public static ObservableList<Match> getMatchList() {
@@ -194,7 +193,7 @@ public class Playrounds {
 	public static ObservableList<Playround> getPlayroundList() {
 		ArrayList<Playround> pr = MainGame.game.getCompetition()
 				.getPlayrounds();
-
+		Collections.sort(pr);
 		ObservableList<Playround> data = FXCollections.observableArrayList(pr);
 		return data;
 	}

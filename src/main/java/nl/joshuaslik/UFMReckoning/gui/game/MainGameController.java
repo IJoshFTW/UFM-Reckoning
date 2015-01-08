@@ -15,10 +15,21 @@ public class MainGameController {
 
 	@FXML
 	private Label budgetlabel;
+	@FXML
+	private Label currentround;
 	
 	@FXML
 	 private void initialize() {
 		budgetlabel.setText("Budget: € " + MainGame.game.getUser().getBudget());
+		currentround.setText("Currentround: " + MainGame.game.currentround);
+		
+	}
+	
+	@FXML
+	protected void handleNextround(ActionEvent event) throws IOException {
+		
+    	MainGame.game.resultplayround();
+    	Playrounds.start();
 	}
 	
 	@SuppressWarnings("unused")

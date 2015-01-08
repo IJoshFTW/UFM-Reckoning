@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * 
  *
  */
-public class Playround {
+public class Playround implements Comparable  {
 	
 	ArrayList<Match> matches = new ArrayList<Match>();
 	int playroundnr;
@@ -78,6 +78,15 @@ public class Playround {
 			}
 		}
 		return false;
+	}
+
+	@Override
+	public int compareTo(Object o) {
+		if(o instanceof Playround){
+			Playround that = (Playround) o;
+			return this.playroundnr - that.playroundnr;
+		}
+		return 0;
 	}
 
 }
