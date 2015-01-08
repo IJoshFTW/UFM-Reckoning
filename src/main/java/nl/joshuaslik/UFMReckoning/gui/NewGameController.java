@@ -61,7 +61,6 @@ public class NewGameController {
 					"averageStamina"));
 			averageattack.setCellValueFactory(new PropertyValueFactory<Team, String>(
 					"averageAttackPower"));
-			System.out.println(totalplayers);
 			totalplayers.setCellValueFactory(new PropertyValueFactory<Team, String>(
 					"totalPlayers"));
 			teamvalue.setCellValueFactory(new PropertyValueFactory<Team, String>(

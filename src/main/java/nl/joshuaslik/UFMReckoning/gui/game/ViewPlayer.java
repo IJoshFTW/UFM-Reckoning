@@ -56,7 +56,6 @@ public class ViewPlayer {
 
 	@FXML
 	private void initialize() {
-		System.out.println(player.getID());
 		Image image = new Image("/data/base/players/pictures/" + player.getID()
 				+ ".png");
 		playerPhoto.setImage(image);

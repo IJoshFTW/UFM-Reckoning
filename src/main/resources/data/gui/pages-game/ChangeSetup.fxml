@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.image.*?>
@@ -22,8 +23,30 @@
                   </Label>
                   
                   <Button layoutX="46.0" layoutY="715.0" onAction="#handleReturnTeamBuilder" prefHeight="60" prefWidth="250" styleClass="button" text="Return" />
-                  <Button layoutX="46.0" layoutY="622.0" onAction="#handlePlayerToField" prefHeight="60" prefWidth="600" styleClass="button" text="Send player to Field" />
-                  <Button layoutX="46.0" layoutY="562.0" onAction="#handlePlayerToBench" prefHeight="60" prefWidth="600" styleClass="button" text="Send player to Bench" />
+                  <AnchorPane layoutX="665.0" layoutY="139.0" prefHeight="601.0" prefWidth="498.0">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1fff27" height="606.0" stroke="BLACK" strokeType="INSIDE" width="498.0" />
+                        <Circle fill="#ecedee" layoutX="353.0" layoutY="127.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="#ecedee" layoutX="136.0" layoutY="127.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="#ecedee" layoutX="92.0" layoutY="275.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="#ecedee" layoutX="409.0" layoutY="291.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="#ecedee" layoutX="249.0" layoutY="354.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="#ecedee" layoutX="64.0" layoutY="442.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="#ecedee" layoutX="164.0" layoutY="498.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="#ecedee" layoutX="437.0" layoutY="442.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="#ecedee" layoutX="346.0" layoutY="498.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="#ecedee" layoutX="249.0" layoutY="56.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fx:id="GK" fill="#ecedee" layoutX="249.0" layoutY="554.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" />
+                        <ImageView fx:id="gkIMG" fitHeight="39.0" fitWidth="42.0" layoutX="228.0" layoutY="535.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </AnchorPane>
+                  <TableView fx:id="playertable" layoutX="34.0" layoutY="139.0" prefHeight="484.0" prefWidth="588.0">
+                     <columns>
+                        <TableColumn fx:id="name" prefWidth="200.0" text="Name" />
+                        <TableColumn fx:id="country" prefWidth="200.0" text="Country" />
+                        <TableColumn fx:id="position" prefWidth="90.0" text="Position" />
+                     </columns>
+                  </TableView>
                </children>
             </AnchorPane>
          </children>

@@ -11,9 +11,9 @@
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="41.0">
          <children>
-            <AnchorPane maxHeight="800.0" maxWidth="1200.0" opacity="0.8" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #101010;">
+            <AnchorPane maxHeight="800.0" maxWidth="1200.0" opacity="0.92" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #101010; -fx-border-color: #CECECE; -fx-border-width: 1px;">
                <children>
-                  <TableView fx:id="teamtable" layoutX="178.0" layoutY="61.0" onDragEntered="#handleChooseTeam" opacity="0.85" prefHeight="536.0" prefWidth="844.0">
+                  <TableView fx:id="teamtable" layoutX="178.0" layoutY="61.0" onDragEntered="#handleChooseTeam" prefHeight="536.0" prefWidth="844.0">
                     <columns>
                       <TableColumn fx:id="teamColumn" maxWidth="1000.0" prefWidth="200.0" text="Team" />
                       <TableColumn fx:id="coachColumn" maxWidth="1000.0" prefWidth="200.0" text="Coach" />

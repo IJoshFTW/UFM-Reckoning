@@ -6,7 +6,11 @@ import java.util.ArrayList;
 import nl.joshuaslik.UFMReckoning.backend.Match;
 import nl.joshuaslik.UFMReckoning.backend.Playround;
 import nl.joshuaslik.UFMReckoning.gui.Main;
+import javafx.animation.FadeTransition;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -16,10 +20,14 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
+import javafx.stage.Popup;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 
 public class ResultRoundDialogcontroller {
+	private static Popup popup;
+	private static AnchorPane page;
 	
 	@FXML
 	private Button okbutton;
@@ -62,21 +70,28 @@ public class ResultRoundDialogcontroller {
 	
 	@FXML
 	protected void handleOK(ActionEvent event) throws IOException {
-		Stage stage = (Stage) okbutton.getScene().getWindow();
-		stage.close();
+		FadeTransition ft = new FadeTransition(Duration.millis(500), page);
+		ft.setFromValue(0.97);
+		ft.setToValue(0.0);
+		ft.play();
 	}
 	
 	public static void start() throws IOException{
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Class.class
 				.getResource("/data/gui/pages-game/ResultRoundDialog.fxml"));
-		AnchorPane page = (AnchorPane) loader.load();
-		Stage dialogStage = new Stage(StageStyle.UNDECORATED);
-		dialogStage.initModality(Modality.WINDOW_MODAL);
-		dialogStage.initOwner(Main.stage);
-		Scene scene = new Scene(page);
-		dialogStage.setScene(scene);
-		dialogStage.show();
+		page = (AnchorPane) loader.load();
+		FadeTransition ft = new FadeTransition(Duration.millis(900), page);
+		ft.setFromValue(0.0);
+		ft.setToValue(0.97);
+		ft.play();
+		popup = new Popup();
+		popup.setAutoHide(true);
+		popup.setOnAutoHide(null
+		);
+		page.setOpacity(0.85);
+		popup.getContent().add(page);
+		popup.show(Main.stage);
 		TeamBuilderController.start();
 	}
 
