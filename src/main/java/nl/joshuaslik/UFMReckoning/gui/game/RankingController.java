@@ -51,9 +51,9 @@ public class RankingController {
                         	}
                         }
                         if (getIndex() ==  indexteam ) {
-                        	setStyle("-fx-background-color: yellow");
+                            getStyleClass().add("highlightedRow");
                         } else {
-                        	setStyle("");
+                            getStyleClass().remove("highlightedRow");
                         }
                     }
                 };
@@ -63,6 +63,12 @@ public class RankingController {
     
 	
 	public static void start() throws IOException {
+		AnchorPane topmenu = (AnchorPane) FXMLLoader.load(Class.class.getResource("/data/gui/pages-menu/TopMenu.fxml"));
+		Label label = (Label) topmenu.lookup("#title");
+		label.setText("Ranking");
+		Rectangle2D visualBounds = Screen.getPrimary().getVisualBounds();
+		topmenu.setPrefWidth(visualBounds.getWidth());
+		Main.setTop(topmenu);
 		AnchorPane scene = (AnchorPane) FXMLLoader.load(Class.class.getResource("/data/gui/pages-game/Ranking.fxml"));
 		Main.setCenter(scene);
 		AnchorPane bottom = (AnchorPane) FXMLLoader.load(Class.class.getResource("/data/gui/pages-game/GameBottomMenuBar.fxml"));
