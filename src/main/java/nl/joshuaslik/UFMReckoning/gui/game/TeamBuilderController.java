@@ -10,6 +10,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -19,6 +20,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.util.Callback;
 import nl.joshuaslik.UFMReckoning.backend.Player;
 import nl.joshuaslik.UFMReckoning.backend.Team;
 import nl.joshuaslik.UFMReckoning.gui.Main;
@@ -77,7 +79,30 @@ public class TeamBuilderController {
 		playertable.setItems(observablelistplayers);
 
 		active.setCellValueFactory(new PropertyValueFactory<Player, String>(
-				"active"));
+				"ID"));
+		active.setCellFactory(new Callback<TableColumn<Player, String>, TableCell<Player, String>>(){
+			@Override
+			public TableCell<Player, String> call(TableColumn<Player, String> param){
+				TableCell<Player, String> cell = new TableCell<Player, String>(){
+					@Override
+					public void updateItem(String item, boolean empty){
+						if(item!= null){
+							boolean active = false;
+							for(int i = 0; i<team.getActivePlayers().size(); i++){
+								if(team.getActivePlayers().get(i).getID().equals(item)){
+										setText("✓");
+											active = true;
+											}
+										}
+										if(!active){
+											setText("✗");
+										}
+									}
+								}
+							};
+							return cell;
+						}
+					});
 		name.setCellValueFactory(new PropertyValueFactory<Player, String>(
 				"fullName"));
 		country.setCellValueFactory(new PropertyValueFactory<Player, String>(
@@ -120,7 +145,7 @@ public class TeamBuilderController {
 		atkPwrImgView.prefWidth(team.getAttackPower() / 3);
 		atkPwrImgView.setFitWidth(team.getAttackPower() / 3);
 		atkPwrImgView.setLayoutX(1140);
-		atkPwrImgView.setLayoutY(580);
+		atkPwrImgView.setLayoutY(389);
 
 		// Defence bar inladen
 		Image defPwrImg = new Image("/data/gui/img/defencepowerbar.png");
@@ -130,7 +155,7 @@ public class TeamBuilderController {
 		defPwrImgView.prefWidth(team.getDefencePower() / 3);
 		defPwrImgView.setFitWidth(team.getDefencePower() / 3);
 		defPwrImgView.setLayoutX(1140);
-		defPwrImgView.setLayoutY(610);
+		defPwrImgView.setLayoutY(419);
 
 		// Stamina bar inladen
 		Image staminaImg = new Image("/data/gui/img/staminabar.png");
@@ -140,7 +165,7 @@ public class TeamBuilderController {
 		staminaImgView.prefWidth(team.getStamina() / 3);
 		staminaImgView.setFitWidth(team.getStamina() / 3);
 		staminaImgView.setLayoutX(1140);
-		staminaImgView.setLayoutY(640);
+		staminaImgView.setLayoutY(449);
 
 		root.getChildren().addAll(atkPwrImgView, defPwrImgView, staminaImgView);
 

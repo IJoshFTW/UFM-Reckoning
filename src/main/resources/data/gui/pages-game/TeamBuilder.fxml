@@ -11,7 +11,7 @@
 
 <AnchorPane id="pane" prefHeight="1080.0" prefWidth="1920.0" styleClass="pane" stylesheets="@TeamBuilder.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.UFMReckoning.gui.game.TeamBuilderController">
 	<children>			
-		<Pane layoutX="360.0" layoutY="150.0" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #101010; -fx-border-color: #CECECE; -fx-opacity: 80%; -fx-border-width: 1px;">
+		<AnchorPane layoutX="360.0" layoutY="41.0" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #101010; -fx-border-color: #CECECE; -fx-opacity: 80%; -fx-border-width: 1px;" AnchorPane.topAnchor="41.0">
          <children>      
             <Label layoutX="450.0" layoutY="29.0" text="Current Team Setup" textFill="WHITE">
                <font>
@@ -26,85 +26,85 @@
                 <TableColumn fx:id="position" prefWidth="90.0" text="Position" />
               </columns>
             </TableView>
-            <Label fx:id="showTotalGamesPlayed" layoutX="842.0" layoutY="515.0" text="?" textFill="WHITE">
+                  
+                  <Button layoutX="74.0" layoutY="693.0" onAction="#handleChangeSetup" prefHeight="60" prefWidth="250" styleClass="button" text="Change Setup" />
+                  <Button layoutX="325.0" layoutY="693.0" onAction="#handleViewPlayer" prefHeight="60" prefWidth="250" styleClass="button" text="View Player" />
+      		
+            			<Label layoutX="668.0" layoutY="389.0" text="Attack:" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  
+                        <Label layoutX="668.0" layoutY="419.0" text="Defence:" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  
+                        <Label layoutX="668.0" layoutY="449.0" text="Stamina:" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  
+                  <Label layoutX="668.0" layoutY="479.0" text="Total Games Played:" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  
+                  <Label layoutX="668.0" layoutY="509.0" text="Total Wins:" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  
+                  <Label layoutX="668.0" layoutY="539.0" text="Total Losses:" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  
+                  <Label layoutX="668.0" layoutY="569.0" text="Total Draws:" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  
+                  <Label layoutX="668.0" layoutY="599.0" text="Total Goals:" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="874.0" layoutY="693.0" onAction="#handleTransferMarket" prefHeight="60" prefWidth="250" styleClass="button" text="Transfer Market" />
+      			<ImageView fx:id="teamlogo" fitHeight="273.0" fitWidth="334.0" layoutX="748.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="showTotalGoals" layoutX="806.0" layoutY="601.0" text="?" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label fx:id="showTotalWins" layoutX="761.0" layoutY="545.0" text="?" textFill="WHITE">
+            <Label fx:id="showTotalDraws" layoutX="805.0" layoutY="567.0" text="?" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label fx:id="showTotalLosses" layoutX="775.0" layoutY="575.0" text="?" textFill="WHITE">
+            <Label fx:id="showTotalLosses" layoutX="806.0" layoutY="534.0" text="?" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label fx:id="showTotalDraws" layoutX="773.0" layoutY="605.0" text="?" textFill="WHITE">
+            <Label fx:id="showTotalWins" layoutX="805.0" layoutY="509.0" text="?" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label fx:id="showTotalGoals" layoutX="767.0" layoutY="635.0" text="?" textFill="WHITE">
+            <Label fx:id="showTotalGamesPlayed" layoutX="859.0" layoutY="477.0" text="?" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
          </children>
-         </Pane>
-			<ImageView fx:id="teamlogo" fitHeight="273.0" fitWidth="334.0" layoutX="1099.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true" />
-		
-			<Label layoutX="1020.0" layoutY="575.0" text="Attack:" textFill="WHITE">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-            
-            <Label layoutX="1020.0" layoutY="605.0" text="Defence:" textFill="WHITE">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-            
-            <Label layoutX="1020.0" layoutY="635.0" text="Stamina:" textFill="WHITE">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-            
-            <Label layoutX="1020.0" layoutY="665.0" text="Total Games Played:" textFill="WHITE">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-            
-            <Label layoutX="1020.0" layoutY="695.0" text="Total Wins:" textFill="WHITE">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-            
-            <Label layoutX="1020.0" layoutY="725.0" text="Total Losses:" textFill="WHITE">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-            
-            <Label layoutX="1020.0" layoutY="755.0" text="Total Draws:" textFill="WHITE">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-            
-            <Label layoutX="1020.0" layoutY="785.0" text="Total Goals:" textFill="WHITE">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-            
-            <Button layoutX="390" layoutY="850" onAction="#handleChangeSetup" prefHeight="60" prefWidth="250" styleClass="button" text="Change Setup" />
-            <Button layoutX="640" layoutY="850" onAction="#handleViewPlayer" prefHeight="60" prefWidth="250" styleClass="button" text="View Player" />
-            <Button layoutX="1280" layoutY="850" onAction="#handleTransferMarket" prefHeight="60" prefWidth="250" styleClass="button" text="Transfer Market" />
+         </AnchorPane>
 	</children>
 </AnchorPane>
