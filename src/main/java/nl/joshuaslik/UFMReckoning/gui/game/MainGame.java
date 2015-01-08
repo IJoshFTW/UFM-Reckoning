@@ -25,7 +25,6 @@ public class MainGame {
 	}
 
 	public static void setGame(Game game) {
-		System.out.println("GAME OBJECT SET!");
 		MainGame.game = game;
 	}
 	

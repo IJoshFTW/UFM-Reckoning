@@ -3,6 +3,7 @@ package nl.joshuaslik.UFMReckoning.gui.game;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javafx.animation.FadeTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -22,8 +23,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
+import javafx.stage.Popup;
+import javafx.stage.PopupWindow;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 import nl.joshuaslik.UFMReckoning.backend.Fieldplayer;
 import nl.joshuaslik.UFMReckoning.backend.Player;
 import nl.joshuaslik.UFMReckoning.backend.Team;
@@ -36,6 +40,8 @@ import nl.joshuaslik.UFMReckoning.gui.MainMenu;
  */
 public class ViewPlayer {
 	private static Player player;
+	private static Popup popup;
+	private static AnchorPane page;
 	
 	@FXML
 	private ImageView playerPhoto;
@@ -81,19 +87,22 @@ public class ViewPlayer {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Class.class
 				.getResource("/data/gui/pages-game/ViewPlayer.fxml"));
-		AnchorPane page = (AnchorPane) loader.load();
-		Stage dialogStage = new Stage(StageStyle.UNDECORATED);
-		
-		dialogStage.initOwner(Main.stage);
-		Scene scene = new Scene(page);
-		dialogStage.setScene(scene);
-		dialogStage.setOpacity(0.97);
-		dialogStage.show();
+		page = (AnchorPane) loader.load();
+		FadeTransition ft = new FadeTransition(Duration.millis(900), page);
+		ft.setFromValue(0.0);
+		ft.setToValue(0.97);
+		ft.play();
+		popup = new Popup();
+		popup.getContent().add(page);
+		popup.show(Main.stage);
+	}
+	
+	@FXML
+	protected void handleReturn(ActionEvent event) throws IOException {
+		FadeTransition ft = new FadeTransition(Duration.millis(900), page);
+		ft.setFromValue(0.97);
+		ft.setToValue(0.0);
+		ft.play();
 	}
 
-	@FXML
-	protected void handleReturn(ActionEvent event)throws IOException {
-		Stage stage = (Stage) returnbutton.getScene().getWindow();
-		stage.close();
-	}
 }

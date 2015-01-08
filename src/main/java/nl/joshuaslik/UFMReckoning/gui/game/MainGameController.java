@@ -41,7 +41,6 @@ public class MainGameController {
 
 	@FXML
 	protected void handleMainGame(ActionEvent event) throws IOException {
-		System.out.println(event.getSource());
 		MainGame.start();
 	}
 	

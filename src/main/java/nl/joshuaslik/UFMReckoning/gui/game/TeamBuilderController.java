@@ -67,11 +67,17 @@ public class TeamBuilderController {
 
 	@FXML
 	private ImageView teamlogo;
+	
+	@FXML
+	private ImageView staminaImg;
+	@FXML
+	private ImageView defPwrImg;
+	@FXML
+	private ImageView atkPwrImg;
 
 	@FXML
 	private void initialize() {
-		Image image = new Image("/data/base/teams/pictures/" + team.getid()
-				+ ".png");
+		Image image = new Image("/data/base/teams/pictures/" + team.getid()+ ".png");
 		teamlogo.setImage(image);
 		ArrayList<Player> playerslist = team.getAllPlayers();
 		observablelistplayers = FXCollections.observableArrayList(playerslist);
@@ -124,6 +130,19 @@ public class TeamBuilderController {
 		showTotalLosses.setText(Integer.toString(team.getTotalLosses()));
 		showTotalDraws.setText(Integer.toString(team.getTotalDraws()));
 		showTotalGoals.setText(Integer.toString(team.getTotalGoals()));
+		
+		// AttackPower bar inladen
+		atkPwrImg.prefHeight(20);
+		atkPwrImg.prefWidth(team.getAttackPower() / 3);
+		atkPwrImg.setFitWidth(team.getAttackPower() / 3);
+
+		// Defence bar inladen
+		defPwrImg.prefWidth(team.getDefencePower() / 3);
+		defPwrImg.setFitWidth(team.getDefencePower() / 3);
+
+		// Stamina bar inladen
+		staminaImg.prefWidth(team.getStamina() / 3);
+		staminaImg.setFitWidth(team.getStamina() / 3);
 	}
 
 	public void selectedPlayer(Player player) {
@@ -135,38 +154,6 @@ public class TeamBuilderController {
 
 		AnchorPane root = FXMLLoader.load(Class.class
 				.getResource("/data/gui/pages-game/TeamBuilder.fxml"));
-
-		// AttackPower bar inladen
-		Image atkPwrImg = new Image("/data/gui/img/attackpowerbar.png");
-		ImageView atkPwrImgView = new ImageView();
-		atkPwrImgView.setImage(atkPwrImg);
-		atkPwrImgView.prefHeight(20);
-		atkPwrImgView.prefWidth(team.getAttackPower() / 3);
-		atkPwrImgView.setFitWidth(team.getAttackPower() / 3);
-		atkPwrImgView.setLayoutX(1140);
-		atkPwrImgView.setLayoutY(389);
-
-		// Defence bar inladen
-		Image defPwrImg = new Image("/data/gui/img/defencepowerbar.png");
-		ImageView defPwrImgView = new ImageView();
-		defPwrImgView.setImage(defPwrImg);
-		defPwrImgView.prefHeight(20);
-		defPwrImgView.prefWidth(team.getDefencePower() / 3);
-		defPwrImgView.setFitWidth(team.getDefencePower() / 3);
-		defPwrImgView.setLayoutX(1140);
-		defPwrImgView.setLayoutY(419);
-
-		// Stamina bar inladen
-		Image staminaImg = new Image("/data/gui/img/staminabar.png");
-		ImageView staminaImgView = new ImageView();
-		staminaImgView.setImage(staminaImg);
-		staminaImgView.prefHeight(20);
-		staminaImgView.prefWidth(team.getStamina() / 3);
-		staminaImgView.setFitWidth(team.getStamina() / 3);
-		staminaImgView.setLayoutX(1140);
-		staminaImgView.setLayoutY(449);
-
-		root.getChildren().addAll(atkPwrImgView, defPwrImgView, staminaImgView);
 
 		Main.setCenter(root);
 		AnchorPane bottom = (AnchorPane) FXMLLoader.load(Class.class

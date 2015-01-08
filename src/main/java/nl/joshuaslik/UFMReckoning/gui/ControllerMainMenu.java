@@ -67,24 +67,8 @@ public class ControllerMainMenu {
 
 	@FXML
 	protected void handleNewGame(ActionEvent event) throws IOException {
-		System.out.println("btn_NewGame pressed");
-		System.out.println(event.getSource());
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(Class.class
-				.getResource("/data/gui/pages-menu/ChooseUsernameDialog.fxml"));
-		AnchorPane page = (AnchorPane) loader.load();
-
-		// Create the dialog Stage.
-		Stage dialogStage = new Stage(StageStyle.UNDECORATED);
-		dialogStage.setTitle("Choose Username");
-		dialogStage.initModality(Modality.WINDOW_MODAL);
-		dialogStage.initOwner(Main.stage);
-		Scene scene = new Scene(page);
-		dialogStage.setScene(scene);
-
+		UsernameController.start();
 		//NewGameController.start("Joshua");
-
-		dialogStage.show();
 	}
 
 	@FXML
