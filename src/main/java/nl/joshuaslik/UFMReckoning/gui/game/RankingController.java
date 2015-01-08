@@ -26,7 +26,19 @@ public class RankingController {
     private TableColumn<Team, String> nr;
     @FXML
     private TableColumn<Team, String> team;
-	
+    @FXML
+    private TableColumn<Team, String> totalWins;
+    @FXML
+    private TableColumn<Team, String> totalLosses;
+    @FXML
+    private TableColumn<Team, String> totalDraws;
+    @FXML
+    private TableColumn<Team, String> totalPoints;
+    @FXML
+    private TableColumn<Team, String> goals;
+    @FXML
+    private TableColumn<Team, String> goalsagainst;
+    
     @FXML
     private void initialize() {
     	
@@ -35,6 +47,12 @@ public class RankingController {
     	
     	nr.setCellValueFactory(new PropertyValueFactory<Team, String>("ranking"));
 		team.setCellValueFactory(new PropertyValueFactory<Team, String>("teamName"));
+		totalWins.setCellValueFactory(new PropertyValueFactory<Team, String>("totalWins"));
+		totalLosses.setCellValueFactory(new PropertyValueFactory<Team, String>("totalLosses"));
+		totalDraws.setCellValueFactory(new PropertyValueFactory<Team, String>("totalDraws"));
+		totalPoints.setCellValueFactory(new PropertyValueFactory<Team, String>("points"));
+		goals.setCellValueFactory(new PropertyValueFactory<Team, String>("totalGoals"));
+		goalsagainst.setCellValueFactory(new PropertyValueFactory<Team, String>("goalsAgainst"));
 		MainGame.game.computeStandings();
 		rankingtable.getSortOrder().add(nr);
         nr.setSortable(true);

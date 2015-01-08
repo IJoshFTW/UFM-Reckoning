@@ -74,7 +74,6 @@ public class TeamBuilderController {
 				+ ".png");
 		teamlogo.setImage(image);
 		ArrayList<Player> playerslist = team.getAllPlayers();
-		System.out.println(playerslist.get(0));
 		observablelistplayers = FXCollections.observableArrayList(playerslist);
 		playertable.setItems(observablelistplayers);
 

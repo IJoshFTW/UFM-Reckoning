@@ -9,20 +9,29 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="pane" prefHeight="1080.0" prefWidth="1920.0" styleClass="pane" stylesheets="@TeamBuilder.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.UFMReckoning.gui.game.ViewPlayer">
-	<children>			
-		<Pane layoutX="360.0" layoutY="150.0" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #101010; -fx-border-color: #CECECE; -fx-opacity: 80%; -fx-border-width: 1px;">
-         <children>      
+<AnchorPane opacity="0.87" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #101010; -fx-border-color: #CECECE; -fx-border-width: 1px;" stylesheets="@TeamBuilder.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.UFMReckoning.gui.game.ViewPlayer">		
+	<children>      
             <Label layoutX="554.0" layoutY="29.0" text="Player" textFill="WHITE">
                <font>
                   <Font size="34.0" />
                </font>
             </Label>
-         </children>
-         </Pane>
-			<ImageView fx:id="playerPhoto" fitHeight="450.0" fitWidth="377.0" layoutX="395.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true" />
-            
-            <Button layoutX="390" layoutY="850" onAction="#handleReturnTeamBuilder" prefHeight="60" prefWidth="250" styleClass="button" text="Return" />
-
-	</children>
+   			<ImageView fx:id="playerPhoto" fitHeight="349.0" fitWidth="319.0" layoutX="48.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" />
+   			<Button fx:id="returnbutton" layoutX="42.0" layoutY="567.0" onAction="#handleReturn" prefHeight="60" prefWidth="250" styleClass="button" text="Return" />
+      <ImageView fx:id="staminaImg" fitHeight="20.0" fitWidth="20.0" layoutX="653.0" layoutY="478.0" pickOnBounds="true">
+         <image>
+            <Image url="@../img/staminabar.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="defPwrImg" fitHeight="20.0" fitWidth="20.0" layoutX="653.0" layoutY="445.0" pickOnBounds="true">
+         <image>
+            <Image url="@../img/defencepowerbar.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="atkPwrImg" fitHeight="20.0" fitWidth="20.0" layoutX="653.0" layoutY="411.0" pickOnBounds="true">
+         <image>
+            <Image url="@../img/attackpowerbar.png" />
+         </image>
+      </ImageView>
+   </children>
 </AnchorPane>

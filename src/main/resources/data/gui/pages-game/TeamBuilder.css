@@ -7,7 +7,7 @@
 }
 
 .button {
-	-fx-padding: 0;
+	-fx-padding: 5;
 	-fx-margin: 0;
 	-fx-background-color: #101010;
 	-fx-text-fill: white;

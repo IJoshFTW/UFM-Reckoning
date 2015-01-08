@@ -77,7 +77,7 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Button layoutX="874.0" layoutY="693.0" onAction="#handleTransferMarket" prefHeight="60" prefWidth="250" styleClass="button" text="Transfer Market" />
+                  <Button layoutX="800.0" layoutY="693.0" onAction="#handleTransferMarket" prefHeight="60" prefWidth="324.0" styleClass="button" text="Transfer Market" />
       			<ImageView fx:id="teamlogo" fitHeight="273.0" fitWidth="334.0" layoutX="748.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true" />
             <Label fx:id="showTotalGoals" layoutX="806.0" layoutY="601.0" text="?" textFill="WHITE">
                <font>

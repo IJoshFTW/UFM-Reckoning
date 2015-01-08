@@ -1,26 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane styleClass="pane" stylesheets="@Competition.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.UFMReckoning.gui.game.OtherTeams">
+<AnchorPane prefHeight="1080.0" prefWidth="1920.0" styleClass="pane" stylesheets="@Competition.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.UFMReckoning.gui.game.OtherTeams">
    <children>
-      <TableView fx:id="otherteamstable" layoutX="140.0" layoutY="135.0" prefHeight="500.0" prefWidth="200.0">
-        <columns>
-          <TableColumn fx:id="otherteam" maxWidth="500.0" prefWidth="199.0" text="Team" />
-        </columns>
-         <effect>
-            <InnerShadow />
-         </effect>
-      </TableView>
-      <VBox layoutX="79.0" layoutY="-6.0" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="200.0">
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="41.0">
          <children>
-            
+            <AnchorPane maxHeight="800.0" maxWidth="1200.0" opacity="0.8" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #101010; -fx-border-width: 1px; -fx-border-color: #CECECE;">
+               <children>
+                  <TableView fx:id="playertable" layoutX="60.0" layoutY="78.0" prefHeight="484.0" prefWidth="588.0">
+                     <columns>
+                        <TableColumn fx:id="active" prefWidth="60.0" text="Active" />
+                        <TableColumn fx:id="name" prefWidth="200.0" text="Name" />
+                        <TableColumn fx:id="country" prefWidth="200.0" text="Country" />
+                        <TableColumn fx:id="position" prefWidth="90.0" text="Position" />
+                     </columns>
+                  </TableView>
+                  <ComboBox fx:id="teams" layoutX="279.0" layoutY="36.0" prefWidth="150.0" />
+                  <ImageView fx:id="otherteamlogo" fitHeight="150.0" fitWidth="150.0" layoutX="814.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button layoutX="689.0" layoutY="570.0" onAction="#handleViewPlayer" prefHeight="75.0" prefWidth="368.0" styleClass="button" text="View Player" />
+               </children>
+            </AnchorPane>
          </children>
       </VBox>
-      <Button fx:id="selectteam" layoutX="400.0" layoutY="550.0" mnemonicParsing="false" text="Select this team" />
    </children>
 </AnchorPane>
