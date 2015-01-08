@@ -24,7 +24,6 @@
          <children>
             <TableView fx:id="competitiontable" GridPane.columnIndex="2" GridPane.rowIndex="2">
               <columns>
-                <TableColumn fx:id="playround" prefWidth="75.0" text="Playround" />
                 <TableColumn fx:id="home" prefWidth="103.0" text="Home" />
                   <TableColumn fx:id="away" prefWidth="75.0" text="Away" />
                   <TableColumn fx:id="homegoals" prefWidth="75.0" text="HomeGoals" />
@@ -39,11 +38,7 @@
                   <Insets left="10.0" />
                </GridPane.margin>
             </Button>
-            <Label fx:id="currentround" GridPane.columnIndex="2" GridPane.rowIndex="1">
-               <font>
-                  <Font name="Verdana Bold" size="21.0" />
-               </font>
-            </Label>
+            <ComboBox fx:id="playround" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
          </children>
       </GridPane>
    </children>

@@ -3,13 +3,19 @@ package nl.joshuaslik.UFMReckoning.gui.game;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
@@ -17,6 +23,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Screen;
 import javafx.util.Callback;
+import javafx.util.StringConverter;
 import nl.joshuaslik.UFMReckoning.backend.Match;
 import nl.joshuaslik.UFMReckoning.backend.Playround;
 import nl.joshuaslik.UFMReckoning.gui.Main;
@@ -24,11 +31,12 @@ import nl.joshuaslik.UFMReckoning.gui.Main;
 public class Playrounds {
 
 	private static Match selectedmatch;
+	private static int round;
 
 	@FXML
     private TableView<Match> competitiontable;
     @FXML
-    private TableColumn<Match, String> playround;
+    private ComboBox<Playround> playround;
     @FXML
     private TableColumn<Match, String> home;
     @FXML
@@ -38,15 +46,39 @@ public class Playrounds {
     @FXML
     private TableColumn<Match, String> awaygoals;
     @FXML
-    private Label currentround;
-    @FXML
     private void initialize() {
-    	currentround.setText("Current round: "+MainGame.game.currentround);
+    	ObservableList<Playround> playroundnr = FXCollections.observableArrayList(getPlayroundList());
+    	round = MainGame.game.currentround;
+    	 playround.setItems(playroundnr);
+    	 playround.setConverter(new StringConverter<Playround>(){
+    		 @Override
+    		 public String toString(Playround playround){
+    			return "Playround: " + playround.getPlayroundnr();
+    		 }
+    		 
+    		 @Override
+    		 public Playround fromString(String nr){
+    			 return null;
+    		 }
+    	 });
+    	 
+    	 playround.valueProperty().addListener(new ChangeListener<Playround>() {
+				@Override
+				public void changed(
+						ObservableValue<? extends Playround> observable,
+						Playround oldValue, Playround newValue) {
+				round = newValue.getPlayroundnr();
+				ObservableList<Match> matches = FXCollections.observableArrayList(getMatchList());
+				 competitiontable.setItems(matches);
+				 
+				}    
+    	    });
+    	 
+    	 playround.setValue(MainGame.game.getPlayround(round));
+    	 
     	ObservableList<Match> matches = FXCollections.observableArrayList(getMatchList());
     	competitiontable.setItems(matches);
     	
-    	playround.setCellValueFactory(new PropertyValueFactory<Match, String>(
-				"playround"));
 		home.setCellValueFactory(new PropertyValueFactory<Match, String>(
 				"hometeam"));
 		away.setCellValueFactory(new PropertyValueFactory<Match, String>(
@@ -60,8 +92,6 @@ public class Playrounds {
 		competitiontable.getSelectionModel().selectedItemProperty().addListener(
 				(observable, oldValue, newValue) -> selectedMatch(newValue));
 		
-		competitiontable.getSortOrder().add(playround);
-        playround.setSortable(true);
         /**
         home.setCellFactory(column -> {
         	return new TableCell<Match, String>(){
@@ -136,12 +166,6 @@ public class Playrounds {
 
 
 	public static void start() throws IOException {
-		AnchorPane topmenu = (AnchorPane) FXMLLoader.load(Class.class.getResource("/data/gui/pages-menu/TopMenu.fxml"));
-		Label label = (Label) topmenu.lookup("#title");
-		label.setText("Playrounds");
-		Rectangle2D visualBounds = Screen.getPrimary().getVisualBounds();
-		topmenu.setPrefWidth(visualBounds.getWidth());
-		Main.setTop(topmenu);
 		AnchorPane scene = (AnchorPane) FXMLLoader.load(Class.class.getResource("/data/gui/pages-game/Playrounds.fxml"));
 		Main.setCenter(scene);
 		AnchorPane bottom = (AnchorPane) FXMLLoader.load(Class.class.getResource("/data/gui/pages-game/GameBottomMenuBar.fxml"));
@@ -159,14 +183,19 @@ public class Playrounds {
 
 
 	public static ObservableList<Match> getMatchList() {
+		Playround pr = MainGame.game.getCompetition().getPlayround(round);
+		ArrayList<Match> matches = new ArrayList<Match>();
+		matches.addAll(pr.getMatches());
+	
+		ObservableList<Match> data = FXCollections.observableArrayList(matches);
+		return data;
+	}
+	
+	public static ObservableList<Playround> getPlayroundList() {
 		ArrayList<Playround> pr = MainGame.game.getCompetition()
 				.getPlayrounds();
-		ArrayList<Match> matches = new ArrayList<Match>();
-		for (int i = 0; i < pr.size(); i++)
-			matches.addAll(pr.get(i).getMatches());
-		
 
-		ObservableList<Match> data = FXCollections.observableArrayList(matches);
+		ObservableList<Playround> data = FXCollections.observableArrayList(pr);
 		return data;
 	}
 	
