@@ -6,11 +6,14 @@ public class Human extends User {
 		super(team, userName, budget);
 
 	}
-	/*  boolean equals(Object obj) {
+
+	public boolean equals(Object obj) {
 		if (obj instanceof Human) {
-			if(){
-			return true; }
+			Human that = (Human) obj;
+			return (this.team.equals(that.team)
+					&& this.userName.equals(that.userName) && this.budget == that.budget);
 		}
+
 		return false;
-	}*/
+	}
 }

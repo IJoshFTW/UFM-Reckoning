@@ -7,13 +7,14 @@ import static org.junit.Assert.*;
 
 public class PCTest {
 	
-	User user;
+	PC user;
 	
 	@Before
 	public void construct() {
-		user = new PC(new Team("id", "tmname", "cchname"), "username", 1000000);
+		user = new PC(new Team("id", "tmname", "cchname"), "username", 100);
 	}
 	
+	@Test
 	public void testConstructor() {
 		construct();
 	}
@@ -34,6 +35,80 @@ public class PCTest {
 	@Test
 	public void testGetBudget() {
 		construct();
-		assertTrue(user.getBudget() == 1000000);
+		assertEquals(user.getBudget(), 100);
 	}
+	
+	@Test
+	public void testEquals() {
+		construct();
+		assertFalse(user.equals("test"));
+	}
+	
+	@Test
+	public void testEquals2() {
+		construct();
+		assertTrue(user.equals(user));
+	}
+	
+	@Test
+	public void testEquals3() {
+		construct();
+		PC user2 = new PC(new Team("id", "ado", "cchname"), "username", 1000000);
+		assertFalse(user.equals(user2));
+	}
+	
+	@Test
+	public void testEquals4() {
+		construct();
+		PC user2 = new PC(new Team("id", "tmname", "cchname"), "test", 1000000);
+		assertFalse(user.equals(user2));
+	}
+	
+	@Test
+	public void testEquals5() {
+		construct();
+		PC user2 = new PC(new Team("id", "tmname", "cchname"), "username", 10030000);
+		assertFalse(user.equals(user2));
+	}
+	
+	@Test
+	public void testAddMoney() {
+		construct();
+		user.addMoney(500);
+		assertEquals(user.getBudget(), 600);
+	}
+	
+	@Test
+	public void testSubMoney() {
+		construct();
+		user.subMoney(60);
+		assertEquals(user.getBudget(), 40);
+	}
+	
+	@Test
+	public void testisHuman() {
+		construct();
+		user.subMoney(60);
+		assertFalse(user.isHuman());
+	}
+	
+	@Test
+	public void testisHuman2() {
+		construct();
+		Human user2 = new Human(new Team("id", "tmname", "cchname"), "username", 10030000);
+		assertTrue(user2.isHuman());
+	}
+	
+	@Test
+	public void testCheckCost() {
+		construct();
+		assertFalse(user.checkCost(600));
+	}
+	
+	@Test
+	public void testCheckCost2() {
+		construct();
+		assertTrue(user.checkCost(50));
+	}
+	
 }

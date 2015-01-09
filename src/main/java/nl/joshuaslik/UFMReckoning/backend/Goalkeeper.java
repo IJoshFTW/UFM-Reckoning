@@ -9,6 +9,7 @@ package nl.joshuaslik.UFMReckoning.backend;
  */
 public class Goalkeeper extends Player {
 	private int reflexes, diving, positioning;
+	private String position = "Goal";
 
 	/**
 	 * Initialises the Object.
@@ -44,12 +45,13 @@ public class Goalkeeper extends Player {
 		if (other instanceof Goalkeeper) {
 			Goalkeeper that = (Goalkeeper) other;
 			if (this.getID().equals(that.getID())
-					&& this.getName().equals(that.getName())
+					&& this.getFullName().equals(that.getFullName())
 					&& this.getCountry().equals(that.getCountry())
 					&& this.getPrice() == that.getPrice()
 					&& this.reflexes == that.reflexes
 					&& this.diving == that.diving
-					&& this.positioning == that.positioning) {
+					&& this.positioning == that.positioning
+					&& this.position == that.position) {
 				return true;
 			}
 		}
@@ -66,5 +68,9 @@ public class Goalkeeper extends Player {
 
 	public int getPositioning() {
 		return positioning;
+	}
+	
+	public String getPosition() {
+		return position;
 	}
 }

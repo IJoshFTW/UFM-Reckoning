@@ -27,5 +27,13 @@ public abstract class Formation {
 		return tmp;
 	}
 	
+	public Team getTeam(){
+		return team;
+	}
+	
+	public Goalkeeper getGoalkeper(){
+		return goalkeeper;
+	}
+	
 
 }

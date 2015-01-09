@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.canvas.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.net.*?>
 <?import java.lang.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
 
-
-<Pane fx:controller="nl.joshuaslik.UFMReckoning.gui.ActionController" id="pane" maxHeight="-Infinity" styleClass="pane" stylesheets="@MainMenu.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-	<children>
-		<Button id="btn_ReturnMainMenu" layoutX="90" layoutY="330" mnemonicParsing="false" prefHeight="100" prefWidth="400" styleClass="btn_StartGame" text="Return" onAction="#handleReturnMainMenu"/>
-	</children>
-</Pane>
+<AnchorPane prefHeight="555.0" prefWidth="1019.0" styleClass="pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.UFMReckoning.gui.ActionController">
+   <stylesheets>
+      <URL value="@MainMenu.css" />
+   </stylesheets>
+   <children>
+      <Label layoutX="152.0" layoutY="349.0" text="Your highscore:">
+         <font>
+            <Font name="Verdana Bold" size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -1,9 +1,16 @@
 @import url("fonts.css");
 
 .pane {
-	-fx-background-image: url("../img/background.png");
+	-fx-background-image: url("../img/soccer.png");
 	-fx-background-size: 100%;
 	-fx-background-repeat: stretch;
+}
+
+.highlightedRow {
+    -fx-background-color: brown;
+    -fx-background-insets: 0, 1, 2;
+    -fx-background: -fx-accent;
+    -fx-text-fill: -fx-selection-bar-text;
 }
 
 .button {

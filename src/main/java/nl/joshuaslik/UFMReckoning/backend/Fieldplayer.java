@@ -8,7 +8,7 @@ package nl.joshuaslik.UFMReckoning.backend;
  * @author Sander Benoist
  */
 public class Fieldplayer extends Player {
-	private String position;
+	private String position, firstname;
 	private int attackPower, defencePower, stamina;
 
 	/**
@@ -41,13 +41,14 @@ public class Fieldplayer extends Player {
 		attackPower = atkP;
 		defencePower = defP;
 		stamina = sta;
+		this.setfirstname(firstName);
 	}
 
 	public boolean equals(Object other) {
 		if (other instanceof Fieldplayer) {
 			Fieldplayer that = (Fieldplayer) other;
 			if (this.getID().equals(that.getID())
-					&& this.getName().equals(that.getName())
+					&& this.getFullName().equals(that.getFullName())
 					&& this.getCountry().equals(that.getCountry())
 					&& this.getPrice() == that.getPrice()
 					&& this.attackPower == that.attackPower
@@ -76,4 +77,11 @@ public class Fieldplayer extends Player {
 		return stamina;
 	}
 
+	public String getfirstname() {
+		return firstname;
+	}
+
+	public void setfirstname(String firstname) {
+		this.firstname = firstname;
+	}
 }

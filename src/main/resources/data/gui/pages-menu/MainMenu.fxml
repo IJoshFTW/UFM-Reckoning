@@ -1,18 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.canvas.*?>
+<?import javafx.geometry.*?>
+<?import java.net.*?>
 <?import java.lang.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
 
-
-<Pane fx:controller="nl.joshuaslik.UFMReckoning.gui.ActionController" id="pane" maxHeight="-Infinity" styleClass="pane" stylesheets="@MainMenu.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-	<children>
-		<Button id="btn_StartGame" layoutX="90" layoutY="330" mnemonicParsing="false" prefHeight="100" prefWidth="400" styleClass="btn_StartGame" text="Start game" onAction="#handleStartGame"/>
-		<Button id="btn_Options" layoutX="90" layoutY="430" mnemonicParsing="false" prefHeight="100" prefWidth="400" styleClass="btn_Options" text="Options" onAction="#handleOptions"/>
-		<Button id="btn_Highscore" layoutX="90" layoutY="530" mnemonicParsing="false" prefHeight="100" prefWidth="400" styleClass="btn_Highscore" text="Highscore" onAction="#handleHighscores"/>
-		<Button id="btn_QuitMenu" layoutX="90" layoutY="630" mnemonicParsing="false" prefHeight="100" prefWidth="400" styleClass="btn_QuitMenu" text="Quit game" onAction="#handleQuitMenu"/>
-	</children>
-</Pane>
+<AnchorPane prefHeight="183.0" prefWidth="829.0" styleClass="pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.UFMReckoning.gui.ControllerMainMenu">
+   <children>
+      <HBox AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="300.0">
+         <children>
+            <VBox>
+               <children>
+                  <Button id="btn_StartGame" fx:id="startgame" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="btn_StartGame" text="Start game" />
+                  <Button id="btn_Options" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleOptions" styleClass="btn_Options" text="Options" />
+                  <Button id="btn_Highscore" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleHighscores" styleClass="btn_Highscore" text="Highscore" />
+                  <Button id="btn_QuitMenu" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleQuitMenu" styleClass="btn_QuitMenu" text="Quit game" />
+               </children>
+            </VBox>
+            <VBox>
+               <children>
+                  <Button id="btn_NewGame" fx:id="newgame" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleNewGame" styleClass="btn_StartGame" text="New Game" visible="false" />
+                  <Button id="btn_LoadGame" fx:id="loadgame" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="btn_StartGame" text="Load Game" visible="false" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+   <stylesheets>
+      <URL value="@MainMenu.css" />
+   </stylesheets>
+</AnchorPane>

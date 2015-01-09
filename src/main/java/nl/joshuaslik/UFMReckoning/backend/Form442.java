@@ -31,6 +31,87 @@ public class Form442 extends Formation {
 	}
 	
 	/**
+	 * 
+	 * @return central back player 1
+	 */
+	public Fieldplayer getCB1(){
+		return CB1;
+	}
+	
+	/**
+	 * 
+	 * @return central back player 2
+	 */
+	public Fieldplayer getCB2(){
+		return CB2;
+	}
+	
+	
+	/**
+	 * 
+	 * @return left back player
+	 */
+	public Fieldplayer getLB(){
+		return LB;
+	}
+	
+	/**
+	 * 
+	 * @return right back player
+	 */
+	public Fieldplayer getRB(){
+		return RB;
+	}
+	
+	/**
+	 * 
+	 * @return central midfield player 1
+	 */
+	public Fieldplayer getCM1(){
+		return CM1;
+	}
+	
+	/**
+	 * 
+	 * @return central midfield player 2
+	 */
+	public Fieldplayer getCM2(){
+		return CM2;
+	}
+	
+	/**
+	 * 
+	 * @return right midfield player
+	 */
+	public Fieldplayer getRM(){
+		return RM;
+	}
+	
+	/**
+	 * 
+	 * @return Left midfield player
+	 */
+	public Fieldplayer getLM(){
+		return LM;
+	}
+	
+	/**
+	 * 
+	 * @return Right wing player
+	 */
+	public Fieldplayer getRW(){
+		return RW;
+	}
+	
+	/**
+	 * 
+	 * @return Left wing player
+	 */
+	public Fieldplayer getLW(){
+		return LW;
+	}
+	
+	/**
 	 * Set the Centralback 1
 	 * @param new CB1
 	 * @return old CB1
@@ -55,7 +136,7 @@ public class Form442 extends Formation {
 		if(tmp != null){
 			team.setPlayerBench(tmp);
 		}
-		this.CB1 = CB2;
+		this.CB2 = CB2;
 		team.setPlayerActive(CB2);
 		return tmp;
 	}
@@ -80,7 +161,7 @@ public class Form442 extends Formation {
 	 * @param new LB
 	 *  @retun old LB
 	 */
-	public Fieldplayer seLB1(Fieldplayer LB){
+	public Fieldplayer setLB(Fieldplayer LB){
 		Fieldplayer tmp = this.LB;
 		if(tmp != null){
 			team.setPlayerBench(tmp);

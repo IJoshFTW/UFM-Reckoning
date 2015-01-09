@@ -16,7 +16,7 @@ public class FieldplayerTest {
 	public void testgetName() {
 		Fieldplayer fieldplayer1 = new Fieldplayer("raivloet", "Rai", "Vloet",
 				"Netherlands", "CAM", 62, 32, 63, 4000000);
-		assertEquals(fieldplayer1.getName(), "Rai Vloet");
+		assertEquals(fieldplayer1.getFullName(), "Rai Vloet");
 	}
 
 	@Test

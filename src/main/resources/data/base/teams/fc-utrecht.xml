@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TEAM name="FC Utrecht" id="fc-utrecht" coach="Rob Alflen">
 	<PLAYERS>
-		<PLAYER id="robinruiter">
+		<PLAYER id="robbinruiter">
 			<ACTIVE>true</ACTIVE>
 			<TYPE>GK</TYPE>
 			<NUM>1</NUM>

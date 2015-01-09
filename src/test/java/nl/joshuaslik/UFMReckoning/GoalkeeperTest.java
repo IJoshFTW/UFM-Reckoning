@@ -17,7 +17,7 @@ public class GoalkeeperTest extends TestCase {
 	@Test
 	public void testgetName(){
 		Goalkeeper goalkeeper1 = new Goalkeeper("pietvelthuizen", "Piet", "Velthuizen", "Netherlands", 74, 72, 84, 3000000);
-		assertEquals(goalkeeper1.getName(), "Piet Velthuizen");
+		assertEquals(goalkeeper1.getFullName(), "Piet Velthuizen");
 	}
 	
 	@Test

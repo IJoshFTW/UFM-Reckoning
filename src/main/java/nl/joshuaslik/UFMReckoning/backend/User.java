@@ -7,9 +7,9 @@ package nl.joshuaslik.UFMReckoning.backend;
  */
 public abstract class User {
 
-	private Team team;
-	private String userName;
-	private int budget;
+	protected Team team;
+	protected String userName;
+	protected int budget;
 
 	public User(Team team, String userName, int budget) {
 		this.team = team;

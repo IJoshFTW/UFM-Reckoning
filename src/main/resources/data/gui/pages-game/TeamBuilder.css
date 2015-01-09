@@ -1,13 +1,13 @@
 @import url("../fonts.css");
 
 .pane {
-	-fx-background-image: url("../img/background.png");
+	-fx-background-image: url("../img/soccer.png");
 	-fx-background-size: 100%;
 	-fx-background-repeat: stretch;
 }
 
-.bottom {
-	-fx-padding: 0;
+.button {
+	-fx-padding: 5;
 	-fx-margin: 0;
 	-fx-background-color: #101010;
 	-fx-text-fill: white;
@@ -19,7 +19,7 @@
 	-fx-border-style: solid;
 }
 
-.bottom hover{
+.button: hover {
 	-fx-background-color: #000000;
 	-fx-opacity: 90%;
 	-fx-cursor: hand;

@@ -3,8 +3,8 @@ package nl.joshuaslik.UFMReckoning.gui;
 import java.io.IOException;
 
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * @author Sander Benoist
@@ -13,11 +13,12 @@ import javafx.scene.Scene;
 public class Options {
 
 	public static void start() throws IOException {
-		Parent root = FXMLLoader.load(Class.class
-				.getResource("/data/gui/pages-menu/Options.fxml"));
-		Scene scene = new Scene(root, 1080, 1920);
-		Main.stage.setScene(scene);
-		Main.stage.setFullScreen(true);
+		AnchorPane scene = (AnchorPane) FXMLLoader.load(Class.class.getResource("/data/gui/pages-menu/Options.fxml"));
+		AnchorPane topmenu = (AnchorPane) FXMLLoader.load(Class.class.getResource("/data/gui/pages-menu/TopMenu.fxml"));
+		Main.setCenter(scene);
+		Label label = (Label) topmenu.lookup("#title");
+		label.setText("Options");
+		Main.setTop(topmenu);
 	}
 
 }

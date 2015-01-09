@@ -7,13 +7,14 @@ import static org.junit.Assert.*;
 
 public class HumanTest {
 	
-	User user;
+	Human user;
 	
 	@Before
 	public void construct() {
-		user = new PC(new Team("id", "tmname", "cchname"), "username", 1000000);
+		user = new Human(new Team("id", "tmname", "cchname"), "username", 1000000);
 	}
 	
+	@Test
 	public void testConstructor() {
 		construct();
 	}
@@ -34,6 +35,39 @@ public class HumanTest {
 	@Test
 	public void testGetBudget() {
 		construct();
-		assertTrue(user.getBudget() == 1000000);
+		assertEquals(user.getBudget(), 1000000);
+	}
+	
+	@Test
+	public void testEquals() {
+		construct();
+		assertFalse(user.equals("test"));
+	}
+	
+	@Test
+	public void testEquals2() {
+		construct();
+		assertTrue(user.equals(user));
+	}
+	
+	@Test
+	public void testEquals3() {
+		construct();
+		Human user2 = new Human(new Team("id", "ado", "cchname"), "username", 1000000);
+		assertFalse(user.equals(user2));
+	}
+	
+	@Test
+	public void testEquals4() {
+		construct();
+		Human user2 = new Human(new Team("id", "tmname", "cchname"), "test", 1000000);
+		assertFalse(user.equals(user2));
+	}
+	
+	@Test
+	public void testEquals5() {
+		construct();
+		Human user2 = new Human(new Team("id", "tmname", "cchname"), "username", 10030000);
+		assertFalse(user.equals(user2));
 	}
 }
