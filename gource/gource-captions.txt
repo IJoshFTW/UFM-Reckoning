@@ -1,4 +1,4 @@
-1416248158|[Info] Project is created on Mon, 17 Nov 2014 18:15:58 UTC!
+1416248158|[Info] Project is created on Mon, 17 Nov 2014 18:15:58 universal time (UTC)!
 1416248159|[Join] 1st contributor joins: Joshua Slik!
 1416259197|[Mile] First team completely implemented!
 1416345575|[Join] 2nd contributor joins: Sander Benoist!
@@ -18,3 +18,6 @@
 1418218200|[Scrum] Start of Sprint #4!
 1418819400|[Scrum] End of Sprint #4!
 1418823000|[Scrum] Start of Sprint #5!
+1419033600|[Break] Christmas break!
+1420633800|[Scrum] End of Sprint #5!
+1420637400|[Scrum] Start of Sprint #6!
