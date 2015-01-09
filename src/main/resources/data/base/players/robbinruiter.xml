@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<PLAYER id="robinruiter">
-	<NAME first="Robin" last="Ruiter" />
+<PLAYER id="robbinruiter">
+	<NAME first="Robbin" last="Ruiter" />
 	<COUNTRY>Netherlands</COUNTRY>
 	<TYPE>GK</TYPE>
 	<POS>GK</POS>

@@ -7,13 +7,25 @@ import java.util.ArrayList;
  * 
  *
  */
-public class Playround {
+public class Playround implements Comparable  {
 	
 	ArrayList<Match> matches = new ArrayList<Match>();
+	int playroundnr;
 	
 	public Playround(){
 		
 	}
+	
+	public void setPlayroundnr(int nr){
+		playroundnr = nr;
+	}
+	
+	public int getPlayroundnr(){
+		return playroundnr;
+	}
+	
+	
+	
 	
 	/**
 	 * Determines the result of this playround
@@ -41,14 +53,14 @@ public class Playround {
 	}
 	
 	/**
-	 * checks of a team is already in this playround
+	 * checks how many times a team is in this playround
 	 * @param team
 	 * @return
 	 */
 	public int contains(Team team){
 		int result = 0;
 		for (int i = 0; i < matches.size(); i++){
-			if(matches.get(i).getHomeTeam().equals(team) || matches.get(i).getAwayTeam().equals(team)){
+			if(matches.get(i).getHomeTeam().equals(team) | matches.get(i).getAwayTeam().equals(team)){
 				result = result+1;
 			}
 		}
@@ -66,6 +78,15 @@ public class Playround {
 			}
 		}
 		return false;
+	}
+
+	@Override
+	public int compareTo(Object o) {
+		if(o instanceof Playround){
+			Playround that = (Playround) o;
+			return this.playroundnr - that.playroundnr;
+		}
+		return 0;
 	}
 
 }

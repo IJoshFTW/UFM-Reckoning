@@ -1,5 +1,7 @@
 package nl.joshuaslik.UFMReckoning.backend;
 
+import nl.joshuaslik.UFMReckoning.gui.game.MainGame;
+
 /**
  * @author Bryan van Wijk
  * 
@@ -10,6 +12,7 @@ public class Match {
 	private Team winner, loser;
 	private boolean draw = false;
 	private int homegoals = -1, awaygoals = -1;
+	private int playround;
 	
 	public Match(Team hometeam, Team awayteam){
 		if(!hometeam.equals(awayteam)){
@@ -17,45 +20,50 @@ public class Match {
 			this.awayteam = awayteam;
 		}
 	}
+	
 	/**
 	 * Method to determine the amount of goals
 	 * @param goalchance chance to have a goal
 	 * @return amount of goals
 	 */
-	private int determinegoals(int goalchance){
-
-		if(goalchance >= 0 && goalchance <= 810){
-			return 0;
-		}
-		else if(goalchance < 1530) {
-			return 1;
-		}
-		else if(goalchance < 2130){
-			return 2;
-		}
-		else if(goalchance < 2430){
-			return 3;
-		}
-		else if(goalchance < 2640){
-			return 4;
-		}
-		else if(goalchance < 2850){
-			return 5;
-		}
-		else if(goalchance < 2910){
-			return 6;
-		}
-		else if(goalchance < 2940){
-			return 7;
-		}
-		else if(goalchance < 2970){
-			return 8;
-		}
-		else if(goalchance < 2985){
-			return 9;
-		}
-		else if(goalchance <= 3000){
-			return 10;
+	public int determinegoals(int goalchance){
+		if(goalchance >= 0){ 
+			if(goalchance <= 810){
+				return 0;
+			}
+			else if(goalchance < 1530) {
+				return 1;
+			}
+			else if(goalchance < 2130){
+				return 2;
+			}
+			else if(goalchance < 2430){
+				return 3;
+			}
+			else if(goalchance < 2640){
+				return 4;
+			}
+			else if(goalchance < 2850){
+				return 5;
+			}
+			else if(goalchance < 2910){
+				return 6;
+			}
+			else if(goalchance < 2940){
+				return 7;
+			}
+			else if(goalchance < 2970){
+				return 8;
+			}
+			else if(goalchance < 2985){
+				return 9;
+			}
+			else if(goalchance <= 3000){
+				return 10;
+			}
+			else{
+				return -1;
+			}
 		}
 		else{
 			return -1;
@@ -76,11 +84,11 @@ public class Match {
 		
 		int attackpowerhome = ((attackhome-defenceaway)*4);
 		int homechance = (int) (Math.random()*3000);
-		int homegoalschance = ((homechance*70) + ((attackpowerhome + staminahome)*30))/100;
+		int homegoalschance = (int) (((homechance*80) + ((attackpowerhome + staminahome)*15*1.5) - ((awayteam.getActiveGoalkeeper().getDiving()+awayteam.getActiveGoalkeeper().getDiving()+awayteam.getActiveGoalkeeper().getDiving())*10*5))/100);
 		
 		int attackpoweraway = ((attackaway-defencehome)*4);
 		int awaychance = (int) (Math.random()*3000);
-		int awaygoalschance = ((awaychance*70) + ((attackpoweraway + staminaaway)*30))/100;
+		int awaygoalschance = ((awaychance*80) + ((attackpoweraway + staminaaway)*30)- ((hometeam.getActiveGoalkeeper().getDiving()+hometeam.getActiveGoalkeeper().getDiving()+hometeam.getActiveGoalkeeper().getDiving())*10*5))/100;
 		
 		homegoals = determinegoals(homegoalschance);
 		awaygoals = determinegoals(awaygoalschance);
@@ -94,6 +102,7 @@ public class Match {
 			hometeam.addPoints(3);
 			hometeam.incTotalWins();
 			awayteam.incTotalLosses();
+			MainGame.game.getUser(hometeam).addMoney(20000);
 		}
 		else if(homegoals == awaygoals){
 			hometeam.addGoals(homegoals);
@@ -105,6 +114,8 @@ public class Match {
 			hometeam.incTotalDraws();
 			awayteam.incTotalDraws();
 			draw = true;
+			MainGame.game.getUser(hometeam).addMoney(10000);
+			MainGame.game.getUser(awayteam).addMoney(10000);
 		}
 		else{
 			winner = awayteam;
@@ -116,6 +127,7 @@ public class Match {
 			awayteam.addPoints(3);
 			hometeam.incTotalLosses();
 			awayteam.incTotalWins();
+			MainGame.game.getUser(awayteam).addMoney(20000);
 		}
 	
 	}
@@ -140,16 +152,42 @@ public class Match {
 	 * 
 	 * @return gives the amount of goals from the hometeam back or if the match isn't played yet it gives -1 back
 	 */
-	public int gethomegoals(){
+	public Integer getHomegoals(){
+		if(homegoals != -1){
 			return homegoals;
+		}
+		else{
+			return null; 
+		}
 	}
 	
 	/**
 	 * 
 	 * @return gives the amount of goals from the awayteam back or if the match isn't played yet it gives -1 back
 	 */
-	public int getawaygoals(){
-		return awaygoals;
+	public Integer getAwaygoals(){
+		if(awaygoals != -1){
+			return awaygoals;
+		}
+		else{
+			return null; 
+		}
+	}
+	
+	/**
+	 * 
+	 * @return gives the hometeam
+	 */
+	public String getHometeam(){
+		return hometeam.getTeamName();
+	}
+	
+	/**
+	 * 
+	 * @return gives the awayteam
+	 */
+	public String getAwayteam(){
+		return awayteam.getTeamName();
 	}
 	
 	/**
@@ -224,6 +262,22 @@ public class Match {
 					this.homegoals == that.homegoals){
 				return true;
 			}
+		}
+		return false;
+	}
+	public int getPlayround() {
+		return playround;
+	}
+	public void setPlayround(int playround) {
+		this.playround = playround;
+	}
+	
+	public boolean contains(Team team){
+		if(hometeam.equals(team)){
+			return true;
+		}
+		else if(awayteam.equals(team)){
+			return true;
 		}
 		return false;
 	}

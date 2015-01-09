@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="1080.0" prefWidth="1920.0" styleClass="pane" stylesheets="@Competition.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.UFMReckoning.gui.game.RankingController">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="41.0">
+         <children>
+            <AnchorPane maxHeight="800.0" maxWidth="1200.0" opacity="0.8" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #101010; -fx-border-color: #CECECE; -fx-border-width: 1px;">
+               <children>
+                  <TableView fx:id="rankingtable" opacity="0.9" prefHeight="510.0" prefWidth="775.0" AnchorPane.leftAnchor="214.0" AnchorPane.topAnchor="136.0">
+                    <columns>
+                      <TableColumn fx:id="nr" editable="false" prefWidth="63.0" text="Rank" />
+                      <TableColumn fx:id="team" editable="false" prefWidth="276.0" text="Team" />
+                        <TableColumn fx:id="totalWins" editable="false" prefWidth="54.0" text="Wins" />
+                        <TableColumn fx:id="totalLosses" editable="false" prefWidth="51.0" text="Losses" />
+                        <TableColumn fx:id="totalDraws" editable="false" prefWidth="81.0" text="Draws" />
+                        <TableColumn fx:id="goals" editable="false" prefWidth="70.0" text="Goals" />
+                        <TableColumn fx:id="goalsagainst" editable="false" prefWidth="102.0" text="GoalsAgainst" />
+                        <TableColumn fx:id="totalPoints" editable="false" prefWidth="76.0" text="Points" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+                  <Label text="Ranking" textFill="#fcf5f5" AnchorPane.leftAnchor="532.0" AnchorPane.topAnchor="43.0">
+                     <font>
+                        <Font size="38.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

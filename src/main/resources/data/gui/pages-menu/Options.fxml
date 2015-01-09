@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.canvas.*?>
 <?import java.lang.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
 
 
-<Pane fx:controller="nl.joshuaslik.UFMReckoning.gui.ActionController" id="pane" maxHeight="-Infinity" styleClass="pane" stylesheets="@MainMenu.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-	<children>
-		<Button id="btn_ReturnMainMenu" layoutX="90" layoutY="330" mnemonicParsing="false" prefHeight="100" prefWidth="400" styleClass="btn_StartGame" text="Return" onAction="#handleReturnMainMenu"/>
-	</children>
-</Pane>
+<AnchorPane prefHeight="900.0" prefWidth="1900.0" styleClass="pane" stylesheets="@MainMenu.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="nl.joshuaslik.UFMReckoning.gui.ActionController">
+   <children>
+     
+   </children>
+</AnchorPane>

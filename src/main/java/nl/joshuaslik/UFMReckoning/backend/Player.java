@@ -7,8 +7,13 @@ package nl.joshuaslik.UFMReckoning.backend;
  */
 
 public abstract class Player {
-	private String playerID, fullName, country;
+	private String playerID;
+	private String fullName;
+	private String lastName;
+	private String country;
 	private int price;
+	public String active;
+	public Boolean activeState;
 
 	/**
 	 * Is the superconstructor of the subclasses.
@@ -28,15 +33,18 @@ public abstract class Player {
 			String heritage, int pr) {
 		playerID = id;
 		fullName = firstName + " " + lastName;
+		this.lastName = lastName;
 		country = heritage;
 		price = pr;
+		active = "✗";
+		activeState = false;
 	}
 
 	public String getID() {
 		return playerID;
 	}
 
-	public String getName() {
+	public String getFullName() {
 		return fullName;
 	}
 
@@ -46,5 +54,29 @@ public abstract class Player {
 
 	public int getPrice() {
 		return price;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setlastName(String lastName) {
+		this.lastName = lastName;
+	}
+	
+	public String getActive() {
+		return active;
+	}
+	
+	public Boolean getActiveState() {
+		return activeState;
+	}
+	
+	public void setActiveState(Boolean input) {
+		activeState = input;
+		if (input.equals(true))
+			active = "✓";
+		else 
+			active = "✗";
 	}
 }

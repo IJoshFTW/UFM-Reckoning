@@ -19,11 +19,12 @@ public class MainGame {
 				+ game.getUser().getTeam().getTeamName());
 		System.out.println("COACH NAME OF MY TEAM: "
 				+ game.getUser().getTeam().getCoachName());
-		TeamBuilder.start();
+		
+		TeamBuilderController.start();
+		
 	}
 
 	public static void setGame(Game game) {
-		System.out.println("GAME OBJECT SET!");
 		MainGame.game = game;
 	}
 	

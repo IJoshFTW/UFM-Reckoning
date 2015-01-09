@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="1080.0" prefWidth="1920.0" styleClass="pane" stylesheets="@NewGame.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.UFMReckoning.gui.NewGameController">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="41.0">
+         <children>
+            <AnchorPane maxHeight="800.0" maxWidth="1200.0" opacity="0.92" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #101010; -fx-border-color: #CECECE; -fx-border-width: 1px;">
+               <children>
+                  <TableView fx:id="teamtable" layoutX="178.0" layoutY="61.0" onDragEntered="#handleChooseTeam" prefHeight="536.0" prefWidth="844.0">
+                    <columns>
+                      <TableColumn fx:id="teamColumn" maxWidth="1000.0" prefWidth="200.0" text="Team" />
+                      <TableColumn fx:id="coachColumn" maxWidth="1000.0" prefWidth="200.0" text="Coach" />
+                        <TableColumn fx:id="averageattack" maxWidth="750.0" prefWidth="200.0" text="Average Attack" />
+                        <TableColumn fx:id="averagedefence" maxWidth="750.0" prefWidth="150.0" text="Average Defence" />
+                        <TableColumn fx:id="averagestamina" maxWidth="750.0" prefWidth="150.0" text="Average Stamina" />
+                        <TableColumn fx:id="totalplayers" maxWidth="750.0" minWidth="0.0" prefWidth="93.0" text="Total Players" />
+                        <TableColumn fx:id="teamvalue" maxWidth="1000.0" prefWidth="146.0" text="Team value" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+                  <Button layoutX="404.0" layoutY="659.0" mnemonicParsing="false" onAction="#handleChooseTeam" prefHeight="72.0" prefWidth="392.0" text="Choose this team" />
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

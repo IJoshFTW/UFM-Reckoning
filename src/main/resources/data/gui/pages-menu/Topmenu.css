@@ -1,0 +1,28 @@
+/*@import url("../fonts.css");*/
+
+@font-face {
+  font-family: 'Quicksand';
+  src: url(../fonts/Quicksand.otf);
+}
+
+.button {
+	-fx-padding: 0;
+	-fx-margin: 0;
+	-fx-background-color: #101010;
+	-fx-text-fill: white;
+	-fx-font-family: 'Quicksand';
+	-fx-opacity: 80%;
+	-fx-border-width: 1px;
+	-fx-border-color: #cecece;
+	-fx-border-style: solid;
+	-fx-font-size: 33;
+}
+
+
+
+.button: hover{
+	-fx-background-color: #000000;
+	-fx-opacity: 90%;
+	-fx-cursor: hand;
+	-fx-font-family: 'Quicksand';
+}

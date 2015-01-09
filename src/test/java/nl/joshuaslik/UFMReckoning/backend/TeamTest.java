@@ -538,5 +538,423 @@ public class TeamTest {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
 		assertEquals(team1.getTotalWins(), 0);
 	}
+	
+	@Test
+	public void testgetID() {
+		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
+		assertEquals(team1.getid(), "ajax");
+	}
+	
+	@Test
+	public void testgetPlayers() {
+		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
+		assertEquals(team1.getPlayers(), 0);
+	}
+	
+	@Test
+	public void testgetAverageStamina() {
+		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
+		assertEquals(team1.getAverageStamina(), 0);
+	}
+	
+	@Test
+	public void testgetAverageDefencePower() {
+		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
+		assertEquals(team1.getAverageDefencePower(), 0);
+	}
+	
+	@Test
+	public void testgetAverageAttackPower() {
+		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
+		assertEquals(team1.getAverageAttackPower(), 0);
+	}
+	
+	@Test
+	public void testgetAllplayers() {
+		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
+		Fieldplayer fieldplayer1 = new Fieldplayer("raivloet", "Rai", "Vloet","Netherlands", "CAM", 62, 32, 63, 4000000);
+		team1.addBenchPlayer(fieldplayer1);
+		assertEquals(team1.getAllPlayers().size(), 1);
+	}
+	
+	@Test
+	public void testCalcAverageStamina() {
+		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
+		Fieldplayer fieldplayer1 = new Fieldplayer("raivloet", "Rai", "Vloet","Netherlands", "CAM", 62, 32, 63, 4000000);
+		Goalkeeper goalkeeper1 = new Goalkeeper("pietvelthuizen", "Piet","Velthuizen", "Netherlands", 74, 72, 84, 3000000);
+		team1.addBenchPlayer(fieldplayer1);
+		team1.addBenchPlayer(goalkeeper1);
+		assertEquals(team1.getAllPlayers().size(), 2);
+	}
 
+	@Test
+	public void testChangeFormation1() {
+		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
+		Fieldplayer fieldplayer1 = new Fieldplayer("raivloet", "Rai", "Vloet","Netherlands", "CAM", 62, 32, 63, 4000000);
+		Goalkeeper goalkeeper1 = new Goalkeeper("pietvelthuizen", "Piet","Velthuizen", "Netherlands", 74, 72, 84, 3000000);
+		team1.addActivePlayer(fieldplayer1);
+		team1.addActivePlayer(goalkeeper1);
+		team1.changeFormationType(433);
+		assertEquals(team1.getFormation().getTeam(), team1);
+	}
+	
+	@Test
+	public void testChangeFormation2() {
+		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
+		Fieldplayer fieldplayer1 = new Fieldplayer("raivloet", "Rai", "Vloet","Netherlands", "CAM", 62, 32, 63, 4000000);
+		Goalkeeper goalkeeper1 = new Goalkeeper("pietvelthuizen", "Piet","Velthuizen", "Netherlands", 74, 72, 84, 3000000);
+		team1.addActivePlayer(fieldplayer1);
+		team1.addActivePlayer(goalkeeper1);
+		team1.changeFormationType(343);
+		assertEquals(team1.getFormation().getTeam(), team1);
+	}
+	
+	@Test
+	public void testChangeFormation3() {
+		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
+		Fieldplayer fieldplayer1 = new Fieldplayer("raivloet", "Rai", "Vloet","Netherlands", "CAM", 62, 32, 63, 4000000);
+		Goalkeeper goalkeeper1 = new Goalkeeper("pietvelthuizen", "Piet","Velthuizen", "Netherlands", 74, 72, 84, 3000000);
+		team1.addActivePlayer(fieldplayer1);
+		team1.addActivePlayer(goalkeeper1);
+		team1.changeFormationType(4321);
+		assertEquals(team1.getFormation().getTeam(), team1);
+	}
+	
+	@Test
+	public void testChangeFormation4() {
+		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
+		Fieldplayer fieldplayer1 = new Fieldplayer("raivloet", "Rai", "Vloet","Netherlands", "CAM", 62, 32, 63, 4000000);
+		Goalkeeper goalkeeper1 = new Goalkeeper("pietvelthuizen", "Piet","Velthuizen", "Netherlands", 74, 72, 84, 3000000);
+		team1.addActivePlayer(fieldplayer1);
+		team1.addActivePlayer(goalkeeper1);
+		team1.changeFormationType(442);
+		assertEquals(team1.getFormation().getTeam(), team1);
+	}
+	
+	@Test
+	public void testChangeFormation5() {
+		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
+		Fieldplayer fieldplayer1 = new Fieldplayer("raivloet", "Rai", "Vloet","Netherlands", "CAM", 62, 32, 63, 4000000);
+		Goalkeeper goalkeeper1 = new Goalkeeper("pietvelthuizen", "Piet","Velthuizen", "Netherlands", 74, 72, 84, 3000000);
+		team1.addActivePlayer(fieldplayer1);
+		team1.addActivePlayer(goalkeeper1);
+		team1.changeFormationType(532);
+		assertEquals(team1.getFormation().getTeam(), team1);
+	}
+	
+	@Test
+	public void testChangeFormation6() {
+		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
+		Fieldplayer fieldplayer1 = new Fieldplayer("raivloet", "Rai", "Vloet","Netherlands", "CAM", 62, 32, 63, 4000000);
+		Goalkeeper goalkeeper1 = new Goalkeeper("pietvelthuizen", "Piet","Velthuizen", "Netherlands", 74, 72, 84, 3000000);
+		team1.addActivePlayer(fieldplayer1);
+		team1.addActivePlayer(goalkeeper1);
+		team1.changeFormationType(533);
+		assertEquals(team1.getFormation(), null);
+	}
+	
+	@Test
+	public void testSetPlayerBench() {
+		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
+		Fieldplayer fieldplayer1 = new Fieldplayer("raivloet", "Rai", "Vloet","Netherlands", "CAM", 62, 32, 63, 4000000);
+		Goalkeeper goalkeeper1 = new Goalkeeper("pietvelthuizen", "Piet","Velthuizen", "Netherlands", 74, 72, 84, 3000000);
+		team1.addBenchPlayer(fieldplayer1);
+		team1.addBenchPlayer(goalkeeper1);
+		team1.setPlayerBench(goalkeeper1);
+		assertEquals(team1.getBenchPlayers().size(), 2);
+	}
+	
+	@Test
+	public void testSetPlayerBench2() {
+		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
+		Fieldplayer fieldplayer1 = new Fieldplayer("raivloet", "Rai", "Vloet","Netherlands", "CAM", 62, 32, 63, 4000000);
+		Goalkeeper goalkeeper1 = new Goalkeeper("pietvelthuizen", "Piet","Velthuizen", "Netherlands", 74, 72, 84, 3000000);
+		team1.addBenchPlayer(fieldplayer1);
+		team1.addActivePlayer(goalkeeper1);
+		team1.setPlayerBench(goalkeeper1);
+		assertEquals(team1.getBenchPlayers().size(), 2);
+	}
+	
+	@Test
+	public void testSetPlayerBench3() {
+		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
+		Fieldplayer fieldplayer1 = new Fieldplayer("raivloet", "Rai", "Vloet","Netherlands", "CAM", 62, 32, 63, 4000000);
+		Goalkeeper goalkeeper1 = new Goalkeeper("pietvelthuizen", "Piet","Velthuizen", "Netherlands", 74, 72, 84, 3000000);
+		team1.addBenchPlayer(fieldplayer1);
+		team1.setPlayerBench(goalkeeper1);
+		assertEquals(team1.getBenchPlayers().size(), 2);
+	}
+	
+	
+	@Test
+	public void testSetPlayerActive() {
+		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
+		Fieldplayer fieldplayer1 = new Fieldplayer("raivloet", "Rai", "Vloet","Netherlands", "CAM", 62, 32, 63, 4000000);
+		Goalkeeper goalkeeper1 = new Goalkeeper("pietvelthuizen", "Piet","Velthuizen", "Netherlands", 74, 72, 84, 3000000);
+		team1.addActivePlayer(fieldplayer1);
+		team1.addBenchPlayer(goalkeeper1);
+		team1.setPlayerActive(goalkeeper1);
+		assertEquals(team1.getBenchPlayers().size(), 0);
+	}
+	
+	@Test
+	public void testSetPlayerActive2() {
+		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
+		Fieldplayer fieldplayer1 = new Fieldplayer("raivloet", "Rai", "Vloet","Netherlands", "CAM", 62, 32, 63, 4000000);
+		Goalkeeper goalkeeper1 = new Goalkeeper("pietvelthuizen", "Piet","Velthuizen", "Netherlands", 74, 72, 84, 3000000);
+		team1.addActivePlayer(fieldplayer1);
+		team1.addActivePlayer(goalkeeper1);
+		team1.addBenchPlayer(goalkeeper1);
+		team1.setPlayerActive(goalkeeper1);
+		assertEquals(team1.getBenchPlayers().size(), 1);
+	}
+	
+	@Test
+	public void testSetPlayerActive3() {
+		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
+		Fieldplayer fieldplayer1 = new Fieldplayer("raivloet", "Rai", "Vloet","Netherlands", "CAM", 62, 32, 63, 4000000);
+		Goalkeeper goalkeeper1 = new Goalkeeper("pietvelthuizen", "Piet","Velthuizen", "Netherlands", 74, 72, 84, 3000000);
+		team1.addBenchPlayer(fieldplayer1);
+		team1.addActivePlayer(goalkeeper1);
+		team1.setPlayerActive(fieldplayer1);
+		assertEquals(team1.getBenchPlayers().size(), 0);
+	}
+	
+	@Test
+	public void testSetPlayerActive4() {
+		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
+		Fieldplayer fieldplayer1 = new Fieldplayer("raivloet", "Rai", "Vloet","Netherlands", "CAM", 62, 32, 63, 4000000);
+		Goalkeeper goalkeeper1 = new Goalkeeper("pietvelthuizen", "Piet","Velthuizen", "Netherlands", 74, 72, 84, 3000000);
+		team1.addActivePlayer(goalkeeper1);
+		team1.setPlayerActive(fieldplayer1);
+		assertEquals(team1.getBenchPlayers().size(), 0);
+	}
+	
+	@Test
+	public void testSetPlayerActive5() {
+		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
+		Fieldplayer fieldplayer1 = new Fieldplayer("raivloet", "Rai", "Vloet","Netherlands", "CAM", 62, 32, 63, 4000000);
+		team1.addActivePlayer(fieldplayer1);
+		team1.setPlayerActive(fieldplayer1);
+		assertEquals(team1.getActivePlayers().size(), 1);
+	}
+	
+	@Test
+	public void testGetActiveGoalkeeper() {
+		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
+		Fieldplayer fieldplayer1 = new Fieldplayer("raivloet", "Rai", "Vloet","Netherlands", "CAM", 62, 32, 63, 4000000);
+		Goalkeeper goalkeeper1 = new Goalkeeper("pietvelthuizen", "Piet","Velthuizen", "Netherlands", 74, 72, 84, 3000000);
+		team1.addActivePlayer(fieldplayer1);
+		team1.addActivePlayer(goalkeeper1);
+		assertEquals(team1.getActiveGoalkeeper(), goalkeeper1);
+	}
+	
+	@Test
+	public void testGetActiveGoalkeeper2() {
+		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
+		Fieldplayer fieldplayer1 = new Fieldplayer("raivloet", "Rai", "Vloet","Netherlands", "CAM", 62, 32, 63, 4000000);
+		team1.addActivePlayer(fieldplayer1);
+		assertEquals(team1.getActiveGoalkeeper(), null);
+	}
+	
+	@Test
+	public void testEquals18() {
+		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
+		Team team2 = new Team("ado", "ado", "Ronald de Boer");
+		Fieldplayer fieldplayer1 = new Fieldplayer("raivloet", "Rai", "Vloet",
+				"Netherlands", "CAM", 62, 32, 63, 4000000);
+		Fieldplayer fieldplayer2 = new Fieldplayer("klaassen", "Davy", "Vloet",
+				"Netherlands", "CAM", 62, 32, 63, 4000000);
+		Fieldplayer fieldplayer3 = new Fieldplayer("lucas", "Rai", "Vloet",
+				"Netherlands", "CAM", 62, 32, 63, 4000000);
+		Fieldplayer fieldplayer4 = new Fieldplayer("stefan", "Rai", "Vloet",
+				"Netherlands", "CAM", 62, 32, 63, 4000000);
+		Fieldplayer fieldplayer5 = new Fieldplayer("nick", "Rai", "Vloet",
+				"Netherlands", "CAM", 62, 32, 63, 4000000);
+		Fieldplayer fieldplayer6 = new Fieldplayer("ruben", "Rai", "Vloet",
+				"Netherlands", "CAM", 62, 32, 63, 4000000);
+		Fieldplayer fieldplayer7 = new Fieldplayer("kenny", "Rai", "Vloet",
+				"Netherlands", "CAM", 62, 32, 63, 4000000);
+		Fieldplayer fieldplayer8 = new Fieldplayer("ruben", "Rai", "Vloet",
+				"Netherlands", "CAM", 62, 32, 63, 4000000);
+		Fieldplayer fieldplayer9 = new Fieldplayer("peter", "Rai", "Vloet",
+				"Netherlands", "CAM", 62, 32, 63, 4000000);
+		Fieldplayer fieldplayer10 = new Fieldplayer("nicki", "Rai", "Vloet",
+				"Netherlands", "CAM", 62, 32, 63, 4000000);
+		Fieldplayer fieldplayer11 = new Fieldplayer("rober", "Rai", "Vloet",
+				"Netherlands", "CAM", 62, 32, 63, 4000000);
+		Fieldplayer fieldplayer12 = new Fieldplayer("tobias", "Rai", "Vloet",
+				"Netherlands", "CAM", 62, 32, 63, 4000000);
+		Goalkeeper goalkeeper1 = new Goalkeeper("pietvelthuizen", "Piet",
+				"Velthuizen", "Netherlands", 74, 72, 84, 3000000);
+		team1.addActivePlayer(fieldplayer1);
+		team1.addActivePlayer(fieldplayer2);
+		team1.addActivePlayer(fieldplayer3);
+		team1.addActivePlayer(fieldplayer4);
+		team1.addActivePlayer(fieldplayer5);
+		team2.addActivePlayer(fieldplayer6);
+		team2.addActivePlayer(fieldplayer7);
+		team2.addActivePlayer(fieldplayer8);
+		team2.addActivePlayer(fieldplayer9);
+		team2.addActivePlayer(fieldplayer10);
+		team2.addActivePlayer(fieldplayer11);
+		team2.addActivePlayer(fieldplayer12);
+		team2.addActivePlayer(goalkeeper1);
+		assertEquals(team1, team1);
+		assertFalse(team1.equals(team2));
+	}
+	
+	@Test
+	public void testEquals19() {
+		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
+		Team team2 = new Team("ado", "ajax", "Frank de Boer");
+		Fieldplayer fieldplayer1 = new Fieldplayer("raivloet", "Rai", "Vloet",
+				"Netherlands", "CAM", 62, 32, 63, 4000000);
+		team1.addActivePlayer(fieldplayer1);
+		team2.addActivePlayer(fieldplayer1);
+		team2.setTeamCaptain(fieldplayer1);
+		assertFalse(team1.equals(team2));
+	}
+	
+	@Test
+	public void testEquals20() {
+		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
+		Team team2 = new Team("ado", "ado", "Ronald de Boer");
+		Fieldplayer fieldplayer1 = new Fieldplayer("raivloet", "Rai", "Vloet",
+				"Netherlands", "CAM", 62, 32, 63, 4000000);
+		team1.addActivePlayer(fieldplayer1);
+		team2.addActivePlayer(fieldplayer1);
+		assertFalse(team1.equals(team2));
+	}
+	
+	@Test
+	public void testEquals21() {
+		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
+		Team team2 = new Team("ajax", "ajax", "Fank de Boer");
+		Fieldplayer fieldplayer1 = new Fieldplayer("raivloet", "Rai", "Vloet",
+				"Netherlands", "CAM", 62, 32, 63, 4000000);
+		team1.addActivePlayer(fieldplayer1);
+		team2.addActivePlayer(fieldplayer1);
+		assertFalse(team1.equals(team2));
+	}
+	
+	@Test
+	public void testEquals22() {
+		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
+		Team team2 = new Team("ajax", "ajax", "Frank de Boer");
+		Fieldplayer fieldplayer1 = new Fieldplayer("raivloet", "Rai", "Vloet",
+				"Netherlands", "CAM", 62, 32, 63, 4000000);
+		team1.addActivePlayer(fieldplayer1);
+		team2.addActivePlayer(fieldplayer1);
+		team1.incTotalWins();
+		assertFalse(team1.equals(team2));
+	}
+	
+	@Test
+	public void testEquals23() {
+		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
+		Team team2 = new Team("ajax", "ajax", "Frank de Boer");
+		Fieldplayer fieldplayer1 = new Fieldplayer("raivloet", "Rai", "Vloet",
+				"Netherlands", "CAM", 62, 32, 63, 4000000);
+		team1.addActivePlayer(fieldplayer1);
+		team2.addActivePlayer(fieldplayer1);
+		team1.incTotalLosses();
+		assertFalse(team1.equals(team2));
+	}
+	
+	@Test
+	public void testEquals24() {
+		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
+		Team team2 = new Team("ajax", "ajax", "Frank de Boer");
+		Fieldplayer fieldplayer1 = new Fieldplayer("raivloet", "Rai", "Vloet",
+				"Netherlands", "CAM", 62, 32, 63, 4000000);
+		team1.addActivePlayer(fieldplayer1);
+		team2.addActivePlayer(fieldplayer1);
+		team1.incTotalDraws();
+		assertFalse(team1.equals(team2));
+	}
+	
+	@Test
+	public void testEquals25() {
+		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
+		Team team2 = new Team("ajax", "ajax", "Frank de Boer");
+		Fieldplayer fieldplayer1 = new Fieldplayer("raivloet", "Rai", "Vloet",
+				"Netherlands", "CAM", 62, 32, 63, 4000000);
+		team1.addActivePlayer(fieldplayer1);
+		team2.addActivePlayer(fieldplayer1);
+		team1.addGoals(2);
+		assertFalse(team1.equals(team2));
+	}
+	
+	@Test
+	public void testEquals26() {
+		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
+		Team team2 = new Team("ajax", "ajax", "Frank de Boer");
+		Fieldplayer fieldplayer1 = new Fieldplayer("raivloet", "Rai", "Vloet",
+				"Netherlands", "CAM", 62, 32, 63, 4000000);
+		team1.addActivePlayer(fieldplayer1);
+		team2.addActivePlayer(fieldplayer1);
+		team1.addPoints(2);
+		assertFalse(team1.equals(team2));
+	}
+	
+	@Test
+	public void testEquals27() {
+		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
+		Team team2 = new Team("ajax", "ajax", "Frank de Boer");
+		Fieldplayer fieldplayer1 = new Fieldplayer("raivloet", "Rai", "Vloet",
+				"Netherlands", "CAM", 62, 32, 63, 4000000);
+		team1.addActivePlayer(fieldplayer1);
+		team2.addActivePlayer(fieldplayer1);
+		team1.setRanking(3);
+		assertFalse(team1.equals(team2));
+	}
+	
+	@Test
+	public void testEquals28() {
+		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
+		Team team2 = new Team("ajax", "ajax", "Frank de Boer");
+		Fieldplayer fieldplayer1 = new Fieldplayer("raivloet", "Rai", "Vloet",
+				"Netherlands", "CAM", 62, 32, 63, 4000000);
+		team1.addActivePlayer(fieldplayer1);
+		team2.addActivePlayer(fieldplayer1);
+		team1.addGoalsAgainst(3);
+		assertFalse(team1.equals(team2));
+	}
+	
+	@Test
+	public void testEquals29() {
+		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
+		Team team2 = new Team("ajax", "ajax", "Frank de Boer");
+		Fieldplayer fieldplayer1 = new Fieldplayer("raivloet", "Rai", "Vloet",
+				"Netherlands", "CAM", 62, 32, 63, 4000000);
+		team1.addActivePlayer(fieldplayer1);
+		team2.addActivePlayer(fieldplayer1);
+		team1.setStamina(15);
+		assertFalse(team1.equals(team2));
+	}
+	
+	@Test
+	public void testEquals30() {
+		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
+		Team team2 = new Team("ajax", "ajax", "Frank de Boer");
+		Fieldplayer fieldplayer1 = new Fieldplayer("raivloet", "Rai", "Vloet",
+				"Netherlands", "CAM", 62, 32, 63, 4000000);
+		team1.addActivePlayer(fieldplayer1);
+		team2.addActivePlayer(fieldplayer1);
+		team1.setDefencePower(62);
+		assertFalse(team1.equals(team2));
+	}
+	
+	@Test
+	public void testEquals31() {
+		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
+		Team team2 = new Team("ajax", "ajax", "Frank de Boer");
+		Fieldplayer fieldplayer1 = new Fieldplayer("raivloet", "Rai", "Vloet",
+				"Netherlands", "CAM", 62, 32, 63, 4000000);
+		team1.addActivePlayer(fieldplayer1);
+		team2.addActivePlayer(fieldplayer1);
+		team1.setAttackPower(63);
+		assertFalse(team1.equals(team2));
+	}
 }
