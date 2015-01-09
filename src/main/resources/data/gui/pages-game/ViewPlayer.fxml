@@ -35,22 +35,27 @@
          </image>
      
       </ImageView>
-            <ImageView fx:id="positioningImg" fitHeight="20.0" fitWidth="20.0" layoutX="640.0" layoutY="370.0" pickOnBounds="true" visible="false">
+            <ImageView fx:id="positioningImg" fitHeight="20.0" fitWidth="20.0" layoutX="665.0" layoutY="370.0" pickOnBounds="true" visible="false">
          <image>
             <Image url="@../img/positioningbar.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="reflexesImg" fitHeight="20.0" fitWidth="20.0" layoutX="640.0" layoutY="337.0" pickOnBounds="true" visible="false">
+      <ImageView fx:id="reflexesImg" fitHeight="20.0" fitWidth="20.0" layoutX="665.0" layoutY="337.0" pickOnBounds="true" visible="false">
          <image>
             <Image url="@../img/reflexesbar.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="divingImg" fitHeight="20.0" fitWidth="20.0" layoutX="640.0" layoutY="303.0" pickOnBounds="true" visible="false">
+      <ImageView fx:id="divingImg" fitHeight="20.0" fitWidth="20.0" layoutX="665.0" layoutY="303.0" pickOnBounds="true" visible="false">
          <image>
             <Image url="@../img/divingbar.png" />
          </image>
       </ImageView>
-      
+  
+      <Label fx:id="playerRole" layoutX="558.0" layoutY="264.0" text="Role:" textFill="WHITE" visible="true">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>    
       <Label fx:id="attackLable" layoutX="558.0" layoutY="298.0" text="Attack:" textFill="WHITE" visible="false">
          <font>
             <Font size="20.0" />

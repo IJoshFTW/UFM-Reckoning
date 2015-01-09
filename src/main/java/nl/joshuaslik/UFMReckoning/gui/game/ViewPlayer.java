@@ -47,6 +47,8 @@ public class ViewPlayer {
 	@FXML
 	private Label playerName;
 	@FXML
+	private Label playerRole;
+	@FXML
 	private Label attackLable;
 	@FXML
 	private Label defenceLable;
@@ -85,8 +87,8 @@ public class ViewPlayer {
 		
 		
 		if (player instanceof Fieldplayer) {
-			
 			Fieldplayer fieldplayer = (Fieldplayer) player;
+			playerRole.setText("Role: Fieldplayer");
 			
 			// AttackPower bar inladen
 			attackLable.setVisible(true);
@@ -112,6 +114,7 @@ public class ViewPlayer {
 		
 		if (player instanceof Goalkeeper) {
 			Goalkeeper goalkeeper = (Goalkeeper) player;
+			playerRole.setText("Role: Goalkeeper");
 			
 			// Diving bar inladen
 			divingLable.setVisible(true);
