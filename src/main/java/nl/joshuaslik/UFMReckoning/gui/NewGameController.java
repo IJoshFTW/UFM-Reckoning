@@ -14,6 +14,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Screen;
+import nl.joshuaslik.UFMReckoning.backend.Form343;
 import nl.joshuaslik.UFMReckoning.backend.Game;
 import nl.joshuaslik.UFMReckoning.backend.Save;
 import nl.joshuaslik.UFMReckoning.backend.Team;
@@ -78,6 +79,8 @@ public class NewGameController {
 				Team chosenTeam = teamtable.getSelectionModel().getSelectedItem();
 				Game Game1 = Save.newGame(chosenTeam, username);
 				MainGame.setGame(Game1);
+				Form343 form = new Form343(Game1.getUser().getTeam());
+				Game1.getUser().getTeam().changeFormationType(form);
 				MainGame.initialize();
 				try {
 					MainGame.start();

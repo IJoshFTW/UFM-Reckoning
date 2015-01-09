@@ -35,5 +35,17 @@ public abstract class Formation {
 		return goalkeeper;
 	}
 	
+	public String getName(){
+		return null;
+	}
+	
+	public String getType(){
+		return null;
+	}
+	
+	public Fieldplayer setST(Fieldplayer fieldplayer){
+		return null;
+	}
+	
 
 }

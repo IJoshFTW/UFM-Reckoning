@@ -594,64 +594,11 @@ public class TeamTest {
 		Goalkeeper goalkeeper1 = new Goalkeeper("pietvelthuizen", "Piet","Velthuizen", "Netherlands", 74, 72, 84, 3000000);
 		team1.addActivePlayer(fieldplayer1);
 		team1.addActivePlayer(goalkeeper1);
-		team1.changeFormationType(433);
+		Formation formation = new Form343(team1);
+		team1.changeFormationType(formation);
 		assertEquals(team1.getFormation().getTeam(), team1);
 	}
 	
-	@Test
-	public void testChangeFormation2() {
-		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
-		Fieldplayer fieldplayer1 = new Fieldplayer("raivloet", "Rai", "Vloet","Netherlands", "CAM", 62, 32, 63, 4000000);
-		Goalkeeper goalkeeper1 = new Goalkeeper("pietvelthuizen", "Piet","Velthuizen", "Netherlands", 74, 72, 84, 3000000);
-		team1.addActivePlayer(fieldplayer1);
-		team1.addActivePlayer(goalkeeper1);
-		team1.changeFormationType(343);
-		assertEquals(team1.getFormation().getTeam(), team1);
-	}
-	
-	@Test
-	public void testChangeFormation3() {
-		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
-		Fieldplayer fieldplayer1 = new Fieldplayer("raivloet", "Rai", "Vloet","Netherlands", "CAM", 62, 32, 63, 4000000);
-		Goalkeeper goalkeeper1 = new Goalkeeper("pietvelthuizen", "Piet","Velthuizen", "Netherlands", 74, 72, 84, 3000000);
-		team1.addActivePlayer(fieldplayer1);
-		team1.addActivePlayer(goalkeeper1);
-		team1.changeFormationType(4321);
-		assertEquals(team1.getFormation().getTeam(), team1);
-	}
-	
-	@Test
-	public void testChangeFormation4() {
-		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
-		Fieldplayer fieldplayer1 = new Fieldplayer("raivloet", "Rai", "Vloet","Netherlands", "CAM", 62, 32, 63, 4000000);
-		Goalkeeper goalkeeper1 = new Goalkeeper("pietvelthuizen", "Piet","Velthuizen", "Netherlands", 74, 72, 84, 3000000);
-		team1.addActivePlayer(fieldplayer1);
-		team1.addActivePlayer(goalkeeper1);
-		team1.changeFormationType(442);
-		assertEquals(team1.getFormation().getTeam(), team1);
-	}
-	
-	@Test
-	public void testChangeFormation5() {
-		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
-		Fieldplayer fieldplayer1 = new Fieldplayer("raivloet", "Rai", "Vloet","Netherlands", "CAM", 62, 32, 63, 4000000);
-		Goalkeeper goalkeeper1 = new Goalkeeper("pietvelthuizen", "Piet","Velthuizen", "Netherlands", 74, 72, 84, 3000000);
-		team1.addActivePlayer(fieldplayer1);
-		team1.addActivePlayer(goalkeeper1);
-		team1.changeFormationType(532);
-		assertEquals(team1.getFormation().getTeam(), team1);
-	}
-	
-	@Test
-	public void testChangeFormation6() {
-		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
-		Fieldplayer fieldplayer1 = new Fieldplayer("raivloet", "Rai", "Vloet","Netherlands", "CAM", 62, 32, 63, 4000000);
-		Goalkeeper goalkeeper1 = new Goalkeeper("pietvelthuizen", "Piet","Velthuizen", "Netherlands", 74, 72, 84, 3000000);
-		team1.addActivePlayer(fieldplayer1);
-		team1.addActivePlayer(goalkeeper1);
-		team1.changeFormationType(533);
-		assertEquals(team1.getFormation(), null);
-	}
 	
 	@Test
 	public void testSetPlayerBench() {

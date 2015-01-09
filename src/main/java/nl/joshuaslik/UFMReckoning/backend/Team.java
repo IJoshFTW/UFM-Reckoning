@@ -416,35 +416,14 @@ public class Team {
 	}
 
 	/**
-	 * Change the type of formation of the team choos out 442
+	 * Change the type of formation of the team choos out 442 
 	 */
-	public void changeFormationType(int type) {
-		if (type == 442) {
-			for (int i = 0; i < activePlayers.size(); i++) {
-				setPlayerBench(activePlayers.get(i));
-			}
-			formation = new Form442(this);
-		} else if (type == 433) {
-			for (int i = 0; i < activePlayers.size(); i++) {
-				setPlayerBench(activePlayers.get(i));
-			}
-			formation = new Form433(this);
-		} else if (type == 532) {
-			for (int i = 0; i < activePlayers.size(); i++) {
-				setPlayerBench(activePlayers.get(i));
-			}
-			formation = new Form532(this);
-		} else if (type == 4321) {
-			for (int i = 0; i < activePlayers.size(); i++) {
-				setPlayerBench(activePlayers.get(i));
-			}
-			formation = new Form4321(this);
-		} else if (type == 343) {
-			for (int i = 0; i < activePlayers.size(); i++) {
-				setPlayerBench(activePlayers.get(i));
-			}
-			formation = new Form343(this);
+	public void changeFormationType(Formation form) {
+		for (int i = 0; i < activePlayers.size(); i++) {
+			benchPlayers.add(activePlayers.get(i));
 		}
+		activePlayers.clear();
+		formation = form;
 	}
 
 	public Formation getFormation() {

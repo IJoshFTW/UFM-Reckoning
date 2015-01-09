@@ -26,6 +26,15 @@ public class Form532 extends Formation {
 	private Fieldplayer RM;
 	private Fieldplayer LW;
 	private Fieldplayer RW;
+	private String Name = "5-3-2";
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public String getName(){
+		return Name;
+	}
 	
 	public Form532(Team team){
 		super(team);

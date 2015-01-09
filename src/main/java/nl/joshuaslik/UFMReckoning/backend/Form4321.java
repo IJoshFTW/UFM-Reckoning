@@ -28,6 +28,15 @@ public class Form4321 extends Formation {
 	private Fieldplayer OLM;
 	private Fieldplayer ORM;
 	private Fieldplayer ST;
+	private String Name = "4-3-2-1";
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public String getName(){
+		return Name;
+	}
 	
 	public Form4321(Team team){
 		super(team);

@@ -25,6 +25,15 @@ public class Form442 extends Formation {
 	private Fieldplayer RM;
 	private Fieldplayer LW;
 	private Fieldplayer RW;
+	private String Name = "4-4-2";
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public String getName(){
+		return Name;
+	}
 	
 	public Form442(Team team){
 		super(team);
