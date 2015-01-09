@@ -14,7 +14,7 @@ before_deploy:
 
 deploy:
   provider: releases
-  api-key: "1e012471263182440d6f62b82a99e8d63df0dd5e"
+  api-key: "84c3bc84a9c15a6b4e4449fd503c9f92e7dde4e6"
   file: "./build/UFM-Reckoning.zip"
   skip_cleanup: true
   on:
