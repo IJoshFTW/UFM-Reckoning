@@ -13,7 +13,7 @@
          <children>
             <AnchorPane maxHeight="800.0" maxWidth="1200.0" opacity="0.92" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #101010; -fx-border-color: #CECECE; -fx-border-width: 1px;">
                <children>
-                  <TableView fx:id="teamtable" layoutX="178.0" layoutY="61.0" onDragEntered="#handleChooseTeam" prefHeight="536.0" prefWidth="844.0">
+                  <TableView fx:id="teamtable" layoutX="178.0" layoutY="61.0" onDragEntered="#handleChooseTeam" prefHeight="555.0" prefWidth="844.0">
                     <columns>
                       <TableColumn fx:id="teamColumn" maxWidth="1000.0" prefWidth="200.0" text="Team" />
                       <TableColumn fx:id="coachColumn" maxWidth="1000.0" prefWidth="200.0" text="Coach" />
@@ -27,7 +27,7 @@
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>
-                  <Button layoutX="404.0" layoutY="659.0" mnemonicParsing="false" onAction="#handleChooseTeam" prefHeight="72.0" prefWidth="392.0" text="Choose this team" />
+                  <Button layoutX="350.0" layoutY="659.0" mnemonicParsing="false" onAction="#handleChooseTeam" prefHeight="72.0" prefWidth="500.0" text="Choose this team" />
                </children>
             </AnchorPane>
          </children>
