@@ -547,12 +547,6 @@ public class TeamTest {
 	}
 
 	@Test
-	public void testgetPlayers() {
-		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
-		assertEquals(team1.getPlayers(), 0);
-	}
-
-	@Test
 	public void testgetAverageStamina() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
 		assertEquals(team1.getAverageStamina(), 0);
