@@ -52,6 +52,7 @@ public abstract class Formation {
 	}
 
 	public Fieldplayer setST(Fieldplayer fieldplayer) {
+		System.out.println(fieldplayer.getFullName() + " was set as the striker for this team");
 		return null;
 	}
 

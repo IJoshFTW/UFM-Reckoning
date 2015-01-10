@@ -3,6 +3,8 @@ package nl.joshuaslik.UFMReckoning.backend;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
+import nl.joshuaslik.UFMReckoning.backend.exceptions.UnableToBuyException;
+
 /**
  * @author <a href="http://www.joshuaslik.nl/" target="_blank">Joshua Slik</a>
  * @author Naomi de Ridder
