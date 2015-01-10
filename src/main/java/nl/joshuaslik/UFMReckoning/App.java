@@ -17,6 +17,12 @@ import nl.joshuaslik.UFMReckoning.util.xml.XMLFile;
  */
 public class App {
 
+	/**
+	 * The main class for Ultimate Football Manager
+	 * 
+	 * @param args
+	 *            is an array of command line arguments
+	 */
 	public static void main(String[] args) {
 
 		System.out.println("Ultimate Football Manager");

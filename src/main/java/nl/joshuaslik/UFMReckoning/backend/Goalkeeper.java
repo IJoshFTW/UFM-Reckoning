@@ -58,18 +58,38 @@ public class Goalkeeper extends Player {
 		return false;
 	}
 
+	/**
+	 * Getter for reflexes skill
+	 * 
+	 * @return the reflexes of this goalkeeper
+	 */
 	public int getReflexes() {
 		return reflexes;
 	}
 
+	/**
+	 * Getter for diving skill
+	 * 
+	 * @return the diving of this goalkeeper
+	 */
 	public int getDiving() {
 		return diving;
 	}
 
+	/**
+	 * Getter for positioning skill
+	 * 
+	 * @return the positioning of this goalkeeper
+	 */
 	public int getPositioning() {
 		return positioning;
 	}
-	
+
+	/**
+	 * Getter for position
+	 * 
+	 * @return the position of this goalkeeper
+	 */
 	public String getPosition() {
 		return position;
 	}

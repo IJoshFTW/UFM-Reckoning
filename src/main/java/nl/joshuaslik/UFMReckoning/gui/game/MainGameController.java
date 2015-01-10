@@ -20,7 +20,7 @@ public class MainGameController {
 	@FXML
 	private void initialize() {
 		budgetlabel.setText("Budget: € " + MainGame.game.getUser().getBudget());
-		currentround.setText("Currentround: " + MainGame.game.currentround);
+		currentround.setText("Currentround: " + MainGame.game.getCurrentRound());
 
 	}
 

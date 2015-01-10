@@ -17,7 +17,10 @@ public class Game {
 	private ArrayList<User> users = new ArrayList<User>();
 	private Competition competition;
 	private LinkedHashMap<String, Player> players;
-	public int currentround = 1;
+	/**
+	 * 
+	 */
+	private int currentround = 1;
 
 	/**
 	 * Constructor
@@ -277,6 +280,15 @@ public class Game {
 					+ " - " + match.getAwaygoals());
 		}
 		return result;
+	}
+
+	/**
+	 * Getter for currentround
+	 * 
+	 * @return the current round of this game
+	 */
+	public int getCurrentRound() {
+		return currentround;
 	}
 
 }

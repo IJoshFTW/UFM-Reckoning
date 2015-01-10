@@ -39,7 +39,7 @@ public class ResultRoundDialogcontroller {
 	
 	@FXML
 	private void initialize() throws IOException {
-		ArrayList<Match> matches = MainGame.game.getPlayround(MainGame.game.currentround - 1).getMatches();
+		ArrayList<Match> matches = MainGame.game.getPlayround(MainGame.game.getCurrentRound() - 1).getMatches();
 		for(int i= 0; i<matches.size(); i++){
 			if(matches.get(i).contains(MainGame.game.getUser().getTeam())){
 				match = matches.get(i);

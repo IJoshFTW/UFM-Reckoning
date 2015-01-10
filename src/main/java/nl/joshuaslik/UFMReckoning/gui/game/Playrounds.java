@@ -43,7 +43,7 @@ public class Playrounds {
 	private void initialize() {
 		ObservableList<Playround> playroundnr = FXCollections
 				.observableArrayList(getPlayroundList());
-		round = MainGame.game.currentround;
+		round = MainGame.game.getCurrentRound();
 
 		playround.setItems(playroundnr);
 		playround.setConverter(new StringConverter<Playround>() {

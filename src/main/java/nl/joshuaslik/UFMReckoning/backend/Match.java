@@ -4,7 +4,7 @@ import nl.joshuaslik.UFMReckoning.gui.game.MainGame;
 
 /**
  * @author Bryan van Wijk
- * 
+ * @author <a href="http://www.joshuaslik.nl/" target="_blank">Joshua Slik</a>
  *
  */
 public class Match {
@@ -14,6 +14,14 @@ public class Match {
 	private int homegoals = -1, awaygoals = -1;
 	private int playround;
 
+	/**
+	 * Constructor for a match
+	 * 
+	 * @param hometeam
+	 *            the team playing home
+	 * @param awayteam
+	 *            the team playing away
+	 */
 	public Match(Team hometeam, Team awayteam) {
 		if (!hometeam.equals(awayteam)) {
 			this.hometeam = hometeam;
@@ -260,14 +268,33 @@ public class Match {
 		return false;
 	}
 
+	/**
+	 * Getter for playround
+	 * 
+	 * @return the play round of this match
+	 */
 	public int getPlayround() {
 		return playround;
 	}
 
+	/**
+	 * Setter for playround
+	 * 
+	 * @param playround
+	 *            the Playround to set
+	 */
 	public void setPlayround(int playround) {
 		this.playround = playround;
 	}
 
+	/**
+	 * Checker if this Match contains the team specified
+	 * 
+	 * @param team
+	 *            the Team to check
+	 * @return true or false depening on if the team specified is playing in
+	 *         this Match
+	 */
 	public boolean contains(Team team) {
 		if (hometeam.equals(team)) {
 			return true;
