@@ -99,6 +99,11 @@ public abstract class Formation {
 	public Fieldplayer setLW(Fieldplayer fieldplayer){
 		return null;
 	}
-	
+	public Fieldplayer setOLM(Fieldplayer fieldplayer){
+		return null;
+	}
+	public Fieldplayer setORM(Fieldplayer fieldplayer){
+		return null;
+	}
 
 }

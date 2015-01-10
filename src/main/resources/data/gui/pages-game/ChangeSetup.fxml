@@ -14,7 +14,7 @@
 	<children>
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <AnchorPane maxHeight="800.0" maxWidth="1200.0" opacity="0.8" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #101010; -fx-border-color: #CECECE; -fx-border-width: 1px;">
+            <AnchorPane fx:id="field" maxHeight="800.0" maxWidth="1200.0" opacity="0.8" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #101010; -fx-border-color: #CECECE; -fx-border-width: 1px;">
                <children>
                   <Label layoutX="449.0" layoutY="51.0" text="Change Team Setup" textFill="WHITE">
                      <font>
@@ -25,67 +25,122 @@
                   <Button layoutX="46.0" layoutY="715.0" onAction="#handleReturnTeamBuilder" prefHeight="60" prefWidth="250" styleClass="button" text="Return" />
                   <AnchorPane layoutX="665.0" layoutY="139.0" prefHeight="601.0" prefWidth="498.0">
                      <children>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1fff27" height="606.0" stroke="BLACK" strokeType="INSIDE" width="498.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1fff27" height="606.0" layoutY="6.0" stroke="BLACK" strokeType="INSIDE" width="498.0" />
                         <Circle fill="#ecedee" layoutX="249.0" layoutY="554.0" radius="39.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Label layoutX="231.0" layoutY="535.0" text="GK">
+                           <font>
+                              <Font name="System Bold" size="26.0" />
+                           </font>
+                        </Label>
                         <ImageView fx:id="gkIMG" fitHeight="68.0" fitWidth="57.0" layoutX="220.0" layoutY="518.0" pickOnBounds="true" preserveRatio="true" />
-                        <AnchorPane fx:id="POS10" layoutX="210.0" layoutY="14.0" prefHeight="84.0" prefWidth="78.0">
+                        <AnchorPane fx:id="POS10" layoutX="210.0" layoutY="22.0" AnchorPane.leftAnchor="210.0" AnchorPane.topAnchor="22.0">
                            <children>
                               <Circle fill="#ecedee" layoutX="26.0" layoutY="37.0" radius="39.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                              <ImageView fx:id="IMG10" fitHeight="78.0" fitWidth="78.0" layoutX="1.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <Label fx:id="LB10" alignment="CENTER" contentDisplay="CENTER" layoutX="7.0" layoutY="20.0" prefHeight="38.0" prefWidth="65.0" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="26.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fx:id="IMG10" fitHeight="68.0" fitWidth="57.0" layoutX="11.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="POS1" layoutX="210.0" layoutY="405.0" prefHeight="84.0" prefWidth="78.0">
+                        <AnchorPane fx:id="POS1" layoutX="25.0" layoutY="384.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="384.0">
                            <children>
                               <Circle fill="#ecedee" layoutX="26.0" layoutY="37.0" radius="39.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                              <ImageView fx:id="IMG1" fitHeight="78.0" fitWidth="78.0" layoutX="1.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <Label fx:id="LB1" alignment="CENTER" contentDisplay="CENTER" layoutX="12.0" layoutY="20.0" prefHeight="38.0" prefWidth="57.0" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="26.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fx:id="IMG1" fitHeight="68.0" fitWidth="57.0" layoutX="11.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="POS2" layoutX="62.0" layoutY="374.0" prefHeight="84.0" prefWidth="78.0">
+                        <AnchorPane fx:id="POS2" layoutX="132.0" layoutY="430.0" AnchorPane.leftAnchor="132.0" AnchorPane.topAnchor="430.0">
                            <children>
                               <Circle fill="#ecedee" layoutX="26.0" layoutY="37.0" radius="39.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                              <ImageView fx:id="IMG2" fitHeight="78.0" fitWidth="78.0" layoutX="1.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <Label fx:id="LB2" alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="20.0" prefHeight="38.0" prefWidth="65.0" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="26.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fx:id="IMG2" fitHeight="68.0" fitWidth="57.0" layoutX="11.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="POS3" layoutX="277.0" layoutY="290.0" prefHeight="84.0" prefWidth="78.0">
+                        <AnchorPane fx:id="POS3" layoutX="300.0" layoutY="430.0" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="430.0">
                            <children>
                               <Circle fill="#ecedee" layoutX="26.0" layoutY="37.0" radius="39.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                              <ImageView fx:id="IMG3" fitHeight="78.0" fitWidth="78.0" layoutX="1.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <Label fx:id="LB3" alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="20.0" prefHeight="38.0" prefWidth="65.0" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="26.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fx:id="IMG3" fitHeight="68.0" fitWidth="57.0" layoutX="11.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="8.0" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="POS4" layoutX="345.0" layoutY="380.0" prefHeight="84.0" prefWidth="78.0">
+                        <AnchorPane fx:id="POS4" layoutX="397.0" layoutY="384.0" AnchorPane.leftAnchor="397.0" AnchorPane.topAnchor="384.0">
                            <children>
                               <Circle fill="#ecedee" layoutX="26.0" layoutY="37.0" radius="39.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                              <ImageView fx:id="IMG4" fitHeight="78.0" fitWidth="78.0" layoutX="1.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <Label fx:id="LB4" alignment="CENTER" contentDisplay="CENTER" layoutX="9.0" layoutY="20.0" prefHeight="38.0" prefWidth="65.0" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="26.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fx:id="IMG4" fitHeight="68.0" fitWidth="57.0" layoutX="11.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="POS5" layoutX="34.0" layoutY="225.0" prefHeight="84.0" prefWidth="78.0">
+                        <AnchorPane fx:id="POS5" layoutX="210.0" layoutY="309.0" AnchorPane.leftAnchor="210.0" AnchorPane.topAnchor="309.0">
                            <children>
                               <Circle fill="#ecedee" layoutX="26.0" layoutY="37.0" radius="39.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                              <ImageView fx:id="IMG5" fitHeight="78.0" fitWidth="78.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="3.0" />
+                              <Label fx:id="LB5" alignment="CENTER" contentDisplay="CENTER" layoutX="5.0" layoutY="18.0" prefHeight="38.0" prefWidth="65.0" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="26.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fx:id="IMG5" fitHeight="68.0" fitWidth="57.0" layoutX="11.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="POS6" layoutX="392.0" layoutY="225.0" prefHeight="84.0" prefWidth="78.0">
+                        <AnchorPane fx:id="POS6" layoutX="347.0" layoutY="256.0" AnchorPane.leftAnchor="347.0" AnchorPane.topAnchor="256.0">
                            <children>
                               <Circle fill="#ecedee" layoutX="26.0" layoutY="37.0" radius="39.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                              <ImageView fx:id="IMG6" fitHeight="78.0" fitWidth="78.0" layoutX="1.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <Label fx:id="LB6" alignment="CENTER" contentDisplay="CENTER" layoutX="21.0" layoutY="20.0" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="26.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fx:id="IMG6" fitHeight="68.0" fitWidth="57.0" layoutX="11.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="8.0" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="POS7" layoutX="132.0" layoutY="279.0" prefHeight="84.0" prefWidth="78.0">
+                        <AnchorPane fx:id="POS7" layoutX="78.0" layoutY="256.0" AnchorPane.leftAnchor="78.0" AnchorPane.topAnchor="256.0">
                            <children>
                               <Circle fill="#ecedee" layoutX="26.0" layoutY="37.0" radius="39.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                              <ImageView fx:id="IMG7" fitHeight="78.0" fitWidth="78.0" layoutX="1.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <Label fx:id="LB7" alignment="CENTER" contentDisplay="CENTER" layoutX="12.0" layoutY="20.0" prefHeight="38.0" prefWidth="57.0" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="26.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fx:id="IMG7" fitHeight="68.0" fitWidth="57.0" layoutX="11.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="8.0" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="POS8" layoutX="112.0" layoutY="106.0" prefHeight="84.0" prefWidth="78.0">
+                        <AnchorPane fx:id="POS8" layoutX="132.0" layoutY="139.0" AnchorPane.leftAnchor="132.0" AnchorPane.topAnchor="139.0">
                            <children>
                               <Circle fill="#ecedee" layoutX="26.0" layoutY="37.0" radius="39.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                              <ImageView fx:id="IMG8" fitHeight="78.0" fitWidth="78.0" layoutX="1.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <Label fx:id="LB8" alignment="CENTER" contentDisplay="CENTER" layoutX="5.0" layoutY="20.0" prefHeight="38.0" prefWidth="65.0" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="26.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fx:id="IMG8" fitHeight="68.0" fitWidth="57.0" layoutX="11.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="8.0" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="POS9" layoutX="306.0" layoutY="112.0" prefHeight="84.0" prefWidth="78.0">
+                        <AnchorPane fx:id="POS9" layoutX="269.0" layoutY="139.0" AnchorPane.leftAnchor="269.0" AnchorPane.topAnchor="139.0">
                            <children>
                               <Circle fill="#ecedee" layoutX="26.0" layoutY="37.0" radius="39.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                              <ImageView fx:id="IMG9" fitHeight="78.0" fitWidth="78.0" layoutX="1.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <Label fx:id="LB9" alignment="CENTER" contentDisplay="CENTER" layoutX="4.0" layoutY="20.0" prefHeight="38.0" prefWidth="72.0" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="26.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fx:id="IMG9" fitHeight="68.0" fitWidth="57.0" layoutX="11.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="8.0" />
                            </children>
                         </AnchorPane>
                      </children>
