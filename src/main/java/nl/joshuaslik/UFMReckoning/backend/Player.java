@@ -4,6 +4,7 @@ package nl.joshuaslik.UFMReckoning.backend;
  * The Player class is an abstract class.
  * 
  * @author Sander Benoist
+ * @author <a href="http://www.joshuaslik.nl/" target="_blank">Joshua Slik</a>
  */
 
 public abstract class Player {

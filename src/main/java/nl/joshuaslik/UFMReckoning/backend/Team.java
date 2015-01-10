@@ -14,6 +14,7 @@ import javafx.collections.ObservableList;
  * The Object also keeps track of the team statistics.
  * 
  * @author Sander Benoist
+ * @author <a href="http://www.joshuaslik.nl/" target="_blank">Joshua Slik</a>
  *
  */
 public class Team {
@@ -140,6 +141,9 @@ public class Team {
 		calcAverageStats();
 	}
 
+	/**
+	 * @param id
+	 */
 	public void removePlayer(String id) {
 		Player player = this.getPlayer(id);
 		if (benchPlayers.contains(player))
@@ -148,6 +152,9 @@ public class Team {
 			this.removeActivePlayer(player);
 	}
 
+	/**
+	 * @return
+	 */
 	public Goalkeeper getActiveGoalkeeper() {
 		Goalkeeper res = null;
 		for (int i = 0; i < activePlayers.size(); i++) {
@@ -220,7 +227,7 @@ public class Team {
 				}
 			}
 		}
-		
+
 		player.setActiveState(false);
 		calcAverageStats();
 	}
@@ -267,14 +274,23 @@ public class Team {
 		return false;
 	}
 
+	/**
+	 * @return
+	 */
 	public ArrayList<Player> getActivePlayers() {
 		return activePlayers;
 	}
 
+	/**
+	 * @return
+	 */
 	public ArrayList<Player> getBenchPlayers() {
 		return benchPlayers;
 	}
 
+	/**
+	 * @return
+	 */
 	public ArrayList<Player> getAllPlayers() {
 		ArrayList<Player> list = new ArrayList<Player>();
 		list.addAll(activePlayers);
@@ -282,6 +298,10 @@ public class Team {
 		return list;
 	}
 
+	/**
+	 * @param id
+	 * @return
+	 */
 	public Player getPlayer(String id) {
 		ArrayList<Player> list = this.getAllPlayers();
 		for (int i = 0; i < list.size(); i++) {
@@ -291,18 +311,30 @@ public class Team {
 		throw new UnknownPlayerException(id + " does not exist");
 	}
 
+	/**
+	 * @return
+	 */
 	public String getTeamName() {
 		return teamName;
 	}
 
+	/**
+	 * @return
+	 */
 	public Player getTeamCaptain() {
 		return teamCaptain;
 	}
 
+	/**
+	 * @return
+	 */
 	public String getCoachName() {
 		return coachName;
 	}
 
+	/**
+	 * @return
+	 */
 	public int getTotalWins() {
 		return totalWins;
 	}
@@ -314,22 +346,37 @@ public class Team {
 		this.totalWins = this.totalWins + 1;
 	}
 
+	/**
+	 * @return
+	 */
 	public int getTotalLosses() {
 		return totalLosses;
 	}
 
+	/**
+	 * @param goals
+	 */
 	public void addGoalsAgainst(int goals) {
 		goalsagainst = goalsagainst + goals;
 	}
 
+	/**
+	 * @return
+	 */
 	public int getGoalsAgainst() {
 		return goalsagainst;
 	}
 
+	/**
+	 * @return
+	 */
 	public int getRanking() {
 		return ranking;
 	}
 
+	/**
+	 * @param ranking
+	 */
 	public void setRanking(int ranking) {
 		this.ranking = ranking;
 	}
@@ -344,6 +391,9 @@ public class Team {
 		this.points = points + this.points;
 	}
 
+	/**
+	 * @return
+	 */
 	public int getPoints() {
 		return points;
 	}
@@ -355,6 +405,9 @@ public class Team {
 		this.totalLosses = this.totalLosses + 1;
 	}
 
+	/**
+	 * @return
+	 */
 	public int getTotalDraws() {
 		return totalDraws;
 	}
@@ -366,6 +419,9 @@ public class Team {
 		this.totalDraws = this.totalDraws + 1;
 	}
 
+	/**
+	 * @return
+	 */
 	public int getTotalGoals() {
 		return totalGoals;
 	}
@@ -413,12 +469,15 @@ public class Team {
 		averageAttackPower = result;
 	}
 
+	/**
+	 * @return
+	 */
 	public int getAverageAttackPower() {
 		return averageAttackPower;
 	}
 
 	/**
-	 * Change the type of formation of the team choos out 442 
+	 * Change the type of formation of the team choos out 442
 	 */
 	public void changeFormationType(Formation form) {
 		for (int i = 0; i < activePlayers.size(); i++) {
@@ -428,14 +487,23 @@ public class Team {
 		formation = form;
 	}
 
+	/**
+	 * @return
+	 */
 	public Formation getFormation() {
 		return formation;
 	}
 
+	/**
+	 * @return
+	 */
 	public int getAttackPower() {
 		return attackPower;
 	}
 
+	/**
+	 * @param attack
+	 */
 	public void setAttackPower(int attack) {
 		this.attackPower = attack;
 	}
@@ -464,14 +532,23 @@ public class Team {
 		averageDefencePower = result;
 	}
 
+	/**
+	 * @return
+	 */
 	public int getAverageDefencePower() {
 		return averageDefencePower;
 	}
 
+	/**
+	 * @return
+	 */
 	public int getDefencePower() {
 		return defencePower;
 	}
 
+	/**
+	 * @param defence
+	 */
 	public void setDefencePower(int defence) {
 		this.defencePower = defence;
 	}
@@ -500,22 +577,37 @@ public class Team {
 		averageStamina = result;
 	}
 
+	/**
+	 * @return
+	 */
 	public int getAverageStamina() {
 		return averageStamina;
 	}
 
+	/**
+	 * @return
+	 */
 	public int getStamina() {
 		return stamina;
 	}
 
+	/**
+	 * @param stamina
+	 */
 	public void setStamina(int stamina) {
 		this.stamina = stamina;
 	}
 
+	/**
+	 * @return
+	 */
 	public String getid() {
 		return id;
 	}
 
+	/**
+	 * @return
+	 */
 	public int getPlayers() {
 		return getActivePlayers().size() + getBenchPlayers().size();
 	}
@@ -536,25 +628,40 @@ public class Team {
 		teamValue = result;
 	}
 
+	/**
+	 * @return
+	 */
 	public int getTeamValue() {
 		this.calcTeamValue();
 		return teamValue;
 	}
 
+	/**
+	 * @param teamValue
+	 */
 	public void setTeamValue(int teamValue) {
 		this.teamValue = teamValue;
 	}
 
+	/**
+	 * Recalculate the amount of players in this team
+	 */
 	public void calcTotalPlayers() {
 		int result = activePlayers.size() + benchPlayers.size();
 		totalPlayers = result;
 	}
 
+	/**
+	 * @return
+	 */
 	public int getTotalPlayers() {
 		this.calcTotalPlayers();
 		return totalPlayers;
 	}
 
+	/**
+	 * @return
+	 */
 	public ArrayList<Player> getAllPlayersList() {
 		ArrayList<Player> players = new ArrayList<Player>();
 
@@ -569,10 +676,16 @@ public class Team {
 		return players;
 	}
 
+	/**
+	 * @return
+	 */
 	public ObservableList<Player> getObservableActivePlayersList() {
 		return FXCollections.observableArrayList(activePlayers);
 	}
 
+	/**
+	 * @return
+	 */
 	public ObservableList<Player> getObservableBenchPlayersList() {
 		return FXCollections.observableArrayList(benchPlayers);
 	}
