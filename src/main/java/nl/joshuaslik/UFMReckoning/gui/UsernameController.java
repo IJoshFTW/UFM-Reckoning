@@ -5,7 +5,6 @@ import java.io.IOException;
 import javafx.animation.FadeTransition;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -25,23 +24,24 @@ public class UsernameController {
 	private Button okbutton;
 	@FXML
 	private TextField textfield;
-	
+
 	@FXML
-	protected void initialize(){
-		textfield.textProperty().addListener(new ChangeListener<String>(){
+	protected void initialize() {
+		textfield.textProperty().addListener(new ChangeListener<String>() {
 			@Override
-			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue){
-				if (newValue.length()>1) {
-		                  okbutton.setDisable(false);
-		         } else{
-		        	 okbutton.setDisable(true);
-		        }
-		    }
+			public void changed(ObservableValue<? extends String> observable,
+					String oldValue, String newValue) {
+				if (newValue.length() > 1) {
+					okbutton.setDisable(false);
+				} else {
+					okbutton.setDisable(true);
+				}
+			}
 		});
 	}
-	
+
 	@FXML
-	protected void handleUsername(ActionEvent event) throws IOException {	
+	protected void handleUsername() throws IOException {
 		String username = textfield.getText();
 		NewGameController.start(username);
 		FadeTransition ft = new FadeTransition(Duration.millis(900), page);
@@ -49,28 +49,28 @@ public class UsernameController {
 		ft.setToValue(0.0);
 		ft.play();
 	}
-	
+
 	@FXML
-	protected void handleUsernamekey(KeyEvent event) throws IOException {	
-		if(event.getCode().equals(KeyCode.ENTER) && !okbutton.isDisabled()){
+	protected void handleUsernamekey(KeyEvent event) throws IOException {
+		if (event.getCode().equals(KeyCode.ENTER) && !okbutton.isDisabled()) {
 			String username = textfield.getText();
 			NewGameController.start(username);
 			FadeTransition ft = new FadeTransition(Duration.millis(900), page);
 			ft.setFromValue(0.97);
 			ft.setToValue(0.0);
-			ft.play();		
+			ft.play();
 		}
 	}
-	
+
 	@FXML
-	protected void handleReturnMainMenu(ActionEvent event) {
+	protected void handleReturnMainMenu() {
 		FadeTransition ft = new FadeTransition(Duration.millis(900), page);
 		ft.setFromValue(0.97);
 		ft.setToValue(0.0);
 		ft.play();
-	
+
 	}
-	
+
 	public static void start() throws IOException {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Class.class
@@ -87,4 +87,3 @@ public class UsernameController {
 	}
 
 }
-

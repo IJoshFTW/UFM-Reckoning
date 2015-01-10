@@ -2,6 +2,7 @@ package nl.joshuaslik.UFMReckoning.backend;
 
 import java.util.ArrayList;
 
+import nl.joshuaslik.UFMReckoning.backend.formation.Formation;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 

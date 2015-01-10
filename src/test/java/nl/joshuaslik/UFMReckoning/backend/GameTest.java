@@ -106,9 +106,7 @@ public class GameTest {
 	public void testgetTeams() {
 		ArrayList<User> users = new ArrayList<User>();
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
-		Team team2 = new Team("ado", "ado", "Frank de Boer");
 		PC pc1 = new PC(team1, "test1", 5000);
-		PC pc2 = new PC(team1, "test2", 50000);
 		Game game1 = new Game(users);
 		ArrayList<Team> teams = new ArrayList<Team>();
 		teams.add(team1);
@@ -121,7 +119,6 @@ public class GameTest {
 		ArrayList<User> users = new ArrayList<User>();
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
 		PC pc1 = new PC(team1, "test1", 5000);
-		PC pc2 = new PC(team1, "test2", 50000);
 		Game game1 = new Game(users);
 		ArrayList<Team> teams = new ArrayList<Team>();
 		teams.add(team1);
@@ -134,7 +131,6 @@ public class GameTest {
 		ArrayList<User> users = new ArrayList<User>();
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
 		PC pc1 = new PC(team1, "test1", 5000);
-		PC pc2 = new PC(team1, "test2", 50000);
 		Game game1 = new Game(users);
 		ArrayList<Team> teams = new ArrayList<Team>();
 		teams.add(team1);
@@ -147,7 +143,6 @@ public class GameTest {
 		ArrayList<User> users = new ArrayList<User>();
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
 		PC pc1 = new PC(team1, "test1", 5000);
-		PC pc2 = new PC(team1, "test2", 50000);
 		Game game1 = new Game(users);
 		ArrayList<Team> teams = new ArrayList<Team>();
 		teams.add(team1);
@@ -160,7 +155,6 @@ public class GameTest {
 		ArrayList<User> users = new ArrayList<User>();
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
 		PC pc1 = new PC(team1, "test1", 5000);
-		PC pc2 = new PC(team1, "test2", 50000);
 		Game game1 = new Game(users);
 		ArrayList<Team> teams = new ArrayList<Team>();
 		teams.add(team1);
@@ -173,7 +167,6 @@ public class GameTest {
 		ArrayList<User> users = new ArrayList<User>();
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
 		PC pc1 = new PC(team1, "test1", 5000);
-		PC pc2 = new PC(team1, "test2", 50000);
 		Game game1 = new Game(users);
 		ArrayList<Team> teams = new ArrayList<Team>();
 		teams.add(team1);

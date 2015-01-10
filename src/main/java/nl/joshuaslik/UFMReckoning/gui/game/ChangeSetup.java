@@ -7,7 +7,6 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,15 +24,15 @@ import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.StringConverter;
 import nl.joshuaslik.UFMReckoning.backend.Fieldplayer;
-import nl.joshuaslik.UFMReckoning.backend.Form343;
-import nl.joshuaslik.UFMReckoning.backend.Form4321;
-import nl.joshuaslik.UFMReckoning.backend.Form433;
-import nl.joshuaslik.UFMReckoning.backend.Form442;
-import nl.joshuaslik.UFMReckoning.backend.Form532;
-import nl.joshuaslik.UFMReckoning.backend.Formation;
 import nl.joshuaslik.UFMReckoning.backend.Goalkeeper;
 import nl.joshuaslik.UFMReckoning.backend.Player;
 import nl.joshuaslik.UFMReckoning.backend.Team;
+import nl.joshuaslik.UFMReckoning.backend.formation.Form343;
+import nl.joshuaslik.UFMReckoning.backend.formation.Form4321;
+import nl.joshuaslik.UFMReckoning.backend.formation.Form433;
+import nl.joshuaslik.UFMReckoning.backend.formation.Form442;
+import nl.joshuaslik.UFMReckoning.backend.formation.Form532;
+import nl.joshuaslik.UFMReckoning.backend.formation.Formation;
 import nl.joshuaslik.UFMReckoning.gui.Main;
 
 /**
@@ -250,7 +249,7 @@ public class ChangeSetup {
 	}
 	
 	@FXML
-	protected void handleReturnTeamBuilder(ActionEvent event) throws IOException {
+	protected void handleReturnTeamBuilder() throws IOException {
 		TeamBuilderController.start();
 	}
 	

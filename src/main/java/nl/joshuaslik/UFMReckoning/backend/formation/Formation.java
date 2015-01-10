@@ -1,4 +1,8 @@
-package nl.joshuaslik.UFMReckoning.backend;
+package nl.joshuaslik.UFMReckoning.backend.formation;
+
+import nl.joshuaslik.UFMReckoning.backend.Fieldplayer;
+import nl.joshuaslik.UFMReckoning.backend.Goalkeeper;
+import nl.joshuaslik.UFMReckoning.backend.Team;
 
 /**
  * abstract class for formation

@@ -53,7 +53,6 @@ public class Playroundtest {
 		Playround playround1 = new Playround();
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
 		Team team2 = new Team("ado", "ado", "Frank de Boer");
-		Team team3 = new Team("az", "az", "Frank de Boer");
 		Match match = new Match(team1, team2);
 		playround1.addmatch(match);
 		assertEquals(playround1.contains(team1), 1);

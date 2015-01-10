@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -157,48 +156,48 @@ public class TeamBuilderController {
 	}
 
 	@FXML
-	protected void handleChangeSetup(ActionEvent event) throws IOException {
+	protected void handleChangeSetup() throws IOException {
 		ChangeSetup.start();
 	}
 
 	@FXML
-	protected void handleViewPlayer(ActionEvent event) throws IOException {
+	protected void handleViewPlayer() throws IOException {
 		ViewPlayer.start(selectedplayer);
 	}
 
 	@FXML
-	protected void handleTransferMarket(ActionEvent event) throws IOException {
+	protected void handleTransferMarket() throws IOException {
 		TransferMarket.start();
 	}
 
 	@FXML
-	protected void handlePlayerList(ActionEvent event) {
+	protected void handlePlayerList() {
 
 	}
 
 	@FXML
-	protected void handleReturnTeamBuilder(ActionEvent event)
+	protected void handleReturnTeamBuilder()
 			throws IOException {
 		TeamBuilderController.start();
 	}
 
 	@FXML
-	protected void handleSellPlayer(ActionEvent event) {
+	protected void handleSellPlayer() {
 
 	}
 
 	@FXML
-	protected void handleBuyPlayer(ActionEvent event) {
+	protected void handleBuyPlayer() {
 
 	}
 
 	@FXML
-	protected void handlePlayerToField(ActionEvent event) {
+	protected void handlePlayerToField() {
 
 	}
 
 	@FXML
-	protected void handlePlayerToBench(ActionEvent event) {
+	protected void handlePlayerToBench() {
 
 	}
 }

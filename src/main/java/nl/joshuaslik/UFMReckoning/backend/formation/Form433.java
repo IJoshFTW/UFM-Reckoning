@@ -1,17 +1,27 @@
-package nl.joshuaslik.UFMReckoning.backend;
+package nl.joshuaslik.UFMReckoning.backend.formation;
+
+import nl.joshuaslik.UFMReckoning.backend.Fieldplayer;
+import nl.joshuaslik.UFMReckoning.backend.Team;
 
 /**
- * @author Bryan van Wijk Formation met 4-4-2 where CB is Central Back RB is
- *         Right back player LB is Left back player CM is Central midfield
- *         player LM is left midfield player RM is right midfield player LW is
- *         left wing player RW is right wing player ST is
+ * Formation met 4-4-2 where<br>
+ * CB is Central Back<br>
+ * RB is Right back player<br>
+ * LB is Left back player<br>
+ * CM is Central midfield player<br>
+ * LM is left midfield player<br>
+ * RM is right midfield player<br>
+ * LW is left wing player<br>
+ * RW is right wing player<br>
+ * ST is striker<br>
+ * 
+ * @author Bryan van Wijk
  */
 
-public class Form532 extends Formation {
+public class Form433 extends Formation {
 
 	private Fieldplayer CB1;
 	private Fieldplayer CB2;
-	private Fieldplayer CB3;
 	private Fieldplayer RB;
 	private Fieldplayer LB;
 	private Fieldplayer CM;
@@ -19,17 +29,18 @@ public class Form532 extends Formation {
 	private Fieldplayer RM;
 	private Fieldplayer LW;
 	private Fieldplayer RW;
-	private String Name = "5-3-2";
+	private Fieldplayer ST;
+	private String Name = "4-3-3";
 
 	/**
 	 * 
-	 * @return the name of the team
+	 * @return the name of the formation
 	 */
 	public String getName() {
 		return Name;
 	}
 
-	public Form532(Team team) {
+	public Form433(Team team) {
 		super(team);
 	}
 
@@ -47,14 +58,6 @@ public class Form532 extends Formation {
 	 */
 	public Fieldplayer getCB2() {
 		return CB2;
-	}
-
-	/**
-	 * 
-	 * @return central back player 3
-	 */
-	public Fieldplayer getCB3() {
-		return CB3;
 	}
 
 	/**
@@ -114,6 +117,14 @@ public class Form532 extends Formation {
 	}
 
 	/**
+	 * 
+	 * @return Striker player
+	 */
+	public Fieldplayer getST() {
+		return ST;
+	}
+
+	/**
 	 * Set the Centralback 1
 	 * 
 	 * @param CB1
@@ -148,23 +159,6 @@ public class Form532 extends Formation {
 	}
 
 	/**
-	 * Set the Centralback 3
-	 * 
-	 * @param CB3
-	 *            new CB1
-	 * @return old CB1
-	 */
-	public Fieldplayer setCB3(Fieldplayer CB3) {
-		Fieldplayer tmp = this.CB3;
-		if (tmp != null) {
-			team.setPlayerBench(tmp);
-		}
-		this.CB3 = CB3;
-		team.setPlayerActive(CB3);
-		return tmp;
-	}
-
-	/**
 	 * Set the rightback
 	 * 
 	 * @param RB
@@ -186,7 +180,7 @@ public class Form532 extends Formation {
 	 * 
 	 * @param LB
 	 *            new LB
-	 * @return LB old LB
+	 * @return old LB
 	 */
 	public Fieldplayer setLB(Fieldplayer LB) {
 		Fieldplayer tmp = this.LB;
@@ -280,6 +274,23 @@ public class Form532 extends Formation {
 		}
 		this.RW = RW;
 		team.setPlayerActive(RW);
+		return tmp;
+	}
+
+	/**
+	 * Set the striker
+	 * 
+	 * @param ST
+	 *            new ST
+	 * @return old ST
+	 */
+	public Fieldplayer setST(Fieldplayer ST) {
+		Fieldplayer tmp = this.ST;
+		if (tmp != null) {
+			team.setPlayerBench(tmp);
+		}
+		this.ST = ST;
+		team.setPlayerActive(ST);
 		return tmp;
 	}
 

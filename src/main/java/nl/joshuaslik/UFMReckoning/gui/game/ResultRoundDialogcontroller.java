@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javafx.animation.FadeTransition;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -61,7 +60,7 @@ public class ResultRoundDialogcontroller {
 	
 	
 	@FXML
-	protected void handleOK(ActionEvent event) {
+	protected void handleOK() {
 		FadeTransition ft = new FadeTransition(Duration.millis(500), page);
 		ft.setFromValue(0.97);
 		ft.setToValue(0.0);

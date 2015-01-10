@@ -1,10 +1,20 @@
-package nl.joshuaslik.UFMReckoning.backend;
+package nl.joshuaslik.UFMReckoning.backend.formation;
+
+import nl.joshuaslik.UFMReckoning.backend.Fieldplayer;
+import nl.joshuaslik.UFMReckoning.backend.Team;
 
 /**
- * Formation met 4-4-2 where CB is Central Back RB is Right back player LB is
- * Left back player CM is Central midfield player LM is left midfield player RM
- * is right midfield player LW is left wing player RW is right wing player ORM
- * is offensive right midfield OLM is offensive left midfield st is
+ * Formation met 4-4-2 where CB is Central Back<br>
+ * RB is Right back player<br>
+ * LB is Left back player<br>
+ * CM is Central midfield player<br>
+ * LM is left midfield player<br>
+ * RM is right midfield player<br>
+ * LW is left wing player<br>
+ * RW is right wing player<br>
+ * ORM is offensive right midfield<br>
+ * OLM is offensive left midfield<br>
+ * ST is striker<br>
  * 
  * @author Bryan van Wijk
  * 

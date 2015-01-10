@@ -1,6 +1,7 @@
 package nl.joshuaslik.UFMReckoning.backend;
 
 import static org.junit.Assert.assertEquals;
+import nl.joshuaslik.UFMReckoning.backend.formation.Form532;
 
 import org.junit.Test;
 

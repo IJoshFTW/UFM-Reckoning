@@ -7,7 +7,6 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ComboBox;
@@ -143,7 +142,7 @@ public class OtherTeams {
 	}
 	
 	@FXML
-	protected void handleViewPlayer(ActionEvent event) throws IOException {
+	protected void handleViewPlayer() throws IOException {
 		ViewPlayer.start(selectedplayer);
 	}
 

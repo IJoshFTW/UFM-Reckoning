@@ -41,7 +41,9 @@ public class Game {
 	 * @param user
 	 */
 	public void sellPlayer(String id, User user) {
-		getUser().addMoney(users.get(users.indexOf(user)).getTeam().getPlayer(id).getPrice());
+		getUser().addMoney(
+				users.get(users.indexOf(user)).getTeam().getPlayer(id)
+						.getPrice());
 		users.get(users.indexOf(user)).getTeam().removePlayer(id);
 	}
 
@@ -63,9 +65,11 @@ public class Game {
 	 * @param user
 	 */
 	public void buyPlayer(String id, User user) {
-		if (users.get(users.indexOf(user)).getBudget() > players.get(id).getPrice()) {
+		if (users.get(users.indexOf(user)).getBudget() > players.get(id)
+				.getPrice()) {
 			users.get(users.indexOf(user)).subMoney(players.get(id).getPrice());
-			users.get(users.indexOf(user)).getTeam().addBenchPlayer(players.get(id));
+			users.get(users.indexOf(user)).getTeam()
+					.addBenchPlayer(players.get(id));
 		}
 		throw new UnableToBuyException("Not enough money");
 	}
@@ -106,7 +110,7 @@ public class Game {
 	 * 
 	 * @param userName
 	 *            the name of the User to get
-	 * @return
+	 * @return the user matching the userName specified
 	 */
 	public User getUser(String userName) {
 		for (int i = 0; i < users.size(); i++)
@@ -120,7 +124,7 @@ public class Game {
 	 * 
 	 * @param team
 	 *            Team of the user to get
-	 * @return
+	 * @return the user who has the Team specified
 	 */
 	public User getUser(Team team) {
 		for (int i = 0; i < users.size(); i++)
