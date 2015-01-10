@@ -3,27 +3,19 @@ package nl.joshuaslik.UFMReckoning.gui.game;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Rectangle2D;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Screen;
 import javafx.util.Callback;
 import javafx.util.StringConverter;
 import nl.joshuaslik.UFMReckoning.backend.Match;
@@ -160,9 +152,7 @@ public class Playrounds {
     	if(goals != -1){
     		return goals;
     	}
-    	else{
-    		return null;
-    	}
+		return null;
     }
 	public void selectedMatch(Match newValue) {
 		selectedmatch = newValue;

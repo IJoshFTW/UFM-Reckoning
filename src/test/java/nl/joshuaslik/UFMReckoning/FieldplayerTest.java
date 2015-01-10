@@ -1,10 +1,9 @@
 package nl.joshuaslik.UFMReckoning;
 
+import junit.framework.TestCase;
 import nl.joshuaslik.UFMReckoning.backend.Fieldplayer;
 
 import org.junit.Test;
-
-import junit.framework.TestCase;
 
 public class FieldplayerTest extends TestCase {
 

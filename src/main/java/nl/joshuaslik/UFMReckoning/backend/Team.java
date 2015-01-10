@@ -520,8 +520,6 @@ public class Team {
 
 	/**
 	 * Calculates the value of a team
-	 * 
-	 * @return
 	 */
 	public void calcTeamValue() {
 		int result = 0;

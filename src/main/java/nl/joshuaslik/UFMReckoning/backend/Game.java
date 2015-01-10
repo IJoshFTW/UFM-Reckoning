@@ -118,8 +118,8 @@ public class Game {
 	/**
 	 * Get a User by Team
 	 * 
-	 * @param Team
-	 *            of the user to get
+	 * @param team
+	 *            Team of the user to get
 	 * @return
 	 */
 	public User getUser(Team team) {

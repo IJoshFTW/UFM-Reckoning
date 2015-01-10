@@ -125,7 +125,7 @@ public class Form343 extends Formation {
 	
 	/**
 	 * Set the Centralback
-	 * @param new CB1
+	 * @param CB new CB1
 	 * @return old CB1
 	 */
 	public Fieldplayer setCB(Fieldplayer CB){
@@ -141,7 +141,7 @@ public class Form343 extends Formation {
 	
 	/**
 	 * Set the rightback
-	 * @param new RB
+	 * @param RB new RB
 	 * @retun old RB
 	 */
 	public Fieldplayer setRB(Fieldplayer RB){
@@ -156,7 +156,7 @@ public class Form343 extends Formation {
 	
 	/**
 	 * Set the leftback
-	 * @param new LB
+	 * @param LB new LB
 	 *  @retun old LB
 	 */
 	public Fieldplayer setLB(Fieldplayer LB){
@@ -171,7 +171,7 @@ public class Form343 extends Formation {
 	
 	/**
 	 * Set the Central midfield 1
-	 * @param new CM1
+	 * @param CM1 CM1
 	 *  @retun old CM1
 	 */
 	public Fieldplayer setCM1(Fieldplayer CM1){
@@ -186,7 +186,7 @@ public class Form343 extends Formation {
 	
 	/**
 	 * Set the Central midfield 2
-	 * @param new CM2
+	 * @param CM2 new CM2
 	 *  @retun old CM2
 	 */
 	public Fieldplayer setCM2(Fieldplayer CM2){
@@ -202,7 +202,7 @@ public class Form343 extends Formation {
 	
 	/**
 	 * Set the left midfield
-	 * @param new LM
+	 * @param LM new LM
 	 * @retun old LM
 	 */
 	public Fieldplayer setLM(Fieldplayer LM){
@@ -217,7 +217,7 @@ public class Form343 extends Formation {
 	
 	/**
 	 * Set the right midfield 
-	 * @param new RM
+	 * @param RM new RM
 	 *  @retun old RM
 	 */
 	public Fieldplayer setRM(Fieldplayer RM){
@@ -232,7 +232,7 @@ public class Form343 extends Formation {
 	
 	/**
 	 * Set the left wing
-	 * @param new LW
+	 * @param LW new LW
 	 * @retun old LW
 	 */
 	public Fieldplayer setLW(Fieldplayer LW){
@@ -247,7 +247,7 @@ public class Form343 extends Formation {
 	
 	/**
 	 * Set the right wing
-	 * @param new RW
+	 * @param RW new RW
 	 *  @retun old RW
 	 */
 	public Fieldplayer setRW(Fieldplayer RW){
@@ -262,7 +262,7 @@ public class Form343 extends Formation {
 	
 	/**
 	 * Set the 
-	 * @param new ST
+	 * @param ST new ST
 	 * @retun old ST
 	 */
 	public Fieldplayer setST(Fieldplayer ST){

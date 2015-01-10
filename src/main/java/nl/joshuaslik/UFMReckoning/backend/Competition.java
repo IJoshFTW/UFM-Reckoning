@@ -107,13 +107,13 @@ public class Competition {
 
 	/**
 	 * 
-	 * @param i
+	 * @param index
 	 *            between 0 and total playrounds
-	 * @return playround i of this competition stating from 0
+	 * @return playround index of this competition stating from 0
 	 */
-	public Playround getPlayround(int nr){
+	public Playround getPlayround(int index){
 		for (int i = 0; i < playrounds.size(); i++) {
-			if (playrounds.get(i).getPlayroundnr() == nr) {
+			if (playrounds.get(i).getPlayroundnr() == index) {
 				return playrounds.get(i);
 			}
 		}

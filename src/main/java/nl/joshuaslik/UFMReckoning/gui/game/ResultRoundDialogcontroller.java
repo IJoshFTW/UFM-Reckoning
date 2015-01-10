@@ -3,27 +3,19 @@ package nl.joshuaslik.UFMReckoning.gui.game;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import nl.joshuaslik.UFMReckoning.backend.Match;
-import nl.joshuaslik.UFMReckoning.backend.Playround;
-import nl.joshuaslik.UFMReckoning.gui.Main;
 import javafx.animation.FadeTransition;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Modality;
 import javafx.stage.Popup;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import javafx.util.Duration;
+import nl.joshuaslik.UFMReckoning.backend.Match;
+import nl.joshuaslik.UFMReckoning.gui.Main;
 
 public class ResultRoundDialogcontroller {
 	private static Popup popup;
@@ -69,7 +61,7 @@ public class ResultRoundDialogcontroller {
 	
 	
 	@FXML
-	protected void handleOK(ActionEvent event) throws IOException {
+	protected void handleOK(ActionEvent event) {
 		FadeTransition ft = new FadeTransition(Duration.millis(500), page);
 		ft.setFromValue(0.97);
 		ft.setToValue(0.0);

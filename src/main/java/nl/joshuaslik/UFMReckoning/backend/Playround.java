@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * 
  *
  */
-public class Playround implements Comparable  {
+public class Playround implements Comparable<Object>  {
 	
 	ArrayList<Match> matches = new ArrayList<Match>();
 	int playroundnr;

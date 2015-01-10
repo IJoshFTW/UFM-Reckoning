@@ -1,11 +1,8 @@
 package nl.joshuaslik.UFMReckoning.backend;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 
 import java.util.ArrayList;
-
-import nl.joshuaslik.UFMReckoning.gui.game.MainGame;
 
 import org.junit.Test;
 

@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -16,15 +15,11 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
 import javafx.util.Callback;
 import nl.joshuaslik.UFMReckoning.backend.Player;
 import nl.joshuaslik.UFMReckoning.backend.Team;
 import nl.joshuaslik.UFMReckoning.gui.Main;
-import nl.joshuaslik.UFMReckoning.gui.MainMenu;
 
 /**
  * @author <a href="http://www.joshuaslik.nl/" target="_blank">Joshua Slik</a>
@@ -177,7 +172,7 @@ public class TeamBuilderController {
 	}
 
 	@FXML
-	protected void handlePlayerList(ActionEvent event) throws IOException {
+	protected void handlePlayerList(ActionEvent event) {
 
 	}
 

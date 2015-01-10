@@ -65,9 +65,7 @@ public class Match {
 				return -1;
 			}
 		}
-		else{
-			return -1;
-		}
+		return -1;
 	}
 	
 	/**
@@ -156,9 +154,7 @@ public class Match {
 		if(homegoals != -1){
 			return homegoals;
 		}
-		else{
-			return null; 
-		}
+		return null;
 	}
 	
 	/**
@@ -169,9 +165,7 @@ public class Match {
 		if(awaygoals != -1){
 			return awaygoals;
 		}
-		else{
-			return null; 
-		}
+		return null;
 	}
 	
 	/**

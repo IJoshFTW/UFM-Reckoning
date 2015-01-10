@@ -5,14 +5,8 @@ import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 public class ControllerMainMenu {
 
@@ -66,7 +60,7 @@ public class ControllerMainMenu {
 	}
 
 	@FXML
-	protected void handleNewGame(ActionEvent event) throws IOException {
+	protected void handleNewGame(@SuppressWarnings("unused") ActionEvent event) throws IOException {
 		UsernameController.start();
 		//NewGameController.start("Joshua");
 	}

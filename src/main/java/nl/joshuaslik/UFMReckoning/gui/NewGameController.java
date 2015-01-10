@@ -7,13 +7,10 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Rectangle2D;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Screen;
 import nl.joshuaslik.UFMReckoning.backend.Form343;
 import nl.joshuaslik.UFMReckoning.backend.Game;
 import nl.joshuaslik.UFMReckoning.backend.Save;
@@ -74,7 +71,7 @@ public class NewGameController {
 	    
 	    
 	    @FXML
-		protected void handleChooseTeam(ActionEvent event) throws IOException {
+		protected void handleChooseTeam(ActionEvent event) {
 	    	if (choosenteam != null) {
 				Team chosenTeam = teamtable.getSelectionModel().getSelectedItem();
 				Game Game1 = Save.newGame(chosenTeam, username);

@@ -2,9 +2,6 @@ package nl.joshuaslik.UFMReckoning.backend;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-
 import org.junit.Test;
 
 public class SaveTest {

@@ -2,8 +2,6 @@ package nl.joshuaslik.UFMReckoning.gui;
 
 import java.io.IOException;
 
-import nl.joshuaslik.UFMReckoning.backend.Fieldplayer;
-import nl.joshuaslik.UFMReckoning.backend.Player;
 import javafx.animation.FadeTransition;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -12,12 +10,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Popup;
-import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class UsernameController {
@@ -45,7 +41,7 @@ public class UsernameController {
 	}
 	
 	@FXML
-	protected void handleUsername(ActionEvent event) throws IOException, InterruptedException {	
+	protected void handleUsername(ActionEvent event) throws IOException {	
 		String username = textfield.getText();
 		NewGameController.start(username);
 		FadeTransition ft = new FadeTransition(Duration.millis(900), page);
@@ -55,7 +51,7 @@ public class UsernameController {
 	}
 	
 	@FXML
-	protected void handleUsernamekey(KeyEvent event) throws IOException, InterruptedException {	
+	protected void handleUsernamekey(KeyEvent event) throws IOException {	
 		if(event.getCode().equals(KeyCode.ENTER) && !okbutton.isDisabled()){
 			String username = textfield.getText();
 			NewGameController.start(username);
@@ -67,7 +63,7 @@ public class UsernameController {
 	}
 	
 	@FXML
-	protected void handleReturnMainMenu(ActionEvent event) throws IOException {
+	protected void handleReturnMainMenu(ActionEvent event) {
 		FadeTransition ft = new FadeTransition(Duration.millis(900), page);
 		ft.setFromValue(0.97);
 		ft.setToValue(0.0);

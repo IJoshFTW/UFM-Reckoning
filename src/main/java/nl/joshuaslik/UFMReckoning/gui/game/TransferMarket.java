@@ -7,23 +7,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Labeled;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import nl.joshuaslik.UFMReckoning.backend.Player;
-import nl.joshuaslik.UFMReckoning.backend.Save;
 import nl.joshuaslik.UFMReckoning.backend.Team;
 import nl.joshuaslik.UFMReckoning.gui.Main;
 
@@ -33,8 +24,8 @@ import nl.joshuaslik.UFMReckoning.gui.Main;
  */
 public class TransferMarket {
 	private static Team team;
-	private static TableView sellList;
-	private static TableView buyList;
+	private static TableView<Player> sellList;
+	private static TableView<Player> buyList;
 
 	public static void start() throws IOException {
 		team = MainGame.game.getUser().getTeam();
@@ -45,8 +36,7 @@ public class TransferMarket {
 
 
 		// Font voorbereiden voor de Text objecten
-		Font statsFont = new Font(20);
-		statsFont.loadFont("/data/gui/pages-menu/fonts/Quicksand.otf", 20);
+		Font statsFont = Font.loadFont("/data/gui/pages-menu/fonts/Quicksand.otf", 20);
 
 		// sellList TableView aanpassen
 		sellList.prefHeight(550);

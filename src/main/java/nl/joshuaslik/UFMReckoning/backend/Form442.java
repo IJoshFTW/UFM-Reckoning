@@ -29,7 +29,7 @@ public class Form442 extends Formation {
 	
 	/**
 	 * 
-	 * @return
+	 * @return The name of the formation
 	 */
 	public String getName(){
 		return Name;
@@ -122,7 +122,7 @@ public class Form442 extends Formation {
 	
 	/**
 	 * Set the Centralback 1
-	 * @param new CB1
+	 * @param CB1 new CB1
 	 * @return old CB1
 	 */
 	public Fieldplayer setCB1(Fieldplayer CB1){
@@ -137,8 +137,8 @@ public class Form442 extends Formation {
 	
 	/**
 	 * Set the Centralback 2
-	 * @param new CB1
-	 *  @retun old CB1
+	 * @param CB1 new CB1
+	 *  @return old CB1
 	 */
 	public Fieldplayer setCB2(Fieldplayer CB2){
 		Fieldplayer tmp = this.CB2;
@@ -152,8 +152,8 @@ public class Form442 extends Formation {
 	
 	/**
 	 * Set the rightback
-	 * @param new RB
-	 * @retun old RB
+	 * @param RB new RB
+	 * @return old RB
 	 */
 	public Fieldplayer setRB(Fieldplayer RB){
 		Fieldplayer tmp = this.RB;
@@ -167,8 +167,8 @@ public class Form442 extends Formation {
 	
 	/**
 	 * Set the leftback
-	 * @param new LB
-	 *  @retun old LB
+	 * @param LB new LB
+	 *  @return old LB
 	 */
 	public Fieldplayer setLB(Fieldplayer LB){
 		Fieldplayer tmp = this.LB;
@@ -182,8 +182,8 @@ public class Form442 extends Formation {
 	
 	/**
 	 * Set the Central midfield 1
-	 * @param new CM1
-	 *  @retun old CM1
+	 * @param CM1 new CM1
+	 *  @return old CM1
 	 */
 	public Fieldplayer setCM1(Fieldplayer CM1){
 		Fieldplayer tmp = this.CM1;
@@ -197,8 +197,8 @@ public class Form442 extends Formation {
 	
 	/**
 	 * Set the Central midfield 1
-	 * @param new CM2
-	 *  @retun old CM2
+	 * @param CM2 new CM2
+	 *  @return old CM2
 	 */
 	public Fieldplayer setCM2(Fieldplayer CM2){
 		Fieldplayer tmp = this.CM2;
@@ -212,8 +212,8 @@ public class Form442 extends Formation {
 	
 	/**
 	 * Set the left midfield
-	 * @param new LM
-	 * @retun old LM
+	 * @param LM new LM
+	 * @return old LM
 	 */
 	public Fieldplayer setLM(Fieldplayer LM){
 		Fieldplayer tmp = this.LM;
@@ -227,8 +227,8 @@ public class Form442 extends Formation {
 	
 	/**
 	 * Set the right midfield 
-	 * @param new RM
-	 *  @retun old RM
+	 * @param RM new RM
+	 *  @return old RM
 	 */
 	public Fieldplayer setRM(Fieldplayer RM){
 		Fieldplayer tmp = this.RM;
@@ -242,8 +242,8 @@ public class Form442 extends Formation {
 	
 	/**
 	 * Set the left Wing
-	 * @param new LW
-	 *  @retun old LW
+	 * @param LW new LW
+	 *  @return old LW
 	 */
 	public Fieldplayer setLW(Fieldplayer LW){
 		Fieldplayer tmp = this.LW;
@@ -257,8 +257,8 @@ public class Form442 extends Formation {
 	
 	/**
 	 * Set the right Wing
-	 * @param new RW
-	 * @retun old RW
+	 * @param RW new RW
+	 * @return old RW
 	 */
 	public Fieldplayer setRW(Fieldplayer RW){
 		Fieldplayer tmp = this.RW;
