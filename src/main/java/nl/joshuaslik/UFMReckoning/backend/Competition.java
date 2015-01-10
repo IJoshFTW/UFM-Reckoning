@@ -5,14 +5,17 @@ import java.util.Collections;
 
 /**
  * @author Bryan van Wijk
- * 
- *
+ * @author <a href="http://www.joshuaslik.nl/" target="_blank">Joshua Slik</a>
  */
 public class Competition {
 	ArrayList<Playround> playrounds = new ArrayList<Playround>();
 	Game game;
 	ArrayList<User> users;
 
+	/**
+	 * @param game
+	 *            the game object where this competition is for
+	 */
 	public Competition(Game game) {
 		this.game = game;
 		users = game.getUsers();
@@ -32,13 +35,12 @@ public class Competition {
 	public void ComputeStandings() {
 		int ranking = 1;
 		for (int i = 0; i < users.size(); i++) {
-			
+
 			ranking = 1;
 			for (int j = 0; j < users.size(); j++) {
 				if ((users.get(i).getTeam().getPoints() < users.get(j)
 						.getTeam().getPoints())
-						||
-						(users.get(i).getTeam().getPoints() == users.get(j)
+						|| (users.get(i).getTeam().getPoints() == users.get(j)
 								.getTeam().getPoints() && users.get(i)
 								.getTeam().getTotalGoals() < users.get(j)
 								.getTeam().getTotalGoals())) {
@@ -71,8 +73,7 @@ public class Competition {
 			Playround newplayround = new Playround();
 			if (i % 2 == 0) {
 				round = p + 1;
-			}
-			else if (i % 2 != 0) {
+			} else if (i % 2 != 0) {
 				round = (users.size() * (users.size() - 1) / (users.size() / 2))
 						- (p);
 				p = p + 1;
@@ -107,13 +108,13 @@ public class Competition {
 
 	/**
 	 * 
-	 * @param i
+	 * @param index
 	 *            between 0 and total playrounds
-	 * @return playround i of this competition stating from 0
+	 * @return playround index of this competition stating from 0
 	 */
-	public Playround getPlayround(int nr){
+	public Playround getPlayround(int index) {
 		for (int i = 0; i < playrounds.size(); i++) {
-			if (playrounds.get(i).getPlayroundnr() == nr) {
+			if (playrounds.get(i).getPlayroundnr() == index) {
 				return playrounds.get(i);
 			}
 		}
@@ -136,8 +137,8 @@ public class Competition {
 	public boolean equals(Object other) {
 		if (other instanceof Competition) {
 			Competition that = (Competition) other;
-			if (this.game.equals(that.game) &
-					this.playrounds.equals(that.playrounds)) {
+			if (this.game.equals(that.game)
+					& this.playrounds.equals(that.playrounds)) {
 				return true;
 			}
 		}

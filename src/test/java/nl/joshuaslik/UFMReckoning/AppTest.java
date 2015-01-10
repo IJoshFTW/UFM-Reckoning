@@ -8,7 +8,7 @@ import org.junit.rules.ExpectedException;
  * Unit test for simple App.
  */
 public class AppTest {
-	
+
 	@Rule
 	public ExpectedException thrown = ExpectedException.none();
 

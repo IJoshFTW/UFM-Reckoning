@@ -1,39 +1,21 @@
 package nl.joshuaslik.UFMReckoning.gui.game;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javafx.animation.FadeTransition;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
-import javafx.stage.Modality;
 import javafx.stage.Popup;
-import javafx.stage.PopupWindow;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import nl.joshuaslik.UFMReckoning.backend.Fieldplayer;
 import nl.joshuaslik.UFMReckoning.backend.Goalkeeper;
 import nl.joshuaslik.UFMReckoning.backend.Player;
-import nl.joshuaslik.UFMReckoning.backend.Team;
 import nl.joshuaslik.UFMReckoning.gui.Main;
-import nl.joshuaslik.UFMReckoning.gui.MainMenu;
 
 /**
  * @author <a href="http://www.joshuaslik.nl/" target="_blank">Joshua Slik</a>
@@ -43,7 +25,7 @@ public class ViewPlayer {
 	private static Player player;
 	private static Popup popup;
 	private static AnchorPane page;
-	
+
 	@FXML
 	private Label playerName;
 	@FXML
@@ -80,16 +62,15 @@ public class ViewPlayer {
 	@FXML
 	private void initialize() {
 		playerName.setText(player.getFullName());
-		
+
 		Image image = new Image("/data/base/players/pictures/" + player.getID()
 				+ ".png");
 		playerPhoto.setImage(image);
-		
-		
+
 		if (player instanceof Fieldplayer) {
 			Fieldplayer fieldplayer = (Fieldplayer) player;
 			playerRole.setText("Role: Fieldplayer");
-			
+
 			// AttackPower bar inladen
 			attackLable.setVisible(true);
 			atkPwrImg.prefHeight(20);
@@ -111,11 +92,11 @@ public class ViewPlayer {
 			staminaImg.setFitWidth(fieldplayer.getStamina() * 3);
 			staminaImg.setVisible(true);
 		}
-		
+
 		if (player instanceof Goalkeeper) {
 			Goalkeeper goalkeeper = (Goalkeeper) player;
 			playerRole.setText("Role: Goalkeeper");
-			
+
 			// Diving bar inladen
 			divingLable.setVisible(true);
 			divingImg.prefHeight(20);
@@ -141,7 +122,7 @@ public class ViewPlayer {
 	}
 
 	public static void start(Player inputPlayer) throws IOException {
-		player = inputPlayer;	
+		player = inputPlayer;
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Class.class
 				.getResource("/data/gui/pages-game/ViewPlayer.fxml"));
@@ -154,9 +135,9 @@ public class ViewPlayer {
 		popup.getContent().add(page);
 		popup.show(Main.stage);
 	}
-	
+
 	@FXML
-	protected void handleReturn(ActionEvent event) throws IOException {
+	protected void handleReturn() {
 		FadeTransition ft = new FadeTransition(Duration.millis(900), page);
 		ft.setFromValue(0.97);
 		ft.setToValue(0.0);

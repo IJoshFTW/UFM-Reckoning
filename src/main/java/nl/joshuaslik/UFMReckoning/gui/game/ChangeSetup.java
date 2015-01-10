@@ -7,16 +7,10 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Labeled;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -28,14 +22,17 @@ import javafx.scene.input.Dragboard;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.paint.Paint;
-import javafx.scene.shape.Circle;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
-import javafx.util.Callback;
 import javafx.util.StringConverter;
-import nl.joshuaslik.UFMReckoning.backend.*;
+import nl.joshuaslik.UFMReckoning.backend.Fieldplayer;
+import nl.joshuaslik.UFMReckoning.backend.Goalkeeper;
+import nl.joshuaslik.UFMReckoning.backend.Player;
+import nl.joshuaslik.UFMReckoning.backend.Team;
+import nl.joshuaslik.UFMReckoning.backend.formation.Form343;
+import nl.joshuaslik.UFMReckoning.backend.formation.Form4321;
+import nl.joshuaslik.UFMReckoning.backend.formation.Form433;
+import nl.joshuaslik.UFMReckoning.backend.formation.Form442;
+import nl.joshuaslik.UFMReckoning.backend.formation.Form532;
+import nl.joshuaslik.UFMReckoning.backend.formation.Formation;
 import nl.joshuaslik.UFMReckoning.gui.Main;
 
 /**
@@ -532,7 +529,7 @@ public class ChangeSetup {
 	}
 	
 	@FXML
-	protected void handleReturnTeamBuilder(ActionEvent event) throws IOException {
+	protected void handleReturnTeamBuilder() throws IOException {
 		TeamBuilderController.start();
 	}
 	

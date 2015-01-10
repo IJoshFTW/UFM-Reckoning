@@ -2,6 +2,8 @@ package nl.joshuaslik.UFMReckoning.backend;
 
 import java.util.ArrayList;
 
+import nl.joshuaslik.UFMReckoning.backend.exceptions.UnknownPlayerException;
+import nl.joshuaslik.UFMReckoning.backend.formation.Formation;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -12,6 +14,7 @@ import javafx.collections.ObservableList;
  * The Object also keeps track of the team statistics.
  * 
  * @author Sander Benoist
+ * @author <a href="http://www.joshuaslik.nl/" target="_blank">Joshua Slik</a>
  *
  */
 public class Team {
@@ -28,7 +31,7 @@ public class Team {
 	private int totalPlayers;
 
 	/**
-	 * Initialises the Object
+	 * Constructs the Object
 	 * 
 	 * @param tmName
 	 *            is the team name.
@@ -138,6 +141,13 @@ public class Team {
 		calcAverageStats();
 	}
 
+	/**
+	 * Removes a player from this team, regardless of if he is a bench player or
+	 * an active player
+	 * 
+	 * @param id
+	 *            the ID of the player to remove
+	 */
 	public void removePlayer(String id) {
 		Player player = this.getPlayer(id);
 		if (benchPlayers.contains(player))
@@ -146,6 +156,11 @@ public class Team {
 			this.removeActivePlayer(player);
 	}
 
+	/**
+	 * Get the active Goalkeeper of this team
+	 * 
+	 * @return the active Goalkeeper
+	 */
 	public Goalkeeper getActiveGoalkeeper() {
 		Goalkeeper res = null;
 		for (int i = 0; i < activePlayers.size(); i++) {
@@ -218,7 +233,7 @@ public class Team {
 				}
 			}
 		}
-		
+
 		player.setActiveState(false);
 		calcAverageStats();
 	}
@@ -265,14 +280,29 @@ public class Team {
 		return false;
 	}
 
+	/**
+	 * Get the active players of this team
+	 * 
+	 * @return the list of active players
+	 */
 	public ArrayList<Player> getActivePlayers() {
 		return activePlayers;
 	}
 
+	/**
+	 * Get the bench players of this team
+	 * 
+	 * @return the list of bench players
+	 */
 	public ArrayList<Player> getBenchPlayers() {
 		return benchPlayers;
 	}
 
+	/**
+	 * Get all players of this team
+	 * 
+	 * @return the list of all players
+	 */
 	public ArrayList<Player> getAllPlayers() {
 		ArrayList<Player> list = new ArrayList<Player>();
 		list.addAll(activePlayers);
@@ -280,90 +310,102 @@ public class Team {
 		return list;
 	}
 
+	/**
+	 * Get a player from this team by ID
+	 * 
+	 * @param id
+	 *            the ID of the player to get
+	 * @return the player matching the id provided
+	 */
 	public Player getPlayer(String id) {
 		ArrayList<Player> list = this.getAllPlayers();
 		for (int i = 0; i < list.size(); i++) {
 			if (list.get(i).getID().equals(id))
 				return list.get(i);
 		}
-		throw new UnknownPlayerException(id + " does not exist");
+		throw new UnknownPlayerException(id + " does not exist in " + teamName);
 	}
 
+	/**
+	 * Get the name of this team
+	 * 
+	 * @return the name of this team
+	 */
 	public String getTeamName() {
 		return teamName;
 	}
 
+	/**
+	 * Get the captain of this team
+	 * 
+	 * @return the team's captain
+	 */
 	public Player getTeamCaptain() {
 		return teamCaptain;
 	}
 
+	/**
+	 * Get the name of this team's coach
+	 * 
+	 * @return the name of the coach
+	 */
 	public String getCoachName() {
 		return coachName;
 	}
 
+	/**
+	 * Get the amount of wins this team has
+	 * 
+	 * @return the amount of wins of this team
+	 */
 	public int getTotalWins() {
 		return totalWins;
 	}
 
 	/**
-	 * increments totalwins with 1
+	 * Increments this team's wins by 1
 	 */
 	public void incTotalWins() {
 		this.totalWins = this.totalWins + 1;
 	}
 
+	/**
+	 * Get the amount of losses this team has
+	 * 
+	 * @return the amount of losses of this team
+	 */
 	public int getTotalLosses() {
 		return totalLosses;
 	}
 
-	public void addGoalsAgainst(int goals) {
-		goalsagainst = goalsagainst + goals;
-	}
-
-	public int getGoalsAgainst() {
-		return goalsagainst;
-	}
-
-	public int getRanking() {
-		return ranking;
-	}
-
-	public void setRanking(int ranking) {
-		this.ranking = ranking;
-	}
-
 	/**
-	 * add points
-	 * 
-	 * @param points
-	 *            to add
-	 */
-	public void addPoints(int points) {
-		this.points = points + this.points;
-	}
-
-	public int getPoints() {
-		return points;
-	}
-
-	/**
-	 * increments totalLosses with 1
+	 * Increments this team's losses by 1
 	 */
 	public void incTotalLosses() {
 		this.totalLosses = this.totalLosses + 1;
 	}
 
+	/**
+	 * Get the amount of draws this team has
+	 * 
+	 * @return the amount of draws of this team
+	 */
 	public int getTotalDraws() {
 		return totalDraws;
 	}
 
 	/**
-	 * increments totalDraws with 1
+	 * Increments this team's draws by 1
 	 */
 	public void incTotalDraws() {
 		this.totalDraws = this.totalDraws + 1;
 	}
 
+	/**
+	 * Get the amount of goals this team has scored
+	 * 
+	 * @return the amount of goals
+	 */
 	public int getTotalGoals() {
 		return totalGoals;
 	}
@@ -376,6 +418,63 @@ public class Team {
 	 */
 	public void addGoals(int goals) {
 		this.totalGoals = this.totalGoals + goals;
+	}
+
+	/**
+	 * Add to this team's goal count
+	 * 
+	 * @param goals
+	 *            amount of goals to add
+	 */
+	public void addGoalsAgainst(int goals) {
+		goalsagainst = goalsagainst + goals;
+	}
+
+	/**
+	 * Get how many goals against this team has
+	 * 
+	 * @return number of goals against
+	 */
+	public int getGoalsAgainst() {
+		return goalsagainst;
+	}
+
+	/**
+	 * Get the ranking of this team
+	 * 
+	 * @return the ranking of this team
+	 */
+	public int getRanking() {
+		return ranking;
+	}
+
+	/**
+	 * Set the ranking of this team
+	 * 
+	 * @param ranking
+	 *            rank to set
+	 */
+	public void setRanking(int ranking) {
+		this.ranking = ranking;
+	}
+
+	/**
+	 * Add points to this team total points
+	 * 
+	 * @param points
+	 *            amount of points to add
+	 */
+	public void addPoints(int points) {
+		this.points = points + this.points;
+	}
+
+	/**
+	 * Get the amount of points this team has
+	 * 
+	 * @return the points of this team
+	 */
+	public int getPoints() {
+		return points;
 	}
 
 	/**
@@ -411,12 +510,17 @@ public class Team {
 		averageAttackPower = result;
 	}
 
+	/**
+	 * Get the average attack power of this team
+	 * 
+	 * @return the average attack power
+	 */
 	public int getAverageAttackPower() {
 		return averageAttackPower;
 	}
 
 	/**
-	 * Change the type of formation of the team choos out 442 
+	 * Change the type of formation of the team
 	 */
 	public void changeFormationType(Formation form) {
 		for (int i = 0; i < activePlayers.size(); i++) {
@@ -426,20 +530,36 @@ public class Team {
 		formation = form;
 	}
 
+	/**
+	 * Get the Formation of this team
+	 * 
+	 * @return the Formation
+	 */
 	public Formation getFormation() {
 		return formation;
 	}
 
+	/**
+	 * Get the total attack power of this team
+	 * 
+	 * @return the total attack power
+	 */
 	public int getAttackPower() {
 		return attackPower;
 	}
 
-	public void setAttackPower(int attack) {
-		this.attackPower = attack;
+	/**
+	 * Set the total attack power of this team
+	 * 
+	 * @param attpower
+	 *            the attack power to assign to this team
+	 */
+	public void setAttackPower(int attpower) {
+		this.attackPower = attpower;
 	}
 
 	/**
-	 * Calculates the average defencepower and stores it
+	 * Calculates the average defence power and stores it
 	 */
 	public void calcTotalAverageDefencePower() {
 		int result = 0;
@@ -462,20 +582,36 @@ public class Team {
 		averageDefencePower = result;
 	}
 
+	/**
+	 * Get the average defence power of this team
+	 * 
+	 * @return the average defence power
+	 */
 	public int getAverageDefencePower() {
 		return averageDefencePower;
 	}
 
+	/**
+	 * Get the total defence power of this team
+	 * 
+	 * @return the total defence power
+	 */
 	public int getDefencePower() {
 		return defencePower;
 	}
 
-	public void setDefencePower(int defence) {
-		this.defencePower = defence;
+	/**
+	 * Set the total defence power of this team
+	 * 
+	 * @param defpower
+	 *            the defence power to assign to this team
+	 */
+	public void setDefencePower(int defpower) {
+		this.defencePower = defpower;
 	}
 
 	/**
-	 * Calculates the total average stamina and stores it
+	 * Calculates the average stamina and stores it
 	 */
 	public void calcTotalAverageStamina() {
 		int result = 0;
@@ -498,30 +634,45 @@ public class Team {
 		averageStamina = result;
 	}
 
+	/**
+	 * Get the average stamina of this team
+	 * 
+	 * @return the average stamina
+	 */
 	public int getAverageStamina() {
 		return averageStamina;
 	}
 
+	/**
+	 * Get the total stamina of this team
+	 * 
+	 * @return the total stamina
+	 */
 	public int getStamina() {
 		return stamina;
 	}
 
+	/**
+	 * Set the total stamina of this team
+	 * 
+	 * @param stamina
+	 *            the stamina to assign to this team
+	 */
 	public void setStamina(int stamina) {
 		this.stamina = stamina;
 	}
 
+	/**
+	 * Get the ID of this team
+	 * 
+	 * @return the ID of this team
+	 */
 	public String getid() {
 		return id;
 	}
 
-	public int getPlayers() {
-		return getActivePlayers().size() + getBenchPlayers().size();
-	}
-
 	/**
-	 * Calculates the value of a team
-	 * 
-	 * @return
+	 * Calculates the value of this team
 	 */
 	public void calcTeamValue() {
 		int result = 0;
@@ -536,25 +687,49 @@ public class Team {
 		teamValue = result;
 	}
 
+	/**
+	 * Get the value of this team
+	 * 
+	 * @return the team value
+	 */
 	public int getTeamValue() {
 		this.calcTeamValue();
 		return teamValue;
 	}
 
+	/**
+	 * Set the value of this team
+	 * 
+	 * @param teamValue
+	 *            the value to set this team's value to
+	 */
 	public void setTeamValue(int teamValue) {
 		this.teamValue = teamValue;
 	}
 
+	/**
+	 * Recalculate the amount of players in this team
+	 */
 	public void calcTotalPlayers() {
 		int result = activePlayers.size() + benchPlayers.size();
 		totalPlayers = result;
 	}
 
+	/**
+	 * Get the amount of players in this team
+	 * 
+	 * @return the amount of players in this team
+	 */
 	public int getTotalPlayers() {
-		this.calcTotalPlayers();
+		calcTotalPlayers();
 		return totalPlayers;
 	}
 
+	/**
+	 * Get all players in this team as an ArrayList
+	 * 
+	 * @return ArrayList of this team's players
+	 */
 	public ArrayList<Player> getAllPlayersList() {
 		ArrayList<Player> players = new ArrayList<Player>();
 
@@ -569,10 +744,20 @@ public class Team {
 		return players;
 	}
 
+	/**
+	 * Get all active players in this team as an ObservableList
+	 * 
+	 * @return ObservableList of this team's active players
+	 */
 	public ObservableList<Player> getObservableActivePlayersList() {
 		return FXCollections.observableArrayList(activePlayers);
 	}
 
+	/**
+	 * Get all bench players in this team as an ObservableList
+	 * 
+	 * @return ObservableList of this team's bench players
+	 */
 	public ObservableList<Player> getObservableBenchPlayersList() {
 		return FXCollections.observableArrayList(benchPlayers);
 	}

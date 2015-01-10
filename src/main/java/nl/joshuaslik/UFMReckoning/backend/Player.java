@@ -4,6 +4,7 @@ package nl.joshuaslik.UFMReckoning.backend;
  * The Player class is an abstract class.
  * 
  * @author Sander Benoist
+ * @author <a href="http://www.joshuaslik.nl/" target="_blank">Joshua Slik</a>
  */
 
 public abstract class Player {
@@ -12,8 +13,8 @@ public abstract class Player {
 	private String lastName;
 	private String country;
 	private int price;
-	public String active;
-	public Boolean activeState;
+	private String active;
+	private Boolean activeState;
 
 	/**
 	 * Is the superconstructor of the subclasses.
@@ -40,43 +41,92 @@ public abstract class Player {
 		activeState = false;
 	}
 
+	/**
+	 * Getter for the player's ID
+	 * 
+	 * @return the ID of this player
+	 */
 	public String getID() {
 		return playerID;
 	}
 
+	/**
+	 * Getter for this player's full name
+	 * 
+	 * @return the full name of this player
+	 */
 	public String getFullName() {
 		return fullName;
 	}
 
+	/**
+	 * Getter for this player's nationality
+	 * 
+	 * @return the nationality of this player
+	 */
 	public String getCountry() {
 		return country;
 	}
 
+	/**
+	 * Getter for this player's price
+	 * 
+	 * @return the price of this player
+	 */
 	public int getPrice() {
 		return price;
 	}
 
+	/**
+	 * Getter for this player's last name
+	 * 
+	 * @return the last name of this player
+	 */
 	public String getLastName() {
 		return lastName;
 	}
 
+	/**
+	 * Setter for this player's last name
+	 * 
+	 * @param lastName
+	 *            the last name to assign to this player
+	 */
 	public void setlastName(String lastName) {
 		this.lastName = lastName;
 	}
-	
+
+	/**
+	 * Getter for the activity icon of this player
+	 * 
+	 * @return A check mark or a cross depending on if this player is in his
+	 *         team's active formation
+	 */
 	public String getActive() {
 		return active;
 	}
-	
+
+	/**
+	 * Getter for the activity state of this player
+	 * 
+	 * @return true or false depending on if this player is in his team's active
+	 *         formation
+	 */
 	public Boolean getActiveState() {
 		return activeState;
 	}
-	
+
+	/**
+	 * Setter for the activity state of this player
+	 * 
+	 * @param input
+	 *            the state of this player
+	 */
 	public void setActiveState(Boolean input) {
 		activeState = input;
 		if (input.equals(true))
 			active = "✓";
-		else 
+		else
 			active = "✗";
 	}
 }

@@ -7,27 +7,19 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Screen;
 import javafx.util.Callback;
 import javafx.util.StringConverter;
-import nl.joshuaslik.UFMReckoning.backend.Match;
 import nl.joshuaslik.UFMReckoning.backend.Player;
-import nl.joshuaslik.UFMReckoning.backend.Playround;
-import nl.joshuaslik.UFMReckoning.backend.Save;
 import nl.joshuaslik.UFMReckoning.backend.Team;
 import nl.joshuaslik.UFMReckoning.gui.Main;
 
@@ -150,7 +142,7 @@ public class OtherTeams {
 	}
 	
 	@FXML
-	protected void handleViewPlayer(ActionEvent event) throws IOException {
+	protected void handleViewPlayer() throws IOException {
 		ViewPlayer.start(selectedplayer);
 	}
 

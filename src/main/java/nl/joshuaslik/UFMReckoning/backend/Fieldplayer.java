@@ -61,26 +61,57 @@ public class Fieldplayer extends Player {
 		return false;
 	}
 
+	/**
+	 * Getter for position
+	 * 
+	 * @return the position of this player
+	 */
 	public String getPosition() {
 		return position;
 	}
 
+	/**
+	 * Getter for attackPower
+	 * 
+	 * @return the attack power of this player
+	 */
 	public int getAttackPower() {
 		return attackPower;
 	}
 
+	/**
+	 * Getter for defencePower
+	 * 
+	 * @return the defence power of this player
+	 */
 	public int getDefencePower() {
 		return defencePower;
 	}
 
+	/**
+	 * Getter for stamina
+	 * 
+	 * @return the stamina of this player
+	 */
 	public int getStamina() {
 		return stamina;
 	}
 
+	/**
+	 * Getter for firstname
+	 * 
+	 * @return the first name of this player
+	 */
 	public String getfirstname() {
 		return firstname;
 	}
 
+	/**
+	 * Setter for firstname
+	 * 
+	 * @param firstname
+	 *            name to set this player's first name to
+	 */
 	public void setfirstname(String firstname) {
 		this.firstname = firstname;
 	}

@@ -1,28 +1,25 @@
 package nl.joshuaslik.UFMReckoning.backend;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 
 import java.util.ArrayList;
-
-import nl.joshuaslik.UFMReckoning.gui.game.MainGame;
 
 import org.junit.Test;
 
 public class CompetitionTest {
-	
+
 	@Test
 	public void testConstructor() {
 		ArrayList<User> users = new ArrayList<User>();
-		Team team1 = new Team("ajax","ajax", "Frank de Boer");
-		Team team2 = new Team("ado","ado", "Frank de Boer");
+		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
+		Team team2 = new Team("ado", "ado", "Frank de Boer");
 		users.add(new Human(team1, "Bryan", 5000));
 		users.add(new PC(team2, "pc1", 5000));
 		Game game1 = new Game(users);
 		Competition competition1 = new Competition(game1);
 		assertEquals(competition1, competition1);
 	}
-	
+
 	@Test
 	public void testDefineplayrounds1() {
 		ArrayList<User> users = new ArrayList<User>();
@@ -46,7 +43,7 @@ public class CompetitionTest {
 		game1.getCompetition().definePlayrounds();
 		assertEquals(game1.getPlayrounds().size(), 14);
 	}
-	
+
 	@Test
 	public void testGetPlayround() {
 		ArrayList<User> users = new ArrayList<User>();
@@ -68,9 +65,10 @@ public class CompetitionTest {
 		users.add(new PC(team8, "pc8", 5000));
 		Game game1 = new Game(users);
 		game1.getCompetition().definePlayrounds();
-		assertEquals(game1.getCompetition().getPlayround(1).getMatches().size(), 4);
+		assertEquals(
+				game1.getCompetition().getPlayround(1).getMatches().size(), 4);
 	}
-	
+
 	@Test
 	public void testGetPlayround2() {
 		ArrayList<User> users = new ArrayList<User>();
@@ -94,16 +92,14 @@ public class CompetitionTest {
 		game1.getCompetition().definePlayrounds();
 		assertEquals(game1.getCompetition().getPlayround(0), null);
 	}
-	
 
-	
 	@Test
 	public void testComputeStandings() {
 		ArrayList<User> users = new ArrayList<User>();
-		Team team1 = new Team("ajax","ajax", "Frank de Boer");
-		Team team2 = new Team("ado","ado", "Frank de Boer");
-		Team team3 = new Team("az","az", "piet");
-		Team team4 = new Team("psv","psv", "jan");
+		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
+		Team team2 = new Team("ado", "ado", "Frank de Boer");
+		Team team3 = new Team("az", "az", "piet");
+		Team team4 = new Team("psv", "psv", "jan");
 		users.add(new Human(team1, "Bryan", 5000));
 		users.add(new PC(team2, "pc1", 5000));
 		users.add(new PC(team3, "pc2", 500));
@@ -118,14 +114,14 @@ public class CompetitionTest {
 		assertEquals(team3.getRanking(), 1);
 		assertEquals(team4.getRanking(), 2);
 	}
-	
+
 	@Test
 	public void testComputeStandings1() {
 		ArrayList<User> users = new ArrayList<User>();
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
-		Team team2 = new Team("ado","ado", "Frank de Boer");
-		Team team3 = new Team("az","az", "piet");
-		Team team4 = new Team("psv","psv", "jan");
+		Team team2 = new Team("ado", "ado", "Frank de Boer");
+		Team team3 = new Team("az", "az", "piet");
+		Team team4 = new Team("psv", "psv", "jan");
 		users.add(new Human(team1, "Bryan", 5000));
 		users.add(new PC(team2, "pc1", 5000));
 		users.add(new PC(team3, "pc2", 500));
@@ -136,7 +132,7 @@ public class CompetitionTest {
 		team2.addGoals(1);
 		team3.addGoals(6);
 		team4.addGoals(10);
-		
+
 		team1.addPoints(0);
 		team2.addPoints(0);
 		team3.addPoints(3);
@@ -147,14 +143,14 @@ public class CompetitionTest {
 		assertEquals(team3.getRanking(), 2);
 		assertEquals(team4.getRanking(), 1);
 	}
-	
+
 	@Test
 	public void testGetUsers() {
 		ArrayList<User> users = new ArrayList<User>();
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
-		Team team2 = new Team("ado","ado", "Frank de Boer");
-		Team team3 = new Team("az","az", "piet");
-		Team team4 = new Team("psv","psv", "jan");
+		Team team2 = new Team("ado", "ado", "Frank de Boer");
+		Team team3 = new Team("az", "az", "piet");
+		Team team4 = new Team("psv", "psv", "jan");
 		users.add(new Human(team1, "Bryan", 5000));
 		users.add(new PC(team2, "pc1", 5000));
 		users.add(new PC(team3, "pc2", 500));
@@ -162,7 +158,7 @@ public class CompetitionTest {
 		Game game1 = new Game(users);
 		Competition competition1 = new Competition(game1);
 		assertEquals(competition1.getusers().size(), 4);
-		
+
 	}
-	
+
 }

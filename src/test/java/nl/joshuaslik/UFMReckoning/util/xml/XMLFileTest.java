@@ -62,7 +62,7 @@ public class XMLFileTest {
 		thrown.expect(NoSuchElementException.class);
 		file.getContent("rootname.fakename");
 	}
-	
+
 	@Test
 	public void testGetElement1() {
 		construct();
@@ -77,26 +77,26 @@ public class XMLFileTest {
 		thrown.expect(NoSuchElementException.class);
 		file.getElement("rootname.fakename");
 	}
-	
+
 	@Test
 	public void testSave1() {
 		construct();
 		file.save("build/testtarget/XMLFileTest/testSave1.xml");
 	}
-	
+
 	@Test
 	public void testSave2() {
 		construct();
 		file.save("build/testtarget/XMLFileTest/testSave2.xml", "UTF-16");
 	}
-	
+
 	@Test
 	public void testSave3() {
 		construct();
 		thrown.expect(NullPointerException.class);
 		file.save("build/testtarget/XMLFileTest/testSave3.xml", "NOAH-16");
 	}
-	
+
 	@Test
 	public void testSave4() {
 		construct();
@@ -110,8 +110,7 @@ public class XMLFileTest {
 		String expected = new StringBuilder()
 				.append("<rootname attribute1=\"value1\" attribute2=\"value2\">rootcontent\n")
 				.append("    <subname>subcontent</subname>\n")
-				.append("</rootname>")
-				.toString();
+				.append("</rootname>").toString();
 		assertTrue(file.toString().equals(expected));
 	}
 
@@ -122,8 +121,7 @@ public class XMLFileTest {
 		String expected = new StringBuilder()
 				.append("<rootname attribute1=\"value1\" attribute2=\"value2\">\n")
 				.append("    <subname>subcontent</subname>\n")
-				.append("</rootname>")
-				.toString();
+				.append("</rootname>").toString();
 		assertTrue(file.toString().equals(expected));
 	}
 
@@ -133,9 +131,7 @@ public class XMLFileTest {
 		file.getElement("rootname.subname").setContent("");
 		String expected = new StringBuilder()
 				.append("<rootname attribute1=\"value1\" attribute2=\"value2\">rootcontent\n")
-				.append("    <subname />\n")
-				.append("</rootname>")
-				.toString();
+				.append("    <subname />\n").append("</rootname>").toString();
 		assertTrue(file.toString().equals(expected));
 	}
 
@@ -145,9 +141,7 @@ public class XMLFileTest {
 		file.getElement("rootname.subname").setContent(null);
 		String expected = new StringBuilder()
 				.append("<rootname attribute1=\"value1\" attribute2=\"value2\">rootcontent\n")
-				.append("    <subname />\n")
-				.append("</rootname>")
-				.toString();
+				.append("    <subname />\n").append("</rootname>").toString();
 		assertTrue(file.toString().equals(expected));
 	}
 
