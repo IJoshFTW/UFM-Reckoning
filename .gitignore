@@ -30,4 +30,3 @@ commitlog
 
 # Include the Gource captions, so other people can add milestones to them.
 !/gource/gource-captions.txt
-/bin/
