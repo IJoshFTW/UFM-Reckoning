@@ -110,6 +110,42 @@ public class ChangeSetup {
 				Image image = new Image("/data/base/players/pictures/" + formation343.getGoalkeper().getID() + ".png");
 				gkIMG.setImage(image);
 			}
+			if(formation343.getCB() != null){
+				Image image = new Image("/data/base/players/pictures/" + formation343.getCB().getID() + ".png");
+				IMG1.setImage(image);
+			}
+			if(formation343.getLB() != null){
+				Image image = new Image("/data/base/players/pictures/" + formation343.getLB().getID() + ".png");
+				IMG2.setImage(image);
+			}
+			if(formation343.getRB() != null){
+				Image image = new Image("/data/base/players/pictures/" + formation343.getRB().getID() + ".png");
+				IMG3.setImage(image);
+			}
+			if(formation343.getCM1() != null){
+				Image image = new Image("/data/base/players/pictures/" + formation343.getCM1().getID() + ".png");
+				IMG4.setImage(image);
+			}
+			if(formation343.getCM2() != null){
+				Image image = new Image("/data/base/players/pictures/" + formation343.getCM2().getID() + ".png");
+				IMG5.setImage(image);
+			}
+			if(formation343.getRM() != null){
+				Image image = new Image("/data/base/players/pictures/" + formation343.getRM().getID() + ".png");
+				IMG6.setImage(image);
+			}
+			if(formation343.getLM() != null){
+				Image image = new Image("/data/base/players/pictures/" + formation343.getLM().getID() + ".png");
+				IMG7.setImage(image);
+			}
+			if(formation343.getLW() != null){
+				Image image = new Image("/data/base/players/pictures/" + formation343.getLW().getID() + ".png");
+				IMG8.setImage(image);
+			}
+			if(formation343.getRW() != null){
+				Image image = new Image("/data/base/players/pictures/" + formation343.getRW().getID() + ".png");
+				IMG9.setImage(image);
+			}
 			if(formation343.getST() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation343.getST().getID() + ".png");
 				IMG10.setImage(image);
@@ -117,9 +153,7 @@ public class ChangeSetup {
 			
 		}	
 		ArrayList<Formation> forms = new ArrayList<Formation>();
-		if(!(formation instanceof Form343)){
-			forms.add(new Form343(MainGame.game.getUser().getTeam()));
-		}
+		forms.add(new Form343(MainGame.game.getUser().getTeam()));
 		forms.add(new Form4321(MainGame.game.getUser().getTeam()));
 		forms.add(new Form433(MainGame.game.getUser().getTeam()));
 		forms.add(new Form442(MainGame.game.getUser().getTeam()));
@@ -144,6 +178,7 @@ public class ChangeSetup {
 		public void changed(
 				ObservableValue<? extends Formation> observable,
 				Formation oldValue, Formation newValue) {
+   					form.setValue(newValue);
 					formation = newValue;
 					MainGame.game.getUser().getTeam().changeFormationType(formation);
 					playertable.setItems(observablelistplayers);
@@ -182,15 +217,18 @@ public class ChangeSetup {
 				dragBoard.setContent(content);
 			}
 		});
-		IMG10.setOnDragDropped(new EventHandler<DragEvent>(){
+		
+		IMG1.setOnDragDropped(new EventHandler<DragEvent>(){
 			@Override
 			public void handle(DragEvent event){
 				Player player = MainGame.game.getPlayer(Dragboard.getSystemClipboard().getString());
 				if(player instanceof Fieldplayer){
 					Fieldplayer fieldplayer = (Fieldplayer) player;
 					Image image = new Image("/data/base/players/pictures/" + fieldplayer.getID() + ".png");
-					IMG10.setImage(image);
-					formation.setST((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
+					IMG1.setImage(image);
+					if(formation instanceof Form343){
+						formation.setCB((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
+					}
 					ArrayList<Player> playerslist = team.getBenchPlayers();
 					observablelistplayers = FXCollections.observableArrayList(playerslist);
 					playertable.setItems(observablelistplayers);
@@ -199,10 +237,252 @@ public class ChangeSetup {
 			}
 		});
 		
+		IMG2.setOnDragDropped(new EventHandler<DragEvent>(){
+			@Override
+			public void handle(DragEvent event){
+				Player player = MainGame.game.getPlayer(Dragboard.getSystemClipboard().getString());
+				if(player instanceof Fieldplayer){
+					Fieldplayer fieldplayer = (Fieldplayer) player;
+					Image image = new Image("/data/base/players/pictures/" + fieldplayer.getID() + ".png");
+					IMG2.setImage(image);
+					if(formation instanceof Form343){
+						formation.setLB((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
+					}
+					ArrayList<Player> playerslist = team.getBenchPlayers();
+					observablelistplayers = FXCollections.observableArrayList(playerslist);
+					playertable.setItems(observablelistplayers);
+					playertable.getSelectionModel().selectFirst();
+				}
+			}
+		});
+		
+		IMG3.setOnDragDropped(new EventHandler<DragEvent>(){
+			@Override
+			public void handle(DragEvent event){
+				Player player = MainGame.game.getPlayer(Dragboard.getSystemClipboard().getString());
+				if(player instanceof Fieldplayer){
+					Fieldplayer fieldplayer = (Fieldplayer) player;
+					Image image = new Image("/data/base/players/pictures/" + fieldplayer.getID() + ".png");
+					IMG3.setImage(image);
+					if(formation instanceof Form343){
+						formation.setRB((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
+					}
+					ArrayList<Player> playerslist = team.getBenchPlayers();
+					observablelistplayers = FXCollections.observableArrayList(playerslist);
+					playertable.setItems(observablelistplayers);
+					playertable.getSelectionModel().selectFirst();
+				}
+			}
+		});
+		
+		IMG4.setOnDragDropped(new EventHandler<DragEvent>(){
+			@Override
+			public void handle(DragEvent event){
+				Player player = MainGame.game.getPlayer(Dragboard.getSystemClipboard().getString());
+				if(player instanceof Fieldplayer){
+					Fieldplayer fieldplayer = (Fieldplayer) player;
+					Image image = new Image("/data/base/players/pictures/" + fieldplayer.getID() + ".png");
+					IMG4.setImage(image);
+					if(formation instanceof Form343){
+						formation.setCM1((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
+					}
+					ArrayList<Player> playerslist = team.getBenchPlayers();
+					observablelistplayers = FXCollections.observableArrayList(playerslist);
+					playertable.setItems(observablelistplayers);
+					playertable.getSelectionModel().selectFirst();
+				}
+			}
+		});
+		
+		IMG5.setOnDragDropped(new EventHandler<DragEvent>(){
+			@Override
+			public void handle(DragEvent event){
+				Player player = MainGame.game.getPlayer(Dragboard.getSystemClipboard().getString());
+				if(player instanceof Fieldplayer){
+					Fieldplayer fieldplayer = (Fieldplayer) player;
+					Image image = new Image("/data/base/players/pictures/" + fieldplayer.getID() + ".png");
+					IMG5.setImage(image);
+					if(formation instanceof Form343){
+						formation.setCM2((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
+					}
+					ArrayList<Player> playerslist = team.getBenchPlayers();
+					observablelistplayers = FXCollections.observableArrayList(playerslist);
+					playertable.setItems(observablelistplayers);
+					playertable.getSelectionModel().selectFirst();
+				}
+			}
+		});
+		
+		IMG6.setOnDragDropped(new EventHandler<DragEvent>(){
+			@Override
+			public void handle(DragEvent event){
+				Player player = MainGame.game.getPlayer(Dragboard.getSystemClipboard().getString());
+				if(player instanceof Fieldplayer){
+					Fieldplayer fieldplayer = (Fieldplayer) player;
+					Image image = new Image("/data/base/players/pictures/" + fieldplayer.getID() + ".png");
+					IMG6.setImage(image);
+					if(formation instanceof Form343){
+						formation.setRM((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
+					}
+					ArrayList<Player> playerslist = team.getBenchPlayers();
+					observablelistplayers = FXCollections.observableArrayList(playerslist);
+					playertable.setItems(observablelistplayers);
+					playertable.getSelectionModel().selectFirst();
+				}
+			}
+		});
+		
+		IMG7.setOnDragDropped(new EventHandler<DragEvent>(){
+			@Override
+			public void handle(DragEvent event){
+				Player player = MainGame.game.getPlayer(Dragboard.getSystemClipboard().getString());
+				if(player instanceof Fieldplayer){
+					Fieldplayer fieldplayer = (Fieldplayer) player;
+					Image image = new Image("/data/base/players/pictures/" + fieldplayer.getID() + ".png");
+					IMG7.setImage(image);
+					if(formation instanceof Form343){
+						formation.setLM((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
+					}
+					ArrayList<Player> playerslist = team.getBenchPlayers();
+					observablelistplayers = FXCollections.observableArrayList(playerslist);
+					playertable.setItems(observablelistplayers);
+					playertable.getSelectionModel().selectFirst();
+				}
+			}
+		});
+		
+		IMG8.setOnDragDropped(new EventHandler<DragEvent>(){
+			@Override
+			public void handle(DragEvent event){
+				Player player = MainGame.game.getPlayer(Dragboard.getSystemClipboard().getString());
+				if(player instanceof Fieldplayer){
+					Fieldplayer fieldplayer = (Fieldplayer) player;
+					Image image = new Image("/data/base/players/pictures/" + fieldplayer.getID() + ".png");
+					IMG8.setImage(image);
+					if(formation instanceof Form343){
+						formation.setLW((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
+					}
+					ArrayList<Player> playerslist = team.getBenchPlayers();
+					observablelistplayers = FXCollections.observableArrayList(playerslist);
+					playertable.setItems(observablelistplayers);
+					playertable.getSelectionModel().selectFirst();
+				}
+			}
+		});
+		
+		IMG9.setOnDragDropped(new EventHandler<DragEvent>(){
+			@Override
+			public void handle(DragEvent event){
+				Player player = MainGame.game.getPlayer(Dragboard.getSystemClipboard().getString());
+				if(player instanceof Fieldplayer){
+					Fieldplayer fieldplayer = (Fieldplayer) player;
+					Image image = new Image("/data/base/players/pictures/" + fieldplayer.getID() + ".png");
+					IMG9.setImage(image);
+					if(formation instanceof Form343){
+						formation.setRW((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
+					}
+					ArrayList<Player> playerslist = team.getBenchPlayers();
+					observablelistplayers = FXCollections.observableArrayList(playerslist);
+					playertable.setItems(observablelistplayers);
+					playertable.getSelectionModel().selectFirst();
+				}
+			}
+		});
+		
+		IMG10.setOnDragDropped(new EventHandler<DragEvent>(){
+			@Override
+			public void handle(DragEvent event){
+				Player player = MainGame.game.getPlayer(Dragboard.getSystemClipboard().getString());
+				if(player instanceof Fieldplayer){
+					Fieldplayer fieldplayer = (Fieldplayer) player;
+					Image image = new Image("/data/base/players/pictures/" + fieldplayer.getID() + ".png");
+					IMG10.setImage(image);
+					if(formation instanceof Form343){
+						formation.setST((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
+					}
+					ArrayList<Player> playerslist = team.getBenchPlayers();
+					observablelistplayers = FXCollections.observableArrayList(playerslist);
+					playertable.setItems(observablelistplayers);
+					playertable.getSelectionModel().selectFirst();
+				}
+			}
+		});
+		
+		IMG1.setOnDragOver(new EventHandler<DragEvent>() {
+		    public void handle(DragEvent event) {
+		        if (event.getGestureSource() != IMG1 && event.getDragboard().hasString()) {
+		            event.acceptTransferModes(TransferMode.MOVE);
+		        }
+		    }
+		});
+		
+		IMG2.setOnDragOver(new EventHandler<DragEvent>() {
+		    public void handle(DragEvent event) {
+		        if (event.getGestureSource() != IMG2 && event.getDragboard().hasString()) {
+		            event.acceptTransferModes(TransferMode.MOVE);
+		        }
+		    }
+		});
+		
+		IMG3.setOnDragOver(new EventHandler<DragEvent>() {
+		    public void handle(DragEvent event) {
+		        if (event.getGestureSource() != IMG3 && event.getDragboard().hasString()) {
+		            event.acceptTransferModes(TransferMode.MOVE);
+		        }
+		    }
+		});
+		
+		IMG4.setOnDragOver(new EventHandler<DragEvent>() {
+		    public void handle(DragEvent event) {
+		        if (event.getGestureSource() != IMG4 && event.getDragboard().hasString()) {
+		            event.acceptTransferModes(TransferMode.MOVE);
+		        }
+		    }
+		});
+		
+		IMG5.setOnDragOver(new EventHandler<DragEvent>() {
+		    public void handle(DragEvent event) {
+		        if (event.getGestureSource() != IMG5 && event.getDragboard().hasString()) {
+		            event.acceptTransferModes(TransferMode.MOVE);
+		        }
+		    }
+		});
+		
+		IMG6.setOnDragOver(new EventHandler<DragEvent>() {
+		    public void handle(DragEvent event) {
+		        if (event.getGestureSource() != IMG6 && event.getDragboard().hasString()) {
+		            event.acceptTransferModes(TransferMode.MOVE);
+		        }
+		    }
+		});
+		
+		IMG7.setOnDragOver(new EventHandler<DragEvent>() {
+		    public void handle(DragEvent event) {
+		        if (event.getGestureSource() != IMG7 && event.getDragboard().hasString()) {
+		            event.acceptTransferModes(TransferMode.MOVE);
+		        }
+		    }
+		});
+		
+		IMG8.setOnDragOver(new EventHandler<DragEvent>() {
+		    public void handle(DragEvent event) {
+		        if (event.getGestureSource() != IMG8 && event.getDragboard().hasString()) {
+		            event.acceptTransferModes(TransferMode.MOVE);
+		        }
+		    }
+		});
+		
+		IMG9.setOnDragOver(new EventHandler<DragEvent>() {
+		    public void handle(DragEvent event) {
+		        if (event.getGestureSource() != IMG9 && event.getDragboard().hasString()) {
+		            event.acceptTransferModes(TransferMode.MOVE);
+		        }
+		    }
+		});
+			
 		IMG10.setOnDragOver(new EventHandler<DragEvent>() {
 		    public void handle(DragEvent event) {
 		        if (event.getGestureSource() != IMG10 && event.getDragboard().hasString()) {
-		            /* allow for both copying and moving, whatever user chooses */
 		            event.acceptTransferModes(TransferMode.MOVE);
 		        }
 		    }

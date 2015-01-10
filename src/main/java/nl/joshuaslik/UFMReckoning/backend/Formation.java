@@ -47,5 +47,53 @@ public abstract class Formation {
 		return null;
 	}
 	
+	public Fieldplayer setCB(Fieldplayer fieldplayer){
+		return null;
+	}
+	
+	public Fieldplayer setRB(Fieldplayer fieldplayer){
+		return null;
+	}
+	
+	public Fieldplayer setLB(Fieldplayer fieldplayer){
+		return null;
+	}
+	
+	public Fieldplayer setCB1(Fieldplayer fieldplayer){
+		return null;
+	}
+	
+	public Fieldplayer setCB2(Fieldplayer fieldplayer){
+		return null;
+	}
+	
+	public Fieldplayer setCM(Fieldplayer fieldplayer){
+		return null;
+	}
+	
+	public Fieldplayer setCM1(Fieldplayer fieldplayer){
+		return null;
+	}
+	
+	public Fieldplayer setCM2(Fieldplayer fieldplayer){
+		return null;
+	}
+	
+	public Fieldplayer setRM(Fieldplayer fieldplayer){
+		return null;
+	}
+	
+	public Fieldplayer setLM(Fieldplayer fieldplayer){
+		return null;
+	}
+	
+	public Fieldplayer setRW(Fieldplayer fieldplayer){
+		return null;
+	}
+	
+	public Fieldplayer setLW(Fieldplayer fieldplayer){
+		return null;
+	}
+	
 
 }
