@@ -148,7 +148,7 @@ public class Form343 extends Formation {
 	 * 
 	 * @param RB
 	 *            new RB
-	 * @retun old RB
+	 * @return old RB
 	 */
 	public Fieldplayer setRB(Fieldplayer RB) {
 		Fieldplayer tmp = this.RB;
@@ -165,7 +165,7 @@ public class Form343 extends Formation {
 	 * 
 	 * @param LB
 	 *            new LB
-	 * @retun old LB
+	 * @return old LB
 	 */
 	public Fieldplayer setLB(Fieldplayer LB) {
 		Fieldplayer tmp = this.LB;
@@ -182,7 +182,7 @@ public class Form343 extends Formation {
 	 * 
 	 * @param CM1
 	 *            CM1
-	 * @retun old CM1
+	 * @return old CM1
 	 */
 	public Fieldplayer setCM1(Fieldplayer CM1) {
 		Fieldplayer tmp = this.CM1;
@@ -199,7 +199,7 @@ public class Form343 extends Formation {
 	 * 
 	 * @param CM2
 	 *            new CM2
-	 * @retun old CM2
+	 * @return old CM2
 	 */
 	public Fieldplayer setCM2(Fieldplayer CM2) {
 		Fieldplayer tmp = this.CM2;
@@ -216,7 +216,7 @@ public class Form343 extends Formation {
 	 * 
 	 * @param LM
 	 *            new LM
-	 * @retun old LM
+	 * @return old LM
 	 */
 	public Fieldplayer setLM(Fieldplayer LM) {
 		Fieldplayer tmp = this.LM;
@@ -233,7 +233,7 @@ public class Form343 extends Formation {
 	 * 
 	 * @param RM
 	 *            new RM
-	 * @retun old RM
+	 * @return old RM
 	 */
 	public Fieldplayer setRM(Fieldplayer RM) {
 		Fieldplayer tmp = this.RM;
@@ -250,7 +250,7 @@ public class Form343 extends Formation {
 	 * 
 	 * @param LW
 	 *            new LW
-	 * @retun old LW
+	 * @return old LW
 	 */
 	public Fieldplayer setLW(Fieldplayer LW) {
 		Fieldplayer tmp = this.LW;
@@ -267,7 +267,7 @@ public class Form343 extends Formation {
 	 * 
 	 * @param RW
 	 *            new RW
-	 * @retun old RW
+	 * @return old RW
 	 */
 	public Fieldplayer setRW(Fieldplayer RW) {
 		Fieldplayer tmp = this.RW;
@@ -284,7 +284,7 @@ public class Form343 extends Formation {
 	 * 
 	 * @param ST
 	 *            new ST
-	 * @retun old ST
+	 * @return old ST
 	 */
 	public Fieldplayer setST(Fieldplayer ST) {
 		Fieldplayer tmp = this.ST;

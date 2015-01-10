@@ -18,7 +18,7 @@ public class NoSuchElementExceptionTest {
 		thrown.expect(NoSuchElementException.class);
 		throw new NoSuchElementException();
 	}
-	
+
 	@Test
 	public void testThrowMessage() {
 		thrown.expect(NoSuchElementException.class);
