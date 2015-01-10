@@ -1,4 +1,8 @@
 nl.joshuaslik.UFMReckoning
-nl.joshuaslik.UFMReckoning.XMLToolkit
 nl.joshuaslik.UFMReckoning.backend
+nl.joshuaslik.UFMReckoning.backend.exceptions
+nl.joshuaslik.UFMReckoning.backend.formation
 nl.joshuaslik.UFMReckoning.gui
+nl.joshuaslik.UFMReckoning.gui.game
+nl.joshuaslik.UFMReckoning.util
+nl.joshuaslik.UFMReckoning.util.xml
