@@ -527,6 +527,9 @@ public class Team {
 			benchPlayers.add(activePlayers.get(i));
 		}
 		activePlayers.clear();
+		stamina = 0;
+		attackPower = 0;
+		defencePower = 0;
 		formation = form;
 	}
 

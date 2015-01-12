@@ -126,16 +126,12 @@ public class TeamBuilderController {
 		showTotalGoals.setText(Integer.toString(team.getTotalGoals()));
 		
 		// AttackPower bar inladen
-		atkPwrImg.prefHeight(20);
-		atkPwrImg.prefWidth(team.getAttackPower() / 3);
 		atkPwrImg.setFitWidth(team.getAttackPower() / 3);
 
 		// Defence bar inladen
-		defPwrImg.prefWidth(team.getDefencePower() / 3);
 		defPwrImg.setFitWidth(team.getDefencePower() / 3);
 
 		// Stamina bar inladen
-		staminaImg.prefWidth(team.getStamina() / 3);
 		staminaImg.setFitWidth(team.getStamina() / 3);
 	}
 

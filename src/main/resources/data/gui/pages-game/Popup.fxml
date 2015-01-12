@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane opacity="0.87" prefHeight="430.0" prefWidth="700.0" style="-fx-background-color: #101010; -fx-border-color: #CECECE; -fx-border-width: 1px;" stylesheets="@TeamBuilder.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.UFMReckoning.gui.game.Popupscreen">		
+	<children>      
+            <Label id="title" alignment="CENTER" layoutX="-2.0" layoutY="29.0" prefHeight="50.0" prefWidth="700.0" text="Player" textFill="WHITE">
+               <font>
+                  <Font size="34.0" />
+               </font>
+            </Label>
+      <Button cancelButton="true" defaultButton="true" layoutX="524.0" layoutY="339.0" mnemonicParsing="false" onAction="#handleOK" prefHeight="57.0" prefWidth="123.0" text="OK" />
+      <TextFlow id="message" layoutX="131.0" layoutY="99.0" prefHeight="197.0" prefWidth="439.0" AnchorPane.leftAnchor="131.0" AnchorPane.topAnchor="99.0" />
+   </children>
+</AnchorPane>

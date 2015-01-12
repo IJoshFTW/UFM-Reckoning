@@ -12,11 +12,11 @@
 
 <AnchorPane id="pane" prefHeight="1080.0" prefWidth="1920.0" styleClass="pane" stylesheets="@TeamBuilder.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.UFMReckoning.gui.game.ChangeSetup">
 	<children>
-      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="41.0">
          <children>
             <AnchorPane fx:id="field" maxHeight="800.0" maxWidth="1200.0" opacity="0.8" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #101010; -fx-border-color: #CECECE; -fx-border-width: 1px;">
                <children>
-                  <Label layoutX="449.0" layoutY="51.0" text="Change Team Setup" textFill="WHITE">
+                  <Label layoutX="449.0" layoutY="39.0" text="Change Team Setup" textFill="WHITE">
                      <font>
                         <Font size="34.0" />
                      </font>
@@ -25,7 +25,7 @@
                   <Button layoutX="46.0" layoutY="715.0" onAction="#handleReturnTeamBuilder" prefHeight="60" prefWidth="250" styleClass="button" text="Return" />
                   <AnchorPane layoutX="665.0" layoutY="139.0" prefHeight="601.0" prefWidth="498.0">
                      <children>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1fff27" height="606.0" layoutY="6.0" stroke="BLACK" strokeType="INSIDE" width="498.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1fff27" height="606.0" layoutY="6.0" stroke="BLACK" strokeType="INSIDE" styleClass="footballfield" width="498.0" />
                         <Circle fill="#ecedee" layoutX="249.0" layoutY="554.0" radius="39.0" stroke="BLACK" strokeType="INSIDE" />
                         <Label layoutX="231.0" layoutY="535.0" text="GK">
                            <font>
@@ -41,7 +41,7 @@
                                     <Font name="System Bold" size="26.0" />
                                  </font>
                               </Label>
-                              <ImageView fx:id="IMG10" fitHeight="68.0" fitWidth="57.0" layoutX="11.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
+                              <ImageView fx:id="IMG10" fitHeight="68.0" fitWidth="57.0" layoutX="11.0" layoutY="5.0" onMouseClicked="#handleActiveplayerview" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
                            </children>
                         </AnchorPane>
                         <AnchorPane fx:id="POS1" layoutX="25.0" layoutY="384.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="384.0">
@@ -145,7 +145,7 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <TableView fx:id="playertable" layoutX="34.0" layoutY="139.0" prefHeight="484.0" prefWidth="588.0">
+                  <TableView fx:id="playertable" layoutX="29.0" layoutY="117.0" prefHeight="484.0" prefWidth="588.0">
                      <columns>
                         <TableColumn fx:id="name" prefWidth="200.0" text="Name" />
                         <TableColumn fx:id="country" prefWidth="200.0" text="Country" />
@@ -153,6 +153,62 @@
                      </columns>
                   </TableView>
                   <ComboBox fx:id="form" layoutX="832.0" layoutY="64.0" prefWidth="150.0" />
+                  <Label layoutX="323.0" layoutY="618.0" prefHeight="34.0" prefWidth="220.0" text="Active team values:" textFill="#f8f6f6">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="323.0" layoutY="688.0" text="Stamina:" textFill="#eeebeb">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="stamina" layoutX="382.0" layoutY="688.0" prefHeight="21.0" prefWidth="72.0" textFill="#eeebeb">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="323.0" layoutY="720.0" text="AttackPower:" textFill="#eeebeb">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="323.0" layoutY="750.0" text="DefencePower:" textFill="#eeebeb">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="attack" layoutX="415.0" layoutY="720.0" prefHeight="21.0" prefWidth="36.0" textFill="#eeebeb">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="defence" layoutX="418.0" layoutY="750.0" prefHeight="21.0" prefWidth="66.0" textFill="#eeebeb">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="46.0" layoutY="635.0" mnemonicParsing="false" onAction="#handleViewPlayer" prefHeight="60.0" prefWidth="250.0" text="View Player" />
+                  <Label layoutX="483.0" layoutY="659.0" prefHeight="21.0" prefWidth="121.0" text="Goalkeeper:" textFill="#f2eded">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="diving" layoutX="483.0" layoutY="688.0" prefHeight="21.0" prefWidth="121.0" text="Diving:" textFill="#f2eded">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="positioning" layoutX="484.0" layoutY="720.0" prefHeight="21.0" prefWidth="121.0" text="Positioning:" textFill="#f2eded">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="reflexes" layoutX="484.0" layoutY="750.0" prefHeight="21.0" prefWidth="121.0" text="Reflexes:" textFill="#f2eded">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
          </children>

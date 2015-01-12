@@ -26,10 +26,16 @@ public class MainGameController {
 
 	@FXML
 	protected void handleNextround() throws IOException {
-
-		MainGame.game.resultplayround();
-		MainGame.game.computeStandings();
-		ResultRoundDialogcontroller.start();
+		if(MainGame.game.getUser().getTeam().getActivePlayers().size() == 11){
+			MainGame.game.resultplayround();
+			MainGame.game.computeStandings();
+			ResultRoundDialogcontroller.start();
+		}
+		else{
+			Popupscreen.start();
+			Popupscreen.setTitle("Error in Players");
+			Popupscreen.setMessage("Your team need at least 11 players.\nGo to Change setup to add players to your formation.");
+		}
 	}
 
 	@FXML

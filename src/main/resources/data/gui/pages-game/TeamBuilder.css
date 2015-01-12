@@ -6,6 +6,12 @@
 	-fx-background-repeat: stretch;
 }
 
+.footballfield {
+	-fx-background-image: url("../img/footballfield.png");
+	-fx-background-size: 100%;
+	-fx-background-repeat: stretch;
+}
+
 .button {
 	-fx-padding: 5;
 	-fx-margin: 0;

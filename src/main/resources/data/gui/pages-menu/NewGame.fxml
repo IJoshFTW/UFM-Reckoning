@@ -27,7 +27,7 @@
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>
-                  <Button layoutX="350.0" layoutY="659.0" mnemonicParsing="false" onAction="#handleChooseTeam" prefHeight="72.0" prefWidth="500.0" text="Choose this team" />
+                  <Button defaultButton="true" layoutX="350.0" layoutY="659.0" mnemonicParsing="false" onAction="#handleChooseTeam" prefHeight="72.0" prefWidth="500.0" text="Choose this team" />
                </children>
             </AnchorPane>
          </children>
