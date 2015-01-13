@@ -11,7 +11,7 @@
 
 <AnchorPane id="pane" prefHeight="1080.0" prefWidth="1920.0" styleClass="pane" stylesheets="@TeamBuilder.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.UFMReckoning.gui.game.TransferMarket">
 	<children>
-      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="41.0">
+      <VBox alignment="TOP_CENTER" layoutX="-46.0" layoutY="41.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-46.0" AnchorPane.rightAnchor="46.0" AnchorPane.topAnchor="41.0">
          <children>
             <AnchorPane maxHeight="800.0" maxWidth="1200.0" opacity="0.8" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #101010; -fx-border-color: #CECECE; -fx-border-width: 1px;">
                <children>
@@ -21,9 +21,39 @@
                      </font>
                   </Label>
                   
-                  <Button layoutX="14.0" layoutY="722.0" prefHeight="60" prefWidth="250" styleClass="button" text="Return" />
-                  <Button layoutX="505.0" layoutY="662.0"  prefHeight="60" prefWidth="222.0" styleClass="button" text="Sell Player" />
-                  <Button layoutX="14.0" layoutY="656.0"  prefHeight="60" prefWidth="250.0" styleClass="button" text="Buy Player" />
+                  <Button fx:id="goback" contentDisplay="CENTER" layoutX="18.0" layoutY="718.0" onAction="#returnToTeam" prefHeight="60" prefWidth="250" styleClass="button" text="Return" textAlignment="CENTER" AnchorPane.leftAnchor="475.0" AnchorPane.rightAnchor="475.0" />
+                  <Button fx:id="sellplayer" layoutX="767.0" layoutY="637.0" prefHeight="60" prefWidth="250.0" styleClass="button" text="Sell Player" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="625.0" />
+                  <Button fx:id="buyplayer" layoutX="210.0" layoutY="620.0" prefHeight="60" prefWidth="250.0" styleClass="button" text="Buy Player" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="625.0" />
+                  <TableView fx:id="otherteams" layoutX="121.0" layoutY="144.0" prefHeight="375.0" prefWidth="373.0" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="650.0" AnchorPane.topAnchor="175.0">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="Active" />
+                        <TableColumn prefWidth="100.0" text="Name" />
+                        <TableColumn prefWidth="100.0" text="Country" />
+                      <TableColumn prefWidth="75.0" text="Position" />
+                        <TableColumn prefWidth="100.0" text="Price" />
+                    </columns>
+                  </TableView>
+                  <ComboBox fx:id="teams" layoutX="146.0" layoutY="86.0" prefWidth="200.0" AnchorPane.bottomAnchor="640.0" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="770.0" />
+                  <TableView fx:id="yourteam" layoutX="652.0" layoutY="153.0" prefHeight="377.0" prefWidth="448.0" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="651.0" AnchorPane.rightAnchor="101.0" AnchorPane.topAnchor="175.0">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="Active" />
+                      <TableColumn prefWidth="100.0" text="Name" />
+                        <TableColumn prefWidth="100.0" text="Country" />
+                        <TableColumn prefWidth="75.0" text="Position" />
+                        <TableColumn prefWidth="100.0" text="Value" />
+                    </columns>
+                  </TableView>
+                  <Button fx:id="viewplayer" layoutX="560.0" layoutY="650.0" mnemonicParsing="false" onAction="#handleViewPlayer" prefHeight="60.0" prefWidth="250.0" text="View Player" AnchorPane.leftAnchor="460.0" AnchorPane.rightAnchor="460.0" AnchorPane.topAnchor="625.0" />
+                  <Label contentDisplay="CENTER" layoutX="802.0" layoutY="107.0" prefHeight="45.0" prefWidth="141.0" text="Your team" textFill="WHITE" AnchorPane.bottomAnchor="675.0" AnchorPane.leftAnchor="801.0" AnchorPane.rightAnchor="258.0">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
+                  <Label contentDisplay="CENTER" layoutX="253.0" layoutY="35.0" prefHeight="45.0" prefWidth="168.0" text="Other teams" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="676.0" AnchorPane.leftAnchor="252.0" AnchorPane.rightAnchor="780.0">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
          </children>
