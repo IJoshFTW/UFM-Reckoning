@@ -122,13 +122,13 @@ public class ChangeSetup {
 		playertable.setOnDragDetected(new EventHandler<MouseEvent>(){
 			@Override
 			public void handle(MouseEvent event){
-				System.out.println("setOnDragDetected");
 				Dragboard dragBoard = playertable.startDragAndDrop(TransferMode.MOVE); 
 				ClipboardContent content = new ClipboardContent();
 				content.putString(selectedplayer.getID()); 
 				dragBoard.setContent(content);
 			}
 		});
+		
 		
 		IMG1.setOnDragDropped(new EventHandler<DragEvent>(){
 			@Override
@@ -139,7 +139,7 @@ public class ChangeSetup {
 					if(formation instanceof Form343){
 						formation.setCB((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
 					}
-					else if(formation instanceof Form4321){
+					else if(formation instanceof Form4321 || formation instanceof Form433 || formation instanceof Form442){
 						formation.setLB((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
 					}
 					initField();
@@ -163,7 +163,7 @@ public class ChangeSetup {
 					if(formation instanceof Form343){
 						formation.setLB((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
 					}
-					else if(formation instanceof Form4321){
+					else if(formation instanceof Form4321 || formation instanceof Form433 || formation instanceof Form442){
 						formation.setCB1((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
 					}
 					initField();
@@ -187,7 +187,7 @@ public class ChangeSetup {
 					if(formation instanceof Form343){
 						formation.setRB((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
 					}
-					else if(formation instanceof Form4321){
+					else if(formation instanceof Form4321 || formation instanceof Form433 || formation instanceof Form442){
 						formation.setCB2((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
 					}
 					initField();
@@ -211,7 +211,7 @@ public class ChangeSetup {
 					if(formation instanceof Form343){
 						formation.setCM1((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
 					}
-					else if(formation instanceof Form4321){
+					else if(formation instanceof Form4321 || formation instanceof Form433 || formation instanceof Form442){
 						formation.setRB((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
 					}
 					initField();
@@ -235,8 +235,11 @@ public class ChangeSetup {
 					if(formation instanceof Form343){
 						formation.setCM2((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
 					}
-					else if(formation instanceof Form4321){
+					else if(formation instanceof Form4321 || formation instanceof Form433){
 						formation.setCM((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
+					}
+					else if(formation instanceof Form442){
+						formation.setCM1((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
 					}
 					initField();
 					ArrayList<Player> playerslist = team.getBenchPlayers();
@@ -256,8 +259,11 @@ public class ChangeSetup {
 				Player player = MainGame.game.getPlayer(Dragboard.getSystemClipboard().getString());
 				if(player instanceof Fieldplayer){
 					Fieldplayer fieldplayer = (Fieldplayer) player;
-					if(formation instanceof Form343 || formation instanceof Form4321){
+					if(formation instanceof Form343 || formation instanceof Form4321 || formation instanceof Form433){
 						formation.setRM((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
+					}
+					else if(formation instanceof Form442){
+						formation.setCM2((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
 					}
 					initField();
 					ArrayList<Player> playerslist = team.getBenchPlayers();
@@ -277,8 +283,11 @@ public class ChangeSetup {
 				Player player = MainGame.game.getPlayer(Dragboard.getSystemClipboard().getString());
 				if(player instanceof Fieldplayer){
 					Fieldplayer fieldplayer = (Fieldplayer) player;
-					if(formation instanceof Form343 || formation instanceof Form4321){
+					if(formation instanceof Form343 || formation instanceof Form4321 || formation instanceof Form433){
 						formation.setLM((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
+					}
+					else if(formation instanceof Form442){
+						formation.setRM((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
 					}
 					initField();
 					ArrayList<Player> playerslist = team.getBenchPlayers();
@@ -298,11 +307,14 @@ public class ChangeSetup {
 				Player player = MainGame.game.getPlayer(Dragboard.getSystemClipboard().getString());
 				if(player instanceof Fieldplayer){
 					Fieldplayer fieldplayer = (Fieldplayer) player;
-					if(formation instanceof Form343){
+					if(formation instanceof Form343 || formation instanceof Form433){
 						formation.setLW((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
 					}
 					else if(formation instanceof Form4321){
 						formation.setOLM((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
+					}
+					else if(formation instanceof Form442){
+						formation.setLM((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
 					}
 					initField();
 					ArrayList<Player> playerslist = team.getBenchPlayers();
@@ -322,11 +334,14 @@ public class ChangeSetup {
 				Player player = MainGame.game.getPlayer(Dragboard.getSystemClipboard().getString());
 				if(player instanceof Fieldplayer){
 					Fieldplayer fieldplayer = (Fieldplayer) player;
-					if(formation instanceof Form343){
+					if(formation instanceof Form343 || formation instanceof Form433){
 						formation.setRW((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
 					}
 					else if(formation instanceof Form4321){
 						formation.setORM((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
+					}
+					else if(formation instanceof Form442){
+						formation.setLW((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
 					}
 					initField();
 					ArrayList<Player> playerslist = team.getBenchPlayers();
@@ -346,9 +361,13 @@ public class ChangeSetup {
 				Player player = MainGame.game.getPlayer(Dragboard.getSystemClipboard().getString());
 				if(player instanceof Fieldplayer){
 					Fieldplayer fieldplayer = (Fieldplayer) player;
-					if(formation instanceof Form343){
+					if(formation instanceof Form343 || formation instanceof Form433 || formation instanceof Form4321 ){
 						formation.setST((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
 					}
+					else if(formation instanceof Form442){
+						formation.setRW((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
+					}
+					
 					initField();
 					ArrayList<Player> playerslist = team.getBenchPlayers();
 					observablelistplayers = FXCollections.observableArrayList(playerslist);
@@ -524,29 +543,40 @@ public class ChangeSetup {
 			LB8.setText("LW");
 			LB9.setText("RW");
 			LB10.setText("ST");
-			AnchorPane.setTopAnchor(POS10, 22.0);
-			AnchorPane.setLeftAnchor(POS10, 210.0);
-			AnchorPane.setTopAnchor(POS9, 55.0);
-			AnchorPane.setLeftAnchor(POS9, 335.0);
-			AnchorPane.setTopAnchor(POS8, 55.0);
-			AnchorPane.setLeftAnchor(POS8, 78.0);
-			AnchorPane.setTopAnchor(POS7, 180.0);
-			AnchorPane.setLeftAnchor(POS7, 39.0);
-			AnchorPane.setTopAnchor(POS6, 180.0);
-			AnchorPane.setLeftAnchor(POS6, 374.0);
-			AnchorPane.setTopAnchor(POS5, 264.0);
-			AnchorPane.setLeftAnchor(POS5, 132.0);
-			AnchorPane.setTopAnchor(POS4, 267.0);
-			AnchorPane.setLeftAnchor(POS4, 296.0);
-			AnchorPane.setTopAnchor(POS3, 409.0);
-			AnchorPane.setLeftAnchor(POS3, 374.0);
-			AnchorPane.setTopAnchor(POS2, 409.0);
-			AnchorPane.setLeftAnchor(POS2, 62.0);
-			AnchorPane.setTopAnchor(POS1, 405.0);
-			AnchorPane.setLeftAnchor(POS1, 210.0);
+			AnchorPane.setTopAnchor(POS10, 59.0);
+			AnchorPane.setLeftAnchor(POS10, 171.0);
+			AnchorPane.setTopAnchor(POS9, 114.0);
+			AnchorPane.setLeftAnchor(POS9, 279.0);
+			AnchorPane.setTopAnchor(POS8, 114.0);
+			AnchorPane.setLeftAnchor(POS8, 66.0);
+			AnchorPane.setTopAnchor(POS7, 226.0);
+			AnchorPane.setLeftAnchor(POS7, 33.0);
+			AnchorPane.setTopAnchor(POS6, 226.0);
+			AnchorPane.setLeftAnchor(POS6, 307.0);
+			AnchorPane.setTopAnchor(POS5, 284.0);
+			AnchorPane.setLeftAnchor(POS5, 229.0);
+			AnchorPane.setTopAnchor(POS4, 284.0);
+			AnchorPane.setLeftAnchor(POS4, 117.0);
+			AnchorPane.setTopAnchor(POS3, 388.0);
+			AnchorPane.setLeftAnchor(POS3, 279.0);
+			AnchorPane.setTopAnchor(POS2, 384.0);
+			AnchorPane.setLeftAnchor(POS2, 56.0);
+			AnchorPane.setTopAnchor(POS1, 430.0);
+			AnchorPane.setLeftAnchor(POS1, 171.0);
 			if(formation343.getCB() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation343.getCB().getID() + ".png");
 				IMG1.setImage(image);
+				IMG1.setOnDragDetected(new EventHandler<MouseEvent>(){
+					@Override
+					public void handle(MouseEvent event){
+						Dragboard dragBoard = playertable.startDragAndDrop(TransferMode.MOVE); 
+						ClipboardContent content = new ClipboardContent();
+						content.putString(formation343.getCB().getID()); 
+						dragBoard.setContent(content);
+						IMG1.setImage(null);
+						formation343.setCB(null);
+					}
+				});
 				IMG1.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -697,26 +727,27 @@ public class ChangeSetup {
 			LB8.setText("OLM");
 			LB9.setText("ORM");
 			LB10.setText("ST");
-			AnchorPane.setTopAnchor(POS10, 22.0);
-			AnchorPane.setLeftAnchor(POS10, 210.0);
-			AnchorPane.setTopAnchor(POS9, 139.0);
-			AnchorPane.setLeftAnchor(POS9, 269.0);
-			AnchorPane.setTopAnchor(POS8, 139.0);
-			AnchorPane.setLeftAnchor(POS8, 132.0);
-			AnchorPane.setTopAnchor(POS7, 256.0);
-			AnchorPane.setLeftAnchor(POS7, 78.0);
-			AnchorPane.setTopAnchor(POS6, 256.0);
-			AnchorPane.setLeftAnchor(POS6, 347.0);
-			AnchorPane.setTopAnchor(POS5, 309.0);
-			AnchorPane.setLeftAnchor(POS5, 210.0);
-			AnchorPane.setTopAnchor(POS4, 384.0);
-			AnchorPane.setLeftAnchor(POS4, 397.0);
-			AnchorPane.setTopAnchor(POS3, 430.0);
-			AnchorPane.setLeftAnchor(POS3, 300.0);
-			AnchorPane.setTopAnchor(POS2, 430.0);
-			AnchorPane.setLeftAnchor(POS2, 132.0);
+			AnchorPane.setTopAnchor(POS10, 81.0);
+			AnchorPane.setLeftAnchor(POS10, 171.0);
+			AnchorPane.setTopAnchor(POS9, 174.0);
+			AnchorPane.setLeftAnchor(POS9, 239.0);
+			AnchorPane.setTopAnchor(POS8, 174.0);
+			AnchorPane.setLeftAnchor(POS8, 111.0);
+			AnchorPane.setTopAnchor(POS7, 274.0);
+			AnchorPane.setLeftAnchor(POS7, 55.0);
+			AnchorPane.setTopAnchor(POS6, 274.0);
+			AnchorPane.setLeftAnchor(POS6, 292.0);
+			AnchorPane.setTopAnchor(POS5, 334.0);
+			AnchorPane.setLeftAnchor(POS5, 175.0);
+			AnchorPane.setTopAnchor(POS4, 388.0);
+			AnchorPane.setLeftAnchor(POS4, 308.0);
+			AnchorPane.setTopAnchor(POS3, 434.0);
+			AnchorPane.setLeftAnchor(POS3, 223.0);
+			AnchorPane.setTopAnchor(POS2, 434.0);
+			AnchorPane.setLeftAnchor(POS2, 117.0);
 			AnchorPane.setTopAnchor(POS1, 384.0);
-			AnchorPane.setLeftAnchor(POS1, 25.0);		
+			AnchorPane.setLeftAnchor(POS1, 33.0);
+
 			if(formation4321.getLB() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation4321.getLB().getID() + ".png");
 				IMG1.setImage(image);
@@ -859,10 +890,350 @@ public class ChangeSetup {
 			}		
 		}
 		else if(formation instanceof Form433){
-			
+			Form433 formation433 = (Form433) formation;
+			LB1.setText("LB");
+			LB2.setText("CB1");
+			LB3.setText("CB2");
+			LB4.setText("RB");
+			LB5.setText("CM");
+			LB6.setText("RM");
+			LB7.setText("LM");
+			LB8.setText("LW");
+			LB9.setText("RW");
+			LB10.setText("ST");
+			AnchorPane.setTopAnchor(POS10, 59.0);
+			AnchorPane.setLeftAnchor(POS10, 171.0);
+			AnchorPane.setTopAnchor(POS9, 101.0);
+			AnchorPane.setLeftAnchor(POS9, 279.0);
+			AnchorPane.setTopAnchor(POS8, 101.0);
+			AnchorPane.setLeftAnchor(POS8, 56.0);
+			AnchorPane.setTopAnchor(POS7, 242.0);
+			AnchorPane.setLeftAnchor(POS7, 56.0);
+			AnchorPane.setTopAnchor(POS6, 242.0);
+			AnchorPane.setLeftAnchor(POS6, 290.0);
+			AnchorPane.setTopAnchor(POS5, 284.0);
+			AnchorPane.setLeftAnchor(POS5, 172.0);
+			AnchorPane.setTopAnchor(POS4, 388.0);
+			AnchorPane.setLeftAnchor(POS4, 308.0);
+			AnchorPane.setTopAnchor(POS3, 434.0);
+			AnchorPane.setLeftAnchor(POS3, 223.0);
+			AnchorPane.setTopAnchor(POS2, 434.0);
+			AnchorPane.setLeftAnchor(POS2, 117.0);
+			AnchorPane.setTopAnchor(POS1, 384.0);
+			AnchorPane.setLeftAnchor(POS1, 33.0);
+			if(formation433.getLB() != null){
+				Image image = new Image("/data/base/players/pictures/" + formation433.getLB().getID() + ".png");
+				IMG1.setImage(image);
+				IMG1.setOnMouseClicked(new EventHandler<MouseEvent>() {
+		            @Override
+		            public void handle(MouseEvent event) {
+							try {
+								ViewPlayer.start(formation433.getLB());
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+		            }
+		        });
+			}
+			if(formation433.getCB1() != null){
+				Image image = new Image("/data/base/players/pictures/" + formation433.getCB1().getID() + ".png");
+				IMG2.setImage(image);
+				IMG2.setOnMouseClicked(new EventHandler<MouseEvent>() {
+		            @Override
+		            public void handle(MouseEvent event) {
+							try {
+								ViewPlayer.start(formation433.getCB1());
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+		            }
+		        });
+			}
+			if(formation433.getCB2() != null){
+				Image image = new Image("/data/base/players/pictures/" + formation433.getCB2().getID() + ".png");
+				IMG3.setImage(image);
+				IMG3.setOnMouseClicked(new EventHandler<MouseEvent>() {
+		            @Override
+		            public void handle(MouseEvent event) {
+							try {
+								ViewPlayer.start(formation433.getCB2());
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+		            }
+		        });
+			}
+			if(formation433.getRB() != null){
+				Image image = new Image("/data/base/players/pictures/" + formation433.getRB().getID() + ".png");
+				IMG4.setImage(image);
+				IMG4.setOnMouseClicked(new EventHandler<MouseEvent>() {
+		            @Override
+		            public void handle(MouseEvent event) {
+							try {
+								ViewPlayer.start(formation433.getRB());
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+		            }
+		        });
+			}
+			if(formation433.getCM() != null){
+				Image image = new Image("/data/base/players/pictures/" + formation433.getCM().getID() + ".png");
+				IMG5.setImage(image);
+				IMG5.setOnMouseClicked(new EventHandler<MouseEvent>() {
+		            @Override
+		            public void handle(MouseEvent event) {
+							try {
+								ViewPlayer.start(formation433.getCM());
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+		            }
+		        });
+			}
+			if(formation433.getRM() != null){
+				Image image = new Image("/data/base/players/pictures/" + formation433.getRM().getID() + ".png");
+				IMG6.setImage(image);
+				IMG6.setOnMouseClicked(new EventHandler<MouseEvent>() {
+		            @Override
+		            public void handle(MouseEvent event) {
+							try {
+								ViewPlayer.start(formation433.getRM());
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+		            }
+		        });
+			}
+			if(formation433.getLM() != null){
+				Image image = new Image("/data/base/players/pictures/" + formation433.getLM().getID() + ".png");
+				IMG7.setImage(image);
+				IMG7.setOnMouseClicked(new EventHandler<MouseEvent>() {
+		            @Override
+		            public void handle(MouseEvent event) {
+							try {
+								ViewPlayer.start(formation433.getLM());
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+		            }
+		        });
+			}
+			if(formation433.getLW() != null){
+				Image image = new Image("/data/base/players/pictures/" + formation433.getLW().getID() + ".png");
+				IMG8.setImage(image);
+				IMG8.setOnMouseClicked(new EventHandler<MouseEvent>() {
+		            @Override
+		            public void handle(MouseEvent event) {
+							try {
+								ViewPlayer.start(formation433.getLW());
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+		            }
+		        });
+			}
+			if(formation433.getRW() != null){
+				Image image = new Image("/data/base/players/pictures/" + formation433.getRW().getID() + ".png");
+				IMG9.setImage(image);
+				IMG9.setOnMouseClicked(new EventHandler<MouseEvent>() {
+		            @Override
+		            public void handle(MouseEvent event) {
+							try {
+								ViewPlayer.start(formation433.getRW());
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+		            }
+		        });
+			}
+			if(formation433.getST() != null){
+				Image image = new Image("/data/base/players/pictures/" + formation433.getST().getID() + ".png");
+				IMG10.setImage(image);
+				IMG10.setOnMouseClicked(new EventHandler<MouseEvent>() {
+		            @Override
+		            public void handle(MouseEvent event) {
+							try {
+								ViewPlayer.start(formation433.getST());
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+		            }
+		        });
+			}		
 		}
 		else if(formation instanceof Form442){
-			
+			Form442 formation442 = (Form442) formation;
+			LB1.setText("LB");
+			LB2.setText("CB1");
+			LB3.setText("CB2");
+			LB4.setText("RB");
+			LB5.setText("CM1");
+			LB6.setText("CM2");
+			LB7.setText("RM");
+			LB8.setText("LM");
+			LB9.setText("RW");
+			LB10.setText("LW");
+			AnchorPane.setTopAnchor(POS10, 88.0);
+			AnchorPane.setLeftAnchor(POS10, 85.0);
+			AnchorPane.setTopAnchor(POS9, 88.0);
+			AnchorPane.setLeftAnchor(POS9, 262.0);
+			AnchorPane.setTopAnchor(POS8, 226.0);
+			AnchorPane.setLeftAnchor(POS8, 33.0);
+			AnchorPane.setTopAnchor(POS7, 226.0);
+			AnchorPane.setLeftAnchor(POS7, 307.0);
+			AnchorPane.setTopAnchor(POS6, 284.0);
+			AnchorPane.setLeftAnchor(POS6, 229.0);
+			AnchorPane.setTopAnchor(POS5, 284.0);
+			AnchorPane.setLeftAnchor(POS5, 117.0);
+			AnchorPane.setTopAnchor(POS4, 388.0);
+			AnchorPane.setLeftAnchor(POS4, 308.0);
+			AnchorPane.setTopAnchor(POS3, 434.0);
+			AnchorPane.setLeftAnchor(POS3, 223.0);
+			AnchorPane.setTopAnchor(POS2, 434.0);
+			AnchorPane.setLeftAnchor(POS2, 117.0);
+			AnchorPane.setTopAnchor(POS1, 384.0);
+			AnchorPane.setLeftAnchor(POS1, 33.0);
+			if(formation442.getLB() != null){
+				Image image = new Image("/data/base/players/pictures/" + formation442.getLB().getID() + ".png");
+				IMG1.setImage(image);
+				IMG1.setOnMouseClicked(new EventHandler<MouseEvent>() {
+		            @Override
+		            public void handle(MouseEvent event) {
+							try {
+								ViewPlayer.start(formation442.getLB());
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+		            }
+		        });
+			}
+			if(formation442.getCB1() != null){
+				Image image = new Image("/data/base/players/pictures/" + formation442.getCB1().getID() + ".png");
+				IMG2.setImage(image);
+				IMG2.setOnMouseClicked(new EventHandler<MouseEvent>() {
+		            @Override
+		            public void handle(MouseEvent event) {
+							try {
+								ViewPlayer.start(formation442.getCB1());
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+		            }
+		        });
+			}
+			if(formation442.getCB2() != null){
+				Image image = new Image("/data/base/players/pictures/" + formation442.getCB2().getID() + ".png");
+				IMG3.setImage(image);
+				IMG3.setOnMouseClicked(new EventHandler<MouseEvent>() {
+		            @Override
+		            public void handle(MouseEvent event) {
+							try {
+								ViewPlayer.start(formation442.getCB2());
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+		            }
+		        });
+			}
+			if(formation442.getRB() != null){
+				Image image = new Image("/data/base/players/pictures/" + formation442.getRB().getID() + ".png");
+				IMG4.setImage(image);
+				IMG4.setOnMouseClicked(new EventHandler<MouseEvent>() {
+		            @Override
+		            public void handle(MouseEvent event) {
+							try {
+								ViewPlayer.start(formation442.getRB());
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+		            }
+		        });
+			}
+			if(formation442.getCM1() != null){
+				Image image = new Image("/data/base/players/pictures/" + formation442.getCM1().getID() + ".png");
+				IMG5.setImage(image);
+				IMG5.setOnMouseClicked(new EventHandler<MouseEvent>() {
+		            @Override
+		            public void handle(MouseEvent event) {
+							try {
+								ViewPlayer.start(formation442.getCM1());
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+		            }
+		        });
+			}
+			if(formation442.getCM2() != null){
+				Image image = new Image("/data/base/players/pictures/" + formation442.getCM2().getID() + ".png");
+				IMG6.setImage(image);
+				IMG6.setOnMouseClicked(new EventHandler<MouseEvent>() {
+		            @Override
+		            public void handle(MouseEvent event) {
+							try {
+								ViewPlayer.start(formation442.getCM2());
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+		            }
+		        });
+			}
+			if(formation442.getRM() != null){
+				Image image = new Image("/data/base/players/pictures/" + formation442.getRM().getID() + ".png");
+				IMG7.setImage(image);
+				IMG7.setOnMouseClicked(new EventHandler<MouseEvent>() {
+		            @Override
+		            public void handle(MouseEvent event) {
+							try {
+								ViewPlayer.start(formation442.getRM());
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+		            }
+		        });
+			}
+			if(formation442.getLM() != null){
+				Image image = new Image("/data/base/players/pictures/" + formation442.getLM().getID() + ".png");
+				IMG8.setImage(image);
+				IMG8.setOnMouseClicked(new EventHandler<MouseEvent>() {
+		            @Override
+		            public void handle(MouseEvent event) {
+							try {
+								ViewPlayer.start(formation442.getLM());
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+		            }
+		        });
+			}
+			if(formation442.getRW() != null){
+				Image image = new Image("/data/base/players/pictures/" + formation442.getRW().getID() + ".png");
+				IMG9.setImage(image);
+				IMG9.setOnMouseClicked(new EventHandler<MouseEvent>() {
+		            @Override
+		            public void handle(MouseEvent event) {
+							try {
+								ViewPlayer.start(formation442.getRW());
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+		            }
+		        });
+			}
+			if(formation442.getLW() != null){
+				Image image = new Image("/data/base/players/pictures/" + formation442.getLW().getID() + ".png");
+				IMG10.setImage(image);
+				IMG10.setOnMouseClicked(new EventHandler<MouseEvent>() {
+		            @Override
+		            public void handle(MouseEvent event) {
+							try {
+								ViewPlayer.start(formation442.getLW());
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+		            }
+		        });
+			}
 		}
 		else if(formation instanceof Form532){
 			
