@@ -111,6 +111,8 @@ public class TransferMarket {
 				"country"));
 		position.setCellValueFactory(new PropertyValueFactory<Player, String>(
 				"position"));
+		price.setCellValueFactory(new PropertyValueFactory<Player, String>(
+				"price"));
 		otherteams
 				.getSelectionModel()
 				.selectedItemProperty()
