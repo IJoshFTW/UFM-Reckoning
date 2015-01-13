@@ -30,7 +30,7 @@ import nl.joshuaslik.tudelft.UFMGame.gui.Main;
  */
 public class TransferMarket {
 
-	private Team team;
+	private static Team team;
 	
 	private Team otherteam;
 	private Player selectedplayer;
@@ -144,7 +144,7 @@ public class TransferMarket {
 		MainGame.start();
 	}
 	
-	public void start() throws IOException {
+	public static void start() throws IOException {
 		team = MainGame.game.getUser().getTeam();
 		AnchorPane root = FXMLLoader.load(Class.class
 				.getResource("/data/gui/pages-game/TransferMarket.fxml"));
