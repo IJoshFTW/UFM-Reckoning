@@ -37,7 +37,7 @@ public class TransferMarket {
 	private static ComboBox<Team> teams;
 
 	@FXML
-	private static TableView<Player> playertable;
+	private static TableView<Player> otherteams;
 
 	@FXML
 	private static TableColumn<Player, String> name, country, position, active, price;
@@ -67,7 +67,7 @@ public class TransferMarket {
 				ArrayList<Player> playerslist = otherteam.getAllPlayers();
 				observablelistplayers = FXCollections
 						.observableArrayList(playerslist);
-				playertable.setItems(observablelistplayers);
+				otherteams.setItems(observablelistplayers);
 			}
 		});
 
@@ -76,7 +76,7 @@ public class TransferMarket {
 		teams.setValue(teamarraylist.get(0));
 		ArrayList<Player> playerslist = otherteam.getAllPlayers();
 		observablelistplayers = FXCollections.observableArrayList(playerslist);
-		playertable.setItems(observablelistplayers);
+		otherteams.setItems(observablelistplayers);
 		active.setCellValueFactory(new PropertyValueFactory<Player, String>(
 				"ID"));
 		active.setCellFactory(new Callback<TableColumn<Player, String>, TableCell<Player, String>>() {
@@ -111,7 +111,7 @@ public class TransferMarket {
 				"country"));
 		position.setCellValueFactory(new PropertyValueFactory<Player, String>(
 				"position"));
-		playertable
+		otherteams
 				.getSelectionModel()
 				.selectedItemProperty()
 				.addListener(
