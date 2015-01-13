@@ -123,6 +123,7 @@ public class TransferMarket {
 				"country"));
 		position.setCellValueFactory(new PropertyValueFactory<Player, String>(
 				"position"));
+
 		yourteam.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> selectedPlayer(newValue));
 	}
 	
