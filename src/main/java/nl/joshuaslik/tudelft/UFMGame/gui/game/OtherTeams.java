@@ -38,7 +38,7 @@ public class OtherTeams {
     private ComboBox<Team> teams;
 
 	@FXML
-	private TableView<Player> otherteams;
+	private TableView<Player> playertable;
 
 	@FXML
 	private TableColumn<Player, String> active;
@@ -80,7 +80,7 @@ public class OtherTeams {
 					otherteam = newValue;
 					ArrayList<Player> playerslist = otherteam.getAllPlayers();
 					observablelistplayers = FXCollections.observableArrayList(playerslist);
-					otherteams.setItems(observablelistplayers); 
+					playertable.setItems(observablelistplayers); 
 					Image image = new Image("/data/base/teams/pictures/" + otherteam.getid()
 							+ ".png");
 					otherteamlogo.setImage(image);
@@ -92,7 +92,7 @@ public class OtherTeams {
    	teams.setValue(teamarraylist.get(0));
 		ArrayList<Player> playerslist = otherteam.getAllPlayers();
 		observablelistplayers = FXCollections.observableArrayList(playerslist);
-		otherteams.setItems(observablelistplayers);
+		playertable.setItems(observablelistplayers);
 		active.setCellValueFactory(new PropertyValueFactory<Player, String>(
 				"ID"));
 		active.setCellFactory(new Callback<TableColumn<Player, String>, TableCell<Player, String>>(){
@@ -124,7 +124,7 @@ public class OtherTeams {
 				"country"));
 		position.setCellValueFactory(new PropertyValueFactory<Player, String>(
 				"position"));
-		otherteams.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> selectedPlayer(newValue));
+		playertable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> selectedPlayer(newValue));
 		Image image = new Image("/data/base/teams/pictures/" + otherteam.getid()
 				+ ".png");
 		otherteamlogo.setImage(image);
