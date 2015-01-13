@@ -14,6 +14,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -25,6 +26,7 @@ import javafx.scene.input.Dragboard;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.Callback;
 import javafx.util.StringConverter;
 import nl.joshuaslik.UFMReckoning.backend.Fieldplayer;
 import nl.joshuaslik.UFMReckoning.backend.Goalkeeper;
@@ -59,11 +61,7 @@ public class ChangeSetup {
 	@FXML
 	private ImageView IMG1, IMG2, IMG3, IMG4, IMG5, IMG6, IMG7, IMG8, IMG9, IMG10, gkIMG;
 	@FXML
-	private TableColumn<Player, String> name;
-	@FXML
-	private TableColumn<Player, String> country;
-	@FXML
-	private TableColumn<Player, String> position;
+	private TableColumn<Player, String> name, country, position, captain;
 	
 	@FXML
 	private void initialize(){
@@ -111,14 +109,13 @@ public class ChangeSetup {
 	defence.setText(""+team.getDefencePower());
 	attack.setText(""+team.getAttackPower());
 	
-		
 	name.setCellValueFactory(new PropertyValueFactory<Player, String>(
 			"fullName"));
 	country.setCellValueFactory(new PropertyValueFactory<Player, String>(
 				"country"));
 	position.setCellValueFactory(new PropertyValueFactory<Player, String>(
 				"position"));
-		
+	
 	playertable.setOnDragDetected(new EventHandler<MouseEvent>(){
 		@Override
 		public void handle(MouseEvent event){
@@ -133,23 +130,21 @@ public class ChangeSetup {
 			@Override
 			public void handle(DragEvent event){
 				Player player = MainGame.game.getPlayer(Dragboard.getSystemClipboard().getString());
-				if(player instanceof Fieldplayer){
-					Fieldplayer fieldplayer = (Fieldplayer) player;
-					if(formation instanceof Form343){
-						formation.setCB((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
-					}
-					else if(formation instanceof Form4321 || formation instanceof Form433 || formation instanceof Form442 || formation instanceof Form532){
-						formation.setLB((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
-					}
-					initField();
-					ArrayList<Player> playerslist = team.getBenchPlayers();
-					observablelistplayers = FXCollections.observableArrayList(playerslist);
-					playertable.setItems(observablelistplayers);
-					playertable.getSelectionModel().selectFirst();
-					stamina.setText(""+team.getStamina());
-					defence.setText(""+team.getDefencePower());
-					attack.setText(""+team.getAttackPower());
+				Fieldplayer fieldplayer = (Fieldplayer) player;
+				if(formation instanceof Form343){
+					formation.setCB((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
 				}
+				else if(formation instanceof Form4321 || formation instanceof Form433 || formation instanceof Form442 || formation instanceof Form532){
+					formation.setLB((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
+				}
+				initField();
+				ArrayList<Player> playerslist = team.getBenchPlayers();
+				observablelistplayers = FXCollections.observableArrayList(playerslist);
+				playertable.setItems(observablelistplayers);
+				playertable.getSelectionModel().selectFirst();
+				stamina.setText(""+team.getStamina());
+				defence.setText(""+team.getDefencePower());
+				attack.setText(""+team.getAttackPower());
 			}
 		});
 		
@@ -157,23 +152,21 @@ public class ChangeSetup {
 			@Override
 			public void handle(DragEvent event){
 				Player player = MainGame.game.getPlayer(Dragboard.getSystemClipboard().getString());
-				if(player instanceof Fieldplayer){
-					Fieldplayer fieldplayer = (Fieldplayer) player;
-					if(formation instanceof Form343){
-						formation.setLB((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
-					}
-					else if(formation instanceof Form4321 || formation instanceof Form433 || formation instanceof Form442 || formation instanceof Form532){
-						formation.setCB1((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
-					}
-					initField();
-					ArrayList<Player> playerslist = team.getBenchPlayers();
-					observablelistplayers = FXCollections.observableArrayList(playerslist);
-					playertable.setItems(observablelistplayers);
-					playertable.getSelectionModel().selectFirst();
-					stamina.setText(""+team.getStamina());
-					defence.setText(""+team.getDefencePower());
-					attack.setText(""+team.getAttackPower());
+				Fieldplayer fieldplayer = (Fieldplayer) player;
+				if(formation instanceof Form343){
+					formation.setLB((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
 				}
+				else if(formation instanceof Form4321 || formation instanceof Form433 || formation instanceof Form442 || formation instanceof Form532){
+					formation.setCB1((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
+				}
+				initField();
+				ArrayList<Player> playerslist = team.getBenchPlayers();
+				observablelistplayers = FXCollections.observableArrayList(playerslist);
+				playertable.setItems(observablelistplayers);
+				playertable.getSelectionModel().selectFirst();
+				stamina.setText(""+team.getStamina());
+				defence.setText(""+team.getDefencePower());
+				attack.setText(""+team.getAttackPower());
 			}
 		});
 		
@@ -181,23 +174,21 @@ public class ChangeSetup {
 			@Override
 			public void handle(DragEvent event){
 				Player player = MainGame.game.getPlayer(Dragboard.getSystemClipboard().getString());
-				if(player instanceof Fieldplayer){
-					Fieldplayer fieldplayer = (Fieldplayer) player;
-					if(formation instanceof Form343){
-						formation.setRB((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
-					}
-					else if(formation instanceof Form4321 || formation instanceof Form433 || formation instanceof Form442 || formation instanceof Form532){
-						formation.setCB2((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
-					}
-					initField();
-					ArrayList<Player> playerslist = team.getBenchPlayers();
-					observablelistplayers = FXCollections.observableArrayList(playerslist);
-					playertable.setItems(observablelistplayers);
-					playertable.getSelectionModel().selectFirst();
-					stamina.setText(""+team.getStamina());
-					defence.setText(""+team.getDefencePower());
-					attack.setText(""+team.getAttackPower());;
+				Fieldplayer fieldplayer = (Fieldplayer) player;
+				if(formation instanceof Form343){
+					formation.setRB((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
 				}
+				else if(formation instanceof Form4321 || formation instanceof Form433 || formation instanceof Form442 || formation instanceof Form532){
+					formation.setCB2((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
+				}
+				initField();
+				ArrayList<Player> playerslist = team.getBenchPlayers();
+				observablelistplayers = FXCollections.observableArrayList(playerslist);
+				playertable.setItems(observablelistplayers);
+				playertable.getSelectionModel().selectFirst();
+				stamina.setText(""+team.getStamina());
+				defence.setText(""+team.getDefencePower());
+				attack.setText(""+team.getAttackPower());;
 			}
 		});
 		
@@ -205,26 +196,24 @@ public class ChangeSetup {
 			@Override
 			public void handle(DragEvent event){
 				Player player = MainGame.game.getPlayer(Dragboard.getSystemClipboard().getString());
-				if(player instanceof Fieldplayer){
-					Fieldplayer fieldplayer = (Fieldplayer) player;
-					if(formation instanceof Form343){
-						formation.setCM1((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
-					}
-					else if(formation instanceof Form4321 || formation instanceof Form433 || formation instanceof Form442){
-						formation.setRB((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
-					}
-					else if(formation instanceof Form532){
-						formation.setCB3((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
-					}
-					initField();
-					ArrayList<Player> playerslist = team.getBenchPlayers();
-					observablelistplayers = FXCollections.observableArrayList(playerslist);
-					playertable.setItems(observablelistplayers);
-					playertable.getSelectionModel().selectFirst();
-					stamina.setText(""+team.getStamina());
-					defence.setText(""+team.getDefencePower());
-					attack.setText(""+team.getAttackPower());
+				Fieldplayer fieldplayer = (Fieldplayer) player;
+				if(formation instanceof Form343){
+					formation.setCM1((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
 				}
+				else if(formation instanceof Form4321 || formation instanceof Form433 || formation instanceof Form442){
+					formation.setRB((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
+				}
+				else if(formation instanceof Form532){
+					formation.setCB3((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
+				}
+				initField();
+				ArrayList<Player> playerslist = team.getBenchPlayers();
+				observablelistplayers = FXCollections.observableArrayList(playerslist);
+				playertable.setItems(observablelistplayers);
+				playertable.getSelectionModel().selectFirst();
+				stamina.setText(""+team.getStamina());
+				defence.setText(""+team.getDefencePower());
+				attack.setText(""+team.getAttackPower());
 			}
 		});
 		
@@ -232,30 +221,27 @@ public class ChangeSetup {
 			@Override
 			public void handle(DragEvent event){
 				Player player = MainGame.game.getPlayer(Dragboard.getSystemClipboard().getString());
-				if(player instanceof Fieldplayer){
-					Fieldplayer fieldplayer = (Fieldplayer) player;
-					if(formation instanceof Form343){
-						formation.setCM2((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
-					}
-					else if(formation instanceof Form4321 || formation instanceof Form433){
-						formation.setCM((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
-					}
-					else if(formation instanceof Form442){
-						formation.setCM1((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
-					}
-					else if(formation instanceof Form532){
-						formation.setRB((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
-					}
-					
-					initField();
-					ArrayList<Player> playerslist = team.getBenchPlayers();
-					observablelistplayers = FXCollections.observableArrayList(playerslist);
-					playertable.setItems(observablelistplayers);
-					playertable.getSelectionModel().selectFirst();
-					stamina.setText(""+team.getStamina());
-					defence.setText(""+team.getDefencePower());
-					attack.setText(""+team.getAttackPower());
+				Fieldplayer fieldplayer = (Fieldplayer) player;
+				if(formation instanceof Form343){
+					formation.setCM2((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
 				}
+				else if(formation instanceof Form4321 || formation instanceof Form433){
+					formation.setCM((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
+				}
+				else if(formation instanceof Form442){
+					formation.setCM1((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
+				}
+				else if(formation instanceof Form532){
+					formation.setRB((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
+				}
+				initField();
+				ArrayList<Player> playerslist = team.getBenchPlayers();
+				observablelistplayers = FXCollections.observableArrayList(playerslist);
+				playertable.setItems(observablelistplayers);
+				playertable.getSelectionModel().selectFirst();
+				stamina.setText(""+team.getStamina());
+				defence.setText(""+team.getDefencePower());
+				attack.setText(""+team.getAttackPower());
 			}
 		});
 		
@@ -263,26 +249,24 @@ public class ChangeSetup {
 			@Override
 			public void handle(DragEvent event){
 				Player player = MainGame.game.getPlayer(Dragboard.getSystemClipboard().getString());
-				if(player instanceof Fieldplayer){
-					Fieldplayer fieldplayer = (Fieldplayer) player;
-					if(formation instanceof Form343 || formation instanceof Form4321 || formation instanceof Form433){
-						formation.setRM((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
-					}
-					else if(formation instanceof Form442){
-						formation.setCM2((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
-					}
-					else if(formation instanceof Form532){
-						formation.setCM((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
-					}
-					initField();
-					ArrayList<Player> playerslist = team.getBenchPlayers();
-					observablelistplayers = FXCollections.observableArrayList(playerslist);
-					playertable.setItems(observablelistplayers);
-					playertable.getSelectionModel().selectFirst();
-					stamina.setText(""+team.getStamina());
-					defence.setText(""+team.getDefencePower());
-					attack.setText(""+team.getAttackPower());
+				Fieldplayer fieldplayer = (Fieldplayer) player;
+				if(formation instanceof Form343 || formation instanceof Form4321 || formation instanceof Form433){
+					formation.setRM((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
 				}
+				else if(formation instanceof Form442){
+					formation.setCM2((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
+				}
+				else if(formation instanceof Form532){
+					formation.setCM((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
+				}
+				initField();
+				ArrayList<Player> playerslist = team.getBenchPlayers();
+				observablelistplayers = FXCollections.observableArrayList(playerslist);
+				playertable.setItems(observablelistplayers);
+				playertable.getSelectionModel().selectFirst();
+				stamina.setText(""+team.getStamina());
+				defence.setText(""+team.getDefencePower());
+				attack.setText(""+team.getAttackPower());
 			}
 		});
 		
@@ -290,23 +274,21 @@ public class ChangeSetup {
 			@Override
 			public void handle(DragEvent event){
 				Player player = MainGame.game.getPlayer(Dragboard.getSystemClipboard().getString());
-				if(player instanceof Fieldplayer){
-					Fieldplayer fieldplayer = (Fieldplayer) player;
-					if(formation instanceof Form343 || formation instanceof Form4321 || formation instanceof Form433){
-						formation.setLM((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
-					}
-					else if(formation instanceof Form442 || formation instanceof Form532){
-						formation.setRM((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
-					}
-					initField();
-					ArrayList<Player> playerslist = team.getBenchPlayers();
-					observablelistplayers = FXCollections.observableArrayList(playerslist);
-					playertable.setItems(observablelistplayers);
-					playertable.getSelectionModel().selectFirst();
-					stamina.setText(""+team.getStamina());
-					defence.setText(""+team.getDefencePower());
-					attack.setText(""+team.getAttackPower());
+				Fieldplayer fieldplayer = (Fieldplayer) player;
+				if(formation instanceof Form343 || formation instanceof Form4321 || formation instanceof Form433){
+					formation.setLM((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
 				}
+				else if(formation instanceof Form442 || formation instanceof Form532){
+					formation.setRM((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
+				}
+				initField();
+				ArrayList<Player> playerslist = team.getBenchPlayers();
+				observablelistplayers = FXCollections.observableArrayList(playerslist);
+				playertable.setItems(observablelistplayers);
+				playertable.getSelectionModel().selectFirst();
+				stamina.setText(""+team.getStamina());
+				defence.setText(""+team.getDefencePower());
+				attack.setText(""+team.getAttackPower());
 			}
 		});
 		
@@ -314,26 +296,24 @@ public class ChangeSetup {
 			@Override
 			public void handle(DragEvent event){
 				Player player = MainGame.game.getPlayer(Dragboard.getSystemClipboard().getString());
-				if(player instanceof Fieldplayer){
-					Fieldplayer fieldplayer = (Fieldplayer) player;
-					if(formation instanceof Form343 || formation instanceof Form433){
-						formation.setLW((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
-					}
-					else if(formation instanceof Form4321){
-						formation.setOLM((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
-					}
-					else if(formation instanceof Form442 || formation instanceof Form532){
-						formation.setLM((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
-					}
-					initField();
-					ArrayList<Player> playerslist = team.getBenchPlayers();
-					observablelistplayers = FXCollections.observableArrayList(playerslist);
-					playertable.setItems(observablelistplayers);
-					playertable.getSelectionModel().selectFirst();
-					stamina.setText(""+team.getStamina());
-					defence.setText(""+team.getDefencePower());
-					attack.setText(""+team.getAttackPower());
+				Fieldplayer fieldplayer = (Fieldplayer) player;
+				if(formation instanceof Form343 || formation instanceof Form433){
+					formation.setLW((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
 				}
+				else if(formation instanceof Form4321){
+					formation.setOLM((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
+				}
+				else if(formation instanceof Form442 || formation instanceof Form532){
+					formation.setLM((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
+				}
+				initField();
+				ArrayList<Player> playerslist = team.getBenchPlayers();
+				observablelistplayers = FXCollections.observableArrayList(playerslist);
+				playertable.setItems(observablelistplayers);
+				playertable.getSelectionModel().selectFirst();
+				stamina.setText(""+team.getStamina());
+				defence.setText(""+team.getDefencePower());
+				attack.setText(""+team.getAttackPower());
 			}
 		});
 		
@@ -341,23 +321,21 @@ public class ChangeSetup {
 			@Override
 			public void handle(DragEvent event){
 				Player player = MainGame.game.getPlayer(Dragboard.getSystemClipboard().getString());
-				if(player instanceof Fieldplayer){
-					Fieldplayer fieldplayer = (Fieldplayer) player;
-					if(formation instanceof Form343 || formation instanceof Form433 || formation instanceof Form532 || formation instanceof Form442){
-						formation.setRW((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
-					}
-					else if(formation instanceof Form4321){
-						formation.setORM((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
-					}
-					initField();
-					ArrayList<Player> playerslist = team.getBenchPlayers();
-					observablelistplayers = FXCollections.observableArrayList(playerslist);
-					playertable.setItems(observablelistplayers);
-					playertable.getSelectionModel().selectFirst();
-					stamina.setText(""+team.getStamina());
-					defence.setText(""+team.getDefencePower());
-					attack.setText(""+team.getAttackPower());
+				Fieldplayer fieldplayer = (Fieldplayer) player;
+				if(formation instanceof Form343 || formation instanceof Form433 || formation instanceof Form532 || formation instanceof Form442){
+					formation.setRW((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
 				}
+				else if(formation instanceof Form4321){
+					formation.setORM((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
+				}
+				initField();
+				ArrayList<Player> playerslist = team.getBenchPlayers();
+				observablelistplayers = FXCollections.observableArrayList(playerslist);
+				playertable.setItems(observablelistplayers);
+				playertable.getSelectionModel().selectFirst();
+				stamina.setText(""+team.getStamina());
+				defence.setText(""+team.getDefencePower());
+				attack.setText(""+team.getAttackPower());
 			}
 		});
 		
@@ -365,24 +343,21 @@ public class ChangeSetup {
 			@Override
 			public void handle(DragEvent event){
 				Player player = MainGame.game.getPlayer(Dragboard.getSystemClipboard().getString());
-				if(player instanceof Fieldplayer){
-					Fieldplayer fieldplayer = (Fieldplayer) player;
-					if(formation instanceof Form343 || formation instanceof Form433 || formation instanceof Form4321 ){
-						formation.setST((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
-					}
-					else if(formation instanceof Form532 || formation instanceof Form442){
-						formation.setLW((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
-					}
-					
-					initField();
-					ArrayList<Player> playerslist = team.getBenchPlayers();
-					observablelistplayers = FXCollections.observableArrayList(playerslist);
-					playertable.setItems(observablelistplayers);
-					playertable.getSelectionModel().selectFirst();
-					stamina.setText(""+team.getStamina());
-					defence.setText(""+team.getDefencePower());
-					attack.setText(""+team.getAttackPower());
+				Fieldplayer fieldplayer = (Fieldplayer) player;
+				if(formation instanceof Form343 || formation instanceof Form433 || formation instanceof Form4321 ){
+					formation.setST((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
 				}
+				else if(formation instanceof Form532 || formation instanceof Form442){
+					formation.setLW((Fieldplayer) MainGame.game.getPlayer(fieldplayer.getID()));
+				}
+				initField();
+				ArrayList<Player> playerslist = team.getBenchPlayers();
+				observablelistplayers = FXCollections.observableArrayList(playerslist);
+				playertable.setItems(observablelistplayers);
+				playertable.getSelectionModel().selectFirst();
+				stamina.setText(""+team.getStamina());
+				defence.setText(""+team.getDefencePower());
+				attack.setText(""+team.getAttackPower());
 			}
 		});
 		
@@ -390,17 +365,17 @@ public class ChangeSetup {
 			@Override
 			public void handle(DragEvent event){
 				Player player = MainGame.game.getPlayer(Dragboard.getSystemClipboard().getString());
-				if(player instanceof Goalkeeper){
-					Goalkeeper goalkeeper = (Goalkeeper) player;
-					formation.setGoalkeeper((Goalkeeper) MainGame.game.getPlayer(goalkeeper.getID()));
-					initField();
-					ArrayList<Player> playerslist = team.getBenchPlayers();
-					observablelistplayers = FXCollections.observableArrayList(playerslist);
-					playertable.getSelectionModel().selectFirst();
-					diving.setText("Diving: "+goalkeeper.getDiving());
-					positioning.setText("Positioning: "+goalkeeper.getPositioning());
-					reflexes.setText("Reflexes: "+goalkeeper.getReflexes());
-				}
+				Goalkeeper goalkeeper = (Goalkeeper) player;
+				formation.setGoalkeeper((Goalkeeper) MainGame.game.getPlayer(goalkeeper.getID()));
+				initField();
+				ArrayList<Player> playerslist = team.getBenchPlayers();
+				observablelistplayers = FXCollections.observableArrayList(playerslist);
+				observablelistplayers = FXCollections.observableArrayList(playerslist);
+				playertable.setItems(observablelistplayers);
+				playertable.getSelectionModel().selectFirst();
+				diving.setText("Diving: "+goalkeeper.getDiving());
+				positioning.setText("Positioning: "+goalkeeper.getPositioning());
+				reflexes.setText("Reflexes: "+goalkeeper.getReflexes());
 			}
 		});
 		

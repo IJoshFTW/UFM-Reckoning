@@ -153,7 +153,7 @@
                      <columns>
                         <TableColumn fx:id="name" prefWidth="200.0" text="Name" />
                         <TableColumn fx:id="country" prefWidth="200.0" text="Country" />
-                        <TableColumn fx:id="position" prefWidth="90.0" text="Position" />
+                        <TableColumn fx:id="position" prefWidth="109.0" text="Position" />
                      </columns>
                   </TableView>
                   <ComboBox fx:id="form" layoutX="832.0" layoutY="64.0" prefWidth="150.0" />

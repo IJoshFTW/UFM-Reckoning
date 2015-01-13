@@ -150,7 +150,6 @@ public class ViewPlayer {
 		ft.setFromValue(0.97);
 		ft.setToValue(0.0);
 		ft.play();
-		popup.hide();
 	}
 
 }

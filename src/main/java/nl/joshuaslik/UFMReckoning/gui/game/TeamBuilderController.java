@@ -33,44 +33,17 @@ public class TeamBuilderController {
 	private TableView<Player> playertable;
 
 	@FXML
-	private TableColumn<Player, String> active;
+	private TableColumn<Player, String> active, name, country, position;
 
 	@FXML
-	private TableColumn<Player, String> name;
+	private Label showTotalWins, showTotalLosses, showTotalDraws, showTotalGoals, showTotalGamesPlayed, coach;
 
 	@FXML
-	private TableColumn<Player, String> country;
-	
-	@FXML
-	private TableColumn<Player, String> position;
-
-	@FXML
-	private Label showTotalGamesPlayed;
-
-	@FXML
-	private Label showTotalWins;
-
-	@FXML
-	private Label showTotalLosses;
-
-	@FXML
-	private Label showTotalDraws;
-
-	@FXML
-	private Label showTotalGoals;
-
-	@FXML
-	private ImageView teamlogo;
-	
-	@FXML
-	private ImageView staminaImg;
-	@FXML
-	private ImageView defPwrImg;
-	@FXML
-	private ImageView atkPwrImg;
+	private ImageView teamlogo, staminaImg, defPwrImg, atkPwrImg;
 
 	@FXML
 	private void initialize() {
+		coach.setText("Coach: "+ MainGame.game.getUser().getTeam().getCoachName());
 		Image image = new Image("/data/base/teams/pictures/" + team.getid()+ ".png");
 		teamlogo.setImage(image);
 		ArrayList<Player> playerslist = team.getAllPlayers();
