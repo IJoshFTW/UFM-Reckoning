@@ -41,7 +41,16 @@ public class OtherTeams {
 	private TableView<Player> playertable;
 
 	@FXML
-	private TableColumn<Player, String> name, country, position, active;
+	private TableColumn<Player, String> active;
+
+	@FXML
+	private TableColumn<Player, String> name;
+
+	@FXML
+	private TableColumn<Player, String> country;
+	
+	@FXML
+	private TableColumn<Player, String> position;
 	
 	@FXML
 	private ImageView otherteamlogo;

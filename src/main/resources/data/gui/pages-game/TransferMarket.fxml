@@ -21,16 +21,16 @@
                      </font>
                   </Label>
                   
-                  <Button fx:id="goback" contentDisplay="CENTER" layoutX="18.0" layoutY="718.0" onAction="#returnToTeam" prefHeight="60" prefWidth="250" styleClass="button" text="Return" textAlignment="CENTER" AnchorPane.leftAnchor="475.0" AnchorPane.rightAnchor="475.0" />
+                  <Button contentDisplay="CENTER" layoutX="18.0" layoutY="718.0" onAction="#returnToTeam" prefHeight="60" prefWidth="250" styleClass="button" text="Return" textAlignment="CENTER" AnchorPane.leftAnchor="475.0" AnchorPane.rightAnchor="475.0" />
                   <Button fx:id="sellplayer" layoutX="767.0" layoutY="637.0" prefHeight="60" prefWidth="250.0" styleClass="button" text="Sell Player" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="625.0" />
                   <Button fx:id="buyplayer" layoutX="210.0" layoutY="620.0" prefHeight="60" prefWidth="250.0" styleClass="button" text="Buy Player" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="625.0" />
                   <TableView fx:id="otherteams" layoutX="121.0" layoutY="144.0" prefHeight="375.0" prefWidth="373.0" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="650.0" AnchorPane.topAnchor="175.0">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="Active" />
-                        <TableColumn prefWidth="100.0" text="Name" />
-                        <TableColumn prefWidth="100.0" text="Country" />
-                      <TableColumn prefWidth="75.0" text="Position" />
-                        <TableColumn prefWidth="100.0" text="Price" />
+                      <TableColumn fx:id="active" prefWidth="75.0" text="Active" />
+                        <TableColumn fx:id="name" prefWidth="100.0" text="Name" />
+                        <TableColumn fx:id="country" prefWidth="100.0" text="Country" />
+                      <TableColumn fx:id="position" prefWidth="75.0" text="Position" />
+                        <TableColumn fx:id="price" prefWidth="100.0" text="Price" />
                     </columns>
                   </TableView>
                   <ComboBox fx:id="teams" layoutX="146.0" layoutY="86.0" prefWidth="200.0" AnchorPane.bottomAnchor="640.0" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="770.0" />

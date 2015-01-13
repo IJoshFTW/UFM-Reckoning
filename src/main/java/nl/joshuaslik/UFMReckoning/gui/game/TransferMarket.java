@@ -22,6 +22,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.util.Callback;
 import javafx.util.StringConverter;
+import nl.joshuaslik.UFMReckoning.backend.Game;
 import nl.joshuaslik.UFMReckoning.backend.Player;
 import nl.joshuaslik.UFMReckoning.backend.Team;
 import nl.joshuaslik.UFMReckoning.gui.Main;
@@ -44,30 +45,8 @@ public class TransferMarket {
 	private static TableView<Player> playertable;
 
 	@FXML
-	private static TableColumn<Player, String> active;
-
-	@FXML
-	private static TableColumn<Player, String> name;
-
-	@FXML
-	private static TableColumn<Player, String> country;
-
-	@FXML
-	private static TableColumn<Player, String> position;
-
-	@FXML
-	private static TableColumn<Player, String> price;
-
-	public static void start() throws IOException {
-		team = MainGame.game.getUser().getTeam();
-		AnchorPane root = FXMLLoader.load(Class.class
-				.getResource("/data/gui/pages-game/TransferMarket.fxml"));
-		Main.setCenter(root);
-		AnchorPane bottom = (AnchorPane) FXMLLoader.load(Class.class
-				.getResource("/data/gui/pages-game/GameBottomMenuBar.fxml"));
-		Main.setBottom(bottom);
-	}
-
+	private static TableColumn<Player, String> name, country, position, active, price;
+	
 	@FXML
 	public static void initialize() {
 		ObservableList<Team> teamslist = FXCollections
@@ -154,6 +133,16 @@ public class TransferMarket {
 	}
 	
 	@FXML
+	protected void sellingPlayer() throws IOException {
+		//Game.sellPlayer(selectedplayer.getID());
+	}
+	
+	@FXML
+	protected void buyingPlayer() throws IOException {
+		//Game.buyPlayer(selectedplayer.getID());
+	}
+	
+	@FXML
 	protected void returnToTeam() throws IOException {
 		MainGame.start();
 	}
@@ -163,6 +152,16 @@ public class TransferMarket {
 		teamarraylist.remove(MainGame.game.getUser().getTeam());
 		ObservableList<Team> res = FXCollections.observableArrayList(teamarraylist);
 		return res;
+	}
+	
+	public static void start() throws IOException {
+		team = MainGame.game.getUser().getTeam();
+		AnchorPane root = FXMLLoader.load(Class.class
+				.getResource("/data/gui/pages-game/TransferMarket.fxml"));
+		Main.setCenter(root);
+		AnchorPane bottom = (AnchorPane) FXMLLoader.load(Class.class
+				.getResource("/data/gui/pages-game/GameBottomMenuBar.fxml"));
+		Main.setBottom(bottom);
 	}
 
 }
