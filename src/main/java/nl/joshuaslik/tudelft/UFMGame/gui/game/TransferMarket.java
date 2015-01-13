@@ -14,6 +14,8 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Callback;
 import javafx.util.StringConverter;
@@ -29,120 +31,92 @@ import nl.joshuaslik.tudelft.UFMGame.gui.Main;
 public class TransferMarket {
 
 	private Team team;
+	
 	private Team otherteam;
 	private Player selectedplayer;
 	private ObservableList<Player> observablelistplayers;
+	@FXML
+    private ComboBox<Team> teams;
 
 	@FXML
-	private ComboBox<Team> teams;
-
-	@FXML
-	private TableView<Player> otherteams;
-
-	@FXML
-	private TableColumn<Player, String> name, country, position, active, price;
-	
-	@FXML
-	public void initialize() {
-		ObservableList<Team> teamslist = FXCollections
-				.observableArrayList(getteamList());
-		teams.setItems(teamslist);
-		teams.setConverter(new StringConverter<Team>() {
-			@Override
-			public String toString(Team team) {
-				return team.getTeamName();
-			}
-
 	private TableView<Player> playertable;
 
 	@FXML
-	private TableColumn<Player, String> name, country, position, active,
-			price;
+	private TableColumn<Player, String> active, name, country, position;
 
 	@FXML
-	public void initialize() {
-		ObservableList<Team> teamslist = FXCollections
-				.observableArrayList(getteamList());
-		teams.setItems(teamslist);
-		teams.setConverter(new StringConverter<Team>() {
-			@Override
-			public String toString(Team team) {
-				return team.getTeamName();
-			}
-
-			@Override
-			public Team fromString(String nr) {
-				return null;
-			}
-		});
-
-		teams.valueProperty().addListener(new ChangeListener<Team>() {
-			@Override
-			public void changed(ObservableValue<? extends Team> observable,
-					Team oldValue, Team newValue) {
-				otherteam = newValue;
-				ArrayList<Player> playerslist = otherteam.getAllPlayers();
-				observablelistplayers = FXCollections
-						.observableArrayList(playerslist);
-				otherteams.setItems(observablelistplayers);
-				playertable.setItems(observablelistplayers);
-			}
-		});
-
-		ArrayList<Team> teamarraylist = MainGame.game.getTeams();
-		teamarraylist.remove(MainGame.game.getUser().getTeam());
-		teams.setValue(teamarraylist.get(0));
+	private void initialize() {
+		ObservableList<Team> teamslist = FXCollections.observableArrayList(getteamList());
+    	teams.setItems(teamslist);
+    	teams.setConverter(new StringConverter<Team>(){
+   		 @Override
+   		 public String toString(Team team){
+   			return team.getTeamName();
+   		 }
+   		 
+   		 @Override
+   		 public Team fromString(String nr){
+   			 return null;
+   		 }
+   	 });
+   	 
+   	 
+   	 teams.valueProperty().addListener(new ChangeListener<Team>() {
+   		@Override
+		public void changed(
+				ObservableValue<? extends Team> observable,
+				Team oldValue, Team newValue) {
+					otherteam = newValue;
+					ArrayList<Player> playerslist = otherteam.getAllPlayers();
+					observablelistplayers = FXCollections.observableArrayList(playerslist);
+					playertable.setItems(observablelistplayers); 
+				}   
+   	});
+   	 
+   	ArrayList<Team> teamarraylist = MainGame.game.getTeams();
+	teamarraylist.remove(MainGame.game.getUser().getTeam());
+   	teams.setValue(teamarraylist.get(0));
 		ArrayList<Player> playerslist = otherteam.getAllPlayers();
 		observablelistplayers = FXCollections.observableArrayList(playerslist);
 		playertable.setItems(observablelistplayers);
 		active.setCellValueFactory(new PropertyValueFactory<Player, String>(
 				"ID"));
-		active.setCellFactory(new Callback<TableColumn<Player, String>, TableCell<Player, String>>() {
+		active.setCellFactory(new Callback<TableColumn<Player, String>, TableCell<Player, String>>(){
 			@Override
-			public TableCell<Player, String> call(
-					TableColumn<Player, String> param) {
-				TableCell<Player, String> cell = new TableCell<Player, String>() {
+			public TableCell<Player, String> call(TableColumn<Player, String> param){
+				TableCell<Player, String> cell = new TableCell<Player, String>(){
 					@Override
-					public void updateItem(String item, boolean empty) {
-						if (item != null) {
+					public void updateItem(String item, boolean empty){
+						if(item!= null){
 							boolean active = false;
-							for (int i = 0; i < otherteam.getActivePlayers()
-									.size(); i++) {
-								if (otherteam.getActivePlayers().get(i).getID()
-										.equals(item)) {
-									setText("✓");
-									active = true;
+							for(int i = 0; i<otherteam.getActivePlayers().size(); i++){
+								if(otherteam.getActivePlayers().get(i).getID().equals(item)){
+										setText("✓");
+											active = true;
+											}
+										}
+										if(!active){
+											setText("✗");
+										}
+									}
 								}
-							}
-							if (!active) {
-								setText("✗");
-							}
+							};
+							return cell;
 						}
-					}
-				};
-				return cell;
-			}
-		});
+					});
 		name.setCellValueFactory(new PropertyValueFactory<Player, String>(
 				"fullName"));
 		country.setCellValueFactory(new PropertyValueFactory<Player, String>(
 				"country"));
 		position.setCellValueFactory(new PropertyValueFactory<Player, String>(
 				"position"));
-		price.setCellValueFactory(new PropertyValueFactory<Player, String>(
-				"price"));
-		otherteams
-				.getSelectionModel()
-				.selectedItemProperty()
-				.addListener(
-						(observable, oldValue, newValue) -> selectedPlayer(newValue));
+		playertable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> selectedPlayer(newValue));
 	}
-
+	
 	private ObservableList<Team> getteamList() {
 		ArrayList<Team> teamarraylist = MainGame.game.getTeams();
 		teamarraylist.remove(MainGame.game.getUser().getTeam());
-		ObservableList<Team> res = FXCollections
-				.observableArrayList(teamarraylist);
+		ObservableList<Team> res = FXCollections.observableArrayList(teamarraylist);
 		return res;
 	}
 
