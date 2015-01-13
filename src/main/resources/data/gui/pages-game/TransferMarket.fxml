@@ -43,7 +43,7 @@
                         <TableColumn prefWidth="100.0" text="Value" />
                     </columns>
                   </TableView>
-                  <Button fx:id="viewplayer" layoutX="560.0" layoutY="650.0" mnemonicParsing="false" onAction="#handleViewPlayer" prefHeight="60.0" prefWidth="250.0" text="View Player" AnchorPane.leftAnchor="460.0" AnchorPane.rightAnchor="460.0" AnchorPane.topAnchor="625.0" />
+                  <Button layoutX="560.0" layoutY="650.0" mnemonicParsing="false" onAction="#handleViewPlayer" prefHeight="60.0" prefWidth="250.0" text="View Player" AnchorPane.leftAnchor="460.0" AnchorPane.rightAnchor="460.0" AnchorPane.topAnchor="625.0" />
                   <Label contentDisplay="CENTER" layoutX="802.0" layoutY="107.0" prefHeight="45.0" prefWidth="141.0" text="Your team" textFill="WHITE" AnchorPane.bottomAnchor="675.0" AnchorPane.leftAnchor="801.0" AnchorPane.rightAnchor="258.0">
                      <font>
                         <Font size="30.0" />
