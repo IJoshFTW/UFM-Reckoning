@@ -53,6 +53,23 @@ public class TransferMarket {
 				return team.getTeamName();
 			}
 
+	private static TableView<Player> playertable;
+
+	@FXML
+	private static TableColumn<Player, String> name, country, position, active,
+			price;
+
+	@FXML
+	public static void initialize() {
+		ObservableList<Team> teamslist = FXCollections
+				.observableArrayList(getteamList());
+		teams.setItems(teamslist);
+		teams.setConverter(new StringConverter<Team>() {
+			@Override
+			public String toString(Team team) {
+				return team.getTeamName();
+			}
+
 			@Override
 			public Team fromString(String nr) {
 				return null;
@@ -68,6 +85,7 @@ public class TransferMarket {
 				observablelistplayers = FXCollections
 						.observableArrayList(playerslist);
 				otherteams.setItems(observablelistplayers);
+				playertable.setItems(observablelistplayers);
 			}
 		});
 
@@ -76,7 +94,7 @@ public class TransferMarket {
 		teams.setValue(teamarraylist.get(0));
 		ArrayList<Player> playerslist = otherteam.getAllPlayers();
 		observablelistplayers = FXCollections.observableArrayList(playerslist);
-		otherteams.setItems(observablelistplayers);
+		playertable.setItems(observablelistplayers);
 		active.setCellValueFactory(new PropertyValueFactory<Player, String>(
 				"ID"));
 		active.setCellFactory(new Callback<TableColumn<Player, String>, TableCell<Player, String>>() {
@@ -120,6 +138,14 @@ public class TransferMarket {
 						(observable, oldValue, newValue) -> selectedPlayer(newValue));
 	}
 
+	private static ObservableList<Team> getteamList() {
+		ArrayList<Team> teamarraylist = MainGame.game.getTeams();
+		teamarraylist.remove(MainGame.game.getUser().getTeam());
+		ObservableList<Team> res = FXCollections
+				.observableArrayList(teamarraylist);
+		return res;
+	}
+
 	public static void selectedPlayer(Player player) {
 		selectedplayer = player;
 	}
@@ -128,7 +154,17 @@ public class TransferMarket {
 	protected void handleViewPlayer() throws IOException {
 		ViewPlayer.start(selectedplayer);
 	}
-	
+
+	@FXML
+	protected void sellingPlayer() throws IOException {
+		// Game.sellPlayer(selectedplayer.getID());
+	}
+
+	@FXML
+	protected void buyingPlayer() throws IOException {
+		// Game.buyPlayer(selectedplayer.getID());
+	}
+
 	@FXML
 	protected void sellingPlayer() throws IOException {
 		//Game.sellPlayer(selectedplayer.getID());
