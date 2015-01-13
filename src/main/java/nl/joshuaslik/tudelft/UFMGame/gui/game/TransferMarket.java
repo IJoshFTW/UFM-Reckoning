@@ -28,22 +28,22 @@ import nl.joshuaslik.tudelft.UFMGame.gui.Main;
  */
 public class TransferMarket {
 
-	private static Team team;
-	private static Team otherteam;
-	private static Player selectedplayer;
-	private static ObservableList<Player> observablelistplayers;
+	private Team team;
+	private Team otherteam;
+	private Player selectedplayer;
+	private ObservableList<Player> observablelistplayers;
 
 	@FXML
-	private static ComboBox<Team> teams;
+	private ComboBox<Team> teams;
 
 	@FXML
-	private static TableView<Player> otherteams;
+	private TableView<Player> otherteams;
 
 	@FXML
-	private static TableColumn<Player, String> name, country, position, active, price;
+	private TableColumn<Player, String> name, country, position, active, price;
 	
 	@FXML
-	public static void initialize() {
+	public void initialize() {
 		ObservableList<Team> teamslist = FXCollections
 				.observableArrayList(getteamList());
 		teams.setItems(teamslist);
@@ -53,14 +53,14 @@ public class TransferMarket {
 				return team.getTeamName();
 			}
 
-	private static TableView<Player> playertable;
+	private TableView<Player> playertable;
 
 	@FXML
-	private static TableColumn<Player, String> name, country, position, active,
+	private TableColumn<Player, String> name, country, position, active,
 			price;
 
 	@FXML
-	public static void initialize() {
+	public void initialize() {
 		ObservableList<Team> teamslist = FXCollections
 				.observableArrayList(getteamList());
 		teams.setItems(teamslist);
@@ -138,7 +138,7 @@ public class TransferMarket {
 						(observable, oldValue, newValue) -> selectedPlayer(newValue));
 	}
 
-	private static ObservableList<Team> getteamList() {
+	private ObservableList<Team> getteamList() {
 		ArrayList<Team> teamarraylist = MainGame.game.getTeams();
 		teamarraylist.remove(MainGame.game.getUser().getTeam());
 		ObservableList<Team> res = FXCollections
@@ -146,7 +146,7 @@ public class TransferMarket {
 		return res;
 	}
 
-	public static void selectedPlayer(Player player) {
+	public void selectedPlayer(Player player) {
 		selectedplayer = player;
 	}
 
@@ -164,30 +164,13 @@ public class TransferMarket {
 	protected void buyingPlayer() throws IOException {
 		// Game.buyPlayer(selectedplayer.getID());
 	}
-
-	@FXML
-	protected void sellingPlayer() throws IOException {
-		//Game.sellPlayer(selectedplayer.getID());
-	}
-	
-	@FXML
-	protected void buyingPlayer() throws IOException {
-		//Game.buyPlayer(selectedplayer.getID());
-	}
 	
 	@FXML
 	protected void returnToTeam() throws IOException {
 		MainGame.start();
 	}
 	
-	private static ObservableList<Team> getteamList() {
-		ArrayList<Team> teamarraylist = MainGame.game.getTeams();
-		teamarraylist.remove(MainGame.game.getUser().getTeam());
-		ObservableList<Team> res = FXCollections.observableArrayList(teamarraylist);
-		return res;
-	}
-	
-	public static void start() throws IOException {
+	public void start() throws IOException {
 		team = MainGame.game.getUser().getTeam();
 		AnchorPane root = FXMLLoader.load(Class.class
 				.getResource("/data/gui/pages-game/TransferMarket.fxml"));
