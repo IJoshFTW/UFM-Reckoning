@@ -43,6 +43,10 @@ public class ViewPlayer {
 	@FXML
 	private Label positioningLable;
 	@FXML
+	private Label showCountryLable;
+	@FXML
+	private Label showPriceLable;
+	@FXML
 	private ImageView playerPhoto;
 	@FXML
 	private ImageView staminaImg;
@@ -118,6 +122,8 @@ public class ViewPlayer {
 			positioningImg.setFitWidth(goalkeeper.getPositioning() * 3);
 			positioningImg.setVisible(true);
 		}
+		showCountryLable.setText(player.getCountry());
+		showPriceLable.setText(Integer.toString(player.getPrice()));
 
 	}
 

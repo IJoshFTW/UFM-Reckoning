@@ -82,7 +82,28 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="positioningLable" layoutX="558.0" layoutY="365.0" text="Positioning:" textFill="WHITE" visible="false">
+      <Label fx:id="positioningLable" layoutX="558.0" layoutY="366.0" text="Positioning:" textFill="WHITE" visible="false">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      
+      <Label fx:id="countryLable" layoutX="558.0" layoutY="400.0" text="Country:" textFill="WHITE" visible="true">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="priceLable" layoutX="558.0" layoutY="434.0" text="Price:" textFill="WHITE" visible="true">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="showCountryLable" layoutX="639.0" layoutY="400.0" text="" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="showPriceLable" layoutX="612.0" layoutY="434.0" text="" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
