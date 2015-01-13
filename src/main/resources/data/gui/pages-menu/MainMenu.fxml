@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="183.0" prefWidth="829.0" styleClass="pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.UFMReckoning.gui.ControllerMainMenu">
+<AnchorPane prefHeight="183.0" prefWidth="829.0" styleClass="pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.tudelft.UFMGame.gui.ControllerMainMenu">
    <children>
       <HBox AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="300.0">
          <children>

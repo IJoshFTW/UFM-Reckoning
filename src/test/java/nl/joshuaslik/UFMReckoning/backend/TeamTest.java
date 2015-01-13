@@ -4,8 +4,11 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotSame;
 import static org.junit.Assert.assertTrue;
-import nl.joshuaslik.UFMReckoning.backend.formation.Form343;
-import nl.joshuaslik.UFMReckoning.backend.formation.Formation;
+import nl.joshuaslik.tudelft.UFMGame.backend.Fieldplayer;
+import nl.joshuaslik.tudelft.UFMGame.backend.Goalkeeper;
+import nl.joshuaslik.tudelft.UFMGame.backend.Team;
+import nl.joshuaslik.tudelft.UFMGame.backend.formation.Form343;
+import nl.joshuaslik.tudelft.UFMGame.backend.formation.Formation;
 
 import org.junit.Test;
 

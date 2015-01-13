@@ -4,6 +4,13 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 
+import nl.joshuaslik.tudelft.UFMGame.backend.Competition;
+import nl.joshuaslik.tudelft.UFMGame.backend.Game;
+import nl.joshuaslik.tudelft.UFMGame.backend.Human;
+import nl.joshuaslik.tudelft.UFMGame.backend.PC;
+import nl.joshuaslik.tudelft.UFMGame.backend.Team;
+import nl.joshuaslik.tudelft.UFMGame.backend.User;
+
 import org.junit.Test;
 
 public class CompetitionTest {
