@@ -32,6 +32,10 @@ public class MainGameController {
 			ResultRoundDialogcontroller.start();
 		}
 		else{
+			for(int i = 0; i<MainGame.game.getUser().getTeam().getActivePlayers().size(); i++){
+				System.out.println(MainGame.game.getUser().getTeam().getActivePlayers().get(i).getFullName());
+			}
+
 			Popupscreen.start();
 			Popupscreen.setTitle("Error in Players");
 			Popupscreen.setMessage("Your team need at least 11 players.\nGo to Change setup to add players to your formation.");

@@ -48,6 +48,8 @@ public class UsernameController {
 		ft.setFromValue(0.97);
 		ft.setToValue(0.0);
 		ft.play();
+		
+		popup.hide();
 	}
 
 	@FXML
@@ -59,6 +61,7 @@ public class UsernameController {
 			ft.setFromValue(0.97);
 			ft.setToValue(0.0);
 			ft.play();
+			popup.hide();
 		}
 	}
 
@@ -68,7 +71,7 @@ public class UsernameController {
 		ft.setFromValue(0.97);
 		ft.setToValue(0.0);
 		ft.play();
-
+		popup.hide();
 	}
 
 	public static void start() throws IOException {

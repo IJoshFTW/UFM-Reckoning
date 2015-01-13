@@ -55,6 +55,7 @@ public class Popupscreen {
 		Label changetitle = (Label) page.lookup("#title");
 		changetitle.setText(input);
 	}
+	
 	public static void setMessage(String input){
 		Text text = new Text(input);
 	    text.setFill(Color.WHITE);
@@ -73,5 +74,6 @@ public class Popupscreen {
 		ft.setFromValue(0.97);
 		ft.setToValue(0.0);
 		ft.play();
+		popup.hide();
 	}
 }

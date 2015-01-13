@@ -105,5 +105,8 @@ public abstract class Formation {
 	public Fieldplayer setORM(Fieldplayer fieldplayer){
 		return null;
 	}
+	public Fieldplayer setCB3(Fieldplayer fieldplayer){
+		return null;
+	}
 
 }

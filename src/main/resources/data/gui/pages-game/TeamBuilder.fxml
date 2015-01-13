@@ -82,27 +82,27 @@
                         <Button onAction="#handleTransferMarket" prefHeight="60" prefWidth="324.0" styleClass="button" text="Transfer Market" AnchorPane.leftAnchor="806.0" AnchorPane.topAnchor="694.0" />
             			<ImageView fx:id="teamlogo" fitHeight="273.0" fitWidth="334.0" layoutX="748.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true" />
                   
-                  <Label fx:id="showTotalGoals" prefHeight="30.0" prefWidth="0.0" text="?" textFill="WHITE" AnchorPane.leftAnchor="777.0" AnchorPane.topAnchor="580.0">
+                  <Label fx:id="showTotalGoals" layoutX="779.0" layoutY="582.0" prefHeight="30.0" prefWidth="39.0" text="?" textFill="WHITE" AnchorPane.leftAnchor="778.0" AnchorPane.topAnchor="581.0">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="showTotalDraws" text="?" textFill="WHITE" AnchorPane.leftAnchor="782.0" AnchorPane.topAnchor="550.0">
+                  <Label fx:id="showTotalDraws" layoutX="784.0" layoutY="552.0" prefHeight="30.0" prefWidth="39.0" text="?" textFill="WHITE" AnchorPane.leftAnchor="783.0" AnchorPane.topAnchor="551.0">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="showTotalLosses" text="?" textFill="WHITE" AnchorPane.leftAnchor="786.0" AnchorPane.topAnchor="520.0">
+                  <Label fx:id="showTotalLosses" layoutX="788.0" layoutY="522.0" prefHeight="30.0" prefWidth="39.0" text="?" textFill="WHITE" AnchorPane.leftAnchor="787.0" AnchorPane.topAnchor="521.0">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="showTotalWins" text="?" textFill="WHITE" AnchorPane.leftAnchor="772.0" AnchorPane.topAnchor="490.0">
+                  <Label fx:id="showTotalWins" layoutX="775.0" layoutY="493.0" prefHeight="30.0" prefWidth="39.0" text="?" textFill="WHITE" AnchorPane.leftAnchor="774.0" AnchorPane.topAnchor="492.0">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="showTotalGamesPlayed" layoutX="852.0" layoutY="460.0" text="?" textFill="WHITE" AnchorPane.leftAnchor="852.0" AnchorPane.topAnchor="460.0">
+                  <Label fx:id="showTotalGamesPlayed" layoutX="855.0" layoutY="463.0" prefHeight="30.0" prefWidth="39.0" text="?" textFill="WHITE" AnchorPane.leftAnchor="854.0" AnchorPane.topAnchor="462.0">
                      <font>
                         <Font size="20.0" />
                      </font>
