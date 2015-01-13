@@ -123,18 +123,20 @@ public class ViewPlayer {
 
 	public static void start(Player inputPlayer) throws IOException {
 		player = inputPlayer;
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(Class.class
+		if(player != null){
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(Class.class
 				.getResource("/data/gui/pages-game/ViewPlayer.fxml"));
-		page = (AnchorPane) loader.load();
-		FadeTransition ft = new FadeTransition(Duration.millis(900), page);
-		ft.setFromValue(0.0);
-		ft.setToValue(0.97);
-		ft.play();
-		popup = new Popup();
-		popup.getContent().add(page);
-		popup.show(Main.stage);
-	}
+			page = (AnchorPane) loader.load();
+			FadeTransition ft = new FadeTransition(Duration.millis(900), page);
+			ft.setFromValue(0.0);
+			ft.setToValue(0.97);
+			ft.play();
+			popup = new Popup();
+			popup.getContent().add(page);
+			popup.show(Main.stage);
+		}
+	}	
 
 	@FXML
 	protected void handleReturn() {

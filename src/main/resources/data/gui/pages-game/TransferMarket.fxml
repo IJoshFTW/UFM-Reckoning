@@ -9,29 +9,24 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Button?>
 
-<AnchorPane id="pane" prefHeight="1080.0" prefWidth="1920.0" styleClass="pane" stylesheets="@TeamBuilder.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.UFMReckoning.gui.game.TeamBuilderController">
-	<children>	
-		<Pane layoutX="360.0" layoutY="150.0" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #101010; -fx-border-color: #CECECE; -fx-opacity: 80%; -fx-border-width: 1px;">
+<AnchorPane id="pane" prefHeight="1080.0" prefWidth="1920.0" styleClass="pane" stylesheets="@TeamBuilder.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.UFMReckoning.gui.game.TransferMarket">
+	<children>
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="41.0">
          <children>
-            <Label layoutX="450.0" layoutY="29.0" text="Transfer Market" textFill="WHITE">
-               <font>
-                  <Font size="34.0" />
-               </font>
-            </Label>
-            
-            <Button layoutX="30" layoutY="700" onAction="#handleReturnTeamBuilder" prefHeight="60" prefWidth="250" styleClass="button" text="Return" />
-            <Button layoutX="280" layoutY="700" onAction="#handleSellPlayer" prefHeight="60" prefWidth="600" styleClass="button" text="Sell Player" />
-            <Button layoutX="530" layoutY="700" onAction="#handleBuyPlayer" prefHeight="60" prefWidth="600" styleClass="button" text="Buy Player" />
+            <AnchorPane maxHeight="800.0" maxWidth="1200.0" opacity="0.8" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #101010; -fx-border-color: #CECECE; -fx-border-width: 1px;">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-2.0" layoutY="20.0" prefHeight="50.0" prefWidth="1200.0" text="Transfer Market" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="34.0" />
+                     </font>
+                  </Label>
+                  
+                  <Button layoutX="14.0" layoutY="722.0" prefHeight="60" prefWidth="250" styleClass="button" text="Return" />
+                  <Button layoutX="505.0" layoutY="662.0"  prefHeight="60" prefWidth="222.0" styleClass="button" text="Sell Player" />
+                  <Button layoutX="14.0" layoutY="656.0"  prefHeight="60" prefWidth="250.0" styleClass="button" text="Buy Player" />
+               </children>
+            </AnchorPane>
          </children>
-         </Pane>
-         
-         <Label layoutX="1250.0" layoutY="850.0" text="Funds:" textFill="WHITE">
-            <font>
-                 <Font size="30.0" />
-            </font>
-         </Label>
-         
-		<!-- Bottom bar -->
-		<fx:include fx:id="bottommenubar" source="GameBottomMenuBar.fxml" />
+      </VBox>
 	</children>
 </AnchorPane>

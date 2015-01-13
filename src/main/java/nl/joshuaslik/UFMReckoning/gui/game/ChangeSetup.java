@@ -108,29 +108,28 @@ public class ChangeSetup {
 	observablelistplayers = FXCollections.observableArrayList(playerslist);
 	playertable.setItems(observablelistplayers);
 	stamina.setText(""+team.getStamina());
-	defence.setText(""+team.getStamina());
-	attack.setText(""+team.getStamina());
+	defence.setText(""+team.getDefencePower());
+	attack.setText(""+team.getAttackPower());
 	
 		
 	name.setCellValueFactory(new PropertyValueFactory<Player, String>(
 			"fullName"));
-		country.setCellValueFactory(new PropertyValueFactory<Player, String>(
+	country.setCellValueFactory(new PropertyValueFactory<Player, String>(
 				"country"));
-		position.setCellValueFactory(new PropertyValueFactory<Player, String>(
+	position.setCellValueFactory(new PropertyValueFactory<Player, String>(
 				"position"));
 		
-		playertable.setOnDragDetected(new EventHandler<MouseEvent>(){
-			@Override
-			public void handle(MouseEvent event){
-				Dragboard dragBoard = playertable.startDragAndDrop(TransferMode.MOVE); 
-				ClipboardContent content = new ClipboardContent();
-				content.putString(selectedplayer.getID()); 
-				dragBoard.setContent(content);
-			}
-		});
+	playertable.setOnDragDetected(new EventHandler<MouseEvent>(){
+		@Override
+		public void handle(MouseEvent event){
+			Dragboard dragBoard = playertable.startDragAndDrop(TransferMode.MOVE); 
+			ClipboardContent content = new ClipboardContent();
+			content.putString(selectedplayer.getID()); 
+			dragBoard.setContent(content);
+		}
+	});
 		
-		
-		IMG1.setOnDragDropped(new EventHandler<DragEvent>(){
+	IMG1.setOnDragDropped(new EventHandler<DragEvent>(){
 			@Override
 			public void handle(DragEvent event){
 				Player player = MainGame.game.getPlayer(Dragboard.getSystemClipboard().getString());
@@ -148,8 +147,8 @@ public class ChangeSetup {
 					playertable.setItems(observablelistplayers);
 					playertable.getSelectionModel().selectFirst();
 					stamina.setText(""+team.getStamina());
-					defence.setText(""+team.getStamina());
-					attack.setText(""+team.getStamina());
+					defence.setText(""+team.getDefencePower());
+					attack.setText(""+team.getAttackPower());
 				}
 			}
 		});
@@ -172,8 +171,8 @@ public class ChangeSetup {
 					playertable.setItems(observablelistplayers);
 					playertable.getSelectionModel().selectFirst();
 					stamina.setText(""+team.getStamina());
-					defence.setText(""+team.getStamina());
-					attack.setText(""+team.getStamina());
+					defence.setText(""+team.getDefencePower());
+					attack.setText(""+team.getAttackPower());
 				}
 			}
 		});
@@ -196,8 +195,8 @@ public class ChangeSetup {
 					playertable.setItems(observablelistplayers);
 					playertable.getSelectionModel().selectFirst();
 					stamina.setText(""+team.getStamina());
-					defence.setText(""+team.getStamina());
-					attack.setText(""+team.getStamina());
+					defence.setText(""+team.getDefencePower());
+					attack.setText(""+team.getAttackPower());;
 				}
 			}
 		});
@@ -223,8 +222,8 @@ public class ChangeSetup {
 					playertable.setItems(observablelistplayers);
 					playertable.getSelectionModel().selectFirst();
 					stamina.setText(""+team.getStamina());
-					defence.setText(""+team.getStamina());
-					attack.setText(""+team.getStamina());
+					defence.setText(""+team.getDefencePower());
+					attack.setText(""+team.getAttackPower());
 				}
 			}
 		});
@@ -254,8 +253,8 @@ public class ChangeSetup {
 					playertable.setItems(observablelistplayers);
 					playertable.getSelectionModel().selectFirst();
 					stamina.setText(""+team.getStamina());
-					defence.setText(""+team.getStamina());
-					attack.setText(""+team.getStamina());
+					defence.setText(""+team.getDefencePower());
+					attack.setText(""+team.getAttackPower());
 				}
 			}
 		});
@@ -281,8 +280,8 @@ public class ChangeSetup {
 					playertable.setItems(observablelistplayers);
 					playertable.getSelectionModel().selectFirst();
 					stamina.setText(""+team.getStamina());
-					defence.setText(""+team.getStamina());
-					attack.setText(""+team.getStamina());
+					defence.setText(""+team.getDefencePower());
+					attack.setText(""+team.getAttackPower());
 				}
 			}
 		});
@@ -305,8 +304,8 @@ public class ChangeSetup {
 					playertable.setItems(observablelistplayers);
 					playertable.getSelectionModel().selectFirst();
 					stamina.setText(""+team.getStamina());
-					defence.setText(""+team.getStamina());
-					attack.setText(""+team.getStamina());
+					defence.setText(""+team.getDefencePower());
+					attack.setText(""+team.getAttackPower());
 				}
 			}
 		});
@@ -332,8 +331,8 @@ public class ChangeSetup {
 					playertable.setItems(observablelistplayers);
 					playertable.getSelectionModel().selectFirst();
 					stamina.setText(""+team.getStamina());
-					defence.setText(""+team.getStamina());
-					attack.setText(""+team.getStamina());
+					defence.setText(""+team.getDefencePower());
+					attack.setText(""+team.getAttackPower());
 				}
 			}
 		});
@@ -356,8 +355,8 @@ public class ChangeSetup {
 					playertable.setItems(observablelistplayers);
 					playertable.getSelectionModel().selectFirst();
 					stamina.setText(""+team.getStamina());
-					defence.setText(""+team.getStamina());
-					attack.setText(""+team.getStamina());
+					defence.setText(""+team.getDefencePower());
+					attack.setText(""+team.getAttackPower());
 				}
 			}
 		});
@@ -381,8 +380,8 @@ public class ChangeSetup {
 					playertable.setItems(observablelistplayers);
 					playertable.getSelectionModel().selectFirst();
 					stamina.setText(""+team.getStamina());
-					defence.setText(""+team.getStamina());
-					attack.setText(""+team.getStamina());
+					defence.setText(""+team.getDefencePower());
+					attack.setText(""+team.getAttackPower());
 				}
 			}
 		});
@@ -397,7 +396,6 @@ public class ChangeSetup {
 					initField();
 					ArrayList<Player> playerslist = team.getBenchPlayers();
 					observablelistplayers = FXCollections.observableArrayList(playerslist);
-					playertable.setItems(observablelistplayers);
 					playertable.getSelectionModel().selectFirst();
 					diving.setText("Diving: "+goalkeeper.getDiving());
 					positioning.setText("Positioning: "+goalkeeper.getPositioning());

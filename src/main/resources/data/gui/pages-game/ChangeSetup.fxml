@@ -187,7 +187,7 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="defence" layoutX="418.0" layoutY="750.0" prefHeight="21.0" prefWidth="66.0" textFill="#eeebeb">
+                  <Label fx:id="defence" layoutX="427.0" layoutY="750.0" prefHeight="21.0" prefWidth="57.0" textFill="#eeebeb">
                      <font>
                         <Font size="15.0" />
                      </font>
