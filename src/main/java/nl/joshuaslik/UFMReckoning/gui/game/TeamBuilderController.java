@@ -44,8 +44,10 @@ public class TeamBuilderController {
 	@FXML
 	private void initialize() {
 		coach.setText("Coach: "+ MainGame.game.getUser().getTeam().getCoachName());
+		
 		Image image = new Image("/data/base/teams/pictures/" + team.getid()+ ".png");
 		teamlogo.setImage(image);
+		
 		ArrayList<Player> playerslist = team.getAllPlayers();
 		observablelistplayers = FXCollections.observableArrayList(playerslist);
 		playertable.setItems(observablelistplayers);
