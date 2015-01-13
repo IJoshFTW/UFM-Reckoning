@@ -225,6 +225,9 @@ public class Team {
 
 			if (activePlayers.contains(player)) {
 				activePlayers.remove(activePlayers.indexOf(player));
+				if(player.equals(teamCaptain)){
+					teamCaptain = null;
+				}
 
 				if (player instanceof Fieldplayer) {
 					attackPower -= ((Fieldplayer) player).getAttackPower();
@@ -527,6 +530,7 @@ public class Team {
 			benchPlayers.add(activePlayers.get(i));
 		}
 		activePlayers.clear();
+		teamCaptain = null;
 		stamina = 0;
 		attackPower = 0;
 		defencePower = 0;

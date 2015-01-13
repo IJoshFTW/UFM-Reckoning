@@ -3,10 +3,13 @@ package nl.joshuaslik.UFMReckoning.gui.game;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
@@ -33,7 +36,7 @@ public class TeamBuilderController {
 	private TableView<Player> playertable;
 
 	@FXML
-	private TableColumn<Player, String> active, name, country, position;
+	private TableColumn<Player, String> active, name, country, position, captain;
 
 	@FXML
 	private Label showTotalWins, showTotalLosses, showTotalDraws, showTotalGoals, showTotalGamesPlayed, coach;
@@ -81,6 +84,45 @@ public class TeamBuilderController {
 				"country"));
 		position.setCellValueFactory(new PropertyValueFactory<Player, String>(
 				"position"));
+		captain.setCellValueFactory(new PropertyValueFactory<Player, String>(
+				"ID"));
+		captain.setCellFactory(new Callback<TableColumn<Player, String>, TableCell<Player, String>>(){
+			@Override
+			public TableCell<Player, String> call(TableColumn<Player, String> param){
+				TableCell<Player, String> cell = new TableCell<Player, String>(){
+					@Override
+					public void updateItem(String item, boolean empty){
+						if(item!= null){
+							CheckBox checkbox = new CheckBox();
+							Player player = MainGame.game.getPlayer(item);
+							if(MainGame.game.getUser().getTeam().getTeamCaptain() != null && (MainGame.game.getUser().getTeam().getTeamCaptain().equals(player))){
+								checkbox.setSelected(true);
+							}
+							else{
+								checkbox.setSelected(false);
+							}
+							checkbox.selectedProperty().addListener(new ChangeListener<Boolean> () {
+				                public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+				                	if(newValue == true){
+				                		if(MainGame.game.getUser().getTeam().getActivePlayers().contains(player)){
+				                			MainGame.game.getUser().getTeam().setTeamCaptain(player);
+				                		}
+				                		else{
+				                			Popupscreen.start();
+				                			Popupscreen.setTitle("Captain must be Active");
+				                			Popupscreen.setMessage("Set the player you want to be captain in your formation\n before you can set him captain.");
+				                		}
+				                	}
+				                	initialize();
+				                }     
+				            });
+							this.setGraphic(checkbox);
+						}
+					}
+				};
+				return cell;
+			}
+		});
 
 		// Listen for selection changes
 		playertable
