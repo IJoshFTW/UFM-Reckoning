@@ -1,13 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>nl.joshuaslik</groupId>
-    <artifactId>UFM-Reckoning</artifactId>
+    <groupId>nl.joshuaslik.tudelft</groupId>
+    <artifactId>UFMGame</artifactId>
     <version>0.6.0-alpha-0</version>
     <packaging>jar</packaging>
 
     <name>Ultimate Football Manager: RECKONING</name>
-    <url>http://ijoshftw.github.io/UFM-Reckoning/</url>
+    <url>http://joshcode.github.io/UFMGame/</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -27,7 +27,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>nl.joshuaslik.UFMReckoning.App</mainClass>
+                            <mainClass>nl.joshuaslik.tudelft.UFMGame.App</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -155,17 +155,17 @@
     <description>A game project from a bunch of first year students at the Technical University of Delft.</description>
     <issueManagement>
         <system>GitHub</system>
-        <url>https://github.com/IJoshFTW/UFM-Reckoning/issues</url>
+        <url>https://github.com/JoshCode/UFMGame/issues</url>
     </issueManagement>
     <ciManagement>
         <system>Travis CI</system>
-        <url>https://travis-ci.org/IJoshFTW/UFM-Reckoning</url>
+        <url>https://travis-ci.org/JoshCode/UFMGame</url>
     </ciManagement>
     <developers>
         <developer>
-            <id>IJoshFTW</id>
+            <id>JoshCode</id>
             <name>Joshua Slik</name>
-            <email>IJoshFTW@users.noreply.github.com</email>
+            <email>JoshCode@users.noreply.github.com</email>
             <roles>
                 <role>Repository Manager</role>
                 <role>Git Master</role>

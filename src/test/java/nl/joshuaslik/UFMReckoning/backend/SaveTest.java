@@ -1,6 +1,8 @@
 package nl.joshuaslik.UFMReckoning.backend;
 
 import static org.junit.Assert.assertEquals;
+import nl.joshuaslik.tudelft.UFMGame.backend.Save;
+import nl.joshuaslik.tudelft.UFMGame.backend.Team;
 
 import org.junit.Test;
 

@@ -1,7 +1,7 @@
 package nl.joshuaslik.UFMReckoning;
 
 import junit.framework.TestCase;
-import nl.joshuaslik.UFMReckoning.backend.Fieldplayer;
+import nl.joshuaslik.tudelft.UFMGame.backend.Fieldplayer;
 
 import org.junit.Test;
 

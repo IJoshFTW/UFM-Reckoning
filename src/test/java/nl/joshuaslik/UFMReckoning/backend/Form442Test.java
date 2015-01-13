@@ -1,7 +1,10 @@
 package nl.joshuaslik.UFMReckoning.backend;
 
 import static org.junit.Assert.assertEquals;
-import nl.joshuaslik.UFMReckoning.backend.formation.Form442;
+import nl.joshuaslik.tudelft.UFMGame.backend.Fieldplayer;
+import nl.joshuaslik.tudelft.UFMGame.backend.Goalkeeper;
+import nl.joshuaslik.tudelft.UFMGame.backend.Team;
+import nl.joshuaslik.tudelft.UFMGame.backend.formation.Form442;
 
 import org.junit.Test;
 

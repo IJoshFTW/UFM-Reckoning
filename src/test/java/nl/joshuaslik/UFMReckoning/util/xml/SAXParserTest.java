@@ -2,6 +2,8 @@ package nl.joshuaslik.UFMReckoning.util.xml;
 
 import java.io.File;
 
+import nl.joshuaslik.tudelft.UFMGame.util.xml.SAXParser;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;

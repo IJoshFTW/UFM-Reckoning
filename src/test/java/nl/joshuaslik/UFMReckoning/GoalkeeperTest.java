@@ -1,7 +1,7 @@
 package nl.joshuaslik.UFMReckoning;
 
 import junit.framework.TestCase;
-import nl.joshuaslik.UFMReckoning.backend.Goalkeeper;
+import nl.joshuaslik.tudelft.UFMGame.backend.Goalkeeper;
 
 import org.junit.Test;
 

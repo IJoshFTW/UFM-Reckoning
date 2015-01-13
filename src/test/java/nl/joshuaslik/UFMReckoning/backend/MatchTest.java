@@ -3,6 +3,9 @@ package nl.joshuaslik.UFMReckoning.backend;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import nl.joshuaslik.tudelft.UFMGame.backend.Fieldplayer;
+import nl.joshuaslik.tudelft.UFMGame.backend.Match;
+import nl.joshuaslik.tudelft.UFMGame.backend.Team;
 
 import org.junit.Test;
 

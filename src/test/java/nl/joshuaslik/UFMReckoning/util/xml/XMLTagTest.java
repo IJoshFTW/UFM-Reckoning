@@ -6,6 +6,12 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.LinkedHashMap;
 
+import nl.joshuaslik.tudelft.UFMGame.util.xml.NoSuchAttributeException;
+import nl.joshuaslik.tudelft.UFMGame.util.xml.NoSuchElementException;
+import nl.joshuaslik.tudelft.UFMGame.util.xml.SAXParser;
+import nl.joshuaslik.tudelft.UFMGame.util.xml.XMLFile;
+import nl.joshuaslik.tudelft.UFMGame.util.xml.XMLTag;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
