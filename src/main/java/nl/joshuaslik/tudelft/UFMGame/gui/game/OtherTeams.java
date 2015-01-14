@@ -10,6 +10,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -53,7 +54,10 @@ public class OtherTeams {
 	private TableColumn<Player, String> position;
 	
 	@FXML
-	private ImageView otherteamlogo;
+	private Label showTotalWins, showTotalLosses, showTotalDraws, showTotalGoals, showTotalGamesPlayed, coach;
+
+	@FXML
+	private ImageView otherteamlogo, staminaImg, defPwrImg, atkPwrImg;
 
 	@FXML
 	private void initialize() {
@@ -84,6 +88,26 @@ public class OtherTeams {
 					Image image = new Image("/data/base/teams/pictures/" + otherteam.getid()
 							+ ".png");
 					otherteamlogo.setImage(image);
+					
+					int totalGamesPlayed = otherteam.getTotalWins() + otherteam.getTotalLosses()
+							+ otherteam.getTotalDraws();
+
+					showTotalGamesPlayed.setText(Integer.toString(totalGamesPlayed));
+					showTotalWins.setText(Integer.toString(otherteam.getTotalWins()));
+					showTotalLosses.setText(Integer.toString(otherteam.getTotalLosses()));
+					showTotalDraws.setText(Integer.toString(otherteam.getTotalDraws()));
+					showTotalGoals.setText(Integer.toString(otherteam.getTotalGoals()));
+					
+					// AttackPower bar inladen
+					atkPwrImg.setFitWidth(otherteam.getAttackPower() / 3);
+
+					// Defence bar inladen
+					defPwrImg.setFitWidth(otherteam.getDefencePower() / 3);
+
+					// Stamina bar inladen
+					staminaImg.setFitWidth(otherteam.getStamina() / 3);
+					
+					coach.setText("Coach: " + otherteam.getCoachName());
 				}   
    	});
    	 
@@ -128,6 +152,26 @@ public class OtherTeams {
 		Image image = new Image("/data/base/teams/pictures/" + otherteam.getid()
 				+ ".png");
 		otherteamlogo.setImage(image);
+		
+		int totalGamesPlayed = otherteam.getTotalWins() + otherteam.getTotalLosses()
+				+ otherteam.getTotalDraws();
+
+		showTotalGamesPlayed.setText(Integer.toString(totalGamesPlayed));
+		showTotalWins.setText(Integer.toString(otherteam.getTotalWins()));
+		showTotalLosses.setText(Integer.toString(otherteam.getTotalLosses()));
+		showTotalDraws.setText(Integer.toString(otherteam.getTotalDraws()));
+		showTotalGoals.setText(Integer.toString(otherteam.getTotalGoals()));
+		
+		// AttackPower bar inladen
+		atkPwrImg.setFitWidth(otherteam.getAttackPower() / 3);
+
+		// Defence bar inladen
+		defPwrImg.setFitWidth(otherteam.getDefencePower() / 3);
+
+		// Stamina bar inladen
+		staminaImg.setFitWidth(otherteam.getStamina() / 3);
+		
+		coach.setText("Coach: " + otherteam.getCoachName());
 	}
 	
 	private ObservableList<Team> getteamList() {

@@ -16,6 +16,11 @@ import nl.joshuaslik.tudelft.UFMGame.backend.Team;
 import nl.joshuaslik.tudelft.UFMGame.backend.formation.Form343;
 import nl.joshuaslik.tudelft.UFMGame.gui.game.MainGame;
 
+/**
+ * Controller for New Game.
+ * @author Naomi
+ *
+ */
 public class NewGameController {
 	
 		private Team choosenteam;
@@ -86,10 +91,16 @@ public class NewGameController {
 			}
 		}
 	    
+	    
 	    public void selectedTeam(Team team){
 	    	choosenteam = team;
 	    }
 	    
+	    /**
+	     * 
+	     * @param user
+	     * @throws IOException  is thrown if the FXML file cannot be parsed. 
+	     */
 	    public static void start(String user) throws IOException {
 	    	username = user;
 	 

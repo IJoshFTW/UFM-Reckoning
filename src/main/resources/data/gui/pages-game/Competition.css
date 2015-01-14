@@ -1,5 +1,3 @@
-@import url("fonts.css");
-
 .pane {
 	-fx-background-image: url("../img/soccer.png");
 	-fx-background-size: 100%;
@@ -46,17 +44,6 @@
   
 }
 
-.table-view .column-header, .table-view .filler {
-
-    -fx-border-width: 0 0 1 0;
-    -fx-border-color: 
-        transparent
-        transparent
-        derive(-fx-base, 80%) 
-        transparent;
-    -fx-border-insets: 0 10 1 0;
-}
-
 .table-view .column-header .label {
     -fx-font-size: 22;
     -fx-font-family: 'Quicksand Book';
@@ -71,4 +58,12 @@
 
 .table-cell {
     -fx-alignment: CENTER;
+}
+
+.ComboBox {
+	-fx-background-color: #1d1d1d;
+}
+
+.table-cell.selected {
+	-fx-border-color: #1d1d1d;
 }

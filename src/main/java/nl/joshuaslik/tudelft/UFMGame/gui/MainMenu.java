@@ -14,6 +14,11 @@ import javafx.scene.layout.AnchorPane;
  */
 public class MainMenu {
 
+	
+	/**
+	 * Loading the MainMenu
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
+	 */
 	public static void start() throws IOException {
 		Main.loadFonts();
 		AnchorPane scene = (AnchorPane) FXMLLoader.load(Class.class.getResource("/data/gui/pages-menu/MainMenu.fxml"));
