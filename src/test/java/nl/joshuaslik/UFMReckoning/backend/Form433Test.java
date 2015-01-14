@@ -8,6 +8,12 @@ import nl.joshuaslik.tudelft.UFMGame.backend.formation.Form433;
 
 import org.junit.Test;
 
+/**
+ * Test to check the 4-3-3 formation
+ * @author Naomi
+ * @author Bryan
+ *
+ */
 public class Form433Test {
 
 	@Test
@@ -16,6 +22,9 @@ public class Form433Test {
 		Form433 formation = new Form433(team1);
 	}
 
+	/**
+	 * Test to check if you can get the goalkeeper of a team
+	 */
 	@Test
 	public void testGoalkeeper() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -29,6 +38,9 @@ public class Form433Test {
 		assertEquals(formation.getGoalkeper(), goalkeeper2);
 	}
 
+	/**
+	 * Test to check if you can get the CB
+	 */
 	@Test
 	public void testCB1() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -42,6 +54,9 @@ public class Form433Test {
 		assertEquals(formation.getCB1(), fieldplayer2);
 	}
 
+	/**
+	 * Test to check if you can get the CB
+	 */
 	@Test
 	public void testCB2() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -55,6 +70,9 @@ public class Form433Test {
 		assertEquals(formation.getCB2(), fieldplayer2);
 	}
 
+	/**
+	 * Test to check if you can get the RB
+	 */
 	@Test
 	public void testRB() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -68,6 +86,9 @@ public class Form433Test {
 		assertEquals(formation.getRB(), fieldplayer2);
 	}
 
+	/**
+	 * Test to check if you can get the LB
+	 */
 	@Test
 	public void testLB() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -81,6 +102,9 @@ public class Form433Test {
 		assertEquals(formation.getLB(), fieldplayer2);
 	}
 
+	/**
+	 * Test to check if you can get the CM
+	 */
 	@Test
 	public void testCM() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -94,6 +118,9 @@ public class Form433Test {
 		assertEquals(formation.getCM(), fieldplayer2);
 	}
 
+	/**
+	 * Test to check if you can get the RM
+	 */
 	@Test
 	public void testRM() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -107,6 +134,9 @@ public class Form433Test {
 		assertEquals(formation.getRM(), fieldplayer2);
 	}
 
+	/**
+	 * Test to check if you can get the LM
+	 */
 	@Test
 	public void testLM() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -120,6 +150,9 @@ public class Form433Test {
 		assertEquals(formation.getLM(), fieldplayer2);
 	}
 
+	/**
+	 * Test to check if you can get the RW
+	 */
 	@Test
 	public void testRW() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -133,6 +166,9 @@ public class Form433Test {
 		assertEquals(formation.getRW(), fieldplayer2);
 	}
 
+	/**
+	 * Test to check if you can get the LW
+	 */
 	@Test
 	public void testLW() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -146,6 +182,9 @@ public class Form433Test {
 		assertEquals(formation.getLW(), fieldplayer2);
 	}
 
+	/**
+	 * Test to check if you can get the ST
+	 */
 	@Test
 	public void testST() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
