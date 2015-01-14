@@ -19,6 +19,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Callback;
 import javafx.util.StringConverter;
+import nl.joshuaslik.tudelft.UFMGame.backend.Game;
 import nl.joshuaslik.tudelft.UFMGame.backend.Player;
 import nl.joshuaslik.tudelft.UFMGame.backend.Team;
 import nl.joshuaslik.tudelft.UFMGame.gui.Main;
@@ -35,6 +36,7 @@ public class TransferMarket {
 	private Team otherteam;
 	private Player selectedplayer;
 	private ObservableList<Player> observablelistplayers;
+	
 	@FXML
     private ComboBox<Team> teams;
 
@@ -42,7 +44,7 @@ public class TransferMarket {
 	private TableView<Player> playertable;
 
 	@FXML
-	private TableColumn<Player, String> active, name, country, position;
+	private TableColumn<Player, String> active, name, country, position, price;
 
 	@FXML
 	private void initialize() {
@@ -110,6 +112,8 @@ public class TransferMarket {
 				"country"));
 		position.setCellValueFactory(new PropertyValueFactory<Player, String>(
 				"position"));
+		price.setCellValueFactory(new PropertyValueFactory<Player, String>(
+				"price"));
 		playertable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> selectedPlayer(newValue));
 	}
 	
@@ -131,12 +135,12 @@ public class TransferMarket {
 
 	@FXML
 	protected void sellingPlayer() throws IOException {
-		// Game.sellPlayer(selectedplayer.getID());
+		MainGame.game.sellPlayer(selectedplayer.getID());
 	}
 
 	@FXML
 	protected void buyingPlayer() throws IOException {
-		// Game.buyPlayer(selectedplayer.getID());
+		MainGame.game.buyPlayer(selectedplayer.getID());
 	}
 	
 	@FXML
