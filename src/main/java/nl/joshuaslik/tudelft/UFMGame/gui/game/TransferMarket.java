@@ -48,6 +48,9 @@ public class TransferMarket {
 
 	@FXML
 	private TableColumn<Player, String> active, name, country, position, price;
+	
+	@FXML
+	private TableColumn<Player, String> active2, name2, country2, position2, value;
 
 	@FXML
 	private void initialize() {
@@ -126,7 +129,7 @@ public class TransferMarket {
 		ObservableList<Team> res = FXCollections.observableArrayList(teamarraylist);
 		return res;
 	}
-
+	
 	public void selectedPlayer(Player player) {
 		selectedplayer = player;
 	}
