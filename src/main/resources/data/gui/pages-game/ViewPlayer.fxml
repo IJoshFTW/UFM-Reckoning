@@ -11,7 +11,7 @@
 
 <AnchorPane opacity="0.87" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #101010; -fx-border-color: #CECECE; -fx-border-width: 1px;" stylesheets="@TeamBuilder.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.tudelft.UFMGame.gui.game.ViewPlayer">		
 	<children>      
-            <Label fx:id="playerName" layoutX="452.0" layoutY="29.0" text="Player" textFill="WHITE">
+            <Label fx:id="playerName" alignment="CENTER" layoutX="0.0" layoutY="29.0" maxWidth="1000.0" minWidth="1000.0" prefWidth="1000.0" text="Player" textFill="WHITE">
                <font>
                   <Font size="34.0" />
                </font>
