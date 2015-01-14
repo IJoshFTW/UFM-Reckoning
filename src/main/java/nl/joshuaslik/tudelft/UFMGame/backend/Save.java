@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
+import nl.joshuaslik.tudelft.UFMGame.backend.exceptions.UnableToSaveException;
 import nl.joshuaslik.tudelft.UFMGame.util.xml.SAXParser;
 import nl.joshuaslik.tudelft.UFMGame.util.xml.XMLFile;
 import nl.joshuaslik.tudelft.UFMGame.util.xml.XMLTag;
@@ -289,32 +290,94 @@ public class Save {
 	public static void saveGame(Game game, int SaveSlot) {
 		ArrayList<User> userlist = game.getUsers();
 		XMLTag root = new XMLTag("savegame");
+		
+		// TODO Save game specific variables
+		
 		XMLTag users = new XMLTag("users");
 		
 		// Add all users
 		for (int i = 0; i < userlist.size(); i++) {
+			// TODO Distinguish between Human and PC
 			User user = userlist.get(i);
 			LinkedHashMap<String, String> atts = new LinkedHashMap<String, String>();
 			atts.put("username", user.getUserName());
 			atts.put("budget", Integer.toString(user.getBudget()));
 			
 			// Add team formation
+			//TODO Formation
 			Team team = user.getTeam();
 			XMLTag teamtag = new XMLTag("team");
 			XMLTag form = new XMLTag("formation");
 			form.addAttribute("name", user.getTeam().getFormation().getName());
-			
+			teamtag.addElement(form);
 			
 			// Add team players
 			ArrayList<Player> players = team.getAllPlayers();
 			XMLTag playerstag = new XMLTag("players");
 			for(int j = 0; j < team.getAllPlayers().size(); j++) {
-//				Player player = new Player();
+				Player player = players.get(j);
 				XMLTag playertag = new XMLTag("player");
-				playertag.addAttribute("id", players.get(j).getID());
+				playertag.addAttribute("id", player.getID());
+				
+				XMLTag name = new XMLTag("name");
+				name.addAttribute("first", player.getFirstName());
+				name.addAttribute("last", player.getLastName());
+				playertag.addElement(name);
+				
+				XMLTag country = new XMLTag("country");
+				country.setContent(player.getCountry());
+				playertag.addElement(country);
+				
+				//TODO Where is type?
+				
+				if (player instanceof Fieldplayer) {
+					Fieldplayer fplayer = (Fieldplayer) player;
+					
+					XMLTag pos = new XMLTag("pos");
+					pos.setContent(fplayer.getPosition());
+					playertag.addElement(pos);
+				} else if (player instanceof Goalkeeper) {
+					Goalkeeper gplayer = (Goalkeeper) player;
+					XMLTag pos = new XMLTag("pos");
+					pos.setContent(gplayer.getPosition());
+					playertag.addElement(pos);
+				} else {
+					throw new UnableToSaveException("Player did not match any known type");
+				}
+				
+				XMLTag stats = new XMLTag("stats");
+				if (player instanceof Fieldplayer) {
+					Fieldplayer fplayer = (Fieldplayer) player;
+					XMLTag att = new XMLTag("att");
+					att.setContent(Integer.toString(fplayer.getAttackPower()));
+					XMLTag def = new XMLTag("def");
+					def.setContent(Integer.toString(fplayer.getDefencePower()));
+					XMLTag sta = new XMLTag("sta");
+					sta.setContent(Integer.toString(fplayer.getStamina()));
+					stats.addElement(att);
+					stats.addElement(def);
+					stats.addElement(sta);
+				} else if (player instanceof Goalkeeper) {
+					Goalkeeper gplayer = (Goalkeeper) player;
+					XMLTag div = new XMLTag("div");
+					div.setContent(Integer.toString(gplayer.getDiving()));
+					XMLTag pos = new XMLTag("pos");
+					pos.setContent(Integer.toString(gplayer.getPositioning()));
+					XMLTag ref = new XMLTag("ref");
+					ref.setContent(Integer.toString(gplayer.getReflexes()));
+					stats.addElement(div);
+					stats.addElement(pos);
+					stats.addElement(ref);
+				} else {
+					throw new UnableToSaveException("Player did not match any known type");
+				}
+				playertag.addElement(stats);
+				
+				XMLTag price = new XMLTag("tprice");
+				price.setContent(Integer.toString(player.getPrice()));
+				playertag.addElement(price);
 			}
 			
-			teamtag.addElement(form);
 			teamtag.addElement(playerstag);
 						
 			XMLTag usertag = new XMLTag("user", atts);

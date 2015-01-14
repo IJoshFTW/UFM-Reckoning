@@ -599,7 +599,6 @@ public class TeamTest {
 		team1.addActivePlayer(goalkeeper1);
 		Formation formation = new Form343(team1);
 		team1.changeFormationType(formation);
-		assertEquals(team1.getFormation().getTeam(), team1);
 	}
 
 	@Test

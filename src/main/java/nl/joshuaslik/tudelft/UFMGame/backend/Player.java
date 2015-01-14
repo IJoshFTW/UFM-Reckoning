@@ -10,6 +10,7 @@ package nl.joshuaslik.tudelft.UFMGame.backend;
 public abstract class Player {
 	private String playerID;
 	private String fullName;
+	private String firstName;
 	private String lastName;
 	private String country;
 	private int price;
@@ -33,6 +34,7 @@ public abstract class Player {
 	public Player(String id, String firstName, String lastName,
 			String country, int pr) {
 		playerID = id;
+		this.firstName = firstName;
 		fullName = firstName + " " + lastName;
 		this.lastName = lastName;
 		this.country = country;
@@ -128,5 +130,12 @@ public abstract class Player {
 			active = "✓";
 		else
 			active = "✗";
+	}
+
+	/**
+	 * @return
+	 */
+	public String getFirstName() {
+		return this.firstName;
 	}
 }

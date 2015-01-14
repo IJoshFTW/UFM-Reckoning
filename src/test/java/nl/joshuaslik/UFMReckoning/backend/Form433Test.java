@@ -14,7 +14,6 @@ public class Form433Test {
 	public void testConstructor() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
 		Form433 formation = new Form433(team1);
-		assertEquals(formation.getTeam(), team1);
 	}
 
 	@Test
