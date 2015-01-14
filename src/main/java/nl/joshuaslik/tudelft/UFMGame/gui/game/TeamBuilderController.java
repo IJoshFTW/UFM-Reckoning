@@ -158,11 +158,15 @@ public class TeamBuilderController {
 
 	public static void start() throws IOException {
 		team = MainGame.game.getUser().getTeam();
-
+		
 		AnchorPane root = FXMLLoader.load(Class.class
 				.getResource("/data/gui/pages-game/TeamBuilder.fxml"));
 
 		Main.setCenter(root);
+		AnchorPane top = FXMLLoader.load(Class.class
+				.getResource("/data/gui/pages-game/GameTopMenuBar.fxml"));
+
+		Main.setTop(top);
 		AnchorPane bottom = (AnchorPane) FXMLLoader.load(Class.class
 				.getResource("/data/gui/pages-game/GameBottomMenuBar.fxml"));
 		Main.setBottom(bottom);

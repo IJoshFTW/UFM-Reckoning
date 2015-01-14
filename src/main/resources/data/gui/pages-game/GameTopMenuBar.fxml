@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane style="-fx-background-color: black;" stylesheets="@GameBottomMenuBar.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.tudelft.UFMGame.gui.game.TopMenuBarController">
+   <children>
+      <HBox alignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <HBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <opaqueInsets>
+            <Insets right="10.0" />
+         </opaqueInsets>
+         <children>
+            <Label fx:id="round" textAlignment="CENTER" textFill="#f8f5f5">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label fx:id="username" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" textFill="#e1dfd8">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+         </children>
+         <opaqueInsets>
+            <Insets left="20.0" />
+         </opaqueInsets>
+      </HBox>
+   </children>
+</AnchorPane>
