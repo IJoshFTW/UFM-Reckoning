@@ -34,7 +34,7 @@
                     </columns>
                   </TableView>
                   <ComboBox fx:id="teams" layoutX="146.0" layoutY="86.0" prefWidth="200.0" AnchorPane.bottomAnchor="640.0" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="770.0" />
-                  <TableView fx:id="yourteam" layoutX="652.0" layoutY="153.0" prefHeight="377.0" prefWidth="448.0" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="645.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="175.0">
+                  <TableView fx:id="yourteamtable" layoutX="652.0" layoutY="153.0" prefHeight="377.0" prefWidth="448.0" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="645.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="175.0">
                     <columns>
                       <TableColumn prefWidth="75.0" text="Active" />
                       <TableColumn prefWidth="100.0" text="Name" />

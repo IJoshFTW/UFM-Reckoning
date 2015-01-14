@@ -42,6 +42,9 @@ public class TransferMarket {
 
 	@FXML
 	private TableView<Player> playertable;
+	
+	@FXML
+	private TableView<Player> yourteamtable;
 
 	@FXML
 	private TableColumn<Player, String> active, name, country, position, price;
