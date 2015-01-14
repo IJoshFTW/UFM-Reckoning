@@ -31,7 +31,6 @@ public class TransferMarket {
 	private static Team team;
 	private Team otherteam;
 	private Player selectedplayer;
-	private Team selectedteam;
 	private ObservableList<Player> observablelistplayers;
 	private ObservableList<Player> observablelistteamplayers;
 
@@ -203,23 +202,6 @@ public class TransferMarket {
 		selectedplayer = player;
 	}
 
-	public void selectedTeam(Team team) {
-		
-		teams.valueProperty().addListener(new ChangeListener<Team>() {
-			@Override
-			public void changed(ObservableValue<? extends Team> observable,
-					Team oldValue, Team newValue) {
-				otherteam = newValue;
-				ArrayList<Player> playerslist = otherteam.getAllPlayers();
-				observablelistplayers = FXCollections
-						.observableArrayList(playerslist);
-				playertable.setItems(observablelistplayers);
-			}
-		}
-		
-		selectedteam = team;
-	}
-
 	/**
 	 * View the selected player
 	 * @throws IOException
@@ -245,8 +227,8 @@ public class TransferMarket {
 	 */
 	@FXML
 	protected void buyingPlayer() throws IOException {
-		MainGame.game.buyPlayer(selectedplayer.getID(),
-				MainGame.game.getUser(selectedteam));
+		MainGame.game.buyPlayer(selectedplayer.getID());
+		//MainGame.game.getUser(otherteam));
 		start();
 	}
 
