@@ -82,7 +82,7 @@ public class App {
 			}
 
 			if (args[0].equals("loadtest")) {
-				System.out.println(Save.loadplayers().get(63).getID());
+				System.out.println(Save.loadPlayers().get(63).getID());
 				Save.loadTeam();
 			}
 
