@@ -24,23 +24,23 @@
                   <Button contentDisplay="CENTER" layoutX="18.0" layoutY="718.0" onAction="#returnToTeam" prefHeight="60" prefWidth="250" styleClass="button" text="Return" textAlignment="CENTER" AnchorPane.leftAnchor="475.0" AnchorPane.rightAnchor="475.0" />
                   <Button layoutX="767.0" layoutY="637.0" onAction="#sellingPlayer" prefHeight="60" prefWidth="250.0" styleClass="button" text="Sell Player" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="625.0" />
                   <Button layoutX="210.0" layoutY="620.0" onAction="#buyingPlayer" prefHeight="60" prefWidth="250.0" styleClass="button" text="Buy Player" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="625.0" />
-                  <TableView fx:id="playertable" layoutX="121.0" layoutY="144.0" prefHeight="375.0" prefWidth="373.0" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="645.0" AnchorPane.topAnchor="175.0">
+                  <TableView fx:id="playertable" layoutX="121.0" layoutY="144.0" prefHeight="375.0" prefWidth="373.0" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="610.0" AnchorPane.topAnchor="175.0">
                     <columns>
-                      <TableColumn fx:id="active" prefWidth="75.0" text="Active" />
-                        <TableColumn fx:id="name" prefWidth="100.0" text="Name" />
-                        <TableColumn fx:id="country" prefWidth="100.0" text="Country" />
-                      <TableColumn fx:id="position" prefWidth="75.0" text="Position" />
-                        <TableColumn fx:id="price" prefWidth="100.0" text="Price" />
+                      <TableColumn fx:id="active" prefWidth="90.0" text="Active" />
+                        <TableColumn fx:id="name" prefWidth="125.0" text="Name" />
+                        <TableColumn fx:id="country" prefWidth="125.0" text="Country" />
+                      <TableColumn fx:id="position" prefWidth="110.0" text="Position" />
+                        <TableColumn fx:id="price" prefWidth="105.0" text="Price" />
                     </columns>
                   </TableView>
                   <ComboBox fx:id="teams" layoutX="146.0" layoutY="86.0" prefWidth="200.0" AnchorPane.bottomAnchor="640.0" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="770.0" />
-                  <TableView fx:id="yourteamtable" layoutX="652.0" layoutY="153.0" prefHeight="377.0" prefWidth="448.0" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="645.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="175.0">
+                  <TableView fx:id="yourteamtable" layoutX="652.0" layoutY="153.0" prefHeight="377.0" prefWidth="448.0" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="610.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="175.0">
                     <columns>
-                      <TableColumn fx:id="active2" prefWidth="75.0" text="Active" />
-                      <TableColumn fx:id="name2" prefWidth="100.0" text="Name" />
-                        <TableColumn fx:id="country2" prefWidth="100.0" text="Country" />
-                        <TableColumn fx:id="position2" prefWidth="75.0" text="Position" />
-                        <TableColumn fx:id="value" prefWidth="100.0" text="Value" />
+                      <TableColumn fx:id="active2" prefWidth="90.0" text="Active" />
+                      <TableColumn fx:id="name2" prefWidth="125.0" text="Name" />
+                        <TableColumn fx:id="country2" prefWidth="125.0" text="Country" />
+                        <TableColumn fx:id="position2" prefWidth="110.0" text="Position" />
+                        <TableColumn fx:id="value" prefWidth="105.0" text="Value" />
                     </columns>
                   </TableView>
                   <Button layoutX="560.0" layoutY="650.0" mnemonicParsing="false" onAction="#handleViewPlayer" prefHeight="60.0" prefWidth="250.0" text="View Player" AnchorPane.leftAnchor="460.0" AnchorPane.rightAnchor="460.0" AnchorPane.topAnchor="625.0" />
