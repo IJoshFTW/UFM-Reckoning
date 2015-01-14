@@ -31,3 +31,44 @@
 	-fx-opacity: 90%;
 	-fx-cursor: hand;
 }
+
+.table-view {
+    	-fx-base: #1d1d1d;
+    	-fx-control-inner-background: #1d1d1d;
+    	-fx-background-color: #1d1d1d;
+   	-fx-table-cell-border-color: transparent;
+   	-fx-table-header-border-color: transparent;
+	-fx-padding: 5;
+	-fx-opacity: 200%;
+}
+
+.table-view .column-header-background {
+  
+}
+
+.table-view .column-header, .table-view .filler {
+
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: 
+        transparent
+        transparent
+        derive(-fx-base, 80%) 
+        transparent;
+    -fx-border-insets: 0 10 1 0;
+}
+
+.table-view .column-header .label {
+    -fx-font-size: 22;
+    -fx-font-family: 'Quicksand Book';
+    -fx-text-fill: white;
+    -fx-alignment: center;
+    -fx-opacity: 1;
+}
+
+.table-view:focused .table-row-cell:filled:focused:selected {
+    -fx-background-color: #000000;
+}
+
+.table-cell {
+    -fx-alignment: CENTER;
+}
