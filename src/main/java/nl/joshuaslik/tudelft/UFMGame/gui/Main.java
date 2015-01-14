@@ -9,6 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 /**
@@ -58,6 +59,10 @@ public class Main extends Application {
 
 	public static Stage stage() {
 		return stage;
+	}
+	
+	public static void loadFonts() {
+		Font.loadFont(Class.class.getResource("/data/gui/fonts/Quicksand.ttf").toExternalForm(), 10);
 	}
 
 }

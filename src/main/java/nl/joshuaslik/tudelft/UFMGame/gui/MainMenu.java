@@ -15,6 +15,7 @@ import javafx.scene.layout.AnchorPane;
 public class MainMenu {
 
 	public static void start() throws IOException {
+		Main.loadFonts();
 		AnchorPane scene = (AnchorPane) FXMLLoader.load(Class.class.getResource("/data/gui/pages-menu/MainMenu.fxml"));
 		System.out.println(scene);
 		Main.setCenter(scene);
