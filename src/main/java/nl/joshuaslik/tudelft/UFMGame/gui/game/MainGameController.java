@@ -17,18 +17,12 @@ public class MainGameController {
 	@FXML
 	private Label budgetlabel;
 	@FXML
-	private Label currentround;
+	private Label rank;
 
 	@FXML
 	private void initialize() {
 		budgetlabel.setText("Budget: € " + MainGame.game.getUser().getBudget());
-		ArrayList<Match> matches = MainGame.game.getPlayround(MainGame.game.getCurrentRound()).getMatches();
-		for(int i = 0; i < matches.size(); i++){
-			if(matches.get(i).contains(MainGame.game.getUser().getTeam())){
-				currentround.setText(" " + MainGame.game.getCurrentRound() + ". " + "Next match: " + matches.get(i).getHometeam() + " VS " + matches.get(i).getAwayteam());
-			}
-		}
-
+		rank.setText("Current Rank: " + MainGame.game.getUser().getTeam().getRanking());
 	}
 
 	@FXML

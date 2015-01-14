@@ -106,6 +106,8 @@ public class OtherTeams {
 
 					// Stamina bar inladen
 					staminaImg.setFitWidth(otherteam.getStamina() / 3);
+					
+					coach.setText("Coach: " + otherteam.getCoachName());
 				}   
    	});
    	 
@@ -168,6 +170,8 @@ public class OtherTeams {
 
 		// Stamina bar inladen
 		staminaImg.setFitWidth(otherteam.getStamina() / 3);
+		
+		coach.setText("Coach: " + otherteam.getCoachName());
 	}
 	
 	private ObservableList<Team> getteamList() {
