@@ -36,10 +36,10 @@ public class MainGameController {
 			Popupscreen.setTitle("Error in Team Setup");
 			String message = new String();
 			if(MainGame.game.getUser().getTeam().getTeamCaptain() == null){
-				message = message + "\nYour team need a team captain.";
+				message = message + "\nYour team needs a team captain.";
 			}
 			if(MainGame.game.getUser().getTeam().getActivePlayers().size() != 11){
-				message = message + "\nYour team need at least 11 players.\nGo to Change setup to add players to your formation.";
+				message = message + "\nYour team needs at least 11 players.\nGo to Change Setup to add players to your formation.";
 			}	
 			Popupscreen.setMessage(message);
 		}
