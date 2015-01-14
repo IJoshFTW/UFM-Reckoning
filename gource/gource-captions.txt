@@ -21,3 +21,4 @@
 1419033600|[Break] Christmas break!
 1420633800|[Scrum] End of Sprint #5!
 1420637400|[Scrum] Start of Sprint #6!
+1421198373|[Issue] 'The Bug to Rule them All' has been fixed!
