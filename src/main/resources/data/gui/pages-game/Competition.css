@@ -72,3 +72,8 @@
 .table-cell {
     -fx-alignment: CENTER;
 }
+
+.ComboBox {
+	-fx-background-color: #1d1d1d;
+}
+}

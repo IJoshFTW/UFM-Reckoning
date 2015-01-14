@@ -16,9 +16,9 @@
                   <TableView fx:id="competitiontable" layoutX="275.0" layoutY="250.0" maxWidth="650.0" minWidth="650.0" prefHeight="350.0" prefWidth="650.0">
                     <columns>
                       <TableColumn fx:id="home" prefWidth="150.0" text="Home" />
-                        <TableColumn fx:id="away" prefWidth="150.0" text="Away" />
-                        <TableColumn fx:id="homegoals" prefWidth="175.0" text="Home Goals" />
-                        <TableColumn fx:id="awaygoals" prefWidth="175.0" text="Away Goals" />
+                      <TableColumn fx:id="away" prefWidth="150.0" text="Away" />
+                      <TableColumn fx:id="homegoals" prefWidth="175.0" text="Home Goals" />
+                      <TableColumn fx:id="awaygoals" prefWidth="175.0" text="Away Goals" />
                     </columns>
                   </TableView>
                   <ComboBox fx:id="playround" layoutX="525.0" layoutY="167.0" prefWidth="150.0" />
