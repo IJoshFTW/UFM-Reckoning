@@ -31,11 +31,7 @@ public abstract class Formation {
 		team.setPlayerActive(goalkeeper);
 		return tmp;
 	}
-	
-	public Team getTeam(){
-		return team;
-	}
-	
+		
 	public Goalkeeper getGoalkeper(){
 		return goalkeeper;
 	}

@@ -27,6 +27,14 @@ public class XMLTag {
 		this.elementnames = new ArrayList<String>();
 		this.content = null;
 	}
+	
+	public XMLTag(String name) {
+		this.name = name;
+		this.atts = new LinkedHashMap<String, String>();
+		this.elements = new ArrayList<XMLTag>();
+		this.elementnames = new ArrayList<String>();
+		this.content = null;
+	}
 
 	public int elements() {
 		return elements.size();
@@ -61,6 +69,10 @@ public class XMLTag {
 	public void addElement(XMLTag element) {
 		elements.add(element);
 		elementnames.add(element.getName());
+	}
+	
+	public void addAttribute(String attribute, String value) {
+		atts.put(attribute, value);
 	}
 
 	/**

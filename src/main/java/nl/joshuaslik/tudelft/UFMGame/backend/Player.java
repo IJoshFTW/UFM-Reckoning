@@ -31,11 +31,11 @@ public abstract class Player {
 	 *            is the price of the player as an int.
 	 */
 	public Player(String id, String firstName, String lastName,
-			String heritage, int pr) {
+			String country, int pr) {
 		playerID = id;
 		fullName = firstName + " " + lastName;
 		this.lastName = lastName;
-		country = heritage;
+		this.country = country;
 		price = pr;
 		active = "✗";
 		activeState = false;

@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane onKeyPressed="#handleUsernamekey" opacity="0.85" prefHeight="430.0" prefWidth="700.0" style="-fx-background-color: #101010;" stylesheets="@NewGame.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.tudelft.UFMGame.gui.UsernameController">
+<AnchorPane onKeyPressed="#handleUsernamekey" opacity="0.85" prefHeight="430.0" prefWidth="700.0" style="-fx-background-color: #101010;" stylesheets="@SaveGameNew.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.tudelft.UFMGame.gui.UsernameController">
    <children>
       <GridPane layoutY="-2.0" prefHeight="263.0" prefWidth="519.0" AnchorPane.bottomAnchor="62.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="-2.0">
         <columnConstraints>
