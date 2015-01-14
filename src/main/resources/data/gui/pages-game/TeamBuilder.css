@@ -58,3 +58,7 @@
 	-fx-opacity: 90%;
 	-fx-cursor: hand;
 }
+
+.table-cell.selected {
+	-fx-border-color: #1d1d1d;
+}

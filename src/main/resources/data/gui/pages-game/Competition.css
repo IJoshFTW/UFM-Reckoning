@@ -63,4 +63,7 @@
 .ComboBox {
 	-fx-background-color: #1d1d1d;
 }
+
+.table-cell.selected {
+	-fx-border-color: #1d1d1d;
 }

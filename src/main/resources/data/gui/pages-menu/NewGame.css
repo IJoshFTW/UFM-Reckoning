@@ -53,3 +53,7 @@
 .table-cell {
     -fx-alignment: CENTER;
 }
+
+.table-cell.selected {
+	-fx-border-color: #1d1d1d;
+}
