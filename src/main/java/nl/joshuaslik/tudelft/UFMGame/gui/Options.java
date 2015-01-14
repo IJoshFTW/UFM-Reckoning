@@ -8,10 +8,14 @@ import javafx.scene.layout.AnchorPane;
 
 /**
  * @author Sander Benoist
- *
+ * @author Naomi de Ridder
  */
 public class Options {
 
+	/**
+	 * Loads the option page.
+	 * @throws IOException is thrown if the FXML file cannot be parsed. 
+	 */
 	public static void start() throws IOException {
 		AnchorPane scene = (AnchorPane) FXMLLoader.load(Class.class.getResource("/data/gui/pages-menu/Options.fxml"));
 		AnchorPane topmenu = (AnchorPane) FXMLLoader.load(Class.class.getResource("/data/gui/pages-menu/TopMenu.fxml"));

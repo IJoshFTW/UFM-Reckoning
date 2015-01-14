@@ -13,8 +13,16 @@ import nl.joshuaslik.tudelft.UFMGame.backend.User;
 
 import org.junit.Test;
 
+/**
+ * Testing the competition class
+ * @author Naomi
+ *
+ */
 public class CompetitionTest {
 
+	/**
+	 * Testing the constructor of the competition class
+	 */
 	@Test
 	public void testConstructor() {
 		ArrayList<User> users = new ArrayList<User>();
@@ -27,6 +35,9 @@ public class CompetitionTest {
 		assertEquals(competition1, competition1);
 	}
 
+	/**
+	 *  Testing if all matches of this competition are added to random playrounds
+	 */
 	@Test
 	public void testDefineplayrounds1() {
 		ArrayList<User> users = new ArrayList<User>();
@@ -51,6 +62,9 @@ public class CompetitionTest {
 		assertEquals(game1.getPlayrounds().size(), 14);
 	}
 
+	/**
+	 * Testing if you can get all playrounds.
+	 */
 	@Test
 	public void testGetPlayround() {
 		ArrayList<User> users = new ArrayList<User>();
@@ -76,6 +90,9 @@ public class CompetitionTest {
 				game1.getCompetition().getPlayround(1).getMatches().size(), 4);
 	}
 
+	/**
+	 * A second test for getting playrounds
+	 */
 	@Test
 	public void testGetPlayround2() {
 		ArrayList<User> users = new ArrayList<User>();
@@ -100,6 +117,9 @@ public class CompetitionTest {
 		assertEquals(game1.getCompetition().getPlayround(0), null);
 	}
 
+	/**
+	 * Testing if compute standings works
+	 */
 	@Test
 	public void testComputeStandings() {
 		ArrayList<User> users = new ArrayList<User>();
@@ -121,7 +141,9 @@ public class CompetitionTest {
 		assertEquals(team3.getRanking(), 1);
 		assertEquals(team4.getRanking(), 2);
 	}
-
+	/**
+	 * Testing if compute standings works
+	 */	
 	@Test
 	public void testComputeStandings1() {
 		ArrayList<User> users = new ArrayList<User>();
@@ -151,6 +173,9 @@ public class CompetitionTest {
 		assertEquals(team4.getRanking(), 1);
 	}
 
+	/**
+	 * Testing if you can get users. 
+	 */
 	@Test
 	public void testGetUsers() {
 		ArrayList<User> users = new ArrayList<User>();

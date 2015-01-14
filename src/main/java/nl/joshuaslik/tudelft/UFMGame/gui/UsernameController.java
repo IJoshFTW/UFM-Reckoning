@@ -15,6 +15,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Popup;
 import javafx.util.Duration;
 
+/**
+ * Controller for the username.
+ * @author Bryan
+ * @author Lisette
+ */
 public class UsernameController {
 	private static Popup popup;
 	private static AnchorPane page;
@@ -48,7 +53,7 @@ public class UsernameController {
 		ft.setFromValue(0.97);
 		ft.setToValue(0.0);
 		ft.play();
-		
+
 		popup.hide();
 	}
 

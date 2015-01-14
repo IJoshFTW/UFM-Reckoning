@@ -7,7 +7,8 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 /**
- * Unit test for simple App.
+ * Unit test for simple Application
+ * @author Naomi de Ridder
  */
 public class AppTest {
 

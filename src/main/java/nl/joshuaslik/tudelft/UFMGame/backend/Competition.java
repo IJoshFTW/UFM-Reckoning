@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
+ * Creates the games for the competition
  * @author Bryan van Wijk
  * @author <a href="http://www.joshuaslik.nl/" target="_blank">Joshua Slik</a>
  */
@@ -98,7 +99,7 @@ public class Competition {
 	}
 
 	/**
-	 * Compte the result of the total competition
+	 * Compute the result of the total competition
 	 */
 	public void computeresultCompetition() {
 		for (int i = 0; i < playrounds.size(); i++) {
