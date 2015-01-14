@@ -1,9 +1,11 @@
 package nl.joshuaslik.tudelft.UFMGame.gui.game;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import nl.joshuaslik.tudelft.UFMGame.backend.Match;
 import nl.joshuaslik.tudelft.UFMGame.gui.MainMenu;
 
 /**
@@ -20,7 +22,12 @@ public class MainGameController {
 	@FXML
 	private void initialize() {
 		budgetlabel.setText("Budget: € " + MainGame.game.getUser().getBudget());
-		currentround.setText("Currentround: " + MainGame.game.getCurrentRound());
+		ArrayList<Match> matches = MainGame.game.getPlayround(MainGame.game.getCurrentRound()).getMatches();
+		for(int i = 0; i < matches.size(); i++){
+			if(matches.get(i).contains(MainGame.game.getUser().getTeam())){
+				currentround.setText(" " + MainGame.game.getCurrentRound() + ". " + "Next match: " + matches.get(i).getHometeam() + " VS " + matches.get(i).getAwayteam());
+			}
+		}
 
 	}
 
