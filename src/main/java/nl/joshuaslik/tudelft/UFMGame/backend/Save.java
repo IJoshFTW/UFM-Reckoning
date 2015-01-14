@@ -48,7 +48,7 @@ public class Save {
 		String current = System.getProperty("user.dir");
 		File folder = new File(current + "/src/main/resources/data/base/teams/");
 		File[] listofFiles = folder.listFiles();
-		LinkedHashMap<String, Player> players = loadplayers();
+		LinkedHashMap<String, Player> players = loadPlayers();
 		LinkedHashMap<String, Team> teams = new LinkedHashMap<String, Team>();
 		for (int j = 0; j < listofFiles.length; j++) {
 			if (listofFiles[j].isFile()) {
@@ -81,7 +81,6 @@ public class Save {
 			}
 		}
 		return teams;
-
 	}
 
 	/**
@@ -93,7 +92,7 @@ public class Save {
 		String current = System.getProperty("user.dir");
 		File folder = new File(current + "/src/main/resources/data/base/teams/");
 		File[] listofFiles = folder.listFiles();
-		LinkedHashMap<String, Player> players = loadplayers();
+		LinkedHashMap<String, Player> players = loadPlayers();
 		ArrayList<Team> teams = new ArrayList<Team>();
 		for (int j = 0; j < listofFiles.length; j++) {
 			if (listofFiles[j].isFile()) {
@@ -134,7 +133,7 @@ public class Save {
 	 * 
 	 * @return linkedHashmap with all the players as value and their id as key
 	 */
-	public static LinkedHashMap<String, Player> loadplayers() {
+	public static LinkedHashMap<String, Player> loadPlayers() {
 		String current = System.getProperty("user.dir");
 		File folder = new File(current
 				+ "/src/main/resources/data/base/players/");
