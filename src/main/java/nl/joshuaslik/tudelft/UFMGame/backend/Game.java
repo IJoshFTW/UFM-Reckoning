@@ -27,7 +27,7 @@ public class Game {
 	 */
 	public Game(ArrayList<User> users) {
 		this.users = users;
-		this.players = Save.loadplayers();
+		this.players = Save.loadPlayers();
 		newCompetition();
 	}
 
