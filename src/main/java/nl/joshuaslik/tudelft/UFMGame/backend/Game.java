@@ -57,7 +57,7 @@ public class Game {
 	 * @param id
 	 */
 	public void buyPlayer(String id) {
-		if (getUser().getBudget() > players.get(id).getPrice()) {
+		if (getUser().getBudget() >= players.get(id).getPrice()) {
 			getUser().subMoney(players.get(id).getPrice());
 			getUser().getTeam().addBenchPlayer(players.get(id));
 		}

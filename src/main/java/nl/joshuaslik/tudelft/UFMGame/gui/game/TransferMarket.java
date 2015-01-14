@@ -196,11 +196,13 @@ public class TransferMarket {
 	@FXML
 	protected void sellingPlayer() throws IOException {
 		MainGame.game.sellPlayer(selectedplayer.getID());
+		start();
 	}
 
 	@FXML
 	protected void buyingPlayer() throws IOException {
 		MainGame.game.buyPlayer(selectedplayer.getID());
+		start();
 	}
 
 	@FXML
