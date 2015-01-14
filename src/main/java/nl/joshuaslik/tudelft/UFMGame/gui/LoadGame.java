@@ -12,6 +12,10 @@ import javafx.scene.layout.AnchorPane;
  */
 public class LoadGame {
 
+	/**
+	 * Loads the LoadGame page. 
+	 * @throws IOException is thrown if the FXML file cannot be parsed. 
+	 */
 	public static void start() throws IOException {
 		AnchorPane scene = (AnchorPane) FXMLLoader.load(Class.class.getResource(""));
 		Main.setCenter(scene);

@@ -12,6 +12,10 @@ import javafx.scene.layout.AnchorPane;
  */
 public class Highscores {
 
+	/**
+	 * Loads the highscore page
+	 * @throws IOException is thrown if the FXML file cannot be parsed. 
+	 */
 	public static void start() throws IOException {
 		
 		AnchorPane scene = (AnchorPane) FXMLLoader.load(Class.class.getResource("/data/gui/pages-menu/Highscores.fxml"));

@@ -8,6 +8,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 
+/**
+ * Controller for main menu.
+ * @author Naomi
+ *
+ */
 public class ControllerMainMenu {
 
 	@FXML
@@ -19,6 +24,9 @@ public class ControllerMainMenu {
 	@FXML
 	private Button loadgame;
 
+	/**
+	 * Methods to control what happens on mouse-over. 
+	 */
 	@FXML
 	private void initialize() {
 		startgame.setOnMouseEntered(new EventHandler<MouseEvent>() {
@@ -28,6 +36,7 @@ public class ControllerMainMenu {
 			}
 		});
 		newgame.setOnMouseEntered(new EventHandler<MouseEvent>() {
+			
 			public void handle(MouseEvent me) {
 				newgame.setVisible(true);
 				loadgame.setVisible(true);
@@ -60,9 +69,8 @@ public class ControllerMainMenu {
 	}
 
 	@FXML
-	protected void handleNewGame(@SuppressWarnings("unused") ActionEvent event) throws IOException {
+	protected void handleNewGame(ActionEvent event) throws IOException {
 		UsernameController.start();
-		//NewGameController.start("Joshua");
 	}
 
 	@FXML
