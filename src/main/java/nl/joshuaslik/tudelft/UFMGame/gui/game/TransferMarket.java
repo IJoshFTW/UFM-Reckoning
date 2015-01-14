@@ -28,15 +28,13 @@ import nl.joshuaslik.tudelft.UFMGame.gui.Main;
  *
  */
 public class TransferMarket {
-
 	private static Team team;
-
 	private Team otherteam;
 	private Player selectedplayer;
 	private ObservableList<Player> observablelistplayers;
 	private ObservableList<Player> observablelistteamplayers;
 
-	// otherteams table
+	// otherteams table variables
 	@FXML
 	private ComboBox<Team> teams;
 	@FXML
@@ -44,15 +42,19 @@ public class TransferMarket {
 	@FXML
 	private TableColumn<Player, String> active, name, country, position, price;
 
-	// yourteam table
+	// yourteam table variables
 	@FXML
 	private TableView<Player> yourteamtable;
 	@FXML
 	private TableColumn<Player, String> active2, name2, country2, position2,
 			value;
 
+	/**
+	 * all tables are created
+	 */
 	@FXML
 	private void initialize() {
+		//Combobox team items in list
 		ObservableList<Team> teamslist = FXCollections
 				.observableArrayList(getteamList());
 		teams.setItems(teamslist);
@@ -68,6 +70,7 @@ public class TransferMarket {
 			}
 		});
 
+		//Combobox selected team
 		teams.valueProperty().addListener(new ChangeListener<Team>() {
 			@Override
 			public void changed(ObservableValue<? extends Team> observable,
@@ -79,7 +82,8 @@ public class TransferMarket {
 				playertable.setItems(observablelistplayers);
 			}
 		});
-
+		
+		//otherteams table
 		ArrayList<Team> teamarraylist = MainGame.game.getTeams();
 		teamarraylist.remove(MainGame.game.getUser().getTeam());
 		teams.setValue(teamarraylist.get(0));
@@ -122,43 +126,46 @@ public class TransferMarket {
 				"position"));
 		price.setCellValueFactory(new PropertyValueFactory<Player, String>(
 				"price"));
+
 		playertable
 				.getSelectionModel()
 				.selectedItemProperty()
 				.addListener(
 						(observable, oldValue, newValue) -> selectedPlayer(newValue));
 
-		
-		// other table (yourteamtable)
+		//your teamplayers table
 		ArrayList<Player> teamplayerslist = team.getAllPlayers();
-		observablelistteamplayers = FXCollections.observableArrayList(teamplayerslist);
+		observablelistteamplayers = FXCollections
+				.observableArrayList(teamplayerslist);
 		yourteamtable.setItems(observablelistteamplayers);
 
 		active2.setCellValueFactory(new PropertyValueFactory<Player, String>(
 				"ID"));
-		active2.setCellFactory(new Callback<TableColumn<Player, String>, TableCell<Player, String>>(){
+		active2.setCellFactory(new Callback<TableColumn<Player, String>, TableCell<Player, String>>() {
 			@Override
-			public TableCell<Player, String> call(TableColumn<Player, String> param){
-				TableCell<Player, String> cell = new TableCell<Player, String>(){
+			public TableCell<Player, String> call(
+					TableColumn<Player, String> param) {
+				TableCell<Player, String> cell = new TableCell<Player, String>() {
 					@Override
-					public void updateItem(String item, boolean empty){
-						if(item!= null){
+					public void updateItem(String item, boolean empty) {
+						if (item != null) {
 							boolean active = false;
-							for(int i = 0; i<team.getActivePlayers().size(); i++){
-								if(team.getActivePlayers().get(i).getID().equals(item)){
-										setText("✓");
-											active = true;
-											}
-										}
-										if(!active){
-											setText("✗");
-										}
-									}
+							for (int i = 0; i < team.getActivePlayers().size(); i++) {
+								if (team.getActivePlayers().get(i).getID()
+										.equals(item)) {
+									setText("✓");
+									active = true;
 								}
-							};
-							return cell;
+							}
+							if (!active) {
+								setText("✗");
+							}
 						}
-					});
+					}
+				};
+				return cell;
+			}
+		});
 		name2.setCellValueFactory(new PropertyValueFactory<Player, String>(
 				"fullName"));
 		country2.setCellValueFactory(new PropertyValueFactory<Player, String>(
@@ -167,8 +174,8 @@ public class TransferMarket {
 				"position"));
 		value.setCellValueFactory(new PropertyValueFactory<Player, String>(
 				"price"));
-		
-		// Listen for selection changes
+
+		// Listen for selection changes to player
 		yourteamtable
 				.getSelectionModel()
 				.selectedItemProperty()
@@ -176,6 +183,9 @@ public class TransferMarket {
 						(observable, oldValue, newValue) -> selectedPlayer(newValue));
 	}
 
+	/**
+	 * get ObservableList of all other teams
+	 */
 	private ObservableList<Team> getteamList() {
 		ArrayList<Team> teamarraylist = MainGame.game.getTeams();
 		teamarraylist.remove(MainGame.game.getUser().getTeam());
@@ -184,32 +194,57 @@ public class TransferMarket {
 		return res;
 	}
 
+	/**
+	 * Selected player in table
+	 * @param player
+	 */
 	public void selectedPlayer(Player player) {
 		selectedplayer = player;
 	}
 
+	/**
+	 * View the selected player
+	 * @throws IOException
+	 */
 	@FXML
 	protected void handleViewPlayer() throws IOException {
 		ViewPlayer.start(selectedplayer);
 	}
 
+	/**
+	 * Selling the selected player
+	 * @throws IOException
+	 */
 	@FXML
 	protected void sellingPlayer() throws IOException {
 		MainGame.game.sellPlayer(selectedplayer.getID());
 		start();
 	}
 
+	/**
+	 * Buying the selected player and reloading page
+	 * @throws IOException
+	 */
 	@FXML
 	protected void buyingPlayer() throws IOException {
 		MainGame.game.buyPlayer(selectedplayer.getID());
+		//MainGame.game.getUser(otherteam));
 		start();
 	}
 
+	/**
+	 * Go back to the Main Game
+	 * @throws IOException
+	 */
 	@FXML
 	protected void returnToTeam() throws IOException {
 		MainGame.start();
 	}
 
+	/**
+	 * Load Transfermarket page
+	 * @throws IOException
+	 */
 	public static void start() throws IOException {
 		team = MainGame.game.getUser().getTeam();
 		AnchorPane root = FXMLLoader.load(Class.class

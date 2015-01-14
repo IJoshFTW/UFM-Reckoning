@@ -12,13 +12,13 @@
    <children>
       <HBox alignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleNextround" styleClass="bottombarbutton" text="Play round" />
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleTeamBuilder" styleClass="bottombarbutton" text="Team" />
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handlePlayrounds" styleClass="bottombarbutton" text="Playrounds" />
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleRanking" styleClass="bottombarbutton" text="Ranking" />
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleOtherTeams" styleClass="bottombarbutton" text="Other Teams" />
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="bottombarbutton" text="Save" />
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleQuitGame" styleClass="bottombarbutton" text="Quit" />
+            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleNextround" prefHeight="67.0" prefWidth="225.0" styleClass="bottombarbutton" text="Play round" />
+            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleTeamBuilder" prefHeight="67.0" prefWidth="150.0" styleClass="bottombarbutton" text="Team" />
+            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handlePlayrounds" prefHeight="67.0" prefWidth="225.0" styleClass="bottombarbutton" text="Playrounds" />
+            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleRanking" prefWidth="175.0" styleClass="bottombarbutton" text="Ranking" />
+            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleOtherTeams" prefWidth="240.0" styleClass="bottombarbutton" text="Other Teams" />
+            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="125.0" styleClass="bottombarbutton" text="Save" />
+            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleQuitGame" prefWidth="125.0" styleClass="bottombarbutton" text="Quit" />
          </children>
       </HBox>
       <HBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -37,7 +37,7 @@
          <children>
             <Label fx:id="currentround" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" textFill="#e1dfd8">
                <font>
-                  <Font size="25.0" />
+                  <Font size="14.0" />
                </font>
             </Label>
          </children>

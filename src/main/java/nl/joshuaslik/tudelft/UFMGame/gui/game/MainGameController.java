@@ -1,9 +1,11 @@
 package nl.joshuaslik.tudelft.UFMGame.gui.game;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import nl.joshuaslik.tudelft.UFMGame.backend.Match;
 import nl.joshuaslik.tudelft.UFMGame.gui.MainMenu;
 
 /**
@@ -20,7 +22,12 @@ public class MainGameController {
 	@FXML
 	private void initialize() {
 		budgetlabel.setText("Budget: € " + MainGame.game.getUser().getBudget());
-		currentround.setText("Currentround: " + MainGame.game.getCurrentRound());
+		ArrayList<Match> matches = MainGame.game.getPlayround(MainGame.game.getCurrentRound()).getMatches();
+		for(int i = 0; i < matches.size(); i++){
+			if(matches.get(i).contains(MainGame.game.getUser().getTeam())){
+				currentround.setText(" " + MainGame.game.getCurrentRound() + ". " + "Next match: " + matches.get(i).getHometeam() + " VS " + matches.get(i).getAwayteam());
+			}
+		}
 
 	}
 
@@ -36,10 +43,10 @@ public class MainGameController {
 			Popupscreen.setTitle("Error in Team Setup");
 			String message = new String();
 			if(MainGame.game.getUser().getTeam().getTeamCaptain() == null){
-				message = message + "\nYour team need a team captain.";
+				message = message + "\nYour team needs a team captain.";
 			}
 			if(MainGame.game.getUser().getTeam().getActivePlayers().size() != 11){
-				message = message + "\nYour team need at least 11 players.\nGo to Change setup to add players to your formation.";
+				message = message + "\nYour team needs at least 11 players.\nGo to Change Setup to add players to your formation.";
 			}	
 			Popupscreen.setMessage(message);
 		}
