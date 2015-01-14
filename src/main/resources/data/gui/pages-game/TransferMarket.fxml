@@ -36,11 +36,11 @@
                   <ComboBox fx:id="teams" layoutX="146.0" layoutY="86.0" prefWidth="200.0" AnchorPane.bottomAnchor="640.0" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="770.0" />
                   <TableView fx:id="yourteamtable" layoutX="652.0" layoutY="153.0" prefHeight="377.0" prefWidth="448.0" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="645.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="175.0">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="Active" />
-                      <TableColumn prefWidth="100.0" text="Name" />
-                        <TableColumn prefWidth="100.0" text="Country" />
-                        <TableColumn prefWidth="75.0" text="Position" />
-                        <TableColumn prefWidth="100.0" text="Value" />
+                      <TableColumn fx:id="active2" prefWidth="75.0" text="Active" />
+                      <TableColumn fx:id="name2" prefWidth="100.0" text="Name" />
+                        <TableColumn fx:id="country2" prefWidth="100.0" text="Country" />
+                        <TableColumn fx:id="position2" prefWidth="75.0" text="Position" />
+                        <TableColumn fx:id="value" prefWidth="100.0" text="Value" />
                     </columns>
                   </TableView>
                   <Button layoutX="560.0" layoutY="650.0" mnemonicParsing="false" onAction="#handleViewPlayer" prefHeight="60.0" prefWidth="250.0" text="View Player" AnchorPane.leftAnchor="460.0" AnchorPane.rightAnchor="460.0" AnchorPane.topAnchor="625.0" />
