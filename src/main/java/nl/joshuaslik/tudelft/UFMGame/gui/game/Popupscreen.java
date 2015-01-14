@@ -5,10 +5,7 @@ import java.io.IOException;
 import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -17,9 +14,6 @@ import javafx.scene.text.TextAlignment;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Popup;
 import javafx.util.Duration;
-import nl.joshuaslik.tudelft.UFMGame.backend.Fieldplayer;
-import nl.joshuaslik.tudelft.UFMGame.backend.Goalkeeper;
-import nl.joshuaslik.tudelft.UFMGame.backend.Player;
 import nl.joshuaslik.tudelft.UFMGame.gui.Main;
 
 

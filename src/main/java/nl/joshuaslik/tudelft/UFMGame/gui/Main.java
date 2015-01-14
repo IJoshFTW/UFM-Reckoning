@@ -9,6 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 /**
@@ -44,9 +45,8 @@ public class Main extends Application {
 		stage.setScene(scn);
 	}
 
-	public static void setCenter(AnchorPane pane) {
-		rootLayout.setCenter(pane);
-	
+	public static void setCenter(AnchorPane scene) {
+		rootLayout.setCenter(scene);
 	}
 
 	public static void setTop(AnchorPane pane) {

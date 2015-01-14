@@ -2,10 +2,10 @@ package nl.joshuaslik.tudelft.UFMGame.backend;
 
 import java.util.ArrayList;
 
-import nl.joshuaslik.tudelft.UFMGame.backend.exceptions.UnknownPlayerException;
-import nl.joshuaslik.tudelft.UFMGame.backend.formation.Formation;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import nl.joshuaslik.tudelft.UFMGame.backend.exceptions.UnknownPlayerException;
+import nl.joshuaslik.tudelft.UFMGame.backend.formation.Formation;
 
 /**
  * The Team Object stores all players in a given team. It divides them into
