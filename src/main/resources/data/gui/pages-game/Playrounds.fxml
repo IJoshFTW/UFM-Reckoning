@@ -11,8 +11,9 @@
    <children>
       <VBox alignment="TOP_CENTER" layoutY="181.0" prefHeight="899.0" prefWidth="1920.0" spacing="25.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="41.0">
          <children>
-            <AnchorPane maxHeight="800.0" maxWidth="1200.0" opacity="0.8" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #101010; -fx-border-width: 1px; -fx-border-color: #CECECE;">
+            <AnchorPane maxHeight="800.0" maxWidth="1200.0" prefHeight="800.0" prefWidth="1200.0">
                <children>
+                  <Pane opacity="0.8" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #101010; -fx-border-color: #CECECE; -fx-border-width: 1px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                   <TableView fx:id="competitiontable" layoutX="425.0" layoutY="250.0" maxWidth="300.0" minWidth="350.0" prefHeight="300.0" prefWidth="300.0">
                     <columns>
                       <TableColumn fx:id="home" prefWidth="103.0" text="Home" />
