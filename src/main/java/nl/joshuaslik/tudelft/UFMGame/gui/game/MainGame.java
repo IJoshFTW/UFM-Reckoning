@@ -30,6 +30,7 @@ public class MainGame {
 	
 	public static void initialize() {
 		MainGame.game.getCompetition().definePlayrounds();
+		MainGame.game.computeStandings();
 	}
 
 }

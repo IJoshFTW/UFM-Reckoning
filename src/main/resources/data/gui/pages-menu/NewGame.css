@@ -2,6 +2,12 @@
 	-fx-background-image: url("../img/soccer.png");
 	-fx-background-size: 100%;
 	-fx-background-repeat: stretch;
+	-fx-font-family: 'Quicksand';
+	
+}
+
+.label {
+	-fx-font-family: 'Quicksand';
 }
 
 .button {
@@ -10,7 +16,7 @@
 	-fx-background-color: #101010;
 	-fx-text-fill: white;
 	-fx-font-size: 400%;
-	-fx-font-family: 'Quicksand Book';
+	-fx-font-family: 'Quicksand';
 	-fx-opacity: 80%;
 	-fx-border-width: 1px;
 	-fx-border-color: #cecece;
@@ -24,9 +30,11 @@
 }
 
 .table-view {
-    -fx-base: #1d1d1d;
-    -fx-control-inner-background: #1d1d1d;
-    -fx-background-color: #1d1d1d;
+    	-fx-base: #1d1d1d;
+	-fx-font-family: 'Quicksand';
+	-fx-font-size: 18;
+    	-fx-control-inner-background: #1d1d1d;
+    	-fx-background-color: #1d1d1d;
    	-fx-table-cell-border-color: transparent;
    	-fx-table-header-border-color: transparent;
 	-fx-padding: 5;

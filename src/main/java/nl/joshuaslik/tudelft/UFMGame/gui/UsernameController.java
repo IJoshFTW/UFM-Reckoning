@@ -80,6 +80,7 @@ public class UsernameController {
 	}
 
 	public static void start() throws IOException {
+		Main.loadFonts();
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Class.class
 				.getResource("/data/gui/pages-menu/ChooseUsernameDialog.fxml"));

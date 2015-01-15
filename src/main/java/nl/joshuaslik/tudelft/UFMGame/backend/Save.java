@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
 import nl.joshuaslik.tudelft.UFMGame.backend.exceptions.UnableToSaveException;
+import nl.joshuaslik.tudelft.UFMGame.backend.formation.Form343;
 import nl.joshuaslik.tudelft.UFMGame.util.xml.SAXParser;
 import nl.joshuaslik.tudelft.UFMGame.util.xml.XMLFile;
 import nl.joshuaslik.tudelft.UFMGame.util.xml.XMLTag;
@@ -61,6 +62,8 @@ public class Save {
 				String name = file.getElement("TEAM").getAttribute("name");
 				String coach = file.getElement("TEAM").getAttribute("coach");
 				Team team = new Team(id, name, coach);
+				Form343 formation = new Form343(team);
+				team.changeFormationType(formation);
 				for (int i = 1; i < file.getElement("TEAM.PLAYERS").elements(); i++) {
 					if (players.get(file.getElement("TEAM.PLAYERS.PLAYER", i)
 							.getAttribute("id")) == null) {
@@ -77,7 +80,47 @@ public class Save {
 						team.addBenchPlayer(players.get(file.getElement(
 								"TEAM.PLAYERS.PLAYER", i).getAttribute("id")));
 					} else {
-						System.out.println("er is een fout in palyers");
+						System.out.println("er is een fout in players " + file.getElement(
+								"TEAM.PLAYERS.PLAYER", i).getAttribute("id"));
+					}
+				}
+				
+				for(int i =0; i<team.getActivePlayers().size(); i++){
+					if(team.getActivePlayers().get(i) instanceof Goalkeeper){
+						team.getFormation().setGoalkeeper((Goalkeeper)team.getActivePlayers().get(i));
+					}
+					else{
+						Fieldplayer fieldplayer = (Fieldplayer) team.getActivePlayers().get(i);
+						if(fieldplayer.getPosition().equals("ST")){
+							team.getFormation().setST(fieldplayer);
+						}
+						else if(fieldplayer.getPosition().equals("RW")){
+							team.getFormation().setRW(fieldplayer);
+						}
+						else if(fieldplayer.getPosition().equals("LW")){
+							team.getFormation().setLW(fieldplayer);
+						}
+						else if(fieldplayer.getPosition().equals("RM")){
+							team.getFormation().setRM(fieldplayer);
+						}
+						else if(fieldplayer.getPosition().equals("LM")){
+							team.getFormation().setLM(fieldplayer);
+						}
+						else if(fieldplayer.getPosition().equals("CM") && formation.getCM1() == null){
+							team.getFormation().setCM1(fieldplayer);
+						}
+						else if(fieldplayer.getPosition().equals("CM") && formation.getCM2() == null){
+							team.getFormation().setCM2(fieldplayer);
+						}
+						else if(fieldplayer.getPosition().equals("RB")){
+							team.getFormation().setRB(fieldplayer);
+						}
+						else if(fieldplayer.getPosition().equals("LB")){
+							team.getFormation().setLB(fieldplayer);
+						}
+						else if(fieldplayer.getPosition().equals("CB")){
+							team.getFormation().setCB(fieldplayer);
+						}
 					}
 				}
 				teams.put(id, team);
@@ -105,6 +148,8 @@ public class Save {
 				String name = file.getElement("TEAM").getAttribute("name");
 				String coach = file.getElement("TEAM").getAttribute("coach");
 				Team team = new Team(id, name, coach);
+				Form343 formation = new Form343(team);
+				team.changeFormationType(formation);
 				for (int i = 1; i < file.getElement("TEAM.PLAYERS").elements(); i++) {
 					if (players.get(file.getElement("TEAM.PLAYERS.PLAYER", i)
 							.getAttribute("id")) == null) {
@@ -121,9 +166,50 @@ public class Save {
 						team.addBenchPlayer(players.get(file.getElement(
 								"TEAM.PLAYERS.PLAYER", i).getAttribute("id")));
 					} else {
-						System.out.println("er is een fout in palyers");
+						System.out.println("er is een fout in players " + file.getElement(
+								"TEAM.PLAYERS.PLAYER", i).getAttribute("id"));
 					}
 				}
+				
+				for(int i =0; i<team.getActivePlayers().size(); i++){
+					if(team.getActivePlayers().get(i) instanceof Goalkeeper){
+						team.getFormation().setGoalkeeper((Goalkeeper)team.getActivePlayers().get(i));
+					}
+					else{
+						Fieldplayer fieldplayer = (Fieldplayer) team.getActivePlayers().get(i);
+						if(fieldplayer.getPosition().equals("ST")){
+							team.getFormation().setST(fieldplayer);
+						}
+						else if(fieldplayer.getPosition().equals("RW")){
+							team.getFormation().setRW(fieldplayer);
+						}
+						else if(fieldplayer.getPosition().equals("LW")){
+							team.getFormation().setLW(fieldplayer);
+						}
+						else if(fieldplayer.getPosition().equals("RM")){
+							team.getFormation().setRM(fieldplayer);
+						}
+						else if(fieldplayer.getPosition().equals("LM")){
+							team.getFormation().setLM(fieldplayer);
+						}
+						else if(fieldplayer.getPosition().equals("CM") && formation.getCM1() == null){
+							team.getFormation().setCM1(fieldplayer);
+						}
+						else if(fieldplayer.getPosition().equals("CM") && formation.getCM2() == null){
+							team.getFormation().setCM2(fieldplayer);
+						}
+						else if(fieldplayer.getPosition().equals("RB")){
+							team.getFormation().setRB(fieldplayer);
+						}
+						else if(fieldplayer.getPosition().equals("LB")){
+							team.getFormation().setLB(fieldplayer);
+						}
+						else if(fieldplayer.getPosition().equals("CB")){
+							team.getFormation().setCB(fieldplayer);
+						}
+					}
+				}
+				
 				teams.add(team);
 			}
 		}

@@ -80,8 +80,7 @@ public class NewGameController {
 				Team chosenTeam = teamtable.getSelectionModel().getSelectedItem();
 				Game Game1 = Save.newGame(chosenTeam, username);
 				MainGame.setGame(Game1);
-				Form343 form = new Form343(Game1.getUser().getTeam());
-				Game1.getUser().getTeam().changeFormationType(form);
+			
 				MainGame.initialize();
 				try {
 					MainGame.start();

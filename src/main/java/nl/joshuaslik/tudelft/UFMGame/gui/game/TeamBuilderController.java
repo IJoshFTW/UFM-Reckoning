@@ -157,6 +157,7 @@ public class TeamBuilderController {
 	}
 
 	public static void start() throws IOException {
+		Main.loadFonts();
 		team = MainGame.game.getUser().getTeam();
 		
 		AnchorPane root = FXMLLoader.load(Class.class
