@@ -1,14 +1,17 @@
 package nl.joshuaslik.UFMReckoning;
 
+import nl.joshuaslik.tudelft.UFMGame.App;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 /**
- * Unit test for simple App.
+ * Unit test for simple Application
+ * @author Naomi de Ridder
  */
 public class AppTest {
-	
+
 	@Rule
 	public ExpectedException thrown = ExpectedException.none();
 

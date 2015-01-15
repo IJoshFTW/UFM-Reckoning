@@ -1,5 +1,7 @@
 package nl.joshuaslik.UFMReckoning.util.xml;
 
+import nl.joshuaslik.tudelft.UFMGame.util.xml.NoSuchElementException;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -18,7 +20,7 @@ public class NoSuchElementExceptionTest {
 		thrown.expect(NoSuchElementException.class);
 		throw new NoSuchElementException();
 	}
-	
+
 	@Test
 	public void testThrowMessage() {
 		thrown.expect(NoSuchElementException.class);

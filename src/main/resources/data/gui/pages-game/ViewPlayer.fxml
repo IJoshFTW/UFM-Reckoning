@@ -9,29 +9,104 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane opacity="0.87" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #101010; -fx-border-color: #CECECE; -fx-border-width: 1px;" stylesheets="@TeamBuilder.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.UFMReckoning.gui.game.ViewPlayer">		
+<AnchorPane opacity="0.87" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #101010; -fx-border-color: #CECECE; -fx-border-width: 1px;" stylesheets="@TeamBuilder.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.tudelft.UFMGame.gui.game.ViewPlayer">		
 	<children>      
-            <Label layoutX="554.0" layoutY="29.0" text="Player" textFill="WHITE">
+            <Label fx:id="playerName" alignment="CENTER" layoutX="0.0" layoutY="29.0" maxWidth="1000.0" minWidth="1000.0" prefWidth="1000.0" text="Player" textFill="WHITE">
                <font>
                   <Font size="34.0" />
                </font>
             </Label>
-   			<ImageView fx:id="playerPhoto" fitHeight="349.0" fitWidth="319.0" layoutX="48.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" />
-   			<Button fx:id="returnbutton" layoutX="42.0" layoutY="567.0" onAction="#handleReturn" prefHeight="60" prefWidth="250" styleClass="button" text="Return" />
-      <ImageView fx:id="staminaImg" fitHeight="20.0" fitWidth="20.0" layoutX="653.0" layoutY="478.0" pickOnBounds="true">
+   			<ImageView fx:id="playerPhoto" fitHeight="349.0" fitWidth="319.0" layoutX="48.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true" />
+   			<Button fx:id="returnbutton" layoutX="42.0" layoutY="599.0" onAction="#handleReturn" prefHeight="60" prefWidth="250" styleClass="button" text="Close" />
+      
+      <ImageView fx:id="staminaImg" fitHeight="20.0" fitWidth="20.0" layoutX="640.0" layoutY="370.0" pickOnBounds="true" visible="false">
          <image>
             <Image url="@../img/staminabar.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="defPwrImg" fitHeight="20.0" fitWidth="20.0" layoutX="653.0" layoutY="445.0" pickOnBounds="true">
+      <ImageView fx:id="defPwrImg" fitHeight="20.0" fitWidth="20.0" layoutX="640.0" layoutY="337.0" pickOnBounds="true" visible="false">
          <image>
             <Image url="@../img/defencepowerbar.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="atkPwrImg" fitHeight="20.0" fitWidth="20.0" layoutX="653.0" layoutY="411.0" pickOnBounds="true">
+      <ImageView fx:id="atkPwrImg" fitHeight="20.0" fitWidth="20.0" layoutX="640.0" layoutY="303.0" pickOnBounds="true" visible="false">
          <image>
             <Image url="@../img/attackpowerbar.png" />
          </image>
+     
       </ImageView>
+            <ImageView fx:id="positioningImg" fitHeight="20.0" fitWidth="20.0" layoutX="665.0" layoutY="370.0" pickOnBounds="true" visible="false">
+         <image>
+            <Image url="@../img/positioningbar.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="reflexesImg" fitHeight="20.0" fitWidth="20.0" layoutX="665.0" layoutY="337.0" pickOnBounds="true" visible="false">
+         <image>
+            <Image url="@../img/reflexesbar.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="divingImg" fitHeight="20.0" fitWidth="20.0" layoutX="665.0" layoutY="303.0" pickOnBounds="true" visible="false">
+         <image>
+            <Image url="@../img/divingbar.png" />
+         </image>
+      </ImageView>
+  
+      <Label fx:id="playerRole" layoutX="558.0" layoutY="264.0" text="Role:" textFill="WHITE" visible="true">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>    
+      <Label fx:id="attackLable" layoutX="558.0" layoutY="298.0" text="Attack:" textFill="WHITE" visible="false">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="defenceLable" layoutX="558.0" layoutY="332.0" text="Defence:" textFill="WHITE" visible="false">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="staminaLable" layoutX="558.0" layoutY="365.0" text="Stamina:" textFill="WHITE" visible="false">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      
+      <Label fx:id="divingLable" layoutX="558.0" layoutY="298.0" text="Diving:" textFill="WHITE" visible="false">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="reflexesLable" layoutX="558.0" layoutY="332.0" text="Reflexes:" textFill="WHITE" visible="false">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="positioningLable" layoutX="558.0" layoutY="366.0" text="Positioning:" textFill="WHITE" visible="false">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      
+      <Label fx:id="countryLable" layoutX="558.0" layoutY="400.0" text="Country:" textFill="WHITE" visible="true">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="priceLable" layoutX="558.0" layoutY="434.0" text="Price:" textFill="WHITE" visible="true">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="showCountryLable" layoutX="639.0" layoutY="400.0" text="" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="showPriceLable" layoutX="612.0" layoutY="434.0" text="" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

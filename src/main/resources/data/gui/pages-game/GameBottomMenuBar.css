@@ -1,7 +1,4 @@
-@import url("../fonts.css");
-
 .bottombarbutton {
-	-fx-padding: 10;
 	-fx-margin: 0;
 	-fx-background-color: #101010;
 	-fx-text-fill: white;
