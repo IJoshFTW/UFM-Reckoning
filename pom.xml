@@ -3,7 +3,7 @@
 
     <groupId>nl.joshuaslik</groupId>
     <artifactId>UFM-Reckoning</artifactId>
-    <version>0.6.0</version>
+    <version>0.7.0-alpha-0</version>
     <packaging>jar</packaging>
 
     <name>Ultimate Football Manager: RECKONING</name>
