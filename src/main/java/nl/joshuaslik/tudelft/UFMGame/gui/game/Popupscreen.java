@@ -16,7 +16,11 @@ import javafx.stage.Popup;
 import javafx.util.Duration;
 import nl.joshuaslik.tudelft.UFMGame.gui.Main;
 
-
+/**
+ * Pop up screen for the username
+ * @author Naomi
+ *
+ */
 public class Popupscreen {
 
 	private static Popup popup;
@@ -27,6 +31,9 @@ public class Popupscreen {
 		
 	}
 	
+	/**
+	 * creates the popupscreen 
+	 */
 	public static void start(){
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Class.class
@@ -45,11 +52,19 @@ public class Popupscreen {
 		popup.show(Main.stage);
 	}
 	
+	/**
+	 * Sets the title of the label
+	 * @param input is a string
+	 */
 	public static void setTitle(String input){
 		Label changetitle = (Label) page.lookup("#title");
 		changetitle.setText(input);
 	}
 	
+	/**
+	 * Sets the message for the popup
+	 * @param input
+	 */
 	public static void setMessage(String input){
 		Text text = new Text(input);
 	    text.setFill(Color.WHITE);

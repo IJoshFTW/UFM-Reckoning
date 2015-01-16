@@ -13,11 +13,16 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 /**
+ * The main screne for the application
+ * 
  * @author <a href="http://www.joshuaslik.nl/" target="_blank">Joshua Slik</a>
  *
  */
 public class Main extends Application {
 
+	/**
+	 * Create new variables
+	 */
 	public static Stage stage;
 	private static BorderPane rootLayout;
 
@@ -41,6 +46,11 @@ public class Main extends Application {
 		MainMenu.start();
 	}
 
+	/**
+	 * Sets te scene of main
+	 * 
+	 * @param scn
+	 */
 	public static void setScene(Scene scn) {
 		stage.setScene(scn);
 	}
@@ -60,9 +70,10 @@ public class Main extends Application {
 	public static Stage stage() {
 		return stage;
 	}
-	
+
 	public static void loadFonts() {
-		Font.loadFont(Class.class.getResource("/data/gui/fonts/Quicksand.ttf").toExternalForm(), 10);
+		Font.loadFont(Class.class.getResource("/data/gui/fonts/Quicksand.ttf")
+				.toExternalForm(), 10);
 	}
 
 }

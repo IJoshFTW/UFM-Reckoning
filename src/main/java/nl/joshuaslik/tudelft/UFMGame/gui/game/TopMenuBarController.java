@@ -1,22 +1,25 @@
 package nl.joshuaslik.tudelft.UFMGame.gui.game;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import nl.joshuaslik.tudelft.UFMGame.backend.Match;
-import nl.joshuaslik.tudelft.UFMGame.gui.MainMenu;
 
 /**
+ * Class to control the top menu bar
  * @author <a href="http://www.joshuaslik.nl/" target="_blank">Joshua Slik</a>
  *
  */
 public class TopMenuBarController {
 
+	/**
+	 * declaring variables 
+	 */
 	@FXML
 	private Label username, round;
 
+	
 	@FXML
 	private void initialize() {
 		username.setText(MainGame.game.getUser().getUserName());

@@ -25,7 +25,6 @@ import nl.joshuaslik.tudelft.UFMGame.backend.Team;
 import nl.joshuaslik.tudelft.UFMGame.gui.Main;
 
 /**
- * 5
  * 
  * @author Bryan van Wijk
  *
@@ -181,6 +180,10 @@ public class OtherTeams {
 		return res;
 	}
 
+	/**
+	 * Selects a player from a team
+	 * @param player
+	 */
 	public void selectedPlayer(Player player){
 		selectedplayer = player;
 	}
@@ -190,6 +193,10 @@ public class OtherTeams {
 		ViewPlayer.start(selectedplayer);
 	}
 
+	/**
+	 * Creates the page that shows the other teams
+	 * @throws IOException is thrown when the fxml cannot be read. 
+	 */
 	public static void start() throws IOException {
 		AnchorPane scene = (AnchorPane) FXMLLoader.load(Class.class
 				.getResource("/data/gui/pages-game/OtherTeams.fxml"));

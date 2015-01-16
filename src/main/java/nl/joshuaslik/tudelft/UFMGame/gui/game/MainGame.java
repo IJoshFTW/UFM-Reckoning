@@ -24,10 +24,17 @@ public class MainGame {
 		
 	}
 
+	/**
+	 * Sets a game 
+	 * @param game 
+	 */
 	public static void setGame(Game game) {
 		MainGame.game = game;
 	}
 	
+	/**
+	 * initializes main game
+	 */
 	public static void initialize() {
 		MainGame.game.getCompetition().definePlayrounds();
 		MainGame.game.computeStandings();

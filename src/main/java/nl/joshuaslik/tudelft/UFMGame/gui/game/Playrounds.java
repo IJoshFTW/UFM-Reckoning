@@ -39,6 +39,9 @@ public class Playrounds {
 	@FXML
 	private TableColumn<Match, String> awaygoals;
 
+	/**
+	 * Initializes the playrounds
+	 */
 	@FXML
 	private void initialize() {
 		ObservableList<Playround> playroundnr = FXCollections

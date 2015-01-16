@@ -11,10 +11,17 @@ public class NoSuchElementException extends RuntimeException {
 	 */
 	private static final long serialVersionUID = -3704509663698448420L;
 
+	/**
+	 * 
+	 */
 	public NoSuchElementException() {
 		super();
 	}
 
+	/**
+	 * 
+	 * @param s
+	 */
 	public NoSuchElementException(String s) {
 		super(s);
 	}

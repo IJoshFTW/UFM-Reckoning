@@ -471,6 +471,10 @@ public class ChangeSetup {
 						(observable, oldValue, newValue) -> selectedPlayer(newValue));
 	}
 
+	/**
+	 * Creates the maingame page
+	 * @throws IOException is thrown when the fxml cannot be parsed
+	 */
 	public static void start() throws IOException {
 		team = MainGame.game.getUser().getTeam();
 		formation = team.getFormation();
