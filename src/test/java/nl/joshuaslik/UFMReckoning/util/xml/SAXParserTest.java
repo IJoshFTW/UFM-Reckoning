@@ -9,11 +9,15 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 /**
+ * Tests to check the SAX parser
  * @author <a href="http://www.joshuaslik.nl/" target="_blank">Joshua Slik</a>
  *
  */
 public class SAXParserTest {
 
+	/**
+	 * general rule
+	 */
 	@Rule
 	public ExpectedException thrown = ExpectedException.none();
 
@@ -21,17 +25,26 @@ public class SAXParserTest {
 
 	}
 
+	/**
+	 * Test to check if an xml file can be parsed
+	 */
 	@Test
 	public void testParseFile1() {
 		// TODO Properly integrate this
 		SAXParser.parseFile("/data/base/players/adamsarota.xml");
 	}
 
+	/**
+	 * Test to check if an xml file can be parsed
+	 */
 	@Test
 	public void testParseFile2() {
 		SAXParser.parseFile("/data/base/players/adamsarotaasdfasdf.xml");
 	}
 
+	/**
+	 * Test to check if a string can be parsed
+	 */
 	@Test
 	public void testParseString() {
 		String xmlstring = new StringBuilder()
