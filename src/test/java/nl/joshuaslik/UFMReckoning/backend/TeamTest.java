@@ -12,20 +12,35 @@ import nl.joshuaslik.tudelft.UFMGame.backend.formation.Formation;
 
 import org.junit.Test;
 
+/**
+ * Tests to check the team class
+ * 
+ * @author Naomi
+ *
+ */
 public class TeamTest {
 
+	/**
+	 * Test to check if you can get the coaches name
+	 */
 	@Test
 	public void testgetCoachName() {
 		Team team = new Team("ajax", "ajax", "Frank de Boer");
 		assertEquals(team.getCoachName(), "Frank de Boer");
 	}
 
+	/**
+	 * Test to check if you can get the teamname
+	 */
 	@Test
 	public void testgetTeamName() {
 		Team team = new Team("ajax", "ajax", "Frank de Boer");
 		assertEquals(team.getTeamName(), "ajax");
 	}
 
+	/**
+	 * Test to check if you can add an active player to a team
+	 */
 	@Test
 	public void testaddActivePlayer1() {
 		Team team = new Team("ajax", "ajax", "Frank de Boer");
@@ -35,6 +50,9 @@ public class TeamTest {
 		assertTrue(team.getActivePlayers().contains(fieldplayer1));
 	}
 
+	/**
+	 * Test to check if you can add an active player to a team
+	 */
 	@Test
 	public void testaddActivePlayer2() {
 		Team team = new Team("ajax", "ajax", "Frank de Boer");
@@ -44,6 +62,9 @@ public class TeamTest {
 		assertTrue(team.getActivePlayers().contains(goalkeeper1));
 	}
 
+	/**
+	 * Test to check if you can add an active player to a team
+	 */
 	@Test
 	public void testaddActivePlayer3() {
 		Team team = new Team("ajax", "ajax", "Frank de Boer");
@@ -56,6 +77,9 @@ public class TeamTest {
 		assertEquals(team.getActivePlayers().size(), 1);
 	}
 
+	/**
+	 * Test to check if you can add an active player to a team
+	 */
 	@Test
 	public void testaddActivePlayer4() {
 		Team team = new Team("ajax", "ajax", "Frank de Boer");
@@ -68,6 +92,9 @@ public class TeamTest {
 		assertEquals(team.getActivePlayers().size(), 1);
 	}
 
+	/**
+	 * Test to check if you can add an active player to a team
+	 */
 	@Test
 	public void testaddActivePlayer5() {
 		Team team = new Team("ajax", "ajax", "Frank de Boer");
@@ -113,6 +140,9 @@ public class TeamTest {
 		assertEquals(team.getActivePlayers().size(), 11);
 	}
 
+	/**
+	 * Test to check if you can add a bench player to a team.
+	 */
 	@Test
 	public void testaddBenchPlayer1() {
 		Team team = new Team("ajax", "ajax", "Frank de Boer");
@@ -122,6 +152,9 @@ public class TeamTest {
 		assertTrue(team.getBenchPlayers().contains(fieldplayer1));
 	}
 
+	/**
+	 * Test to check if you can add a bench player to a team
+	 */
 	@Test
 	public void testaddBenchPlayer2() {
 		Team team = new Team("ajax", "ajax", "Frank de Boer");
@@ -134,6 +167,9 @@ public class TeamTest {
 		assertEquals(team.getBenchPlayers().size(), 1);
 	}
 
+	/**
+	 * Test to check if you can remove an active player from a team
+	 */
 	@Test
 	public void testremoveActivePlayer1() {
 		Team team = new Team("ajax", "ajax", "Frank de Boer");
@@ -148,6 +184,9 @@ public class TeamTest {
 		assertFalse(team.getActivePlayers().contains(fieldplayer2));
 	}
 
+	/**
+	 * Test to check if you can remove an active player from a team
+	 */
 	@Test
 	public void testremoveActivePlayer2() {
 		Team team = new Team("ajax", "ajax", "Frank de Boer");
@@ -163,6 +202,9 @@ public class TeamTest {
 		assertEquals(team.getActivePlayers().size(), 2);
 	}
 
+	/**
+	 * Test to check if you can remove an active player from a team
+	 */
 	@Test
 	public void testremoveActivePlayer3() {
 		Team team = new Team("ajax", "ajax", "Frank de Boer");
@@ -176,6 +218,9 @@ public class TeamTest {
 		assertEquals(team.getActivePlayers().size(), 1);
 	}
 
+	/**
+	 * Test to check if you can remove a bench player from a team
+	 */
 	@Test
 	public void testremoveBenchPlayer1() {
 		Team team = new Team("ajax", "ajax", "Frank de Boer");
@@ -190,6 +235,9 @@ public class TeamTest {
 		assertFalse(team.getBenchPlayers().contains(fieldplayer2));
 	}
 
+	/**
+	 * Test to check if you can remove a bench player from a team
+	 */
 	@Test
 	public void testremoveBenchPlayer2() {
 		Team team = new Team("ajax", "ajax", "Frank de Boer");
@@ -202,6 +250,9 @@ public class TeamTest {
 		assertEquals(team.getBenchPlayers().size(), 1);
 	}
 
+	/**
+	 * Test to check if you can set a teamcaptain to a team
+	 */
 	@Test
 	public void testTeamCaptain() {
 		Team team = new Team("ajax", "ajax", "Frank de Boer");
@@ -211,6 +262,9 @@ public class TeamTest {
 		assertEquals(team.getTeamCaptain(), fieldplayer1);
 	}
 
+	/**
+	 * Test to check if two teams are equal
+	 */
 	@Test
 	public void testEquals() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -260,6 +314,9 @@ public class TeamTest {
 		assertFalse(team1.equals(team2));
 	}
 
+	/**
+	 * Test to check if two teams are equal
+	 */
 	@Test
 	public void testEquals2() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -268,6 +325,9 @@ public class TeamTest {
 		assertFalse(team1.equals(fieldplayer1));
 	}
 
+	/**
+	 * Test to check if two teams are equal
+	 */
 	@Test
 	public void testEquals3() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -276,6 +336,9 @@ public class TeamTest {
 		assertNotSame(fieldplayer1, team1);
 	}
 
+	/**
+	 * Test to check if two teams are equal
+	 */
 	@Test
 	public void testEquals4() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -286,6 +349,9 @@ public class TeamTest {
 		assertFalse(team1.equals(team2));
 	}
 
+	/**
+	 * Test to check if two teams are equal
+	 */
 	@Test
 	public void testEquals5() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -296,6 +362,9 @@ public class TeamTest {
 		assertFalse(team1.equals(team2));
 	}
 
+	/**
+	 * Test to check if two teams are equal
+	 */
 	@Test
 	public void testEquals6() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -307,6 +376,9 @@ public class TeamTest {
 		assertFalse(team1.equals(team2));
 	}
 
+	/**
+	 * Test to check if two teams are equal
+	 */
 	@Test
 	public void testEquals7() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -318,6 +390,9 @@ public class TeamTest {
 		assertFalse(team1.equals(team2));
 	}
 
+	/**
+	 * Test to check if two teams are equal
+	 */
 	@Test
 	public void testEquals8() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -330,6 +405,9 @@ public class TeamTest {
 		assertFalse(team1.equals(team2));
 	}
 
+	/**
+	 * Test to check if two teams are equal
+	 */
 	@Test
 	public void testEquals9() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -342,6 +420,9 @@ public class TeamTest {
 		assertFalse(team1.equals(team2));
 	}
 
+	/**
+	 * Test to check if two teams are equal
+	 */
 	@Test
 	public void testEquals10() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -354,6 +435,9 @@ public class TeamTest {
 		assertFalse(team1.equals(team2));
 	}
 
+	/**
+	 * Test to check if two teams are equal
+	 */
 	@Test
 	public void testEquals11() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -366,6 +450,9 @@ public class TeamTest {
 		assertFalse(team1.equals(team2));
 	}
 
+	/**
+	 * Test to check if two teams are equal
+	 */
 	@Test
 	public void testEquals12() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -378,6 +465,9 @@ public class TeamTest {
 		assertFalse(team1.equals(team2));
 	}
 
+	/**
+	 * Test to check if two teams are equal
+	 */
 	@Test
 	public void testEquals13() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -390,6 +480,9 @@ public class TeamTest {
 		assertFalse(team1.equals(team2));
 	}
 
+	/**
+	 * Test to check if two teams are equal
+	 */
 	@Test
 	public void testEquals14() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -402,6 +495,9 @@ public class TeamTest {
 		assertFalse(team1.equals(team2));
 	}
 
+	/**
+	 * Test to check if two teams are equal
+	 */
 	@Test
 	public void testEquals15() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -414,6 +510,9 @@ public class TeamTest {
 		assertFalse(team1.equals(team2));
 	}
 
+	/**
+	 * Test to check if two teams are equal
+	 */
 	@Test
 	public void testEquals16() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -426,6 +525,9 @@ public class TeamTest {
 		assertFalse(team1.equals(team2));
 	}
 
+	/**
+	 * Test to check if two teams are equal
+	 */
 	@Test
 	public void testEquals17() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -438,6 +540,9 @@ public class TeamTest {
 		assertFalse(team1.equals(team2));
 	}
 
+	/**
+	 * Test to check if you can get the attack power of a team
+	 */
 	@Test
 	public void testgetAttackPower() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -459,6 +564,9 @@ public class TeamTest {
 		assertEquals(team1.getAttackPower(), 311);
 	}
 
+	/**
+	 * Test to check if you can get the defence power of a team
+	 */
 	@Test
 	public void testgetDefencePower() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -480,6 +588,9 @@ public class TeamTest {
 		assertEquals(team1.getDefencePower(), 161);
 	}
 
+	/**
+	 * Test to check if you can get the stamina of a team
+	 */
 	@Test
 	public void testgetStamina() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -501,72 +612,108 @@ public class TeamTest {
 		assertEquals(team1.getStamina(), 316);
 	}
 
+	/**
+	 * test to check if you can get the total draws played by a team
+	 */
 	@Test
 	public void testgetTotalDraws() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
 		assertEquals(team1.getTotalDraws(), 0);
 	}
 
+	/**
+	 * test to check if you can get the total goals scored by a team
+	 */
 	@Test
 	public void testgetTotalGoals() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
 		assertEquals(team1.getTotalGoals(), 0);
 	}
 
+	/**
+	 * test to check if you can get the total points scored by a team
+	 */
 	@Test
 	public void testgetPoints() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
 		assertEquals(team1.getPoints(), 0);
 	}
 
+	/**
+	 * test to check if you can get the total draws played by a team
+	 */
 	@Test
 	public void testgetRanking() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
 		assertEquals(team1.getRanking(), 0);
 	}
 
+	/**
+	 * test to check if you can get the goals scored against a team
+	 */
 	@Test
 	public void testgetGoalsAgainst() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
 		assertEquals(team1.getGoalsAgainst(), 0);
 	}
 
+	/**
+	 * test to check if you can get the total losses of a team
+	 */
 	@Test
 	public void testgetTotalLosses() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
 		assertEquals(team1.getTotalLosses(), 0);
 	}
 
+	/**
+	 * test to check if you can get the total wins of a team
+	 */
 	@Test
 	public void testgetTotalWins() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
 		assertEquals(team1.getTotalWins(), 0);
 	}
 
+	/**
+	 * test to check if you can get the ID of a team
+	 */
 	@Test
 	public void testgetID() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
 		assertEquals(team1.getid(), "ajax");
 	}
 
+/**
+ * test to check if you can get the average stamina of a team
+ */
 	@Test
 	public void testgetAverageStamina() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
 		assertEquals(team1.getAverageStamina(), 0);
 	}
 
+/**
+ * test to check if you can get the average defence power of a team
+ */
 	@Test
 	public void testgetAverageDefencePower() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
 		assertEquals(team1.getAverageDefencePower(), 0);
 	}
 
+	/**
+	 * test to check if you can get the average attack power of a team
+	 */
 	@Test
 	public void testgetAverageAttackPower() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
 		assertEquals(team1.getAverageAttackPower(), 0);
 	}
 
+	/**
+	 * test to check if you can get all players of a team
+	 */
 	@Test
 	public void testgetAllplayers() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -576,6 +723,9 @@ public class TeamTest {
 		assertEquals(team1.getAllPlayers().size(), 1);
 	}
 
+/**
+ * test to check if you can calculate the average stamina of a team
+ */
 	@Test
 	public void testCalcAverageStamina() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -588,6 +738,9 @@ public class TeamTest {
 		assertEquals(team1.getAllPlayers().size(), 2);
 	}
 
+/**
+ * test to check if you can change the formation of a team
+ */
 	@Test
 	public void testChangeFormation1() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -601,6 +754,9 @@ public class TeamTest {
 		team1.changeFormationType(formation);
 	}
 
+	/**
+	 * test to check if you can set a player to the bench
+	 */
 	@Test
 	public void testSetPlayerBench() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -614,6 +770,9 @@ public class TeamTest {
 		assertEquals(team1.getBenchPlayers().size(), 2);
 	}
 
+	/**
+	 * test to check if you can set a player to the bench
+	 */
 	@Test
 	public void testSetPlayerBench2() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -627,6 +786,9 @@ public class TeamTest {
 		assertEquals(team1.getBenchPlayers().size(), 2);
 	}
 
+	/**
+	 * test to check if you can set a player to the bench
+	 */
 	@Test
 	public void testSetPlayerBench3() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -639,6 +801,9 @@ public class TeamTest {
 		assertEquals(team1.getBenchPlayers().size(), 2);
 	}
 
+	/**
+	 * Test to check if you can set a player to active
+	 */
 	@Test
 	public void testSetPlayerActive() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -652,6 +817,9 @@ public class TeamTest {
 		assertEquals(team1.getBenchPlayers().size(), 0);
 	}
 
+	/**
+	 * Test to check if you can set a player to active
+	 */
 	@Test
 	public void testSetPlayerActive2() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -666,6 +834,9 @@ public class TeamTest {
 		assertEquals(team1.getBenchPlayers().size(), 1);
 	}
 
+	/**
+	 * Test to check if you can set a player to active
+	 */
 	@Test
 	public void testSetPlayerActive3() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -679,6 +850,9 @@ public class TeamTest {
 		assertEquals(team1.getBenchPlayers().size(), 0);
 	}
 
+	/**
+	 * Test to check if you can set a player to active
+	 */
 	@Test
 	public void testSetPlayerActive4() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -691,6 +865,9 @@ public class TeamTest {
 		assertEquals(team1.getBenchPlayers().size(), 0);
 	}
 
+	/**
+	 * Test to check if you can set a player to active
+	 */
 	@Test
 	public void testSetPlayerActive5() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -701,6 +878,9 @@ public class TeamTest {
 		assertEquals(team1.getActivePlayers().size(), 1);
 	}
 
+	/**
+	 * Test to check if you can get an active goalkeeper
+	 */
 	@Test
 	public void testGetActiveGoalkeeper() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -713,6 +893,9 @@ public class TeamTest {
 		assertEquals(team1.getActiveGoalkeeper(), goalkeeper1);
 	}
 
+	/**
+	 * Test to check if you can get an active goalkeeper
+	 */
 	@Test
 	public void testGetActiveGoalkeeper2() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -722,6 +905,9 @@ public class TeamTest {
 		assertEquals(team1.getActiveGoalkeeper(), null);
 	}
 
+	/**
+	 * Test to check if two teams are equal
+	 */
 	@Test
 	public void testEquals18() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -769,6 +955,9 @@ public class TeamTest {
 		assertFalse(team1.equals(team2));
 	}
 
+	/**
+	 * Test to check if two teams are equal
+	 */
 	@Test
 	public void testEquals19() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -781,6 +970,9 @@ public class TeamTest {
 		assertFalse(team1.equals(team2));
 	}
 
+	/**
+	 * Test to check if two teams are equal
+	 */
 	@Test
 	public void testEquals20() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -792,6 +984,9 @@ public class TeamTest {
 		assertFalse(team1.equals(team2));
 	}
 
+	/**
+	 * Test to check if two teams are equal
+	 */
 	@Test
 	public void testEquals21() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -803,6 +998,9 @@ public class TeamTest {
 		assertFalse(team1.equals(team2));
 	}
 
+	/**
+	 * Test to check if two teams are equal
+	 */
 	@Test
 	public void testEquals22() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -815,6 +1013,9 @@ public class TeamTest {
 		assertFalse(team1.equals(team2));
 	}
 
+	/**
+	 * Test to check if two teams are equal
+	 */
 	@Test
 	public void testEquals23() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -827,6 +1028,9 @@ public class TeamTest {
 		assertFalse(team1.equals(team2));
 	}
 
+	/**
+	 * Test to check if two teams are equal
+	 */
 	@Test
 	public void testEquals24() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -839,6 +1043,9 @@ public class TeamTest {
 		assertFalse(team1.equals(team2));
 	}
 
+	/**
+	 * Test to check if two teams are equal
+	 */
 	@Test
 	public void testEquals25() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -851,6 +1058,9 @@ public class TeamTest {
 		assertFalse(team1.equals(team2));
 	}
 
+	/**
+	 * Test to check if two teams are equal
+	 */
 	@Test
 	public void testEquals26() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -863,6 +1073,9 @@ public class TeamTest {
 		assertFalse(team1.equals(team2));
 	}
 
+	/**
+	 * Test to check if two teams are equal
+	 */
 	@Test
 	public void testEquals27() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -875,6 +1088,9 @@ public class TeamTest {
 		assertFalse(team1.equals(team2));
 	}
 
+	/**
+	 * Test to check if two teams are equal
+	 */
 	@Test
 	public void testEquals28() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -887,6 +1103,9 @@ public class TeamTest {
 		assertFalse(team1.equals(team2));
 	}
 
+	/**
+	 * Test to check if two teams are equal
+	 */
 	@Test
 	public void testEquals29() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -899,6 +1118,9 @@ public class TeamTest {
 		assertFalse(team1.equals(team2));
 	}
 
+	/**
+	 * Test to check if two teams are equal
+	 */
 	@Test
 	public void testEquals30() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -911,6 +1133,9 @@ public class TeamTest {
 		assertFalse(team1.equals(team2));
 	}
 
+	/**
+	 * Test to check if two teams are equal
+	 */
 	@Test
 	public void testEquals31() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");

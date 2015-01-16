@@ -6,8 +6,16 @@ import nl.joshuaslik.tudelft.UFMGame.backend.Team;
 
 import org.junit.Test;
 
+/**
+ * Tests to check the save class
+ * @author Naomi
+ *
+ */
 public class SaveTest {
 
+	/**
+	 * Test to check if you can save a new game
+	 */
 	@Test
 	public void testnewGame() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
@@ -15,11 +23,17 @@ public class SaveTest {
 		assertEquals(Save.newGame(team1, "Bryan").getUsers().size(), 18);
 	}
 
+	/**
+	 * Test to check if you can load teams
+	 */
 	@Test
 	public void testLoadTeams() {
 		assertEquals(Save.loadTeams().size(), 18);
 	}
 
+	/**
+	 * Test to check if you can load players from an arraylist after they've been saved
+	 */
 	@Test
 	public void testLoadPlayersArrayList() {
 		assertEquals(Save.loadplayersArrayList().size(), 443);

@@ -15,13 +15,13 @@ import nl.joshuaslik.tudelft.UFMGame.backend.User;
 import org.junit.Test;
 
 /**
- * 
+ * Test to check the Game class
  * @author Naomi
  */
 public class GameTest {
 
 	/**
-	 * 
+	 * Testing the constructor of the game class
 	 */
 	@Test
 	public void testConstructor() {
@@ -31,7 +31,7 @@ public class GameTest {
 	}
 
 	/**
-	 * 
+	 * Testing the constructor of the game class
 	 */
 	@Test
 	public void testConstructor2() {
@@ -41,7 +41,7 @@ public class GameTest {
 	}
 
 	/**
-	 * 
+	 * Test to check if you can get the competition
 	 */
 	@Test
 	public void testgetCompetition() {
@@ -51,7 +51,7 @@ public class GameTest {
 	}
 
 	/**
-	 * 
+	 * Test to check if you can get users
 	 */
 	@Test
 	public void testgetUser() {
@@ -65,7 +65,7 @@ public class GameTest {
 	}
 
 	/**
-	 * 
+	 * Test to check if you can get users
 	 */
 	@Test
 	public void testgetUser2() {
@@ -80,7 +80,7 @@ public class GameTest {
 	}
 
 	/**
-	 * 
+	 * Test to check if you can get users
 	 */
 	@Test
 	public void testgetUser3() {
@@ -95,7 +95,7 @@ public class GameTest {
 	}
 
 	/**
-	 * 
+	 * Test to check if you can get users
 	 */
 	@Test
 	public void testgetUser4() {
@@ -110,7 +110,7 @@ public class GameTest {
 	}
 
 	/**
-	 * 
+	 * Test to check if you can get users
 	 */
 	@Test
 	public void testgetUser5() {
@@ -125,7 +125,7 @@ public class GameTest {
 	}
 
 	/**
-	 * 
+	 * Test to check if you can get users
 	 */
 	@Test
 	public void testgetUser6() {
@@ -141,7 +141,7 @@ public class GameTest {
 	}
 
 	/**
-	 * 
+	 * Test to check if you can get the soccer teams 
 	 */
 	@Test
 	public void testgetTeams() {
@@ -156,7 +156,7 @@ public class GameTest {
 	}
 
 	/**
-	 * 
+	 * Test to check if you can get the soccer teams 
 	 */
 	@Test
 	public void testgetTeam() {
@@ -171,7 +171,7 @@ public class GameTest {
 	}
 	
 /**
- * 
+ * Test to check if you can get the soccer teams 
  */
 	@Test
 	public void testgetTeam2() {
@@ -186,7 +186,7 @@ public class GameTest {
 	}
 
 	/**
-	 * 
+	 * Test to check if you can get the players 
 	 */
 	@Test
 	public void testgetPlayer() {
@@ -201,7 +201,7 @@ public class GameTest {
 	}
 
 	/**
-	 * 
+	 * Test to check if you can get the players by name
 	 */
 	@Test
 	public void testgetPlayerbyName() {
@@ -216,7 +216,7 @@ public class GameTest {
 	}
 
 	/**
-	 * 
+	 * Test to check if you can get the players by name
 	 */
 	@Test
 	public void testgetPlayerbyName2() {
@@ -231,7 +231,7 @@ public class GameTest {
 	}
 
 	/**
-	 * 
+	 * Test to check if the standings can be computed
 	 */
 	@Test
 	public void testComputeStandings() {
@@ -249,7 +249,7 @@ public class GameTest {
 	}
 
 	/**
-	 * 
+	 * Test to check if you can get the playrounds
 	 */
 	@Test
 	public void testGetPlayround() {
@@ -268,7 +268,7 @@ public class GameTest {
 	}
 
 	/**
-	 * 
+	 * Test to check if you can get the playrounds
 	 */
 	@Test
 	public void testGetPlayrounds() {
