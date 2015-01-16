@@ -10,13 +10,30 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Button?>
 
-<AnchorPane id="pane" prefHeight="1080.0" prefWidth="1920.0" styleClass="pane" stylesheets="@TeamBuilder.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.tudelft.UFMGame.gui.game.ChangeSetup">
+<AnchorPane id="pane" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@TeamBuilder.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.tudelft.UFMGame.gui.game.ChangeSetup">
 	<children>
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="41.0">
          <children>
             <AnchorPane fx:id="field" maxHeight="800.0" maxWidth="1200.0" prefHeight="800.0" prefWidth="1200.0">
                <children>
-                  <Pane opacity="0.8" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #101010; -fx-border-color: #CECECE; -fx-border-width: 1px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <Pane opacity="0.8" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #101010; -fx-border-color: #CECECE; -fx-border-width: 1px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label fx:id="stamina" layoutX="325.0" layoutY="687.0" prefHeight="21.0" prefWidth="121.0" textFill="#eeebeb">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="attack" layoutX="325.0" layoutY="716.0" prefHeight="21.0" prefWidth="121.0" textFill="#eeebeb">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="defence" layoutX="325.0" layoutY="746.0" prefHeight="21.0" prefWidth="121.0" textFill="#eeebeb">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                     </children></Pane>
                   <Label layoutX="449.0" layoutY="39.0" text="Change Team Setup" textFill="WHITE">
                      <font>
                         <Font size="34.0" />
@@ -158,43 +175,13 @@
                      </columns>
                   </TableView>
                   <ComboBox fx:id="form" layoutX="832.0" layoutY="64.0" prefWidth="150.0" />
-                  <Label layoutX="323.0" layoutY="618.0" prefHeight="34.0" prefWidth="220.0" text="Active team values:" textFill="#f8f6f6">
+                  <Label layoutX="323.0" layoutY="618.0" prefHeight="34.0" prefWidth="321.0" text="Active team values:" textFill="#f8f6f6">
                      <font>
                         <Font size="23.0" />
                      </font>
                   </Label>
-                  <Label layoutX="323.0" layoutY="688.0" text="Stamina:" textFill="#eeebeb">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="stamina" layoutX="382.0" layoutY="688.0" prefHeight="21.0" prefWidth="72.0" textFill="#eeebeb">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="323.0" layoutY="720.0" text="AttackPower:" textFill="#eeebeb">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="323.0" layoutY="750.0" text="DefencePower:" textFill="#eeebeb">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="attack" layoutX="415.0" layoutY="720.0" prefHeight="21.0" prefWidth="36.0" textFill="#eeebeb">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="defence" layoutX="427.0" layoutY="750.0" prefHeight="21.0" prefWidth="57.0" textFill="#eeebeb">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
                   <Button layoutX="46.0" layoutY="635.0" mnemonicParsing="false" onAction="#handleViewPlayer" prefHeight="60.0" prefWidth="250.0" text="View Player" />
-                  <Label layoutX="483.0" layoutY="659.0" prefHeight="21.0" prefWidth="121.0" text="Goalkeeper:" textFill="#f2eded">
+                  <Label layoutX="483.0" layoutY="659.0" prefHeight="21.0" prefWidth="130.0" text="Goalkeeper:" textFill="#f2eded">
                      <font>
                         <Font size="15.0" />
                      </font>

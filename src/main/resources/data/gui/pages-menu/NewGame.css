@@ -9,6 +9,9 @@
 .label {
 	-fx-font-family: 'Quicksand';
 }
+.textfield {
+	-fx-font-family: 'Quicksand';
+}
 
 .button {
 	-fx-padding: 0;
@@ -55,7 +58,8 @@
 }
 
 .table-view:focused .table-row-cell:filled:focused:selected {
-    -fx-background-color: #000000;
+   	-fx-background-color: #000000;
+	-fx-table-cell-border-color: transparent;
 }
 
 .table-cell {
@@ -64,4 +68,5 @@
 
 .table-cell.selected {
 	-fx-border-color: #1d1d1d;
+ 	-fx-table-cell-border-color: transparent;
 }

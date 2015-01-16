@@ -97,6 +97,14 @@ public class ChangeSetup {
 					ArrayList<Player> playerslist = team.getBenchPlayers();
 					observablelistplayers = FXCollections.observableArrayList(playerslist);
 					playertable.setItems(observablelistplayers);
+					stamina.setText("Stamina: "+team.getStamina());
+					defence.setText("Defence: "+team.getDefencePower());
+					attack.setText("Attack: "+team.getAttackPower());
+					diving.setText("Diving: 0");
+					positioning.setText("Positioning: 0");
+					reflexes.setText("Reflexes: 0");
+					
+					
 					initField();
 				}   
    	});
@@ -104,9 +112,14 @@ public class ChangeSetup {
 	ArrayList<Player> playerslist = team.getBenchPlayers();
 	observablelistplayers = FXCollections.observableArrayList(playerslist);
 	playertable.setItems(observablelistplayers);
-	stamina.setText(""+team.getStamina());
-	defence.setText(""+team.getDefencePower());
-	attack.setText(""+team.getAttackPower());
+	stamina.setText("Stamina: "+team.getStamina());
+	defence.setText("Defence: "+team.getDefencePower());
+	attack.setText("Attack: "+team.getAttackPower());
+	if(team.getActiveGoalkeeper() != null){
+		diving.setText("Diving: "+team.getActiveGoalkeeper().getDiving());
+		positioning.setText("Positioning: "+team.getActiveGoalkeeper().getPositioning());
+		reflexes.setText("Reflexes: "+team.getActiveGoalkeeper().getReflexes());
+	}
 	
 	name.setCellValueFactory(new PropertyValueFactory<Player, String>(
 			"fullName"));
@@ -141,9 +154,9 @@ public class ChangeSetup {
 				observablelistplayers = FXCollections.observableArrayList(playerslist);
 				playertable.setItems(observablelistplayers);
 				playertable.getSelectionModel().selectFirst();
-				stamina.setText(""+team.getStamina());
-				defence.setText(""+team.getDefencePower());
-				attack.setText(""+team.getAttackPower());
+				stamina.setText("Stamina: "+team.getStamina());
+				defence.setText("Defence: "+team.getDefencePower());
+				attack.setText("Attack: "+team.getAttackPower());
 			}
 		});
 		
@@ -163,9 +176,9 @@ public class ChangeSetup {
 				observablelistplayers = FXCollections.observableArrayList(playerslist);
 				playertable.setItems(observablelistplayers);
 				playertable.getSelectionModel().selectFirst();
-				stamina.setText(""+team.getStamina());
-				defence.setText(""+team.getDefencePower());
-				attack.setText(""+team.getAttackPower());
+				stamina.setText("Stamina: "+team.getStamina());
+				defence.setText("Defence: "+team.getDefencePower());
+				attack.setText("Attack: "+team.getAttackPower());
 			}
 		});
 		
@@ -185,9 +198,9 @@ public class ChangeSetup {
 				observablelistplayers = FXCollections.observableArrayList(playerslist);
 				playertable.setItems(observablelistplayers);
 				playertable.getSelectionModel().selectFirst();
-				stamina.setText(""+team.getStamina());
-				defence.setText(""+team.getDefencePower());
-				attack.setText(""+team.getAttackPower());;
+				stamina.setText("Stamina: "+team.getStamina());
+				defence.setText("Defence: "+team.getDefencePower());
+				attack.setText("Attack: "+team.getAttackPower());;
 			}
 		});
 		
@@ -210,9 +223,9 @@ public class ChangeSetup {
 				observablelistplayers = FXCollections.observableArrayList(playerslist);
 				playertable.setItems(observablelistplayers);
 				playertable.getSelectionModel().selectFirst();
-				stamina.setText(""+team.getStamina());
-				defence.setText(""+team.getDefencePower());
-				attack.setText(""+team.getAttackPower());
+				stamina.setText("Stamina: "+team.getStamina());
+				defence.setText("Defence: "+team.getDefencePower());
+				attack.setText("Attack: "+team.getAttackPower());
 			}
 		});
 		
@@ -238,9 +251,9 @@ public class ChangeSetup {
 				observablelistplayers = FXCollections.observableArrayList(playerslist);
 				playertable.setItems(observablelistplayers);
 				playertable.getSelectionModel().selectFirst();
-				stamina.setText(""+team.getStamina());
-				defence.setText(""+team.getDefencePower());
-				attack.setText(""+team.getAttackPower());
+				stamina.setText("Stamina: "+team.getStamina());
+				defence.setText("Defence: "+team.getDefencePower());
+				attack.setText("Attack: "+team.getAttackPower());
 			}
 		});
 		
@@ -263,9 +276,9 @@ public class ChangeSetup {
 				observablelistplayers = FXCollections.observableArrayList(playerslist);
 				playertable.setItems(observablelistplayers);
 				playertable.getSelectionModel().selectFirst();
-				stamina.setText(""+team.getStamina());
-				defence.setText(""+team.getDefencePower());
-				attack.setText(""+team.getAttackPower());
+				stamina.setText("Stamina: "+team.getStamina());
+				defence.setText("Defence: "+team.getDefencePower());
+				attack.setText("Attack: "+team.getAttackPower());
 			}
 		});
 		
@@ -285,9 +298,9 @@ public class ChangeSetup {
 				observablelistplayers = FXCollections.observableArrayList(playerslist);
 				playertable.setItems(observablelistplayers);
 				playertable.getSelectionModel().selectFirst();
-				stamina.setText(""+team.getStamina());
-				defence.setText(""+team.getDefencePower());
-				attack.setText(""+team.getAttackPower());
+				stamina.setText("Stamina: "+team.getStamina());
+				defence.setText("Defence: "+team.getDefencePower());
+				attack.setText("Attack: "+team.getAttackPower());
 			}
 		});
 		
@@ -310,9 +323,9 @@ public class ChangeSetup {
 				observablelistplayers = FXCollections.observableArrayList(playerslist);
 				playertable.setItems(observablelistplayers);
 				playertable.getSelectionModel().selectFirst();
-				stamina.setText(""+team.getStamina());
-				defence.setText(""+team.getDefencePower());
-				attack.setText(""+team.getAttackPower());
+				stamina.setText("Stamina: "+team.getStamina());
+				defence.setText("Defence: "+team.getDefencePower());
+				attack.setText("Attack: "+team.getAttackPower());
 			}
 		});
 		
@@ -332,9 +345,9 @@ public class ChangeSetup {
 				observablelistplayers = FXCollections.observableArrayList(playerslist);
 				playertable.setItems(observablelistplayers);
 				playertable.getSelectionModel().selectFirst();
-				stamina.setText(""+team.getStamina());
-				defence.setText(""+team.getDefencePower());
-				attack.setText(""+team.getAttackPower());
+				stamina.setText("Stamina: "+team.getStamina());
+				defence.setText("Defence: "+team.getDefencePower());
+				attack.setText("Attack: "+team.getAttackPower());
 			}
 		});
 		
@@ -354,9 +367,9 @@ public class ChangeSetup {
 				observablelistplayers = FXCollections.observableArrayList(playerslist);
 				playertable.setItems(observablelistplayers);
 				playertable.getSelectionModel().selectFirst();
-				stamina.setText(""+team.getStamina());
-				defence.setText(""+team.getDefencePower());
-				attack.setText(""+team.getAttackPower());
+				stamina.setText("Stamina: "+team.getStamina());
+				defence.setText("Defence: "+team.getDefencePower());
+				attack.setText("Attack: "+team.getAttackPower());
 			}
 		});
 		
@@ -972,6 +985,8 @@ public class ChangeSetup {
 			if(formation433.getLB() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation433.getLB().getID() + ".png");
 				IMG1.setImage(image);
+				CK1.setVisible(false);
+				LB1.setVisible(false);
 				IMG1.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
