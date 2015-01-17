@@ -17,7 +17,7 @@
 			<NUM>3</NUM>
 		</PLAYER>
 		<PLAYER id="aleksandardamcevski">
-			<ACTIVE>true</ACTIVE>
+			<ACTIVE>false</ACTIVE>
 			<TYPE>DF</TYPE>
 			<NUM>4</NUM>
 		</PLAYER>
@@ -42,7 +42,7 @@
 			<NUM>8</NUM>
 		</PLAYER>
 		<PLAYER id="kingsleyboateng">
-			<ACTIVE>true</ACTIVE>
+			<ACTIVE>false</ACTIVE>
 			<TYPE>FW</TYPE>
 			<NUM>9</NUM>
 		</PLAYER>
@@ -52,7 +52,7 @@
 			<NUM>10</NUM>
 		</PLAYER>
 		<PLAYER id="adnanetighadouini">
-			<ACTIVE>true</ACTIVE>
+			<ACTIVE>false</ACTIVE>
 			<TYPE>FW</TYPE>
 			<NUM>11</NUM>
 		</PLAYER>
@@ -62,7 +62,7 @@
 			<NUM>12</NUM>
 		</PLAYER>
 		<PLAYER id="joeysuk">
-			<ACTIVE>false</ACTIVE>
+			<ACTIVE>true</ACTIVE>
 			<TYPE>MF</TYPE>
 			<NUM>14</NUM>
 		</PLAYER>
@@ -72,12 +72,12 @@
 			<NUM>16</NUM>
 		</PLAYER>
 		<PLAYER id="erikfalkenburg">
-			<ACTIVE>false</ACTIVE>
+			<ACTIVE>true</ACTIVE>
 			<TYPE>MF</TYPE>
 			<NUM>17</NUM>
 		</PLAYER>
 		<PLAYER id="stipeperica">
-			<ACTIVE>false</ACTIVE>
+			<ACTIVE>true</ACTIVE>
 			<TYPE>FW</TYPE>
 			<NUM>18</NUM>
 		</PLAYER>

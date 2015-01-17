@@ -27,7 +27,7 @@
 			<NUM>5</NUM>
 		</PLAYER>
 		<PLAYER id="mustafasaymak">
-			<ACTIVE>true</ACTIVE>
+			<ACTIVE>false</ACTIVE>
 			<TYPE>MF</TYPE>
 			<NUM>6</NUM>
 		</PLAYER>
@@ -37,7 +37,7 @@
 			<NUM>7</NUM>
 		</PLAYER>
 		<PLAYER id="thanasiskaragounis">
-			<ACTIVE>true</ACTIVE>
+			<ACTIVE>false</ACTIVE>
 			<TYPE>MF</TYPE>
 			<NUM>8</NUM>
 		</PLAYER>
@@ -77,7 +77,7 @@
 			<NUM>18</NUM>
 		</PLAYER>
 		<PLAYER id="rickdekker">
-			<ACTIVE>false</ACTIVE>
+			<ACTIVE>true</ACTIVE>
 			<TYPE>MF</TYPE>
 			<NUM>19</NUM>
 		</PLAYER>
@@ -102,7 +102,7 @@
 			<NUM>25</NUM>
 		</PLAYER>
 		<PLAYER id="thomaslam">
-			<ACTIVE>false</ACTIVE>
+			<ACTIVE>true</ACTIVE>
 			<TYPE>DF</TYPE>
 			<NUM>28</NUM>
 		</PLAYER>
