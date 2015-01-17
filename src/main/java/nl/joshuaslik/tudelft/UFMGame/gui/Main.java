@@ -32,6 +32,7 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws IOException {
+		Main.loadFonts();
 		rootLayout = (BorderPane) FXMLLoader.load(Class.class
 				.getResource("/data/gui/pages-menu/RootLayout.fxml"));
 		primaryStage.setFullScreen(true);

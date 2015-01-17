@@ -5,9 +5,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="900.0" prefWidth="1900.0" styleClass="pane" stylesheets="@MainMenu.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="nl.joshuaslik.tudelft.UFMGame.gui.ActionController">
+<AnchorPane prefHeight="900.0" prefWidth="1900.0" styleClass="pane" stylesheets="@MainMenu.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.tudelft.UFMGame.gui.Options">
    <children>
-     
+      <Button layoutX="141.0" layoutY="329.0" mnemonicParsing="false" onAction="#handleReturn" text="Return" />
    </children>
 </AnchorPane>
