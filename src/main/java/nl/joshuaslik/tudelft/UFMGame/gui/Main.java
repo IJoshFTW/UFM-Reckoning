@@ -31,6 +31,9 @@ public class Main extends Application {
 		launch(args);
 	}
 
+	/**
+	 * Method to load the rootlayout of the game
+	 */
 	@Override
 	public void start(Stage primaryStage) throws IOException {
 		Main.loadFonts();
@@ -57,22 +60,41 @@ public class Main extends Application {
 		stage.setScene(scn);
 	}
 
+	/**
+	 * Set the center of the border pane 
+	 * @param scene to be displayed in the center
+	 */
 	public static void setCenter(AnchorPane scene) {
 		rootLayout.setCenter(scene);
 	}
 
+	/**
+	 * Sets the Top of the border pane
+	 * @param pane to be displayed in the top of the screen
+	 */
 	public static void setTop(AnchorPane pane) {
 		rootLayout.setTop(pane);
 	}
 
+	/**
+	 * Sets the bottom of the border pane
+	 * @param pane to be displayed in the bottom
+	 */
 	public static void setBottom(AnchorPane pane) {
 		rootLayout.setBottom(pane);
 	}
 
+	/**
+	 * Get the stage of the game
+	 * @return current stage
+	 */
 	public static Stage stage() {
 		return stage;
 	}
 
+	/**
+	 * Method to load the quicksand font
+	 */
 	public static void loadFonts() {
 		Font.loadFont(Class.class.getResource("/data/gui/fonts/Quicksand.ttf")
 				.toExternalForm(), 10);

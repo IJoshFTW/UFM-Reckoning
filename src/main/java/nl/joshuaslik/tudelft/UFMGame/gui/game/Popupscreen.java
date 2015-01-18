@@ -26,13 +26,8 @@ public class Popupscreen {
 	private static Popup popup;
 	private static AnchorPane page;
 	
-	@FXML
-	private void initialize(){
-		
-	}
-	
 	/**
-	 * creates the popupscreen 
+	 * Creates the popup screen and displays it
 	 */
 	public static void start(){
 		FXMLLoader loader = new FXMLLoader();
@@ -55,7 +50,7 @@ public class Popupscreen {
 	
 	/**
 	 * Sets the title of the label
-	 * @param input is a string
+	 * @param input is a string to be the title of this popup
 	 */
 	public static void setTitle(String input){
 		Label changetitle = (Label) page.lookup("#title");
@@ -64,7 +59,7 @@ public class Popupscreen {
 	
 	/**
 	 * Sets the message for the popup
-	 * @param input
+	 * @param input message to display in the popup
 	 */
 	public static void setMessage(String input){
 		Text text = new Text(input);
@@ -78,6 +73,9 @@ public class Popupscreen {
 	    page.getChildren().add(message);
 	}
 	
+	/**
+	 * handles clicking on the ok button
+	 */
 	@FXML
 	protected void handleOK() {
 		FadeTransition ft = new FadeTransition(Duration.millis(900), page);

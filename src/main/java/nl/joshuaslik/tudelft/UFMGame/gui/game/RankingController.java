@@ -26,22 +26,11 @@ public class RankingController {
 	@FXML
 	private TableView<Team> rankingtable;
 	@FXML
-	private TableColumn<Team, String> nr;
-	@FXML
-	private TableColumn<Team, String> team;
-	@FXML
-	private TableColumn<Team, String> totalWins;
-	@FXML
-	private TableColumn<Team, String> totalLosses;
-	@FXML
-	private TableColumn<Team, String> totalDraws;
-	@FXML
-	private TableColumn<Team, String> totalPoints;
-	@FXML
-	private TableColumn<Team, String> goals;
-	@FXML
-	private TableColumn<Team, String> goalsagainst;
+	private TableColumn<Team, String> nr, team, totalWins, totalLosses, totalDraws, totalPoints, goals, goalsagainst;
 
+	/**
+	 * initialize the page is automatically called after the page is loaded
+	 */
 	@FXML
 	private void initialize() {
 

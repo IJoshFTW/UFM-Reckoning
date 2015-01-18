@@ -12,14 +12,18 @@ public class Playround implements Comparable<Object> {
 	ArrayList<Match> matches = new ArrayList<Match>();
 	int playroundnr;
 
-	public Playround() {
-
-	}
-
+	/**
+	 * Method to set the playround nr of this playround
+	 * @param nr to set to this playround
+	 */
 	public void setPlayroundnr(int nr) {
 		playroundnr = nr;
 	}
 
+	/**
+	 * Method to get the playround number of this playround
+	 * @return number of this playround
+	 */
 	public int getPlayroundnr() {
 		return playroundnr;
 	}

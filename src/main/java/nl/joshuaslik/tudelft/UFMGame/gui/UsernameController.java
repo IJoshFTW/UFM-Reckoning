@@ -47,6 +47,10 @@ public class UsernameController {
 		});
 	}
 
+	/**
+	 * Handles when the ok button is pressed
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
+	 */
 	@FXML
 	protected void handleUsername() throws IOException {
 		String username = textfield.getText();

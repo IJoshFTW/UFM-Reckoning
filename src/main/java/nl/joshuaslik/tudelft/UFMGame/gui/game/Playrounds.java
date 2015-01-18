@@ -31,13 +31,7 @@ public class Playrounds {
 	@FXML
 	private ComboBox<Playround> playround;
 	@FXML
-	private TableColumn<Match, String> home;
-	@FXML
-	private TableColumn<Match, String> away;
-	@FXML
-	private TableColumn<Match, String> homegoals;
-	@FXML
-	private TableColumn<Match, String> awaygoals;
+	private TableColumn<Match, String> home, away, homegoals, awaygoals;
 
 	/**
 	 * Initializes the playrounds
@@ -89,13 +83,6 @@ public class Playrounds {
 		awaygoals.setCellValueFactory(new PropertyValueFactory<Match, String>(
 				"awaygoals"));
 
-		// Listen for selection changes
-		competitiontable
-				.getSelectionModel()
-				.selectedItemProperty()
-				.addListener(
-						(observable, oldValue, newValue) -> selectedMatch(newValue));
-
 		competitiontable
 				.setRowFactory(new Callback<TableView<Match>, TableRow<Match>>() {
 					@Override
@@ -119,6 +106,11 @@ public class Playrounds {
 
 	}
 
+	/**
+	 * returns the goals
+	 * @param goals to return
+	 * @return int of the goals
+	 */
 	public Integer getgoals(int goals) {
 		if (goals != -1) {
 			return goals;
@@ -126,9 +118,10 @@ public class Playrounds {
 		return null;
 	}
 
-	public void selectedMatch(Match newValue) {
-	}
-
+	/**
+	 * Loads the playrounds page
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
+	 */
 	public static void start() throws IOException {
 		AnchorPane scene = (AnchorPane) FXMLLoader.load(Class.class
 				.getResource("/data/gui/pages-game/Playrounds.fxml"));
@@ -138,6 +131,10 @@ public class Playrounds {
 		Main.setBottom(bottom);
 	}
 
+	/**
+	 * Method to get a observable list of all the mathces of a playround
+	 * @return a observablelist with all mathces of a round
+	 */
 	public static ObservableList<Match> getMatchList() {
 		Playround pr = MainGame.game.getCompetition().getPlayround(round);
 		ArrayList<Match> matches = new ArrayList<Match>();
@@ -147,6 +144,10 @@ public class Playrounds {
 		return data;
 	}
 
+	/**
+	 * Method to get a observable list of all the playrounds
+	 * @return a observable list of all the playrounds in this game
+	 */
 	public static ObservableList<Playround> getPlayroundList() {
 		ArrayList<Playround> pr = MainGame.game.getCompetition()
 				.getPlayrounds();

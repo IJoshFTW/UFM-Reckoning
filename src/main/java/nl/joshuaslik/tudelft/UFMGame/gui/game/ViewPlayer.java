@@ -33,6 +33,10 @@ public class ViewPlayer {
 	@FXML
 	private Button returnbutton;
 
+	/**
+	 * Initializes the controller class. This method is automatically called
+     * after the fxml file has been loaded.
+	 */
 	@FXML
 	private void initialize() {
 		playerName.setText(player.getFullName());
@@ -97,6 +101,11 @@ public class ViewPlayer {
 
 	}
 
+	/**
+	 * Method to load the viewplayer popup
+	 * @param inputPlayer player to be displayed in the popup
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
+	 */
 	public static void start(Player inputPlayer) throws IOException {
 		player = inputPlayer;
 		if(player != null){
@@ -115,6 +124,9 @@ public class ViewPlayer {
 		}
 	}	
 
+	/**
+	 * Closes the popup 
+	 */
 	@FXML
 	protected void handleReturn() {
 		FadeTransition ft = new FadeTransition(Duration.millis(900), page);

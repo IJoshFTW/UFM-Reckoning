@@ -245,6 +245,9 @@ public class Match {
 		return awayteam;
 	}
 
+	/**
+	 * Test of two match objects are equal
+	 */
 	public boolean equals(Object other) {
 		if (other instanceof Match & (other != null)) {
 			Match that = (Match) other;

@@ -166,10 +166,18 @@ public class TeamBuilderController {
 		staminaImg.setFitWidth(team.getStamina() / 3);
 	}
 
+	/**
+	 * Method to set the selected player the selected player
+	 * @param player that is selected
+	 */
 	public void selectedPlayer(Player player) {
 		selectedplayer = player;
 	}
 
+	/**
+	 * Loads the teambuilder page
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
+	 */
 	public static void start() throws IOException {
 
 		team = MainGame.game.getUser().getTeam();
@@ -187,24 +195,39 @@ public class TeamBuilderController {
 		Main.setBottom(bottom);
 	}
 
+	/**
+	 * handles clicking on the change setup button
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
+	 */
 	@FXML
 	protected void handleChangeSetup() throws IOException {
 		ChangeSetup.start();
 	}
 
+	/**
+	 * handles clicking on the viewplayer button
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
+	 */
 	@FXML
 	protected void handleViewPlayer() throws IOException {
 		ViewPlayer.start(selectedplayer);
 	}
 
+	/**
+	 * handles clicking on the transfermarket button
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
+	 */
 	@FXML
 	protected void handleTransferMarket() throws IOException {
 		TransferMarket.start();
 	}
 
+	/**
+	 * handles clicking on the return button
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
+	 */
 	@FXML
-	protected void handleReturnTeamBuilder()
-			throws IOException {
+	protected void handleReturnTeamBuilder()throws IOException {
 		TeamBuilderController.start();
 	}
 }

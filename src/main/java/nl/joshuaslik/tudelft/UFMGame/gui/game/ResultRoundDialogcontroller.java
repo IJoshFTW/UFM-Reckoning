@@ -29,6 +29,10 @@ public class ResultRoundDialogcontroller {
 	
 	private Match match;
 	
+	/**
+	 * initialize the result dialog
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
+	 */
 	@FXML
 	private void initialize() throws IOException {
 		ArrayList<Match> matches = MainGame.game.getPlayround(MainGame.game.getCurrentRound() - 1).getMatches();
@@ -52,7 +56,9 @@ public class ResultRoundDialogcontroller {
 		
 	}
 	
-	
+	/**
+	 * handles clicking on the ok button in the dialog
+	 */
 	@FXML
 	protected void handleOK() {
 		FadeTransition ft = new FadeTransition(Duration.millis(500), page);
@@ -61,6 +67,10 @@ public class ResultRoundDialogcontroller {
 		ft.play();
 	}
 	
+	/**
+	 * Loads the result of a round dialog
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
+	 */
 	public static void start() throws IOException{
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Class.class

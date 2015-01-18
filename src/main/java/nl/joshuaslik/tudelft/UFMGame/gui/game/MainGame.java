@@ -12,6 +12,10 @@ public class MainGame {
 
 	public static Game game = null;
 
+	/**
+	 * loads the teambuilder
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
+	 */
 	public static void start() throws IOException {
 		TeamBuilderController.start();
 		
@@ -19,7 +23,7 @@ public class MainGame {
 
 	/**
 	 * Sets a game 
-	 * @param game 
+	 * @param game to set
 	 */
 	public static void setGame(Game game) {
 		MainGame.game = game;

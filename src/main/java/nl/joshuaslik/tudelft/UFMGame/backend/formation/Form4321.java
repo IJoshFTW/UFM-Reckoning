@@ -35,19 +35,23 @@ public class Form4321 extends Formation {
 	private String Name = "4-3-2-1";
 
 	/**
-	 * 
-	 * @return the name
+	 * Method to get the name of this formation type
+	 * @return the name of this formation
 	 */
 	public String getName() {
 		return Name;
 	}
 
+	/**
+	 * Contructor of a formation 4321 object
+	 * @param team the team of this formation
+	 */
 	public Form4321(Team team) {
 		super(team);
 	}
 
 	/**
-	 * 
+	 * Method to get the central back player 1
 	 * @return central back player 1
 	 */
 	public Fieldplayer getCB1() {
@@ -55,7 +59,7 @@ public class Form4321 extends Formation {
 	}
 
 	/**
-	 * 
+	 * method to get the central back player 2
 	 * @return central back player 2
 	 */
 	public Fieldplayer getCB2() {
@@ -71,7 +75,7 @@ public class Form4321 extends Formation {
 	}
 
 	/**
-	 * 
+	 * method to get the right back player
 	 * @return right back player
 	 */
 	public Fieldplayer getRB() {
@@ -79,7 +83,7 @@ public class Form4321 extends Formation {
 	}
 
 	/**
-	 * 
+	 * method to get the central midfield player
 	 * @return central midfield player
 	 */
 	public Fieldplayer getCM() {
@@ -87,7 +91,7 @@ public class Form4321 extends Formation {
 	}
 
 	/**
-	 * 
+	 * method to get the right midfield player
 	 * @return right midfield player
 	 */
 	public Fieldplayer getRM() {
@@ -95,7 +99,7 @@ public class Form4321 extends Formation {
 	}
 
 	/**
-	 * 
+	 * Method to get the left midfield player
 	 * @return Left midfield player
 	 */
 	public Fieldplayer getLM() {
@@ -103,15 +107,15 @@ public class Form4321 extends Formation {
 	}
 
 	/**
-	 * 
-	 * @return Right wing player
+	 * method to get the offensive left midfield player
+	 * @return offensive left midfield player
 	 */
 	public Fieldplayer getOLM() {
 		return OLM;
 	}
 
 	/**
-	 * 
+	 * method to get the left wing player
 	 * @return Left wing player
 	 */
 	public Fieldplayer getORM() {

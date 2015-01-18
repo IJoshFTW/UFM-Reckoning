@@ -196,7 +196,7 @@ public class TransferMarket {
 
 	/**
 	 * Selected player in table
-	 * @param player
+	 * @param player that is selected
 	 */
 	public void selectedPlayer(Player player) {
 		selectedplayer = player;
@@ -204,7 +204,7 @@ public class TransferMarket {
 
 	/**
 	 * View the selected player
-	 * @throws IOException
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
 	 */
 	@FXML
 	protected void handleViewPlayer() throws IOException {
@@ -213,7 +213,7 @@ public class TransferMarket {
 
 	/**
 	 * Selling the selected player
-	 * @throws IOException
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
 	 */
 	@FXML
 	protected void sellingPlayer() throws IOException {
@@ -223,7 +223,7 @@ public class TransferMarket {
 
 	/**
 	 * Buying the selected player and reloading page
-	 * @throws IOException
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
 	 */
 	@FXML
 	protected void buyingPlayer() throws IOException {
@@ -234,7 +234,7 @@ public class TransferMarket {
 
 	/**
 	 * Go back to the Main Game
-	 * @throws IOException
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
 	 */
 	@FXML
 	protected void returnToTeam() throws IOException {
@@ -243,7 +243,7 @@ public class TransferMarket {
 
 	/**
 	 * Load Transfermarket page
-	 * @throws IOException
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
 	 */
 	public static void start() throws IOException {
 		team = MainGame.game.getUser().getTeam();

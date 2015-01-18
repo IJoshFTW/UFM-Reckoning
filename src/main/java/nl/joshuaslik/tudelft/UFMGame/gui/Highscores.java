@@ -23,6 +23,10 @@ public class Highscores {
 		Topbar.start("HighScores");
 	}
 	
+	/**
+	 * handles clicking on the return button
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
+	 */
 	@FXML
 	protected void handleReturn() throws IOException {
 		MainMenu.start();

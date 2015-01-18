@@ -508,10 +508,17 @@ public class ChangeSetup {
 		Main.setBottom(bottom);
 	}
 	
+	/**
+	 * Method to set the selected player
+	 * @param player that is selected
+	 */
 	public void selectedPlayer(Player player) {	
 		selectedplayer = player;
 	}
 	
+	/**
+	 * Loads all the information of the visual field
+	 */
 	public void initField(){
 		IMG1.setImage(null);
 		IMG2.setImage(null);

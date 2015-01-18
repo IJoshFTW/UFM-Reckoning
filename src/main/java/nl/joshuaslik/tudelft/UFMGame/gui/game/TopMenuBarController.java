@@ -19,7 +19,9 @@ public class TopMenuBarController {
 	@FXML
 	private Label username, round;
 
-	
+	/**
+	 * initialize the Topmenu bar
+	 */
 	@FXML
 	private void initialize() {
 		username.setText(MainGame.game.getUser().getUserName());
