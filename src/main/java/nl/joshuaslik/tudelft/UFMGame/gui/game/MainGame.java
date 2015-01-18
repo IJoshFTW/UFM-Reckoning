@@ -26,8 +26,9 @@ public class MainGame {
 	}
 	
 	/**
-	 * initializes main game
-	 */
+     * Initializes the controller class. This method is automatically called
+     * after the fxml file has been loaded.
+     */
 	public static void initialize() {
 		MainGame.game.getCompetition().definePlayrounds();
 		MainGame.game.computeStandings();

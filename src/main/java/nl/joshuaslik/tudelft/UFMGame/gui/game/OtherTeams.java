@@ -49,6 +49,10 @@ public class OtherTeams {
 	@FXML
 	private ImageView otherteamlogo, staminaImg, defPwrImg, atkPwrImg;
 
+	/**
+	 *  Initializes the controller class. This method is automatically called
+	 *  after the fxml file has been loaded.
+	 */
 	@FXML
 	private void initialize() {
 		ObservableList<Team> teamslist = FXCollections.observableArrayList(getteamList());
@@ -82,11 +86,11 @@ public class OtherTeams {
 					int totalGamesPlayed = otherteam.getTotalWins() + otherteam.getTotalLosses()
 							+ otherteam.getTotalDraws();
 
-					showTotalGamesPlayed.setText(Integer.toString(totalGamesPlayed));
-					showTotalWins.setText(Integer.toString(otherteam.getTotalWins()));
-					showTotalLosses.setText(Integer.toString(otherteam.getTotalLosses()));
-					showTotalDraws.setText(Integer.toString(otherteam.getTotalDraws()));
-					showTotalGoals.setText(Integer.toString(otherteam.getTotalGoals()));
+					showTotalGamesPlayed.setText("Total Games Played: "+totalGamesPlayed);
+					showTotalWins.setText("Total Wins: "+otherteam.getTotalWins());
+					showTotalLosses.setText("Total Losses: "+otherteam.getTotalLosses());
+					showTotalDraws.setText("Total Draws: "+otherteam.getTotalDraws());
+					showTotalGoals.setText("Total goals: "+otherteam.getTotalGoals());
 					
 					// AttackPower bar inladen
 					atkPwrImg.setFitWidth(otherteam.getAttackPower() / 3);
@@ -164,6 +168,10 @@ public class OtherTeams {
 		coach.setText("Coach: " + otherteam.getCoachName());
 	}
 	
+	/**
+	 * Method to get a observable list of all the teams except the users his team
+	 * @return observable list of teams
+	 */
 	private ObservableList<Team> getteamList() {
 		ArrayList<Team> teamarraylist = MainGame.game.getTeams();
 		teamarraylist.remove(MainGame.game.getUser().getTeam());
@@ -179,6 +187,10 @@ public class OtherTeams {
 		selectedplayer = player;
 	}
 	
+	/**
+	 * Handles when the key to view the selected player is pressed
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
+	 */
 	@FXML
 	protected void handleViewPlayer() throws IOException {
 		ViewPlayer.start(selectedplayer);

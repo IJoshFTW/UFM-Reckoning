@@ -22,9 +22,8 @@ public class MainMenu {
 	public static void start() throws IOException {
 		
 		AnchorPane scene = (AnchorPane) FXMLLoader.load(Class.class.getResource("/data/gui/pages-menu/MainMenu.fxml"));
-		System.out.println(scene);
 		Main.setCenter(scene);
-		Main.setTop(null);
+		Topbar.start("");
 		Main.setBottom(null);
 	}
 }

@@ -29,19 +29,7 @@ public class NewGameController {
 	 	@FXML
 	    private TableView<Team> teamtable;
 	    @FXML
-	    private TableColumn<Team, String> teamColumn;
-	    @FXML
-	    private TableColumn<Team, String> coachColumn;
-	    @FXML
-	    private TableColumn<Team, String> averagedefence;
-	    @FXML
-	    private TableColumn<Team, String> averagestamina;
-	    @FXML
-	    private TableColumn<Team, String> averageattack;
-	    @FXML
-	    private TableColumn<Team, String> totalplayers;
-	    @FXML
-	    private TableColumn<Team, String> teamvalue;
+	    private TableColumn<Team, String> teamColumn, coachColumn, averagedefence, averagestamina, averageattack, totalplayers, teamvalue;
 	    
 	    /**
 	     * Initializes the controller class. This method is automatically called
@@ -73,7 +61,9 @@ public class NewGameController {
 					(observable, oldValue, newValue) -> selectedTeam(newValue));
 	    }
 	    
-	    
+	    /**
+	     * handles if someone clicks on the choose this team button
+	     */
 	    @FXML
 		protected void handleChooseTeam() {
 	    	if (choosenteam != null) {
@@ -91,13 +81,17 @@ public class NewGameController {
 		}
 	    
 	    
+	    /**
+	     * sets the choosenteam as the parameter
+	     * @param team the team that is chosen
+	     */
 	    public void selectedTeam(Team team){
 	    	choosenteam = team;
 	    }
 	    
 	    /**
-	     * 
-	     * @param user
+	     * Loads the Page where you can choose a team
+	     * @param user The username that is chosen in the previous dialog
 	     * @throws IOException  is thrown if the FXML file cannot be parsed. 
 	     */
 	    public static void start(String user) throws IOException {
@@ -105,6 +99,7 @@ public class NewGameController {
 	 
 			AnchorPane scene = FXMLLoader.load(Class.class.getResource("/data/gui/pages-menu/NewGame.fxml"));
 			Main.setCenter(scene);
+			Topbar.start(username);
 		}
 
 }

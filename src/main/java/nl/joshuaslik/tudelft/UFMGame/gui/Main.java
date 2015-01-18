@@ -5,6 +5,7 @@ import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.AnchorPane;
@@ -24,8 +25,8 @@ public class Main extends Application {
 	 * Create new variables
 	 */
 	public static Stage stage;
-	private static BorderPane rootLayout;
-
+	public static BorderPane rootLayout;
+	public static boolean fullscreen;
 	public static void main(String[] args) {
 		launch(args);
 	}
@@ -35,18 +36,18 @@ public class Main extends Application {
 		Main.loadFonts();
 		rootLayout = (BorderPane) FXMLLoader.load(Class.class
 				.getResource("/data/gui/pages-menu/RootLayout.fxml"));
-		primaryStage.setFullScreen(true);
-		primaryStage.getIcons().add(
-				new Image("file:recources/images/Address_book.png"));
 		primaryStage.setTitle("Ultimate Football Manager");
-		primaryStage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
 		Scene scene = new Scene(rootLayout);
+		primaryStage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
+		primaryStage.setFullScreen(true);
+
 		primaryStage.setScene(scene);
+		
 		primaryStage.show();
 		stage = primaryStage;
 		MainMenu.start();
 	}
-
+	
 	/**
 	 * Sets te scene of main
 	 * 

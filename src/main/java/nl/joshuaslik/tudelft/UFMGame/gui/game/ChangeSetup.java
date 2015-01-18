@@ -39,7 +39,7 @@ import nl.joshuaslik.tudelft.UFMGame.backend.formation.Formation;
 import nl.joshuaslik.tudelft.UFMGame.gui.Main;
 
 /**
- * @author <a href="http://www.joshuaslik.nl/" target="_blank">Joshua Slik</a>
+ * @author Bryan van Wijk
  *
  */
 public class ChangeSetup {
@@ -65,9 +65,12 @@ public class ChangeSetup {
 	@FXML
 	private Button viewplayer;
 	
+	/**
+	 * Initializes the controller class. This method is automatically called
+     * after the fxml file has been loaded.
+	 */
 	@FXML
 	private void initialize(){
-		
 		ArrayList<Formation> forms = new ArrayList<Formation>();
 		forms.add(new Form343(MainGame.game.getUser().getTeam()));
 		forms.add(new Form4321(MainGame.game.getUser().getTeam()));
@@ -1539,16 +1542,28 @@ public class ChangeSetup {
 		}
 	}
 	
+	/**
+	 * Handles clicking on the return button in the team builder
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
+	 */
 	@FXML
 	protected void handleReturnTeamBuilder() throws IOException {
 		TeamBuilderController.start();
 	}
 	
+	/**
+	 * Handles clicking on the view player button in the team builder
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
+	 */
 	@FXML
 	protected void handleViewPlayer() throws IOException {
 		ViewPlayer.start(selectedplayer);
 	}
 	
+	/**
+	 * handles clicking in the field img of a player
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
+	 */
 	@FXML
 	protected void handleActiveplayerview() throws IOException{
 		ViewPlayer.start(selectedplayer);

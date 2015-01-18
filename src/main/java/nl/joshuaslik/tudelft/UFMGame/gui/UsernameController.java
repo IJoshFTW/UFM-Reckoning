@@ -17,19 +17,21 @@ import javafx.util.Duration;
 
 /**
  * Controller for the username.
- * @author Bryan
+ * @author Bryan van Wijk
  * @author Lisette
  */
 public class UsernameController {
 	private static Popup popup;
 	private static AnchorPane page;
 	@FXML
-	private Button cancelbutton;
-	@FXML
-	private Button okbutton;
+	private Button cancelbutton, okbutton;
 	@FXML
 	private TextField textfield;
 
+	/**
+     * Initializes the controller class. This method is automatically called
+     * after the fxml file has been loaded.
+     */
 	@FXML
 	protected void initialize() {
 		textfield.textProperty().addListener(new ChangeListener<String>() {
@@ -57,6 +59,12 @@ public class UsernameController {
 		popup.hide();
 	}
 
+
+	/**
+	 * Handles when a key is pressed
+	 * @param event the event from the key that is pressed
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
+	 */
 	@FXML
 	protected void handleUsernamekey(KeyEvent event) throws IOException {
 		if (event.getCode().equals(KeyCode.ENTER) && !okbutton.isDisabled()) {
@@ -70,6 +78,9 @@ public class UsernameController {
 		}
 	}
 
+	/**
+	 * handles when the return button is pressed
+	 */
 	@FXML
 	protected void handleReturnMainMenu() {
 		FadeTransition ft = new FadeTransition(Duration.millis(900), page);
@@ -79,6 +90,10 @@ public class UsernameController {
 		popup.hide();
 	}
 
+	/**
+	 * THe start method to load the username dialog
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
+	 */
 	public static void start() throws IOException {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Class.class

@@ -96,26 +96,6 @@ public class Playrounds {
 				.addListener(
 						(observable, oldValue, newValue) -> selectedMatch(newValue));
 
-		/**
-		 * home.setCellFactory(column -> { return new TableCell<Match,
-		 * String>(){
-		 * 
-		 * @Override protected void updateItem(String item, boolean empty){
-		 *           super.updateItem(item, empty); if(item == null || empty){
-		 *           setText(null); setStyle(""); } else { setText(item);
-		 *           if(item
-		 *           .equals(MainGame.game.getUser().getTeam().getTeamName())){
-		 *           setStyle("-fx-background-color: yellow"); } else{
-		 *           setStyle(""); } } } }; }); away.setCellFactory(column -> {
-		 *           return new TableCell<Match, String>(){
-		 * @Override protected void updateItem(String item, boolean empty){
-		 *           super.updateItem(item, empty); if(item == null || empty){
-		 *           setText(null); setStyle(""); } else { setText(item);
-		 *           if(item
-		 *           .equals(MainGame.game.getUser().getTeam().getTeamName())){
-		 *           setStyle("-fx-background-color: yellow"); } else{
-		 *           setStyle(""); } } } }; });
-		 */
 		competitiontable
 				.setRowFactory(new Callback<TableView<Match>, TableRow<Match>>() {
 					@Override

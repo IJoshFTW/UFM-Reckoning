@@ -26,6 +26,7 @@ import nl.joshuaslik.tudelft.UFMGame.gui.Main;
 
 /**
  * @author <a href="http://www.joshuaslik.nl/" target="_blank">Joshua Slik</a>
+ * @author Bryan van Wijk
  *
  */
 public class TeamBuilderController {
@@ -48,6 +49,10 @@ public class TeamBuilderController {
 	@FXML
 	private ImageView teamlogo, staminaImg, defPwrImg, atkPwrImg;
 
+	/**
+     * Initializes the controller class. This method is automatically called
+     * after the fxml file has been loaded.
+     */
 	@FXML
 	private void initialize() {
 		coach.setText("Coach: "+ MainGame.game.getUser().getTeam().getCoachName());
@@ -198,33 +203,8 @@ public class TeamBuilderController {
 	}
 
 	@FXML
-	protected void handlePlayerList() {
-
-	}
-
-	@FXML
 	protected void handleReturnTeamBuilder()
 			throws IOException {
 		TeamBuilderController.start();
-	}
-
-	@FXML
-	protected void handleSellPlayer() {
-
-	}
-
-	@FXML
-	protected void handleBuyPlayer() {
-
-	}
-
-	@FXML
-	protected void handlePlayerToField() {
-
-	}
-
-	@FXML
-	protected void handlePlayerToBench() {
-
 	}
 }
