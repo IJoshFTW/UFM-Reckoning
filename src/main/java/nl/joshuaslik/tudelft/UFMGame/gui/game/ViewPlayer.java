@@ -27,39 +27,9 @@ public class ViewPlayer {
 	private static AnchorPane page;
 
 	@FXML
-	private Label playerName;
+	private Label playerName, playerRole, attackLable, defenceLable, staminaLable, reflexesLable, positioningLable, showCountryLable, showPriceLable, divingLable;
 	@FXML
-	private Label playerRole;
-	@FXML
-	private Label attackLable;
-	@FXML
-	private Label defenceLable;
-	@FXML
-	private Label staminaLable;
-	@FXML
-	private Label divingLable;
-	@FXML
-	private Label reflexesLable;
-	@FXML
-	private Label positioningLable;
-	@FXML
-	private Label showCountryLable;
-	@FXML
-	private Label showPriceLable;
-	@FXML
-	private ImageView playerPhoto;
-	@FXML
-	private ImageView staminaImg;
-	@FXML
-	private ImageView defPwrImg;
-	@FXML
-	private ImageView atkPwrImg;
-	@FXML
-	private ImageView positioningImg;
-	@FXML
-	private ImageView reflexesImg;
-	@FXML
-	private ImageView divingImg;
+	private ImageView playerPhoto, staminaImg, defPwrImg, atkPwrImg, positioningImg, reflexesImg, divingImg;
 	@FXML
 	private Button returnbutton;
 
@@ -139,6 +109,7 @@ public class ViewPlayer {
 			ft.setToValue(0.97);
 			ft.play();
 			popup = new Popup();
+			popup.setAutoHide(true);
 			popup.getContent().add(page);
 			popup.show(Main.stage);
 		}

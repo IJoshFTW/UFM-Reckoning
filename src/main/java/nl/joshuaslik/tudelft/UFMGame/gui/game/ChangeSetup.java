@@ -10,6 +10,7 @@ import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -61,6 +62,8 @@ public class ChangeSetup {
 	private Circle CK1, CK2, CK3, CK4, CK5, CK6, CK7, CK8, CK9, CK10, CK11, CKGK;
 	@FXML
 	private TableColumn<Player, String> name, country, position, captain;
+	@FXML
+	private Button viewplayer;
 	
 	@FXML
 	private void initialize(){
@@ -112,6 +115,11 @@ public class ChangeSetup {
 	ArrayList<Player> playerslist = team.getBenchPlayers();
 	observablelistplayers = FXCollections.observableArrayList(playerslist);
 	playertable.setItems(observablelistplayers);
+	playertable.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
+		if (playertable.getSelectionModel().getSelectedItem() != null) {
+            viewplayer.setDisable(false);
+         }
+    });
 	stamina.setText("Stamina: "+team.getStamina());
 	defence.setText("Defence: "+team.getDefencePower());
 	attack.setText("Attack: "+team.getAttackPower());

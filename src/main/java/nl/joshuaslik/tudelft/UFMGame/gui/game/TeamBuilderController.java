@@ -9,6 +9,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
@@ -31,6 +32,9 @@ public class TeamBuilderController {
 	private Player selectedplayer;
 	private static Team team;
 	private ObservableList<Player> observablelistplayers;
+	
+	@FXML
+	private Button viewplayer;
 
 	@FXML
 	private TableView<Player> playertable;
@@ -132,15 +136,20 @@ public class TeamBuilderController {
 				.selectedItemProperty()
 				.addListener(
 						(observable, oldValue, newValue) -> selectedPlayer(newValue));
-
+		
+		playertable.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
+			if (playertable.getSelectionModel().getSelectedItem() != null) {
+	            viewplayer.setDisable(false);
+	         }
+	    });
 		int totalGamesPlayed = team.getTotalWins() + team.getTotalLosses()
 				+ team.getTotalDraws();
 
-		showTotalGamesPlayed.setText(Integer.toString(totalGamesPlayed));
-		showTotalWins.setText(Integer.toString(team.getTotalWins()));
-		showTotalLosses.setText(Integer.toString(team.getTotalLosses()));
-		showTotalDraws.setText(Integer.toString(team.getTotalDraws()));
-		showTotalGoals.setText(Integer.toString(team.getTotalGoals()));
+		showTotalGamesPlayed.setText("Total Games Played: "+totalGamesPlayed);
+		showTotalWins.setText("Total Wins: "+team.getTotalWins());
+		showTotalLosses.setText("Total Losses: "+team.getTotalLosses());
+		showTotalDraws.setText("Total Draws: "+team.getTotalDraws());
+		showTotalGoals.setText("Total Goals: "+team.getTotalGoals());
 		
 		// AttackPower bar inladen
 		atkPwrImg.setFitWidth(team.getAttackPower() / 3);

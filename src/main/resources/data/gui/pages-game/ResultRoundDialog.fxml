@@ -74,6 +74,16 @@
                   <Font size="20.0" />
                </font>
             </Label>
+            <Label fx:id="hometeamname" alignment="CENTER" prefHeight="30.0" prefWidth="246.0" text="Label" textFill="#ebe4e4">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="awayteamname" alignment="CENTER" prefHeight="30.0" prefWidth="246.0" text="Label" textFill="#ebe4e4" GridPane.columnIndex="2">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
          </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

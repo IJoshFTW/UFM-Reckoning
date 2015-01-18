@@ -23,17 +23,9 @@ public class ResultRoundDialogcontroller {
 	@FXML
 	private Button okbutton;
 	@FXML
-	private Label score;
+	private Label score, hometeamname, awayteamname, round, rankinghome, rankingaway;
 	@FXML
-	private Label round;
-	@FXML
-	private Label rankinghome;
-	@FXML
-	private Label rankingaway;
-	@FXML
-	private ImageView homelogo;
-	@FXML
-	private ImageView awaylogo;
+	private ImageView homelogo, awaylogo;
 	
 	private Match match;
 	
@@ -53,6 +45,8 @@ public class ResultRoundDialogcontroller {
 		round.setText("Result Round: " + match.getPlayround());
 		rankinghome.setText("" + match.getHomeTeam().getRanking());
 		rankingaway.setText("" + match.getAwayTeam().getRanking());
+		hometeamname.setText(match.getHomeTeam().getTeamName());
+		awayteamname.setText(match.getAwayTeam().getTeamName());
 		AnchorPane bottom = (AnchorPane) FXMLLoader.load(Class.class.getResource("/data/gui/pages-game/GameBottomMenuBar.fxml"));
 		Main.setBottom(bottom);
 		
@@ -78,8 +72,6 @@ public class ResultRoundDialogcontroller {
 		ft.play();
 		popup = new Popup();
 		popup.setAutoHide(true);
-		popup.setOnAutoHide(null
-		);
 		page.setOpacity(0.85);
 		popup.getContent().add(page);
 		popup.show(Main.stage);

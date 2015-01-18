@@ -41,16 +41,7 @@ public class OtherTeams {
 	private TableView<Player> playertable;
 
 	@FXML
-	private TableColumn<Player, String> active;
-
-	@FXML
-	private TableColumn<Player, String> name;
-
-	@FXML
-	private TableColumn<Player, String> country;
-	
-	@FXML
-	private TableColumn<Player, String> position;
+	private TableColumn<Player, String> active, name, country, position;
 	
 	@FXML
 	private Label showTotalWins, showTotalLosses, showTotalDraws, showTotalGoals, showTotalGamesPlayed, coach;
@@ -155,11 +146,11 @@ public class OtherTeams {
 		int totalGamesPlayed = otherteam.getTotalWins() + otherteam.getTotalLosses()
 				+ otherteam.getTotalDraws();
 
-		showTotalGamesPlayed.setText(Integer.toString(totalGamesPlayed));
-		showTotalWins.setText(Integer.toString(otherteam.getTotalWins()));
-		showTotalLosses.setText(Integer.toString(otherteam.getTotalLosses()));
-		showTotalDraws.setText(Integer.toString(otherteam.getTotalDraws()));
-		showTotalGoals.setText(Integer.toString(otherteam.getTotalGoals()));
+		showTotalGamesPlayed.setText("Total Games Played: "+totalGamesPlayed);
+		showTotalWins.setText("Total Wins: "+otherteam.getTotalWins());
+		showTotalLosses.setText("Total Losses: "+otherteam.getTotalLosses());
+		showTotalDraws.setText("Total Draws: "+otherteam.getTotalDraws());
+		showTotalGoals.setText("Total goals: "+otherteam.getTotalGoals());
 		
 		// AttackPower bar inladen
 		atkPwrImg.setFitWidth(otherteam.getAttackPower() / 3);

@@ -180,7 +180,7 @@
                         <Font size="23.0" />
                      </font>
                   </Label>
-                  <Button layoutX="46.0" layoutY="635.0" mnemonicParsing="false" onAction="#handleViewPlayer" prefHeight="60.0" prefWidth="250.0" text="View Player" />
+                  <Button fx:id="viewplayer" disable="true" layoutX="46.0" layoutY="635.0" mnemonicParsing="false" onAction="#handleViewPlayer" prefHeight="60.0" prefWidth="250.0" text="View Player" />
                   <Label layoutX="483.0" layoutY="659.0" prefHeight="21.0" prefWidth="130.0" text="Goalkeeper:" textFill="#f2eded">
                      <font>
                         <Font size="15.0" />

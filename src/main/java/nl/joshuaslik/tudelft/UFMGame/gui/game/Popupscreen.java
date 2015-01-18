@@ -48,6 +48,7 @@ public class Popupscreen {
 		ft.setToValue(0.97);
 		ft.play();
 		popup = new Popup();
+		popup.setAutoHide(true);
 		popup.getContent().add(page);
 		popup.show(Main.stage);
 	}
