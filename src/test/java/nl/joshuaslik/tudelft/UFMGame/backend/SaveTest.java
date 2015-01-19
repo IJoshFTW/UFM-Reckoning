@@ -33,6 +33,7 @@ public class SaveTest {
 	@Test
 	public void testnewGame() {
 		System.out.println("testNewGame()");
+		
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
 
 		assertEquals(Save.newGame(team1, "Bryan").getUsers().size(), 18);
@@ -44,7 +45,11 @@ public class SaveTest {
 	 */
 	@Test
 	public void testLoadTeams() {
+		System.out.println("testLoadTeams()");
+		
 		assertEquals(Save.loadTeams().size(), 18);
+		
+		System.out.println("testLoadTeams() </>");
 	}
 
 	/**
@@ -52,7 +57,11 @@ public class SaveTest {
 	 */
 	@Test
 	public void testLoadPlayersArrayList() {
+		System.out.println("testLoadPlayersArrayList()");
+		
 		assertEquals(Save.loadplayersArrayList().size(), 443);
+		
+		System.out.println("testLoadPlayersArrayList() </>");
 	}
 	
 	/**
@@ -60,8 +69,12 @@ public class SaveTest {
 	 */
 	@Test
 	public void testgetUsernames() {
+		System.out.println("testgetUsernames()");
+		
 		System.out.println(Save.getUsernames().get(1));
 		assertEquals(Save.getUsernames().size(), 2);
+		
+		System.out.println("testgetUsernames() </>");
 	}
 	
 	/**
@@ -69,7 +82,8 @@ public class SaveTest {
 	 */
 	@Test
 	public void testLoadGame1(){
-	
+		System.out.println("testLoadGame1()");
+		
 		Game game = Save.newGame(Save.loadTeams().get(0), "test");
 		game.getCompetition().definePlayrounds();
 		Form343 form343 = new Form343(game.getTeam("ajax"));
@@ -82,8 +96,10 @@ public class SaveTest {
 		game.getTeam("az").changeFormationType(form442);
 		Form532 form532 = new Form532(game.getTeam("vitesse"));
 		game.getTeam("vitesse").changeFormationType(form532);
-		Save.saveGame(game, 1);
-		assertEquals(Save.loadGame(1).getUsers().size(), 18);
+		Save.saveGame(game, 98);
+		assertEquals(Save.loadGame(98).getUsers().size(), 18);
+		
+		System.out.println("testLoadGame1() </>");
 	}
 	
 	/**
@@ -91,6 +107,8 @@ public class SaveTest {
 	 */
 	@Test
 	public void testLoadGame2(){
+		System.out.println("testLoadGame2()");
+		
 		LinkedHashMap<String, Player> players = Save.loadPlayers();
 		Game game = Save.newGame(Save.loadTeams().get(0), "test");
 		game.getCompetition().definePlayrounds();
@@ -159,8 +177,10 @@ public class SaveTest {
 		game.getTeam("vitesse").getFormation().setLW((Fieldplayer) players.get("henkbos"));
 		game.getTeam("vitesse").getFormation().setCB2((Fieldplayer) players.get("jetrowillems"));
 		game.getTeam("vitesse").getFormation().setGoalkeeper((Goalkeeper) players.get("jaspercillessen"));
-		Save.saveGame(game, 1);
-		assertEquals(Save.loadGame(1).getUsers().size(), 18);
+		Save.saveGame(game, 99);
+		assertEquals(Save.loadGame(99).getUsers().size(), 18);
+		
+		System.out.println("testLoadGame2() </>");
 	}
 
 
