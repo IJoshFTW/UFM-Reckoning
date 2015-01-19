@@ -8,6 +8,7 @@ import nl.joshuaslik.tudelft.UFMGame.gui.game.MainGame;
 import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Popup;
@@ -18,6 +19,8 @@ public class LoadGameController {
 	private static AnchorPane page;
 	@FXML
 	private Label username1, username2, username3;
+	@FXML
+	private Button slot1, slot2, slot3;
 
 	
 	/**
@@ -44,12 +47,15 @@ public class LoadGameController {
 		LinkedHashMap<Integer, String> usernames = Save.getUsernames();
 		if(usernames.get(1) != null){
 			username1.setText(usernames.get(1));
+			slot1.setDisable(false);
 		}
 		if(usernames.get(2) != null){
 			username2.setText(usernames.get(2));
+			slot2.setDisable(false);
 		}
 		if(usernames.get(3) != null){
 			username3.setText(usernames.get(3));
+			slot3.setDisable(false);
 		}
 	}
 	
