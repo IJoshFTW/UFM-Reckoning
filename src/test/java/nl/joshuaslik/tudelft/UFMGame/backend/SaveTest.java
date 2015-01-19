@@ -70,7 +70,7 @@ public class SaveTest {
 	@Test
 	public void testgetUsernames() {
 		System.out.println("testgetUsernames()");
-		
+		// TODO Figure out a way to properly test this, without relying on the user having saves
 		System.out.println(Save.getUsernames());
 		
 		System.out.println("testgetUsernames() </>");
