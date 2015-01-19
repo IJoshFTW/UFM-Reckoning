@@ -44,8 +44,6 @@ public class SAXParser extends DefaultHandler {
 		xr.setErrorHandler(handler);
 
 		InputStream is = Class.class.getResourceAsStream(filename);
-		System.out.println("asdf " + is);
-		System.out.println("asdf " + filename);
 		try {
 			xr.parse(new InputSource(is));
 		} catch (IOException | NullPointerException e) {

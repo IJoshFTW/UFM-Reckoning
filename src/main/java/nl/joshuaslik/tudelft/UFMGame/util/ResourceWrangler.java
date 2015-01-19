@@ -30,7 +30,8 @@ public class ResourceWrangler {
 	 * @return
 	 */
 	public static URL getResource(String name) {
-		if (name.equals("/"))
+		name = name.replace("\\", "/");
+		if (name.endsWith("/"))
 			name = name.substring(0, name.length() - 1);
 		return Class.class.getResource(name);
 	}
@@ -47,13 +48,15 @@ public class ResourceWrangler {
 	 * @return
 	 */
 	public static InputStream getResourceAsStream(String name) {
-		if (name.equals("/"))
+		name = name.replace("\\", "/");
+		if (name.endsWith("/"))
 			name = name.substring(0, name.length() - 1);
 		return Class.class.getResourceAsStream(name);
 	}
 
 	public static ArrayList<String> listResourceFiles(String name) {
-		if (name.equals("/"))
+		name = name.replace("\\", "/");
+		if (name.endsWith("/"))
 			name = name.substring(0, name.length() - 1);
 		if (runFromJar()) {
 			name = name.substring(1);
@@ -77,17 +80,14 @@ public class ResourceWrangler {
 		}
 
 		// Code to list directories when not in a JAR
-		name = ClassLoader.getSystemResource("").getPath() + name;
+		String rootres = Class.class.getResource("/root").getPath();
+		name = rootres.substring(0, rootres.length() - 5) + name;
 		File folder = new File(name);
-		System.out.println(ClassLoader.getSystemResource("").getPath());
-		System.out.println(name);
-		System.out.println(folder);
 		List<File> filelist = Arrays.asList(folder.listFiles());
 		ArrayList<String> filenamelist = new ArrayList<String>();
 		for (int i = 0; i < filelist.size(); i++) {
 			if (filelist.get(i).isFile()) {
-				int cutpoint = ClassLoader.getSystemResource("").getPath()
-						.length() - 2;
+				int cutpoint = rootres.length() - 6;
 				filenamelist.add(filelist.get(i).getPath().substring(cutpoint));
 			}
 		}
@@ -95,7 +95,8 @@ public class ResourceWrangler {
 	}
 
 	public static ArrayList<String> listResourceDirectories(String name) {
-		if (name.equals("/"))
+		name = name.replace("\\", "/");
+		if (name.endsWith("/"))
 			name = name.substring(0, name.length() - 1);
 		if (runFromJar()) {
 			name = name.substring(1);
@@ -122,14 +123,14 @@ public class ResourceWrangler {
 		}
 
 		// Code to list directories when not in a JAR
-		name = ClassLoader.getSystemResource("").getPath() + name;
+		String rootres = Class.class.getResource("/root").getPath();
+		name = rootres.substring(0, rootres.length() - 5) + name;
 		File folder = new File(name);
 		List<File> filelist = Arrays.asList(folder.listFiles());
 		ArrayList<String> filenamelist = new ArrayList<String>();
 		for (int i = 0; i < filelist.size(); i++) {
-			if (filelist.get(i).isDirectory()) {
-				int cutpoint = ClassLoader.getSystemResource("").getPath()
-						.length() - 2;
+			if (filelist.get(i).isFile()) {
+				int cutpoint = rootres.length() - 6;
 				filenamelist.add(filelist.get(i).getPath().substring(cutpoint));
 			}
 		}
@@ -139,10 +140,10 @@ public class ResourceWrangler {
 	public static boolean runFromJar() {
 		URL testpath = ClassLoader.getSystemResource("");
 		if (testpath == null) {
-//			System.out.println("[ResourceWrangler] I am run from a jar");
+			// System.out.println("[ResourceWrangler] I am run from a jar");
 			return true;
 		}
-//		System.out.println("[ResourceWrangler] I am not run from a jar");
+		// System.out.println("[ResourceWrangler] I am not run from a jar");
 		return false;
 	}
 

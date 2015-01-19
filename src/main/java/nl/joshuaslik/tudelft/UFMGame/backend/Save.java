@@ -217,7 +217,6 @@ public class Save {
 		LinkedHashMap<String, Player> playerslist = new LinkedHashMap<String, Player>();
 		for (int i = 0; i < listofFiles.size(); i++) {
 			XMLFile file = SAXParser.parseFile(listofFiles.get(i));
-			System.out.println(listofFiles.get(i));
 			String id = file.getElement("PLAYER").getAttribute("id");
 			String last = file.getElement("PLAYER.NAME").getAttribute("last");
 			String first = file.getElement("PLAYER.NAME").getAttribute("first");
