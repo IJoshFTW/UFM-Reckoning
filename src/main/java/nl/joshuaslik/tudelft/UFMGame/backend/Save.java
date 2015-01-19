@@ -633,13 +633,7 @@ public class Save {
 			team.addPoints(Integer.parseInt(file
 					.getElement("savegame.users.user", i).getElement("team")
 					.getElement("points").getContent()));
-			if (file.getElement("savegame.users.user", i).getElement("team")
-					.getElement("teamcaptain").getContent() != null) {
-				team.setTeamCaptain(players.get(file
-						.getElement("savegame.users.user", i)
-						.getElement("team").getElement("teamcaptain")
-						.getContent()));
-			}
+			
 			for (int j = 1; j < file.getElement("savegame.users.user", i)
 					.getElement("team").getElement("players").elements() + 1; j++) {
 				team.addBenchPlayer(players.get(file
@@ -751,6 +745,13 @@ public class Save {
 									.getElement("team").getElement("formation")
 									.getElement("GK").getContent()));
 				}
+			}
+			if (file.getElement("savegame.users.user", i).getElement("team")
+					.getElement("teamcaptain").getContent() != null) {
+				team.setTeamCaptain(players.get(file
+						.getElement("savegame.users.user", i)
+						.getElement("team").getElement("teamcaptain")
+						.getContent()));
 			}
 			if (file.getElement("savegame.users.user", i).getElement("team")
 					.getElement("formation").getAttribute("name")
