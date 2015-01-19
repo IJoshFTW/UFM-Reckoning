@@ -1,9 +1,12 @@
 package nl.joshuaslik.tudelft.UFMGame;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.List;
 
 import nl.joshuaslik.tudelft.UFMGame.backend.Save;
 import nl.joshuaslik.tudelft.UFMGame.gui.Main;
@@ -89,6 +92,16 @@ public class App {
 			if (args[0].equals("appdatatest")) {
 				String saveloc = System.getenv("APPDATA") + "\\Ultimate Football Manager\\saves\\slot" + 1 + ".xml";
 				System.out.println(saveloc);
+			}
+			
+			if (args[0].equals("filelisttest")) {
+				String rootloc = ClassLoader.getSystemResource("root").getPath();
+				rootloc = rootloc.substring(0, rootloc.length() - 4);
+				System.out.println(rootloc);
+				File rootfolder = new File(rootloc);
+				List<File> filelist = Arrays.asList(rootfolder.listFiles());
+				System.out.println(filelist);
+//				new ZipFile();
 			}
 
 		} else {
