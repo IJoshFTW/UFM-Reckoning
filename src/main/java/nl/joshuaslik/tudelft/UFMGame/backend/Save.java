@@ -6,6 +6,7 @@ import java.util.LinkedHashMap;
 
 import nl.joshuaslik.tudelft.UFMGame.backend.exceptions.UnableToSaveException;
 import nl.joshuaslik.tudelft.UFMGame.backend.formation.Form343;
+import nl.joshuaslik.tudelft.UFMGame.backend.formation.Form433;
 import nl.joshuaslik.tudelft.UFMGame.util.xml.SAXParser;
 import nl.joshuaslik.tudelft.UFMGame.util.xml.XMLFile;
 import nl.joshuaslik.tudelft.UFMGame.util.xml.XMLTag;
@@ -395,10 +396,60 @@ public class Save {
 			// TODO Formation
 			Team team = user.getTeam();
 			XMLTag teamtag = new XMLTag("team");
+			
+			//add formation
 			XMLTag form = new XMLTag("formation");
 			form.addAttribute("name", user.getTeam().getFormation().getName());
+			if(user.getTeam().getFormation() instanceof Form433){
+				Form433 formation433 = (Form433) user.getTeam().getFormation();
+				XMLTag CB1 = new XMLTag("CB1");	
+				XMLTag CB2 = new XMLTag("CB2");	
+				XMLTag LB = new XMLTag("LB");	
+				XMLTag RB = new XMLTag("RB");	
+				XMLTag LM = new XMLTag("LM");	
+				XMLTag RM = new XMLTag("RM");			
+				XMLTag CM = new XMLTag("CM");			
+				XMLTag LW = new XMLTag("LW");				
+				XMLTag RW = new XMLTag("RW");
+				XMLTag ST = new XMLTag("ST");
+				
+				try{
+					CB1.setContent(formation433.getCB1().getID());
+					CB2.setContent(formation433.getCB1().getID());
+					LB.setContent(formation433.getLB().getID());
+					RB.setContent(formation433.getCB1().getID());
+					LM.setContent(formation433.getLM().getID());
+					RM.setContent(formation433.getRM().getID());
+					CM.setContent(formation433.getCM().getID());
+					LW.setContent(formation433.getLW().getID());
+					RW.setContent(formation433.getRW().getID());
+					ST.setContent(formation433.getST().getID());
+				}
+				catch(Exception e){
+					e.printStackTrace();
+				}
+				form.addElement(CB1);
+				form.addElement(CB2);
+				form.addElement(LB);
+				form.addElement(RB);
+				form.addElement(LM);
+				form.addElement(RM);
+				form.addElement(CM);
+				form.addElement(LW);
+				form.addElement(RW);
+				form.addElement(ST);
+			}
+			XMLTag GK = new XMLTag("GK");
+			try{
+				GK.setContent(user.getTeam().getFormation().getGoalkeper().getID());
+			}
+			catch(Exception e){
+				e.printStackTrace();
+			}
+			form.addElement(GK);
 			teamtag.addElement(form);
 
+			
 			// Add team players
 			ArrayList<Player> players = team.getAllPlayers();
 			XMLTag playerstag = new XMLTag("players");
