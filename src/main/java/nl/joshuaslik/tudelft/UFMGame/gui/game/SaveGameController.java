@@ -53,6 +53,11 @@ public class SaveGameController {
 	@FXML
 	protected void handleSlot1() throws IOException {
 		Save.saveGame(MainGame.game, 1);
+		FadeTransition ft = new FadeTransition(Duration.millis(900), page);
+		ft.setFromValue(0.97);
+		ft.setToValue(0.0);
+		ft.play();
+		popup.hide();
 	}
 	
 	/**
@@ -62,6 +67,11 @@ public class SaveGameController {
 	@FXML
 	protected void handleSlot2() throws IOException {
 		Save.saveGame(MainGame.game, 2);
+		FadeTransition ft = new FadeTransition(Duration.millis(900), page);
+		ft.setFromValue(0.97);
+		ft.setToValue(0.0);
+		ft.play();
+		popup.hide();
 	}
 	
 	/**
@@ -71,6 +81,11 @@ public class SaveGameController {
 	@FXML
 	protected void handleSlot3() throws IOException {
 		Save.saveGame(MainGame.game, 3);
+		FadeTransition ft = new FadeTransition(Duration.millis(900), page);
+		ft.setFromValue(0.97);
+		ft.setToValue(0.0);
+		ft.play();
+		popup.hide();
 	}
 	
 	
