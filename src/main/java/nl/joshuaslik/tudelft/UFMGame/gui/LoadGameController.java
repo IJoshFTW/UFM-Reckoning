@@ -1,12 +1,14 @@
 package nl.joshuaslik.tudelft.UFMGame.gui;
 
 import java.io.IOException;
+import java.util.LinkedHashMap;
 
 import nl.joshuaslik.tudelft.UFMGame.backend.Save;
 import nl.joshuaslik.tudelft.UFMGame.gui.game.MainGame;
 import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Popup;
 import javafx.util.Duration;
@@ -14,6 +16,9 @@ import javafx.util.Duration;
 public class LoadGameController {
 	private static Popup popup;
 	private static AnchorPane page;
+	@FXML
+	private Label username1, username2, username3;
+
 	
 	/**
 	 * THe start method to load the loadgame dialog
@@ -33,6 +38,21 @@ public class LoadGameController {
 		popup.getContent().add(page);
 		popup.show(Main.stage);
 	}
+	
+	@FXML
+	private void initialize(){
+		LinkedHashMap<Integer, String> usernames = Save.getUsernames();
+		if(usernames.get(1) != null){
+			username1.setText(usernames.get(1));
+		}
+		if(usernames.get(2) != null){
+			username2.setText(usernames.get(2));
+		}
+		if(usernames.get(3) != null){
+			username3.setText(usernames.get(3));
+		}
+	}
+	
 	
 	/**
 	 * handles when the return button is pressed
