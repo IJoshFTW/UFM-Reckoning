@@ -27,7 +27,7 @@
                         <VBox>
                            <children>
                               <Button id="btn_NewGame" fx:id="newgame" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleNewGame" styleClass="btn_StartGame" text="New Game" visible="false" />
-                              <Button id="btn_LoadGame" fx:id="loadgame" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="btn_StartGame" text="Load Game" visible="false" />
+                              <Button id="btn_LoadGame" fx:id="loadgame" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleLoadGame" styleClass="btn_StartGame" text="Load Game" visible="false" />
                            </children>
                         </VBox>
                      </children>

@@ -81,11 +81,12 @@ public class ControllerMainMenu {
 	/**
 	 * Handles clicking on the load game button
 	 * @param event that occurs after clicking on the button
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
 	 */
 	@FXML
-	protected void handleLoadGame(ActionEvent event) {
-		System.out.println("btn_LoadGame pressed");
-		System.out.println(event.getSource());
+	protected void handleLoadGame(ActionEvent event) throws IOException {
+		System.out.println("load game button pressed");
+		LoadGameController.start();
 
 	}
 

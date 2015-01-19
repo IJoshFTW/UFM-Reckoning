@@ -98,6 +98,15 @@ public class MainGameController {
 	protected void handleRanking() throws IOException {
 		RankingController.start();
 	}
+	
+	/**
+	 * handles clicking on the Save button
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
+	 */
+	@FXML
+	protected void handleSave() throws IOException {
+		SaveGameController.start();
+	}
 
 	/**
 	 * handles clicking on the otherteam button

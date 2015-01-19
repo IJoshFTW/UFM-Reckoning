@@ -18,7 +18,7 @@
             <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handlePlayrounds" prefHeight="67.0" prefWidth="225.0" styleClass="bottombarbutton" text="Playrounds" />
             <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleRanking" prefWidth="175.0" styleClass="bottombarbutton" text="Ranking" />
             <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleOtherTeams" prefWidth="240.0" styleClass="bottombarbutton" text="Other Teams" />
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="125.0" styleClass="bottombarbutton" text="Save" />
+            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleSave" prefWidth="125.0" styleClass="bottombarbutton" text="Save" />
             <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleQuitGame" prefWidth="125.0" styleClass="bottombarbutton" text="Quit" />
          </children>
          <padding>
