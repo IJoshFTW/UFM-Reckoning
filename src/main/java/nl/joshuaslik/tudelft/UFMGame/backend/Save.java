@@ -6,7 +6,10 @@ import java.util.LinkedHashMap;
 
 import nl.joshuaslik.tudelft.UFMGame.backend.exceptions.UnableToSaveException;
 import nl.joshuaslik.tudelft.UFMGame.backend.formation.Form343;
+import nl.joshuaslik.tudelft.UFMGame.backend.formation.Form4321;
 import nl.joshuaslik.tudelft.UFMGame.backend.formation.Form433;
+import nl.joshuaslik.tudelft.UFMGame.backend.formation.Form442;
+import nl.joshuaslik.tudelft.UFMGame.backend.formation.Form532;
 import nl.joshuaslik.tudelft.UFMGame.util.xml.SAXParser;
 import nl.joshuaslik.tudelft.UFMGame.util.xml.XMLFile;
 import nl.joshuaslik.tudelft.UFMGame.util.xml.XMLTag;
@@ -646,7 +649,6 @@ public class Save {
 		String saveloc = System.getenv("APPDATA")
 				+ "\\Ultimate Football Manager\\saves\\slot" + slot + ".xml";
 		XMLFile file = SAXParser.parseLocalFile(saveloc);
-		System.out.println(file.toString());
 
 		for (int i = 1; i < file.getElement("savegame.users").elements() + 1; i++) {
 			Team team = new Team(file.getElement("savegame.users.user", i)
@@ -691,138 +693,129 @@ public class Save {
 					.getElement("formation").getAttribute("name")
 					.equals("3-4-3")) {
 				Form343 form = new Form343(team);
+				team.changeFormationType(form);
 				if (file.getElement("savegame.users.user", i)
 						.getElement("team").getElement("formation")
 						.getElement("CB").getContent() != null) {
-					form.setCB((Fieldplayer) players.get(file
-							.getElement("savegame.users.user", i)
-							.getElement("team").getElement("formation")
-							.getElement("CB").getContent()));
-					team.setPlayerActive(players.get(file
-							.getElement("savegame.users.user", i)
-							.getElement("team").getElement("formation")
-							.getElement("CB").getContent()));
+					team.getFormation().setCB(
+							(Fieldplayer) players.get(file
+									.getElement("savegame.users.user", i)
+									.getElement("team").getElement("formation")
+									.getElement("CB").getContent()));
 				}
 				if (file.getElement("savegame.users.user", i)
 						.getElement("team").getElement("formation")
 						.getElement("RB").getContent() != null) {
-					form.setRB((Fieldplayer) players.get(file
-							.getElement("savegame.users.user", i)
-							.getElement("team").getElement("formation")
-							.getElement("RB").getContent()));
-					team.setPlayerActive(players.get(file
-							.getElement("savegame.users.user", i)
-							.getElement("team").getElement("formation")
-							.getElement("RB").getContent()));
+					team.getFormation().setRB(
+							(Fieldplayer) players.get(file
+									.getElement("savegame.users.user", i)
+									.getElement("team").getElement("formation")
+									.getElement("RB").getContent()));
 				}
 				if (file.getElement("savegame.users.user", i)
 						.getElement("team").getElement("formation")
 						.getElement("LB").getContent() != null) {
-					form.setLB((Fieldplayer) players.get(file
-							.getElement("savegame.users.user", i)
-							.getElement("team").getElement("formation")
-							.getElement("LB").getContent()));
-					team.setPlayerActive(players.get(file
-							.getElement("savegame.users.user", i)
-							.getElement("team").getElement("formation")
-							.getElement("LB").getContent()));
+					team.getFormation().setLB(
+							(Fieldplayer) players.get(file
+									.getElement("savegame.users.user", i)
+									.getElement("team").getElement("formation")
+									.getElement("LB").getContent()));
 				}
 				if (file.getElement("savegame.users.user", i)
 						.getElement("team").getElement("formation")
 						.getElement("LM").getContent() != null) {
-					form.setLM((Fieldplayer) players.get(file
-							.getElement("savegame.users.user", i)
-							.getElement("team").getElement("formation")
-							.getElement("LM").getContent()));
-					team.setPlayerActive(players.get(file
-							.getElement("savegame.users.user", i)
-							.getElement("team").getElement("formation")
-							.getElement("LM").getContent()));
+					team.getFormation().setLM(
+							(Fieldplayer) players.get(file
+									.getElement("savegame.users.user", i)
+									.getElement("team").getElement("formation")
+									.getElement("LM").getContent()));
 				}
 				if (file.getElement("savegame.users.user", i)
 						.getElement("team").getElement("formation")
 						.getElement("RM").getContent() != null) {
-					form.setRM((Fieldplayer) players.get(file
-							.getElement("savegame.users.user", i)
-							.getElement("team").getElement("formation")
-							.getElement("RM").getContent()));
-					team.setPlayerActive(players.get(file
-							.getElement("savegame.users.user", i)
-							.getElement("team").getElement("formation")
-							.getElement("RM").getContent()));
+					team.getFormation().setRM(
+							(Fieldplayer) players.get(file
+									.getElement("savegame.users.user", i)
+									.getElement("team").getElement("formation")
+									.getElement("RM").getContent()));
 				}
 				if (file.getElement("savegame.users.user", i)
 						.getElement("team").getElement("formation")
 						.getElement("CM1").getContent() != null) {
-					form.setCM1((Fieldplayer) players.get(file
-							.getElement("savegame.users.user", i)
-							.getElement("team").getElement("formation")
-							.getElement("CM1").getContent()));
-					team.setPlayerActive(players.get(file
-							.getElement("savegame.users.user", i)
-							.getElement("team").getElement("formation")
-							.getElement("CM1").getContent()));
+					team.getFormation().setCM1(
+							(Fieldplayer) players.get(file
+									.getElement("savegame.users.user", i)
+									.getElement("team").getElement("formation")
+									.getElement("CM1").getContent()));
 				}
 				if (file.getElement("savegame.users.user", i)
 						.getElement("team").getElement("formation")
 						.getElement("CM2").getContent() != null) {
-					form.setCM2((Fieldplayer) players.get(file
-							.getElement("savegame.users.user", i)
-							.getElement("team").getElement("formation")
-							.getElement("CM2").getContent()));
-					team.setPlayerActive(players.get(file
-							.getElement("savegame.users.user", i)
-							.getElement("team").getElement("formation")
-							.getElement("CM2").getContent()));
+					team.getFormation().setCM2(
+							(Fieldplayer) players.get(file
+									.getElement("savegame.users.user", i)
+									.getElement("team").getElement("formation")
+									.getElement("CM2").getContent()));
 				}
 				if (file.getElement("savegame.users.user", i)
 						.getElement("team").getElement("formation")
 						.getElement("RW").getContent() != null) {
-					form.setRW((Fieldplayer) players.get(file
-							.getElement("savegame.users.user", i)
-							.getElement("team").getElement("formation")
-							.getElement("RW").getContent()));
-					team.setPlayerActive(players.get(file
-							.getElement("savegame.users.user", i)
-							.getElement("team").getElement("formation")
-							.getElement("RW").getContent()));
+					team.getFormation().setRW(
+							(Fieldplayer) players.get(file
+									.getElement("savegame.users.user", i)
+									.getElement("team").getElement("formation")
+									.getElement("RW").getContent()));
 				}
 				if (file.getElement("savegame.users.user", i)
 						.getElement("team").getElement("formation")
 						.getElement("LW").getContent() != null) {
-					form.setLW((Fieldplayer) players.get(file
-							.getElement("savegame.users.user", i)
-							.getElement("team").getElement("formation")
-							.getElement("LW").getContent()));
-					team.setPlayerActive(players.get(file
-							.getElement("savegame.users.user", i)
-							.getElement("team").getElement("formation")
-							.getElement("LW").getContent()));
+					team.getFormation().setLW(
+							(Fieldplayer) players.get(file
+									.getElement("savegame.users.user", i)
+									.getElement("team").getElement("formation")
+									.getElement("LW").getContent()));
 				}
 				if (file.getElement("savegame.users.user", i)
 						.getElement("team").getElement("formation")
 						.getElement("ST").getContent() != null) {
-					form.setST((Fieldplayer) players.get(file
-							.getElement("savegame.users.user", i)
-							.getElement("team").getElement("formation")
-							.getElement("ST").getContent()));
-					team.setPlayerActive(players.get(file
-							.getElement("savegame.users.user", i)
-							.getElement("team").getElement("formation")
-							.getElement("ST").getContent()));
+					team.getFormation().setST(
+							(Fieldplayer) players.get(file
+									.getElement("savegame.users.user", i)
+									.getElement("team").getElement("formation")
+									.getElement("ST").getContent()));
 				}
 				if (file.getElement("savegame.users.user", i)
 						.getElement("team").getElement("formation")
 						.getElement("GK").getContent() != null) {
-					form.setGoalkeeper((Goalkeeper) players.get(file
-							.getElement("savegame.users.user", i)
-							.getElement("team").getElement("formation")
-							.getElement("GK").getContent()));
-					team.setPlayerActive(players.get(file
-							.getElement("savegame.users.user", i)
-							.getElement("team").getElement("formation")
-							.getElement("GK").getContent()));
+					team.getFormation().setGoalkeeper(
+							(Goalkeeper) players.get(file
+									.getElement("savegame.users.user", i)
+									.getElement("team").getElement("formation")
+									.getElement("GK").getContent()));
 				}
+			}
+			if (file.getElement("savegame.users.user", i).getElement("team")
+					.getElement("formation").getAttribute("name")
+					.equals("4-3-3")) {
+				Form433 form = new Form433(team);
+				team.changeFormationType(form);
+			}
+			if (file.getElement("savegame.users.user", i).getElement("team")
+					.getElement("formation").getAttribute("name")
+					.equals("4-3-2-1")) {
+				Form4321 form = new Form4321(team);
+				team.changeFormationType(form);
+			}
+			if (file.getElement("savegame.users.user", i).getElement("team")
+					.getElement("formation").getAttribute("name")
+					.equals("4-4-2")) {
+				Form442 form = new Form442(team);
+				team.changeFormationType(form);
+			}
+			if (file.getElement("savegame.users.user", i).getElement("team")
+					.getElement("formation").getAttribute("name")
+					.equals("5-3-2")) {
+				Form532 form = new Form532(team);
 				team.changeFormationType(form);
 			}
 
