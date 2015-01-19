@@ -138,8 +138,6 @@ public class XMLFile {
 		apath = apath.substring(0, apath.lastIndexOf('/'));
 		File file = new File(apath);
 		file.mkdirs();
-		System.out.println(location);
-		System.out.println(apath);
 	}
 
 }
