@@ -32,9 +32,11 @@ public class SaveTest {
 	 */
 	@Test
 	public void testnewGame() {
+		System.out.println("testNewGame()");
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
 
 		assertEquals(Save.newGame(team1, "Bryan").getUsers().size(), 18);
+		System.out.println("testNewGame() </>");
 	}
 
 	/**
