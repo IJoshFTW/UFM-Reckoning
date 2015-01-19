@@ -4,7 +4,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
-import nl.joshuaslik.tudelft.UFMGame.backend.exceptions.UnableToSaveException;
 import nl.joshuaslik.tudelft.UFMGame.backend.formation.Form343;
 import nl.joshuaslik.tudelft.UFMGame.backend.formation.Form4321;
 import nl.joshuaslik.tudelft.UFMGame.backend.formation.Form433;
