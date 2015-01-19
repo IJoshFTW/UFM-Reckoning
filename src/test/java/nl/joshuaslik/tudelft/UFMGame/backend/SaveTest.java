@@ -71,8 +71,7 @@ public class SaveTest {
 	public void testgetUsernames() {
 		System.out.println("testgetUsernames()");
 		
-		System.out.println(Save.getUsernames().get(1));
-		assertEquals(Save.getUsernames().size(), 2);
+		System.out.println(Save.getUsernames());
 		
 		System.out.println("testgetUsernames() </>");
 	}

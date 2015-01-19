@@ -81,15 +81,15 @@ public class ResourceWrangler {
 
 		// Code to list directories when not in a JAR
 		String rootres = Class.class.getResource("/root").getPath();
-		System.out.println("Root: " + rootres);
-		System.out.println("Name: " + name);
+//		System.out.println("Root: " + rootres);
+//		System.out.println("Name: " + name);
 		name = rootres.substring(0, rootres.length() - 5) + name;
-		System.out.println("Finl: " + name);
+//		System.out.println("Finl: " + name);
 		File folder = new File(name);
-		System.out.println(folder);
+//		System.out.println(folder);
 		List<File> filelist = Arrays.asList(folder.listFiles());
-		System.out.println(folder.listFiles());
-		System.out.println(folder.listFiles()[0].toURI());
+//		System.out.println(folder.listFiles());
+//		System.out.println(folder.listFiles()[0].toURI());
 		ArrayList<String> filenamelist = new ArrayList<String>();
 		for (int i = 0; i < filelist.size(); i++) {
 			if (filelist.get(i).isFile()) {
