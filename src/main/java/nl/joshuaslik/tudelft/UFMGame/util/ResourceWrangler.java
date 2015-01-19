@@ -96,7 +96,7 @@ public class ResourceWrangler {
 				String filename = filelist.get(i).toURI().toString();
 				filename = filename.replace("\\", "/");
 				filenamelist.add(filename.substring(rootres.length()));
-				System.out.println("Added: " + filename.substring(rootres.length()));
+//				System.out.println("Added: " + filename.substring(rootres.length()));
 			}
 		}
 		return filenamelist;
