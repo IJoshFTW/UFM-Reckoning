@@ -6,6 +6,8 @@ import java.util.LinkedHashMap;
 import nl.joshuaslik.tudelft.UFMGame.backend.Save;
 import nl.joshuaslik.tudelft.UFMGame.gui.Main;
 import javafx.animation.FadeTransition;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -53,6 +55,7 @@ public class SaveGameController {
 		ft.play();
 		page.setOpacity(0.85);
 		popup = new Popup();
+		popup.setAutoHide(true);
 		popup.getContent().add(page);
 		popup.show(Main.stage);
 	}
@@ -66,7 +69,11 @@ public class SaveGameController {
 		ft.setFromValue(0.97);
 		ft.setToValue(0.0);
 		ft.play();
-		popup.hide();
+		ft.setOnFinished(new EventHandler<ActionEvent>() {
+		    public void handle(ActionEvent actionevent) {
+		    		popup.hide(); 
+		    	}
+		 });
 	}
 	
 	private void saveGame(int slot){
@@ -75,7 +82,11 @@ public class SaveGameController {
 			ft.setFromValue(0.97);
 			ft.setToValue(0.0);
 			ft.play();
-			popup.hide();
+			ft.setOnFinished(new EventHandler<ActionEvent>() {
+    		    public void handle(ActionEvent actionevent) {
+    		    		popup.hide(); 
+    		    	}
+    		 });
 			try {
 				OverwriteController.start(slot);
 			} catch (IOException e) {
@@ -88,7 +99,11 @@ public class SaveGameController {
 			ft.setFromValue(0.97);
 			ft.setToValue(0.0);
 			ft.play();
-			popup.hide();
+			ft.setOnFinished(new EventHandler<ActionEvent>() {
+    		    public void handle(ActionEvent actionevent) {
+    		    		popup.hide(); 
+    		    	}
+    		 });
 		}
 	}
 

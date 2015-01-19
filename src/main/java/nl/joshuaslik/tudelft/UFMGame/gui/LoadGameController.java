@@ -6,6 +6,8 @@ import java.util.LinkedHashMap;
 import nl.joshuaslik.tudelft.UFMGame.backend.Save;
 import nl.joshuaslik.tudelft.UFMGame.gui.game.MainGame;
 import javafx.animation.FadeTransition;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -36,12 +38,17 @@ public class LoadGameController {
 		ft.setFromValue(0.0);
 		ft.setToValue(0.97);
 		ft.play();
+		
 		page.setOpacity(0.85);
 		popup = new Popup();
+		popup.setAutoHide(true);
 		popup.getContent().add(page);
 		popup.show(Main.stage);
 	}
 	
+	/**
+	 * Initialize the loadGame dialog
+	 */
 	@FXML
 	private void initialize(){
 		LinkedHashMap<Integer, String> usernames = Save.getUsernames();
@@ -69,7 +76,11 @@ public class LoadGameController {
 		ft.setFromValue(0.97);
 		ft.setToValue(0.0);
 		ft.play();
-		popup.hide();
+		ft.setOnFinished(new EventHandler<ActionEvent>() {
+		    public void handle(ActionEvent actionevent) {
+		    		popup.hide(); 
+		    	}
+		 });
 	}
 
 	/**
@@ -84,7 +95,11 @@ public class LoadGameController {
 		ft.setFromValue(0.97);
 		ft.setToValue(0.0);
 		ft.play();
-		popup.hide();
+		ft.setOnFinished(new EventHandler<ActionEvent>() {
+		    public void handle(ActionEvent actionevent) {
+		    		popup.hide(); 
+		    	}
+		 });
 	}
 	
 	/**
@@ -99,7 +114,11 @@ public class LoadGameController {
 		ft.setFromValue(0.97);
 		ft.setToValue(0.0);
 		ft.play();
-		popup.hide();
+		ft.setOnFinished(new EventHandler<ActionEvent>() {
+		    public void handle(ActionEvent actionevent) {
+		    		popup.hide(); 
+		    	}
+		 });
 	}
 	
 	/**
@@ -114,7 +133,11 @@ public class LoadGameController {
 		ft.setFromValue(0.97);
 		ft.setToValue(0.0);
 		ft.play();
-		popup.hide();
+		ft.setOnFinished(new EventHandler<ActionEvent>() {
+		    public void handle(ActionEvent actionevent) {
+		    		popup.hide(); 
+		    	}
+		 });
 	}
 	
 	
