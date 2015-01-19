@@ -293,5 +293,13 @@ public class Game {
 	public int getCurrentRound() {
 		return currentround;
 	}
+	
+	/**
+	 * Sets the currentround
+	 * @param round that the currentround must be
+	 */
+	public void setCurrentRound(int round){
+		currentround = round;
+	}
 
 }

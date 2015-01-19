@@ -379,62 +379,149 @@ public class Save {
 	public static void saveGame(Game game, int SaveSlot) {
 		ArrayList<User> userlist = game.getUsers();
 		XMLTag root = new XMLTag("savegame");
-
+		XMLTag currentround = new XMLTag("currentround");
+		currentround.setContent(Integer.toString(game.getCurrentRound()));
+		root.addElement(currentround);
+		XMLTag playrounds = new XMLTag("playrounds");
+		for(int i = 0; i < game.getCompetition().getPlayrounds().size(); i++){
+			Playround round = game.getCompetition().getPlayrounds().get(i);
+			XMLTag playround = new XMLTag("playround");
+			playround.addAttribute("nr", Integer.toString(round.getPlayroundnr()));
+			for(int j = 0; j < round.getMatches().size(); j++){
+				Match match = round.getMatches().get(j);
+				XMLTag matchtag = new XMLTag("match");
+				
+				XMLTag hometeam = new XMLTag("hometeam");
+				hometeam.setContent(match.getHomeTeam().getid());
+				matchtag.addElement(hometeam);
+				
+				XMLTag awayteam = new XMLTag("awayteam");
+				awayteam.setContent(match.getAwayTeam().getid());
+				matchtag.addElement(awayteam);
+				
+				XMLTag winner = new XMLTag("winner");
+				winner.setContent(match.getWinner().getid());
+				matchtag.addElement(winner);
+				
+				XMLTag loser = new XMLTag("loser");
+				loser.setContent(match.getLoser().getid());
+				matchtag.addElement(loser);
+				
+				XMLTag homegoals = new XMLTag("homegoals");
+				homegoals.setContent(Integer.toString(match.getHomegoals()));
+				matchtag.addElement(homegoals);
+				
+				XMLTag awaygoals = new XMLTag("awaygoals");
+				awaygoals.setContent(Integer.toString(match.getAwaygoals()));
+				matchtag.addElement(awaygoals);
+				
+				matchtag.addAttribute("nr", Integer.toString(match.getPlayround()));
+				playround.addElement(matchtag);
+			}
+			playrounds.addElement(playround);
+		}
+		root.addElement(playrounds);
+		game.getCompetition().getPlayrounds();
 		// TODO Save game specific variables
 
 		XMLTag users = new XMLTag("users");
 
 		// Add all users
 		for (int i = 0; i < userlist.size(); i++) {
-			// TODO Distinguish between Human and PC
 			User user = userlist.get(i);
 			LinkedHashMap<String, String> atts = new LinkedHashMap<String, String>();
 			atts.put("username", user.getUserName());
 			atts.put("budget", Integer.toString(user.getBudget()));
+			if(user instanceof Human){
+				atts.put("type", "human");
+			}
+			else{
+				atts.put("type", "PC");
+			}
 
 			// Add team formation
 			// TODO Formation
 			Team team = user.getTeam();
-			XMLTag teamtag = new XMLTag("team");
+			
+			LinkedHashMap<String, String> attsteam = new LinkedHashMap<String, String>();
+			attsteam.put("coach", team.getCoachName());
+			attsteam.put("id", team.getid());
+			attsteam.put("name", team.getTeamName());
+			XMLTag teamtag = new XMLTag("team", attsteam);
 			
 			//add formation
 			XMLTag form = new XMLTag("formation");
 			form.addAttribute("name", user.getTeam().getFormation().getName());
-			if(user.getTeam().getFormation() instanceof Form433){
-				Form433 formation433 = (Form433) user.getTeam().getFormation();
-				XMLTag CB1 = new XMLTag("CB1");	
-				XMLTag CB2 = new XMLTag("CB2");	
+			if(user.getTeam().getFormation() instanceof Form343){
+				Form343 formation343 = (Form343) user.getTeam().getFormation();
+				XMLTag CB = new XMLTag("CB");	
 				XMLTag LB = new XMLTag("LB");	
 				XMLTag RB = new XMLTag("RB");	
 				XMLTag LM = new XMLTag("LM");	
 				XMLTag RM = new XMLTag("RM");			
-				XMLTag CM = new XMLTag("CM");			
+				XMLTag CM1 = new XMLTag("CM1");
+				XMLTag CM2 = new XMLTag("CM2");
 				XMLTag LW = new XMLTag("LW");				
 				XMLTag RW = new XMLTag("RW");
 				XMLTag ST = new XMLTag("ST");
 				
 				try{
-					CB1.setContent(formation433.getCB1().getID());
-					CB2.setContent(formation433.getCB1().getID());
-					LB.setContent(formation433.getLB().getID());
-					RB.setContent(formation433.getCB1().getID());
-					LM.setContent(formation433.getLM().getID());
-					RM.setContent(formation433.getRM().getID());
-					CM.setContent(formation433.getCM().getID());
-					LW.setContent(formation433.getLW().getID());
-					RW.setContent(formation433.getRW().getID());
-					ST.setContent(formation433.getST().getID());
-				}
-				catch(Exception e){
+					CB.setContent(formation343.getCB().getID());
+				} catch(Exception e){
 					e.printStackTrace();
 				}
-				form.addElement(CB1);
-				form.addElement(CB2);
+				try{
+					LB.setContent(formation343.getLB().getID());
+				} catch(Exception e){
+					
+				}
+				try{
+					RB.setContent(formation343.getRB().getID());
+				} catch(Exception e){
+					e.printStackTrace();
+				}
+				try{
+					LM.setContent(formation343.getLM().getID());
+				} catch(Exception e){
+					
+				}
+				try{
+					RM.setContent(formation343.getRM().getID());
+				} catch(Exception e){
+					e.printStackTrace();
+				}
+				try{
+					CM1.setContent(formation343.getCM1().getID());
+				} catch(Exception e){
+				
+				}
+				try{
+					CM2.setContent(formation343.getCM2().getID());
+				} catch(Exception e){
+					e.printStackTrace();
+				}
+				try{
+					LW.setContent(formation343.getLW().getID());
+				} catch(Exception e){
+					
+				}
+				try{
+					RW.setContent(formation343.getRW().getID());
+				} catch(Exception e) {
+					e.printStackTrace();
+				}
+				try{
+					ST.setContent(formation343.getST().getID());
+				}catch(Exception e){
+					e.printStackTrace();
+				}
+				form.addElement(CB);
 				form.addElement(LB);
 				form.addElement(RB);
 				form.addElement(LM);
 				form.addElement(RM);
-				form.addElement(CM);
+				form.addElement(CM1);
+				form.addElement(CM2);
 				form.addElement(LW);
 				form.addElement(RW);
 				form.addElement(ST);
@@ -442,8 +529,7 @@ public class Save {
 			XMLTag GK = new XMLTag("GK");
 			try{
 				GK.setContent(user.getTeam().getFormation().getGoalkeper().getID());
-			}
-			catch(Exception e){
+			}catch(Exception e){
 				e.printStackTrace();
 			}
 			form.addElement(GK);
@@ -458,68 +544,102 @@ public class Save {
 				XMLTag playertag = new XMLTag("player");
 				playertag.addAttribute("id", player.getID());
 
-				XMLTag name = new XMLTag("name");
-				name.addAttribute("first", player.getFirstName());
-				name.addAttribute("last", player.getLastName());
-				playertag.addElement(name);
+				// This information is in every player file and doesn't change during the game
+				
+				//XMLTag name = new XMLTag("name");
+				//name.addAttribute("first", player.getFirstName());
+				//name.addAttribute("last", player.getLastName());
+				//playertag.addElement(name);
 
-				XMLTag country = new XMLTag("country");
-				country.setContent(player.getCountry());
-				playertag.addElement(country);
+				
+				//XMLTag country = new XMLTag("country");
+				//country.setContent(player.getCountry());
+				//playertag.addElement(country);
 
-				// TODO Where is type?
+				
 
-				if (player instanceof Fieldplayer) {
-					Fieldplayer fplayer = (Fieldplayer) player;
+				//if (player instanceof Fieldplayer) {
+				//	Fieldplayer fplayer = (Fieldplayer) player;
 
-					XMLTag pos = new XMLTag("pos");
-					pos.setContent(fplayer.getPosition());
-					playertag.addElement(pos);
-				} else if (player instanceof Goalkeeper) {
-					Goalkeeper gplayer = (Goalkeeper) player;
-					XMLTag pos = new XMLTag("pos");
-					pos.setContent(gplayer.getPosition());
-					playertag.addElement(pos);
-				} else {
-					throw new UnableToSaveException(
-							"Player did not match any known type");
-				}
+				//	XMLTag pos = new XMLTag("pos");
+				//	pos.setContent(fplayer.getPosition());
+				//	playertag.addElement(pos);
+				//} else if (player instanceof Goalkeeper) {
+				//	Goalkeeper gplayer = (Goalkeeper) player;
+				//	XMLTag pos = new XMLTag("pos");
+				//	pos.setContent(gplayer.getPosition());
+				// 	playertag.addElement(pos);
+				//} else {
+				//	throw new UnableToSaveException(
+				//			"Player did not match any known type");
+				//}
 
-				XMLTag stats = new XMLTag("stats");
-				if (player instanceof Fieldplayer) {
-					Fieldplayer fplayer = (Fieldplayer) player;
-					XMLTag att = new XMLTag("att");
-					att.setContent(Integer.toString(fplayer.getAttackPower()));
-					XMLTag def = new XMLTag("def");
-					def.setContent(Integer.toString(fplayer.getDefencePower()));
-					XMLTag sta = new XMLTag("sta");
-					sta.setContent(Integer.toString(fplayer.getStamina()));
-					stats.addElement(att);
-					stats.addElement(def);
-					stats.addElement(sta);
-				} else if (player instanceof Goalkeeper) {
-					Goalkeeper gplayer = (Goalkeeper) player;
-					XMLTag div = new XMLTag("div");
-					div.setContent(Integer.toString(gplayer.getDiving()));
-					XMLTag pos = new XMLTag("pos");
-					pos.setContent(Integer.toString(gplayer.getPositioning()));
-					XMLTag ref = new XMLTag("ref");
-					ref.setContent(Integer.toString(gplayer.getReflexes()));
-					stats.addElement(div);
-					stats.addElement(pos);
-					stats.addElement(ref);
-				} else {
-					throw new UnableToSaveException(
-							"Player did not match any known type");
-				}
-				playertag.addElement(stats);
+				//XMLTag stats = new XMLTag("stats");
+				//if (player instanceof Fieldplayer) {
+				//	Fieldplayer fplayer = (Fieldplayer) player;
+				//	XMLTag att = new XMLTag("att");
+				//	att.setContent(Integer.toString(fplayer.getAttackPower()));
+				//	XMLTag def = new XMLTag("def");
+				//	def.setContent(Integer.toString(fplayer.getDefencePower()));
+				//	XMLTag sta = new XMLTag("sta");
+				//	sta.setContent(Integer.toString(fplayer.getStamina()));
+				//	stats.addElement(att);
+				//	stats.addElement(def);
+				//	stats.addElement(sta);
+				//} else if (player instanceof Goalkeeper) {
+				//	Goalkeeper gplayer = (Goalkeeper) player;
+				//	XMLTag div = new XMLTag("div");
+				//	div.setContent(Integer.toString(gplayer.getDiving()));
+				//	XMLTag pos = new XMLTag("pos");
+				//	pos.setContent(Integer.toString(gplayer.getPositioning()));
+				//	XMLTag ref = new XMLTag("ref");
+				//	ref.setContent(Integer.toString(gplayer.getReflexes()));
+				//	stats.addElement(div);
+				//	stats.addElement(pos);
+				//	stats.addElement(ref);
+				//} else {
+				//	throw new UnableToSaveException(
+				//			"Player did not match any known type");
+				//}
+				//playertag.addElement(stats);
 
-				XMLTag price = new XMLTag("tprice");
-				price.setContent(Integer.toString(player.getPrice()));
-				playertag.addElement(price);
+				//XMLTag price = new XMLTag("tprice");
+				//price.setContent(Integer.toString(player.getPrice()));
+				//playertag.addElement(price);
+				
+				playerstag.addElement(playertag);
 			}
 
 			teamtag.addElement(playerstag);
+			
+			XMLTag  teamcaptain = new XMLTag("teamcaptain");
+			teamcaptain.setContent(team.getTeamCaptain().getID());
+			teamtag.addElement(teamcaptain);
+			
+			XMLTag  goals = new XMLTag("totalgoals");
+			goals.setContent(Integer.toString(team.getTotalGoals()));
+			teamtag.addElement(goals);
+			
+			XMLTag  goalsagainst = new XMLTag("goalsagainst");
+			goalsagainst.setContent(Integer.toString(team.getGoalsAgainst()));
+			teamtag.addElement(goalsagainst);
+			
+			XMLTag  points = new XMLTag("points");
+			points.setContent(Integer.toString(team.getPoints()));
+			teamtag.addElement(points);
+			
+			XMLTag  totallosses = new XMLTag("totallosses");
+			totallosses.setContent(Integer.toString(team.getTotalLosses()));
+			teamtag.addElement(totallosses);
+			
+			XMLTag  totalwins = new XMLTag("totalwins");
+			totalwins.setContent(Integer.toString(team.getTotalWins()));
+			teamtag.addElement(totalwins);
+			
+			XMLTag  totaldraws = new XMLTag("totaldraws");
+			totaldraws.setContent(Integer.toString(team.getTotalDraws()));
+			teamtag.addElement(totaldraws);
+		
 
 			XMLTag usertag = new XMLTag("user", atts);
 			usertag.addElement(teamtag);
@@ -528,9 +648,100 @@ public class Save {
 		root.addElement(users);
 	}
 
-	
-	public static Game loadGame() {
-		Game game = new Game(new ArrayList<User>());
+
+	public static Game loadGame(int saveslot) {
+		LinkedHashMap<String, Player> players = loadPlayers();
+		ArrayList<User> users = new ArrayList<User>();
+		
+		//TODO set the locaction to load the game from
+		XMLFile file = SAXParser.parseFile("/save/");
+		
+		for (int i = 1; i < file.getElement("savegame.users").elements(); i++) {
+			Team team = new Team(file.getElement("savegame.users.user", i).getElement("team").getAttribute("id"), 
+					file.getElement("savegame.users.user", i).getElement("team").getAttribute("name"),
+					file.getElement("savegame.users.user", i).getElement("team").getAttribute("coach"));
+			team.addGoals(Integer.parseInt(file.getElement("savegame.users.user", i).getElement("team").getElement("totalgoals").getContent()));
+			team.addGoalsAgainst(Integer.parseInt(file.getElement("savegame.users.user", i).getElement("team").getElement("goalsagainst").getContent()));
+			team.setTotalDraws(Integer.parseInt(file.getElement("savegame.users.user", i).getElement("team").getElement("totaldraws").getContent()));
+			team.setTotalWins(Integer.parseInt(file.getElement("savegame.users.user", i).getElement("team").getElement("totalwins").getContent()));
+			team.setTotalLosses(Integer.parseInt(file.getElement("savegame.users.user", i).getElement("team").getElement("totallosses").getContent()));
+			team.addPoints(Integer.parseInt(file.getElement("savegame.users.user", i).getElement("team").getElement("points").getContent()));
+			team.setTeamCaptain(players.get(file.getElement("savegame.users.user", i).getElement("team").getElement("teamcaptain").getContent()));
+			for(int j = 1; j < file.getElement("savegame.users.user", i).getElement("team.players").elements(); j++){
+				team.addBenchPlayer(players.get(file.getElement("savegame.users.user", i).getElement("team.players.player", j).getAttribute("id")));
+			}
+			if(file.getElement("savegame.users.user", i).getElement("team.formation").getAttribute("name").equals("3-4-3")){
+				Form343 form = new Form343(team);
+				if(file.getElement("savegame.users.user", i).getElement("team.formation").getElement("CB").getContent() != ""){
+					form.setCB((Fieldplayer)players.get(file.getElement("savegame.users.user", i).getElement("team.formation").getElement("CB").getContent()));
+				}
+				if(file.getElement("savegame.users.user", i).getElement("team.formation").getElement("RB").getContent() != ""){
+					form.setRB((Fieldplayer)players.get(file.getElement("savegame.users.user", i).getElement("team.formation").getElement("RB").getContent()));
+				}
+				if(file.getElement("savegame.users.user", i).getElement("team.formation").getElement("LB").getContent() != ""){
+					form.setLB((Fieldplayer)players.get(file.getElement("savegame.users.user", i).getElement("team.formation").getElement("LB").getContent()));
+				}
+				if(file.getElement("savegame.users.user", i).getElement("team.formation").getElement("LM").getContent() != ""){
+					form.setLM((Fieldplayer)players.get(file.getElement("savegame.users.user", i).getElement("team.formation").getElement("LM").getContent()));
+				}
+				if(file.getElement("savegame.users.user", i).getElement("team.formation").getElement("RM").getContent() != ""){
+					form.setRM((Fieldplayer)players.get(file.getElement("savegame.users.user", i).getElement("team.formation").getElement("RM").getContent()));
+				}
+				if(file.getElement("savegame.users.user", i).getElement("team.formation").getElement("CM1").getContent() != ""){
+					form.setCM1((Fieldplayer)players.get(file.getElement("savegame.users.user", i).getElement("team.formation").getElement("CM1").getContent()));
+				}
+				if(file.getElement("savegame.users.user", i).getElement("team.formation").getElement("CM2").getContent() != ""){
+					form.setCM2((Fieldplayer)players.get(file.getElement("savegame.users.user", i).getElement("team.formation").getElement("CM2").getContent()));
+				}
+				if(file.getElement("savegame.users.user", i).getElement("team.formation").getElement("RW").getContent() != ""){
+					form.setRW((Fieldplayer)players.get(file.getElement("savegame.users.user", i).getElement("team.formation").getElement("RW").getContent()));
+				}
+				if(file.getElement("savegame.users.user", i).getElement("team.formation").getElement("LW").getContent() != ""){
+					form.setLW((Fieldplayer)players.get(file.getElement("savegame.users.user", i).getElement("team.formation").getElement("LW").getContent()));
+				}
+				if(file.getElement("savegame.users.user", i).getElement("team.formation").getElement("ST").getContent() != ""){
+					form.setST((Fieldplayer)players.get(file.getElement("savegame.users.user", i).getElement("team.formation").getElement("ST").getContent()));
+				}
+				if(file.getElement("savegame.users.user", i).getElement("team.formation").getElement("GK").getContent() != ""){
+					form.setGoalkeeper((Goalkeeper)players.get(file.getElement("savegame.users.user", i).getElement("team.formation").getElement("GK").getContent()));
+				}
+				team.changeFormationType(form);		
+			}
+		
+			
+			if(file.getElement("savegame.users.user", i).getAttribute("type").equals("PC")){
+				PC pc = new PC(team, file.getElement("savegame.users.user", i).getAttribute("username"), Integer.parseInt(file.getElement("savegame.users.user", i).getAttribute("budget")));
+				users.add(pc);
+			}
+			else if(file.getElement("savegame.users.user", i).getAttribute("type").equals("human")){
+				Human human = new Human(team, file.getElement("savegame.users.user", i).getAttribute("username"), Integer.parseInt(file.getElement("savegame.users.user", i).getAttribute("budget")));
+				users.add(human);
+			}
+		}
+		
+		Game game = new Game(users);
+		ArrayList<Playround> playrounds = new ArrayList<Playround>();
+		for(int i = 1; i < file.getElement("savegame.playrounds").elements(); i++){
+			Playround playround = new Playround();
+			playround.setPlayroundnr(Integer.parseInt(file.getElement("savegame.playrounds.playround", i).getAttribute("nr")));
+			for(int j = 1; j < file.getElement("savegame.playrounds.playround", i).getElement("match").elements(); j++){
+				Match match = new Match(game.getTeam(file.getElement("savegame.playrounds.playround", i).getElement("match.hometeam").getContent()),game.getTeam(file.getElement("savegame.playrounds.playround", i).getElement("match.awayteam").getContent()));
+				match.setHomegoals(Integer.parseInt(file.getElement("savegame.playrounds.playround", i).getElement("match.homegoals").getContent()));
+				match.setHomegoals(Integer.parseInt(file.getElement("savegame.playrounds.playround", i).getElement("match.awaygoals").getContent()));
+				if(file.getElement("savegame.playrounds.playround", i).getElement("match.winner").getContent()!= ""){
+					match.setWinner(game.getTeam(file.getElement("savegame.playrounds.playround", i).getElement("match.winner").getContent()));
+				}
+				if(file.getElement("savegame.playrounds.playround", i).getElement("match.loser").getContent()!= ""){
+					match.setLoser(game.getTeam(file.getElement("savegame.playrounds.playround", i).getElement("match.loser").getContent()));
+				}
+				match.setPlayround(Integer.parseInt(file.getElement("savegame.playrounds.playround", i).getElement("match").getAttribute("nr")));
+				playround.addmatch(match);
+			}
+			playrounds.add(playround);
+		}
+		game.getCompetition().setPlayrounds(playrounds);
+		game.setCurrentRound(Integer.parseInt(file.getElement("savegame.currentround").getContent()));
+		game.computeStandings();
 		return game;
 	}
 

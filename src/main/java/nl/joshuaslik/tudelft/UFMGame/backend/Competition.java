@@ -145,4 +145,8 @@ public class Competition {
 		}
 		return false;
 	}
+	
+	public void setPlayrounds(ArrayList<Playround> playrounds){
+		this.playrounds = playrounds;
+	}
 }

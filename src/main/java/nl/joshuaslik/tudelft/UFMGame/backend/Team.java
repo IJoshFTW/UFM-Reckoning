@@ -371,6 +371,13 @@ public class Team {
 	public void incTotalWins() {
 		this.totalWins = this.totalWins + 1;
 	}
+	
+	/**
+	 * sets the total wins
+	 */
+	public void setTotalWins(int wins) {
+		this.totalWins = wins;
+	}
 
 	/**
 	 * Get the amount of losses this team has
@@ -387,6 +394,14 @@ public class Team {
 	public void incTotalLosses() {
 		this.totalLosses = this.totalLosses + 1;
 	}
+	
+	/**
+	 * sets the totallosses
+	 */
+	public void setTotalLosses(int losses) {
+		this.totalLosses = losses;
+	}
+
 
 	/**
 	 * Get the amount of draws this team has
@@ -402,6 +417,13 @@ public class Team {
 	 */
 	public void incTotalDraws() {
 		this.totalDraws = this.totalDraws + 1;
+	}
+	
+	/**
+	 * sets the total draws
+	 */
+	public void setTotalDraws(int draws) {
+		this.totalDraws = draws;
 	}
 
 	/**
