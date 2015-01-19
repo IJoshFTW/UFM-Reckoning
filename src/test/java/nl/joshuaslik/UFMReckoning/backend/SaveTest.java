@@ -54,6 +54,15 @@ public class SaveTest {
 	}
 	
 	/**
+	 * Test to check if you can load players from an arraylist after they've been saved
+	 */
+	@Test
+	public void testgetUsernames() {
+		System.out.println(Save.getUsernames().get(1));
+		assertEquals(Save.getUsernames().size(), 2);
+	}
+	
+	/**
 	 * 
 	 */
 	@Test

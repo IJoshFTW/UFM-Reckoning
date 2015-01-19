@@ -748,6 +748,32 @@ public class Save {
 				+ "\\Ultimate Football Manager\\saves\\slot" + slot + ".xml";
 		savefile.save(saveloc);
 	}
+	
+	public static LinkedHashMap<Integer, String> getUsernames(){
+		LinkedHashMap<Integer, String> usernames = new LinkedHashMap<Integer, String>();
+		for(int j =1; j < 4; j++){
+			
+			String saveloc = System.getenv("APPDATA")
+					+ "\\Ultimate Football Manager\\saves\\slot" + j + ".xml";
+			XMLFile file = null;
+			try{
+				file = SAXParser.parseLocalFile(saveloc);
+			}
+			catch(Exception e){
+				e.printStackTrace();
+			}
+			if(file != null){
+				for (int i = 1; i < file.getElement("savegame.users").elements() + 1; i++) {
+					if (file.getElement("savegame.users.user", i)
+							.getAttribute("type").equals("human")) {
+						usernames.put(j, file.getElement("savegame.users.user", i).getAttribute("username"));
+					}
+				}
+			}
+		}
+		return usernames;
+		
+	}
 
 	/**
 	 * Load a saved game
