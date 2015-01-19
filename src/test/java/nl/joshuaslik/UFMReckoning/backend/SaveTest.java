@@ -1,8 +1,13 @@
 package nl.joshuaslik.UFMReckoning.backend;
 
 import static org.junit.Assert.assertEquals;
+
+import java.util.ArrayList;
+
+import nl.joshuaslik.tudelft.UFMGame.backend.Game;
 import nl.joshuaslik.tudelft.UFMGame.backend.Save;
 import nl.joshuaslik.tudelft.UFMGame.backend.Team;
+import nl.joshuaslik.tudelft.UFMGame.backend.User;
 
 import org.junit.Test;
 
@@ -38,6 +43,20 @@ public class SaveTest {
 	public void testLoadPlayersArrayList() {
 		assertEquals(Save.loadplayersArrayList().size(), 443);
 	}
+	
+	/**
+	 * 
+	 */
+	@Test
+	public void testLoadGame(){
+	
+		Game game = Save.newGame(Save.loadTeams().get(0), "test");
+		game.getCompetition().definePlayrounds();
+		Save.saveGame(game, 1);
+		assertEquals(Save.loadGame(1).getUsers().size(), 18);
+	}
+	
+
 
 	// @Test
 	// public void testSave() {
