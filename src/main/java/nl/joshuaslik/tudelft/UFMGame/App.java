@@ -106,8 +106,9 @@ public class App {
 				System.out.println(Class.class.getResourceAsStream("/data/base/players/adamsarota.xml"));
 			}
 			
-			if (args[0].equals("runfromjartest")) {
-				ResourceWrangler.runFromJar();
+			if (args[0].equals("resourcelisttest")) {
+				System.out.println(ResourceWrangler.listResourceFiles("/data/base/players"));
+				System.out.println(ResourceWrangler.listResourceDirectories("/data/base/players"));
 			}
 
 		} else {
