@@ -1,4 +1,4 @@
-package nl.joshuaslik.UFMReckoning;
+package nl.joshuaslik.tudelft.UFMGame;
 
 import junit.framework.TestCase;
 import nl.joshuaslik.tudelft.UFMGame.backend.Goalkeeper;

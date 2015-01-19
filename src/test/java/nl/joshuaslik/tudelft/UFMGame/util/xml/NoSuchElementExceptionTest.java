@@ -1,4 +1,4 @@
-package nl.joshuaslik.UFMReckoning.util.xml;
+package nl.joshuaslik.tudelft.UFMGame.util.xml;
 
 import nl.joshuaslik.tudelft.UFMGame.util.xml.NoSuchElementException;
 

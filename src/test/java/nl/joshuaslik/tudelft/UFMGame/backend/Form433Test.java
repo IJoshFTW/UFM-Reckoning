@@ -1,4 +1,4 @@
-package nl.joshuaslik.UFMReckoning.backend;
+package nl.joshuaslik.tudelft.UFMGame.backend;
 
 import static org.junit.Assert.assertEquals;
 import nl.joshuaslik.tudelft.UFMGame.backend.Fieldplayer;
