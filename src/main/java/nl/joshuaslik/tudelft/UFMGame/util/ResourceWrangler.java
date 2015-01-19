@@ -83,10 +83,13 @@ public class ResourceWrangler {
 		String rootres = Class.class.getResource("/root").getPath();
 		System.out.println("Root: " + rootres);
 		System.out.println("Name: " + name);
-		name = rootres.substring(1, rootres.length() - 5) + name;
+		name = rootres.substring(0, rootres.length() - 5) + name;
 		System.out.println("Final: " + name);
 		File folder = new File(name);
+		System.out.println(folder);
 		List<File> filelist = Arrays.asList(folder.listFiles());
+		System.out.println(folder.listFiles());
+		System.out.println(folder.listFiles()[0]);
 		ArrayList<String> filenamelist = new ArrayList<String>();
 		for (int i = 0; i < filelist.size(); i++) {
 			if (filelist.get(i).isFile()) {
