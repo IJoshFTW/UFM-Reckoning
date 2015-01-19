@@ -31,6 +31,8 @@ public class SAXParser extends DefaultHandler {
 	}
 
 	public static XMLFile parseFile(String filename) {
+		filename = filename.replace("\\", "/");
+		
 		XMLReader xr = null;
 		try {
 			xr = XMLReaderFactory.createXMLReader();
@@ -42,7 +44,8 @@ public class SAXParser extends DefaultHandler {
 		xr.setErrorHandler(handler);
 
 		InputStream is = Class.class.getResourceAsStream(filename);
-
+		System.out.println("asdf " + is);
+		System.out.println("asdf " + filename);
 		try {
 			xr.parse(new InputSource(is));
 		} catch (IOException | NullPointerException e) {

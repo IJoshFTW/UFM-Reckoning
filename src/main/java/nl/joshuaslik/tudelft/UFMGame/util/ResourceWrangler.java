@@ -30,6 +30,8 @@ public class ResourceWrangler {
 	 * @return
 	 */
 	public static URL getResource(String name) {
+		if (name.equals("/"))
+			name = name.substring(0, name.length() - 1);
 		return Class.class.getResource(name);
 	}
 
@@ -45,10 +47,14 @@ public class ResourceWrangler {
 	 * @return
 	 */
 	public static InputStream getResourceAsStream(String name) {
+		if (name.equals("/"))
+			name = name.substring(0, name.length() - 1);
 		return Class.class.getResourceAsStream(name);
 	}
 
 	public static ArrayList<String> listResourceFiles(String name) {
+		if (name.equals("/"))
+			name = name.substring(0, name.length() - 1);
 		if (runFromJar()) {
 			name = name.substring(1);
 			ArrayList<ZipEntry> filelist = Zipper.listEntries(getJarName());
@@ -73,6 +79,9 @@ public class ResourceWrangler {
 		// Code to list directories when not in a JAR
 		name = ClassLoader.getSystemResource("").getPath() + name;
 		File folder = new File(name);
+		System.out.println(ClassLoader.getSystemResource("").getPath());
+		System.out.println(name);
+		System.out.println(folder);
 		List<File> filelist = Arrays.asList(folder.listFiles());
 		ArrayList<String> filenamelist = new ArrayList<String>();
 		for (int i = 0; i < filelist.size(); i++) {
@@ -86,6 +95,8 @@ public class ResourceWrangler {
 	}
 
 	public static ArrayList<String> listResourceDirectories(String name) {
+		if (name.equals("/"))
+			name = name.substring(0, name.length() - 1);
 		if (runFromJar()) {
 			name = name.substring(1);
 			ArrayList<ZipEntry> filelist = Zipper.listEntries(getJarName());
@@ -98,8 +109,10 @@ public class ResourceWrangler {
 						// goes down another directory
 						String root = filelist.get(i).getName()
 								.substring(name.length() + 1);
-						// Check if there is only one / in the name and if it is not 0 chars long
-						if (root.indexOf("/") == root.lastIndexOf("/") && root.length() > 0) {
+						// Check if there is only one / in the name and if it is
+						// not 0 chars long
+						if (root.indexOf("/") == root.lastIndexOf("/")
+								&& root.length() > 0) {
 							filenamelist.add("/" + filelist.get(i).getName());
 						}
 					}
@@ -126,14 +139,14 @@ public class ResourceWrangler {
 	public static boolean runFromJar() {
 		URL testpath = ClassLoader.getSystemResource("");
 		if (testpath == null) {
-			System.out.println("[ResourceWrangler] I am run from a jar");
+//			System.out.println("[ResourceWrangler] I am run from a jar");
 			return true;
 		}
-		System.out.println("[ResourceWrangler] I am not run from a jar");
+//		System.out.println("[ResourceWrangler] I am not run from a jar");
 		return false;
 	}
 
-	public static String getJarName() {
+	private static String getJarName() {
 		String filename = App.class.getResource("App.class").getPath();
 		// Cut off file: and everything after .jar
 		filename = filename.substring(5, filename.indexOf(".jar!") + 4);
