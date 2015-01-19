@@ -1,6 +1,9 @@
 package nl.joshuaslik.tudelft.UFMGame.util.xml;
 
 import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
@@ -39,6 +42,38 @@ public class SAXParser extends DefaultHandler {
 		xr.setErrorHandler(handler);
 
 		InputStream is = Class.class.getResourceAsStream(filename);
+
+		try {
+			xr.parse(new InputSource(is));
+		} catch (IOException | NullPointerException e) {
+			System.err.println("File \"" + filename + "\" does not exist");
+		} catch (SAXException e) {
+			System.err.println("Something went wrong parsing the file: \""
+					+ filename + "\"");
+			System.err.println(e.getMessage());
+		}
+		return handler.getXMLFile();
+
+	}
+	
+	public static XMLFile parseLocalFile(String filename) {
+		XMLReader xr = null;
+		try {
+			xr = XMLReaderFactory.createXMLReader();
+		} catch (SAXException e) {
+			e.printStackTrace();
+		}
+		SAXParser handler = new SAXParser();
+		xr.setContentHandler(handler);
+		xr.setErrorHandler(handler);
+
+		InputStream is = null;
+		try {
+			is = new FileInputStream(new File(filename));
+		} catch (FileNotFoundException e1) {
+			System.err.println("File \"" + filename + "\" does not exist");
+			System.err.println(e1.getMessage());
+		}
 
 		try {
 			xr.parse(new InputSource(is));

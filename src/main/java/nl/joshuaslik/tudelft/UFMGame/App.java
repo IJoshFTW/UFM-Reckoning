@@ -85,6 +85,11 @@ public class App {
 				System.out.println(Save.loadPlayers().get(63).getID());
 				Save.loadTeams();
 			}
+			
+			if (args[0].equals("appdatatest")) {
+				String saveloc = System.getenv("APPDATA") + "\\Ultimate Football Manager\\saves\\slot" + 1 + ".xml";
+				System.out.println(saveloc);
+			}
 
 		} else {
 			Main.main(args);

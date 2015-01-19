@@ -113,6 +113,7 @@ public class XMLFile {
 		} catch (FileNotFoundException e) {
 			System.err.println("[ERROR] The file \"" + target
 					+ "\" is not writable or not acceptable!");
+			System.err.println(e.getMessage());
 		} catch (UnsupportedEncodingException e) {
 			System.err.println("[ERROR] The encoding \"" + encoding
 					+ "\" is not supported!");
@@ -131,13 +132,14 @@ public class XMLFile {
 
 	private void makeDirs(String location) {
 		File target = new File(location);
-		String here = new File("").getAbsolutePath();
 		String apath = target.getAbsolutePath();
+		System.out.println(apath);
 		apath = apath.replace("\\", "/");
-		apath = apath.substring(here.length() + 1);
 		apath = apath.substring(0, apath.lastIndexOf('/'));
 		File file = new File(apath);
 		file.mkdirs();
+		System.out.println(location);
+		System.out.println(apath);
 	}
 
 }
