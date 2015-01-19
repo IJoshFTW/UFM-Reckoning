@@ -84,18 +84,19 @@ public class ResourceWrangler {
 		System.out.println("Root: " + rootres);
 		System.out.println("Name: " + name);
 		name = rootres.substring(0, rootres.length() - 5) + name;
-		System.out.println("Final: " + name);
+		System.out.println("Finl: " + name);
 		File folder = new File(name);
 		System.out.println(folder);
 		List<File> filelist = Arrays.asList(folder.listFiles());
 		System.out.println(folder.listFiles());
-		System.out.println(folder.listFiles()[0]);
+		System.out.println(folder.listFiles()[0].toURI());
 		ArrayList<String> filenamelist = new ArrayList<String>();
 		for (int i = 0; i < filelist.size(); i++) {
 			if (filelist.get(i).isFile()) {
-				int cutpoint = rootres.length() - 6;
-				filenamelist.add(filelist.get(i).getPath().substring(cutpoint));
-				System.out.println("Added: " + filelist.get(i).getPath().substring(cutpoint));
+				String filename = filelist.get(i).toURI().toString();
+				filename = filename.replace("\\", "/");
+				filenamelist.add(filename.substring(rootres.length()));
+				System.out.println("Added: " + filename.substring(rootres.length()));
 			}
 		}
 		return filenamelist;
