@@ -18,6 +18,7 @@ public class MainGameController {
 	private Label budgetlabel;
 	@FXML
 	private Label rank;
+	
 
 	/**
 	 * Initializes the controller class. This method is automatically called
@@ -39,6 +40,7 @@ public class MainGameController {
 			MainGame.game.resultplayround();
 			MainGame.game.computeStandings();
 			ResultRoundDialogcontroller.start();
+			
 		}
 		else{
 			Popupscreen.start();

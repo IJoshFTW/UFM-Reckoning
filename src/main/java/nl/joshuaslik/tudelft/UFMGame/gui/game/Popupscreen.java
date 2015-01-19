@@ -3,6 +3,8 @@ package nl.joshuaslik.tudelft.UFMGame.gui.game;
 import java.io.IOException;
 
 import javafx.animation.FadeTransition;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -82,6 +84,10 @@ public class Popupscreen {
 		ft.setFromValue(0.97);
 		ft.setToValue(0.0);
 		ft.play();
-		popup.hide();
+		ft.setOnFinished(new EventHandler<ActionEvent>() {
+		    public void handle(ActionEvent actionevent) {
+		    		popup.hide(); 
+		    	}
+		 });
 	}
 }
