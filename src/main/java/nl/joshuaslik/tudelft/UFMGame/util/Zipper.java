@@ -2,6 +2,7 @@ package nl.joshuaslik.tudelft.UFMGame.util;
 
 import java.io.IOException;
 import java.io.PrintStream;
+import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.LinkedHashMap;
 import java.util.zip.ZipEntry;
@@ -24,15 +25,30 @@ public class Zipper {
 		}
 	}
 
-	public static LinkedHashMap<String, ZipEntry> listEntries(String zip) {
+	public static ArrayList<ZipEntry> listEntries(String zip) {
+//		System.out.println("Zip Called");
 		ZipFile zipFile = constructFile(zip);
-		
-		LinkedHashMap<String, ZipEntry> ret = new LinkedHashMap<String, ZipEntry>();
+//		System.out.println(zipFile);
+		ArrayList<ZipEntry> ret = new ArrayList<ZipEntry>();
 		
 		Enumeration<? extends ZipEntry> entries = zipFile.entries();
 		while (entries.hasMoreElements()) {
 			ZipEntry zipEntry = entries.nextElement();
-			ret.put(zipEntry.getName(), zipEntry);
+			ret.add(zipEntry);
+		}
+//		System.out.println(ret);
+		return ret;
+	}
+	
+	public static ArrayList<String> listEntriesString(String zip) {
+		ZipFile zipFile = constructFile(zip);
+		
+		ArrayList<String> ret = new ArrayList<String>();
+		
+		Enumeration<? extends ZipEntry> entries = zipFile.entries();
+		while (entries.hasMoreElements()) {
+			ZipEntry zipEntry = entries.nextElement();
+			ret.add(zipEntry.getName());
 		}
 		
 		return ret;
