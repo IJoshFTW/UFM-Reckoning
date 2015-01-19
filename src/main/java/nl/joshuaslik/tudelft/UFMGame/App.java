@@ -4,9 +4,12 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.zip.ZipFile;
 
 import nl.joshuaslik.tudelft.UFMGame.backend.Save;
 import nl.joshuaslik.tudelft.UFMGame.gui.Main;
+import nl.joshuaslik.tudelft.UFMGame.util.ResourceWrangler;
+import nl.joshuaslik.tudelft.UFMGame.util.Zipper;
 import nl.joshuaslik.tudelft.UFMGame.util.xml.SAXParser;
 import nl.joshuaslik.tudelft.UFMGame.util.xml.XMLFile;
 
@@ -27,7 +30,7 @@ public class App {
 		Main.fullscreen=true;
 		System.out.println("Ultimate Football Manager");
 		System.out
-				.println("(c) 2014 - Sander Benoist, Naomi de Ridder, Joshua Slik, Lisette Veldkamp, Bryan van Wijk");
+				.println("(c) 2014-2015 - Sander Benoist, Naomi de Ridder, Joshua Slik, Lisette Veldkamp, Bryan van Wijk");
 
 		// Random tests
 		if (args.length > 0) {
@@ -89,6 +92,27 @@ public class App {
 			if (args[0].equals("appdatatest")) {
 				String saveloc = System.getenv("APPDATA") + "\\Ultimate Football Manager\\saves\\slot" + 1 + ".xml";
 				System.out.println(saveloc);
+			}
+			
+			if (args[0].equals("filelisttest")) {
+				String rootloc = ClassLoader.getSystemResource("root").getPath();
+				rootloc = rootloc.substring(0, rootloc.length() - 5);
+				rootloc = rootloc.substring(5, rootloc.length() - 1);
+				System.out.println(rootloc);
+				ZipFile rootfolder = null;
+				
+				Zipper.printEntries(System.out, rootloc);
+				System.out.println(Class.class.getResourceAsStream("/root"));
+				System.out.println(Class.class.getResourceAsStream("/data/base/players/adamsarota.xml"));
+			}
+			
+			if (args[0].equals("resourcelisttest")) {
+				System.out.println(ResourceWrangler.listResourceFiles("/data/base/players"));
+				
+				System.out.println(ResourceWrangler.listResourceDirectories("/data"));
+				System.out.println(ResourceWrangler.listResourceDirectories("/data/base"));
+				System.out.println(ResourceWrangler.listResourceDirectories("/data/base/players"));
+				System.out.println(ResourceWrangler.listResourceDirectories("/data/base/players/"));
 			}
 
 		} else {
