@@ -300,13 +300,13 @@ public class Save {
 	/**
 	 * Complicated save game shit
 	 * 
-	 * @param game
-	 * @param slot
+	 * @param game game to save
+	 * @param slot where to save the game
 	 */
 	public static void saveGame(Game game, int slot) {
 		ArrayList<User> userlist = game.getUsers();
 		XMLTag root = new XMLTag("savegame");
-
+		XMLTag highscores = new XMLTag("savegame");
 		// Add info about current round
 		XMLTag currentround = new XMLTag("currentround");
 		currentround.setContent(Integer.toString(game.getCurrentRound()));
@@ -376,6 +376,7 @@ public class Save {
 			atts.put("budget", Integer.toString(user.getBudget()));
 			if (user instanceof Human) {
 				atts.put("type", "human");
+				saveHighscore(user.getUserName(), user.getTeam().getTotalGoals(), game.getCurrentRound());
 			} else {
 				atts.put("type", "PC");
 			}
@@ -725,18 +726,73 @@ public class Save {
 				+ "\\Ultimate Football Manager\\saves\\slot" + slot + ".xml";
 		savefile.save(saveloc);
 	}
+	
+	/**
+	 * Method to save a score of a human user
+	 * @param username score of this user
+	 * @param goals amount of goals this user made in the past matches
+	 * @param matches amount of matches that are played
+	 */
+	public static void saveHighscore(String username, int goals, int matches){
+		int thisavgGoals = goals/matches;
+		Boolean newuser = true;
+		XMLTag highscores = new XMLTag("highscores");
+		String saveloc = System.getenv("APPDATA")
+				+ "\\Ultimate Football Manager\\highscores\\highscores.xml";
+		XMLFile file = SAXParser.parseLocalFile(saveloc);
+		if(file != null){	
+			for (int i = 1; i < file.getElement("highscores")
+					.elements() + 1; i++) {
+				XMLTag user = new XMLTag("user");
+				XMLTag avgGoals = new XMLTag("avggoals");
+				if(file.getElement("highscores").getElement("user", i).getAttribute("username").equals(username)){
+					avgGoals.setContent(Integer.toString(thisavgGoals));
+					user.addAttribute("username", file.getElement("highscores").getElement("user", i).getAttribute("username"));
+					newuser = false;
+				}
+				else{
+					user.addAttribute("username", file.getElement("highscores").getElement("user", i).getAttribute("username"));
+					avgGoals.setContent(file.getElement("highscores.users").getElement("user", i).getElement("avggoals").getContent());
+				}
+				user.addElement(avgGoals);
+				highscores.addElement(user);
+			}
+		}
+		if(newuser){
+			XMLTag user = new XMLTag("user");
+			XMLTag avgGoals = new XMLTag("avggoals");
+			avgGoals.setContent(Integer.toString(thisavgGoals));
+			user.addAttribute("username", username);
+			user.addElement(avgGoals);
+			highscores.addElement(user);
+		}
+		XMLFile savefile = new XMLFile(highscores);
+		savefile.save(saveloc);
+	}
+	
+	public static LinkedHashMap<String, Integer> getHighscore(){
+		LinkedHashMap<String, Integer> highscores = new LinkedHashMap<String, Integer>();
+		String saveloc = System.getenv("APPDATA")
+				+ "\\Ultimate Football Manager\\highscores\\highscores.xml";
+		XMLFile file = SAXParser.parseLocalFile(saveloc);
+		for (int i = 1; i < file.getElement("highscores")
+				.elements() + 1; i++) {
+			highscores.put(file.getElement("highscores").getElement("user", i).getAttribute("username"),
+					Integer.parseInt(file.getElement("highscores").getElement("user", i).getElement("avggoals").getContent()));
+		}
+		return highscores;
+	}
 
 	public static LinkedHashMap<Integer, String> getUsernames() {
 		LinkedHashMap<Integer, String> usernames = new LinkedHashMap<Integer, String>();
 		for (int j = 1; j < 4; j++) {
-
 			String saveloc = System.getenv("APPDATA")
 					+ "\\Ultimate Football Manager\\saves\\slot" + j + ".xml";
 			XMLFile file = null;
 			try {
 				file = SAXParser.parseLocalFile(saveloc);
 			} catch (Exception e) {
-				e.printStackTrace();
+			
 			}
 			if (file != null) {
 				for (int i = 1; i < file.getElement("savegame.users")

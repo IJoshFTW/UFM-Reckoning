@@ -16,14 +16,16 @@
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="41.0">
          <children>
-            <AnchorPane maxHeight="800.0" maxWidth="1200.0" prefHeight="800.0" prefWidth="1200.0">
+            <AnchorPane id="main" maxHeight="800.0" maxWidth="1200.0" prefHeight="800.0" prefWidth="1200.0" styleClass="main">
                <children>
-                  <Pane opacity="0.8" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #101010; -fx-border-color: #CECECE; -fx-border-width: 1px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                  <Label layoutX="253.0" layoutY="385.0" text="Your highscore: not yet implemented" textFill="#f5f3f3">
-                     <font>
-                        <Font name="Verdana Bold" size="24.0" />
-                     </font>
-                  </Label>
+                  <Pane opacity="0.8" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #101010; -fx-border-color: #CECECE; -fx-border-width: 1px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label layoutX="349.0" layoutY="116.0" text="Average goals made in the played games" textFill="#f5f3f3">
+                           <font>
+                              <Font name="Verdana Bold" size="24.0" />
+                           </font>
+                        </Label>
+                     </children></Pane>
                   <Button layoutX="107.0" layoutY="623.0" mnemonicParsing="false" onAction="#handleReturn" text="return" />
                   <Label alignment="CENTER" layoutX="414.0" layoutY="35.0" text="Highscore" textAlignment="CENTER" textFill="#f8f1f1" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <font>
