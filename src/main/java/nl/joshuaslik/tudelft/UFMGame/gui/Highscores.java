@@ -4,26 +4,24 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
-import nl.joshuaslik.tudelft.UFMGame.backend.Human;
-import nl.joshuaslik.tudelft.UFMGame.backend.Player;
-import nl.joshuaslik.tudelft.UFMGame.backend.Save;
-import nl.joshuaslik.tudelft.UFMGame.backend.Team;
-import nl.joshuaslik.tudelft.UFMGame.backend.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.SortType;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.text.Font;
 import javafx.util.Callback;
+import nl.joshuaslik.tudelft.UFMGame.backend.Human;
+import nl.joshuaslik.tudelft.UFMGame.backend.Save;
+import nl.joshuaslik.tudelft.UFMGame.backend.Team;
+import nl.joshuaslik.tudelft.UFMGame.backend.User;
 
 /**
+ * Class to handle the highscore page
  * @author Sander Benoist
  *
  */

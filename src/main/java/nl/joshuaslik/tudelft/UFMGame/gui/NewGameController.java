@@ -13,7 +13,6 @@ import javafx.scene.layout.AnchorPane;
 import nl.joshuaslik.tudelft.UFMGame.backend.Game;
 import nl.joshuaslik.tudelft.UFMGame.backend.Save;
 import nl.joshuaslik.tudelft.UFMGame.backend.Team;
-import nl.joshuaslik.tudelft.UFMGame.backend.formation.Form343;
 import nl.joshuaslik.tudelft.UFMGame.gui.game.MainGame;
 
 /**
@@ -82,7 +81,7 @@ public class NewGameController {
 	    
 	    
 	    /**
-	     * sets the choosenteam as the parameter
+	     * sets the choosen team as the parameter
 	     * @param team the team that is chosen
 	     */
 	    public void selectedTeam(Team team){

@@ -2,22 +2,19 @@ package nl.joshuaslik.tudelft.UFMGame.gui;
 
 import java.io.IOException;
 
-import nl.joshuaslik.tudelft.UFMGame.gui.game.MainGame;
-import nl.joshuaslik.tudelft.UFMGame.gui.game.Popupscreen;
-import nl.joshuaslik.tudelft.UFMGame.gui.game.TeamBuilderController;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
 /**
+ * Class to implement different options for the game
  * @author Sander Benoist
  * @author Naomi de Ridder
  */

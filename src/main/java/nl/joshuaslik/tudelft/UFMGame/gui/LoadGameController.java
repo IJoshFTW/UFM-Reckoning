@@ -3,8 +3,6 @@ package nl.joshuaslik.tudelft.UFMGame.gui;
 import java.io.IOException;
 import java.util.LinkedHashMap;
 
-import nl.joshuaslik.tudelft.UFMGame.backend.Save;
-import nl.joshuaslik.tudelft.UFMGame.gui.game.MainGame;
 import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -15,7 +13,14 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Popup;
 import javafx.util.Duration;
+import nl.joshuaslik.tudelft.UFMGame.backend.Save;
+import nl.joshuaslik.tudelft.UFMGame.gui.game.MainGame;
 
+/**
+ * Class to control the load game function
+ * @author Naomi
+ *
+ */
 public class LoadGameController {
 	private static Popup popup;
 	private static AnchorPane page;

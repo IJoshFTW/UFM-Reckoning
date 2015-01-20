@@ -5,8 +5,6 @@ import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.image.Image;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -14,7 +12,7 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 /**
- * The main screne for the application
+ * The main scene for the application
  * 
  * @author <a href="http://www.joshuaslik.nl/" target="_blank">Joshua Slik</a>
  *
@@ -25,8 +23,21 @@ public class Main extends Application {
 	 * Create new variables
 	 */
 	public static Stage stage;
+	
+	/**
+	 * Create a borderpane
+	 */
 	public static BorderPane rootLayout;
+	
+	/**
+	 * set the page to fullscreen
+	 */
 	public static boolean fullscreen;
+	
+	/**
+	 * Launch the application
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		launch(args);
 	}
@@ -52,9 +63,9 @@ public class Main extends Application {
 	}
 	
 	/**
-	 * Sets te scene of main
+	 * Sets the scene of main
 	 * 
-	 * @param scn
+	 * @param scn is set
 	 */
 	public static void setScene(Scene scn) {
 		stage.setScene(scn);
