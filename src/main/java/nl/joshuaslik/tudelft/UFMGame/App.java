@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.zip.ZipFile;
 
 import nl.joshuaslik.tudelft.UFMGame.backend.Save;
 import nl.joshuaslik.tudelft.UFMGame.gui.Main;
@@ -99,8 +98,6 @@ public class App {
 				rootloc = rootloc.substring(0, rootloc.length() - 5);
 				rootloc = rootloc.substring(5, rootloc.length() - 1);
 				System.out.println(rootloc);
-				ZipFile rootfolder = null;
-				
 				Zipper.printEntries(System.out, rootloc);
 				System.out.println(Class.class.getResourceAsStream("/root"));
 				System.out.println(Class.class.getResourceAsStream("/data/base/players/adamsarota.xml"));
