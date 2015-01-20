@@ -39,7 +39,6 @@ public class MainGameController {
 			MainGame.game.resultplayround();
 			MainGame.game.computeStandings();
 			ResultRoundDialogcontroller.start();
-			
 		}
 		else{
 			Popupscreen.start();

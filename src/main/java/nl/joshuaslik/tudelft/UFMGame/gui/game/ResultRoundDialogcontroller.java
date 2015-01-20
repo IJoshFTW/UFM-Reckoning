@@ -66,6 +66,7 @@ public class ResultRoundDialogcontroller {
 			endrank = MainGame.game.getUser().getTeam().getRanking();
 			MainGame.game.newCompetition();
 			MainGame.game.getCompetition().definePlayrounds();
+			MainGame.game.computeStandings();
 		}
 		AnchorPane top = (AnchorPane) FXMLLoader.load(Class.class.getResource("/data/gui/pages-game/GameTopMenuBar.fxml"));
 		Main.setTop(top);
@@ -77,9 +78,10 @@ public class ResultRoundDialogcontroller {
 	
 	/**
 	 * handles clicking on the ok button in the dialog
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
 	 */
 	@FXML
-	protected void handleOK() {
+	protected void handleOK() throws IOException {
 		FadeTransition ft = new FadeTransition(Duration.millis(500), page);
      	ft.setFromValue(0.97);
      	ft.setToValue(0.0);
@@ -95,6 +97,7 @@ public class ResultRoundDialogcontroller {
 			Popupscreen.setTitle("Last round played");
 			Popupscreen.setMessage("This season has come to an end.\n You're end rank of this season is: " + endrank 
 					+ "\nThere is automatically started a new competition.");
+			TeamBuilderController.start();
 			last = false;
 		}
 	}
