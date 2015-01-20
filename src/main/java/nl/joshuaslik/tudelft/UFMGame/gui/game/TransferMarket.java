@@ -195,7 +195,7 @@ public class TransferMarket {
 	}
 
 	/**
-	 * Selected player in table
+	 * Selected player in tableit 
 	 * @param player that is selected
 	 */
 	public void selectedPlayer(Player player) {
