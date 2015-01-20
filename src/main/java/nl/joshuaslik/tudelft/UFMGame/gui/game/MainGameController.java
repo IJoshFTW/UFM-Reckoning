@@ -35,10 +35,11 @@ public class MainGameController {
 	 */
 	@FXML
 	protected void handleNextround() throws IOException {
-		if(MainGame.game.getUser().getTeam().getActivePlayers().size() == 11 && MainGame.game.getUser().getTeam().getTeamCaptain() != null){
+		if(MainGame.game.getUser().getTeam().getActivePlayers().size() == 11 && MainGame.game.getUser().getTeam().getTeamCaptain() != null){	
 			MainGame.game.resultplayround();
 			MainGame.game.computeStandings();
 			ResultRoundDialogcontroller.start();
+			MainGame.game.changeFormationRound();
 		}
 		else{
 			Popupscreen.start();
