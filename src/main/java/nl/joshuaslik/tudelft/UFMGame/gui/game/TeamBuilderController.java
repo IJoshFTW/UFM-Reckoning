@@ -15,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TableColumn.SortType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -134,6 +135,7 @@ public class TeamBuilderController {
 				return cell;
 			}
 		});
+		
 
 		// Listen for selection changes
 		playertable

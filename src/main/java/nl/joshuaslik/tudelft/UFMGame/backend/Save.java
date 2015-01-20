@@ -376,7 +376,7 @@ public class Save {
 			atts.put("budget", Integer.toString(user.getBudget()));
 			if (user instanceof Human) {
 				atts.put("type", "human");
-				saveHighscore(user.getUserName(), user.getTeam().getTotalGoals(), game.getCurrentRound());
+				saveHighscore(user.getUserName(), user.getTeam().getTotalGoals(), (game.getCurrentRound()-1));
 			} else {
 				atts.put("type", "PC");
 			}
@@ -752,7 +752,7 @@ public class Save {
 				}
 				else{
 					user.addAttribute("username", file.getElement("highscores").getElement("user", i).getAttribute("username"));
-					avgGoals.setContent(file.getElement("highscores.users").getElement("user", i).getElement("avggoals").getContent());
+					avgGoals.setContent(file.getElement("highscores").getElement("user", i).getElement("avggoals").getContent());
 				}
 				user.addElement(avgGoals);
 				highscores.addElement(user);
