@@ -19,6 +19,7 @@ import javafx.util.Callback;
 import javafx.util.StringConverter;
 import nl.joshuaslik.tudelft.UFMGame.backend.Player;
 import nl.joshuaslik.tudelft.UFMGame.backend.Team;
+import nl.joshuaslik.tudelft.UFMGame.backend.User;
 import nl.joshuaslik.tudelft.UFMGame.gui.Main;
 
 /**
@@ -216,7 +217,9 @@ public class TransferMarket {
 	 */
 	@FXML
 	protected void sellingPlayer() throws IOException {
+		if (!selectedplayer.getActiveState()) {
 		MainGame.game.sellPlayer(selectedplayer.getID());
+		}
 		start();
 	}
 
@@ -226,8 +229,10 @@ public class TransferMarket {
 	 */
 	@FXML
 	protected void buyingPlayer() throws IOException {
-		MainGame.game.buyPlayer(selectedplayer.getID());
-		//MainGame.game.getUser(otherteam));
+		if (!selectedplayer.getActiveState()) {
+		User user = MainGame.game.getUser(otherteam);
+		MainGame.game.buyPlayer(selectedplayer.getID(), user);
+		}
 		start();
 	}
 
