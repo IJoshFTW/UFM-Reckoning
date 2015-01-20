@@ -131,14 +131,16 @@ public class ViewPlayer {
 	 */
 	@FXML
 	protected void handleReturn() {
-		FadeTransition ft = new FadeTransition(Duration.millis(900), page);
+		System.out.println("return");
+		FadeTransition ft = new FadeTransition(Duration.millis(500), page);
 		ft.setFromValue(0.97);
 		ft.setToValue(0.0);
+		ft.play();
 		ft.setOnFinished(new EventHandler<ActionEvent>() {
-		    public void handle(ActionEvent actionevent) {
+		    public void handle(ActionEvent event) {
 		    		popup.hide(); 
 		    	}
-		 });
+		});
 	}
 
 }

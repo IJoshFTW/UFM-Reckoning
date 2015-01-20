@@ -17,6 +17,7 @@ public class Game {
 	private ArrayList<User> users = new ArrayList<User>();
 	private Competition competition;
 	private LinkedHashMap<String, Player> players;
+	
 	/**
 	 * 
 	 */
@@ -301,5 +302,4 @@ public class Game {
 	public void setCurrentRound(int round){
 		currentround = round;
 	}
-
 }
