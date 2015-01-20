@@ -61,6 +61,9 @@ public class TransferMarket {
 		//Combobox team items in list
 		ObservableList<Team> teamslist = FXCollections
 				.observableArrayList(getteamList());
+		Team nonContractedTeam = new Team("Non-Contracted Players", "Non-Contracted Players", "Non-Contracted Players");
+		nonContractedTeam.setAllBenchPlayers(MainGame.game.getNonContractedPlayers());
+		teamslist.add(nonContractedTeam);
 		teams.setItems(teamslist);
 		teams.setConverter(new StringConverter<Team>() {
 			@Override
@@ -107,6 +110,7 @@ public class TransferMarket {
 				.selectedItemProperty()
 				.addListener(
 						(observable, oldValue, newValue) -> selectedPlayer(newValue, "otherteamtable"));
+		
 
 		//your teamplayers table
 		ArrayList<Player> teamplayerslist = team.getAllPlayers();
@@ -209,8 +213,24 @@ public class TransferMarket {
 		*/
 		
 		if(!team.getActivePlayers().contains(selectedplayer)){
-			MainGame.game.sellPlayer(selectedplayer.getID());
-			start();
+			MainGame.game.setNonContracted(selectedplayer.getID());
+			ArrayList<Player> teamplayerslist = team.getAllPlayers();
+			observablelistteamplayers = FXCollections
+					.observableArrayList(teamplayerslist);
+			yourteamtable.setItems(observablelistteamplayers);
+			ArrayList<Player> playerslist = otherteam.getBenchPlayers();
+			observablelistplayers = FXCollections
+					.observableArrayList(playerslist);
+			playertable.setItems(observablelistplayers);
+			sellplayerbutton.setDisable(true);
+			AnchorPane bottom = (AnchorPane) FXMLLoader.load(Class.class
+					.getResource("/data/gui/pages-game/GameBottomMenuBar.fxml"));
+			Main.setBottom(bottom);
+			buyplayerbutton.setDisable(true);
+			playertable.getSelectionModel().select(null);
+			playertable.getFocusModel().focus(null);
+			yourteamtable.getSelectionModel().select(null);
+			yourteamtable.getFocusModel().focus(null);
 		}
 		else{
 			Popupscreen.start();
@@ -235,9 +255,29 @@ public class TransferMarket {
 		*/
 
 		try{
-			MainGame.game.buyPlayer(selectedplayer.getID(), MainGame.game.getUser());
-			MainGame.game.sellPlayer(selectedplayer.getID(), MainGame.game.getUser(otherteam));
-			start();
+			if(otherteam.getTeamName().equals("Non-Contracted Players")){
+				MainGame.game.buyNonContractedPlayer(selectedplayer.getID(), MainGame.game.getUser());
+			}
+			else{
+				MainGame.game.buyPlayer(selectedplayer.getID(), MainGame.game.getUser());
+				MainGame.game.sellPlayer(selectedplayer.getID(), MainGame.game.getUser(otherteam));
+			}
+			ArrayList<Player> teamplayerslist = team.getAllPlayers();
+			observablelistteamplayers = FXCollections
+					.observableArrayList(teamplayerslist);
+			yourteamtable.setItems(observablelistteamplayers);
+			ArrayList<Player> playerslist = otherteam.getBenchPlayers();
+			observablelistplayers = FXCollections
+					.observableArrayList(playerslist);
+			playertable.setItems(observablelistplayers);
+			AnchorPane bottom = (AnchorPane) FXMLLoader.load(Class.class
+					.getResource("/data/gui/pages-game/GameBottomMenuBar.fxml"));
+			Main.setBottom(bottom);
+			buyplayerbutton.setDisable(true);
+			playertable.getSelectionModel().select(null);
+			playertable.getFocusModel().focus(null);
+			yourteamtable.getSelectionModel().select(null);
+			yourteamtable.getFocusModel().focus(null);
 		}
 		catch(UnableToBuyException e){
 			Popupscreen.start();
@@ -267,6 +307,10 @@ public class TransferMarket {
 		AnchorPane bottom = (AnchorPane) FXMLLoader.load(Class.class
 				.getResource("/data/gui/pages-game/GameBottomMenuBar.fxml"));
 		Main.setBottom(bottom);
+	}
+	
+	public static void reloadTables(){
+		
 	}
 
 }

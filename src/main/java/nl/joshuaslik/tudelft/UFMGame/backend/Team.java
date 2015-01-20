@@ -814,4 +814,12 @@ public class Team {
 	public ObservableList<Player> getObservableBenchPlayersList() {
 		return FXCollections.observableArrayList(benchPlayers);
 	}
+	
+	/**
+	 * Set all the Bench Players
+	 * @param playerlist the list to set
+	 */
+	public void setAllBenchPlayers(ArrayList<Player> playerlist){
+		benchPlayers = playerlist;
+	}
 }

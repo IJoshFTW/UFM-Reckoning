@@ -23,6 +23,7 @@ public class Game {
 	private ArrayList<User> users = new ArrayList<User>();
 	private Competition competition;
 	private LinkedHashMap<String, Player> players;
+	private ArrayList<Player> nonContractedPlayers = new ArrayList<Player>();
 	
 	/**
 	 * 
@@ -42,18 +43,19 @@ public class Game {
 	}
 
 	/**
-	 * 
-	 * @param id
+	 * Set a player non contracted
+	 * @param id player to set non contracted
 	 */
-	public void sellPlayer(String id) {
+	public void setNonContracted(String id) {
 		getUser().addMoney(getUser().getTeam().getPlayer(id).getPrice());
+		nonContractedPlayers.add(getUser().getTeam().getPlayer(id));
 		getUser().getTeam().removePlayer(id);
 	}
 
 	/**
-	 * 
-	 * @param id
-	 * @param user
+	 * Sell a player from user
+	 * @param id player you want to sell
+	 * @param user from who the player belongs before selling
 	 */
 	public void sellPlayer(String id, User user) {
 		user.addMoney(
@@ -64,13 +66,15 @@ public class Game {
 	}
 
 	/**
-	 * 
-	 * @param id
+	 * Buy a non contracted player if you have enough money
+	 * @param id the non contracted player you want to buy
+	 * @param user who wants to buy the player
 	 */
-	public void buyPlayer(String id) {
-		if (getUser().getBudget() >= players.get(id).getPrice()) {
-			getUser().subMoney(players.get(id).getPrice());
-			getUser().getTeam().addBenchPlayer(players.get(id));
+	public void buyNonContractedPlayer(String id, User user) {
+		if (users.get(users.indexOf(user)).getBudget() >= players.get(id).getPrice()){
+			nonContractedPlayers.remove(nonContractedPlayers.indexOf(players.get(id)));
+			users.get(users.indexOf(user)).subMoney(players.get(id).getPrice());
+			users.get(users.indexOf(user)).getTeam().addBenchPlayer(players.get(id));
 		}
 		else{
 			throw new UnableToBuyException("Not enough money");
@@ -78,9 +82,9 @@ public class Game {
 	}
 
 	/**
-	 * 
-	 * @param id
-	 * @param user
+	 * if the amount of money a user has is enough set this player at the benchplayers of this user
+	 * @param id player to buy
+	 * @param user who wants to buy this player
 	 */
 	public void buyPlayer(String id, User user) {
 		if (users.get(users.indexOf(user)).getBudget() >= players.get(id)
@@ -95,20 +99,13 @@ public class Game {
 	}
 
 	/**
-	 * 
-	 * @param user
+	 * Add a user if the users arraylist not contains this user already
+	 * @param user the user to add
 	 */
 	public void addUser(User user) {
 		if ((!users.contains(user))) {
 			users.add(user);
 		}
-	}
-
-	/**
-	 * Let the PC buy and sell players
-	 */
-	public void PCBuy() {
-
 	}
 
 	/**
@@ -424,5 +421,21 @@ public class Game {
 				}
 			}
 		}
+	}
+
+	/**
+	 * Method to get all the non contracted players in this game
+	 * @return ArrayList with all the non contracted players
+	 */
+	public ArrayList<Player> getNonContractedPlayers() {
+		return nonContractedPlayers;
+	}
+
+	/**
+	 * Method to set the non Contracted players list
+	 * @param nonContractedPlayers ArrayList with all the non Contracted Players
+	 */
+	public void setNonContractedPlayers(ArrayList<Player> nonContractedPlayers) {
+		this.nonContractedPlayers = nonContractedPlayers;
 	}
 }

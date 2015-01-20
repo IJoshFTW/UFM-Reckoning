@@ -310,7 +310,13 @@ public class Save {
 		XMLTag currentround = new XMLTag("currentround");
 		currentround.setContent(Integer.toString(game.getCurrentRound()));
 		root.addElement(currentround);
-
+		XMLTag nonContractedPlayers = new XMLTag("noncontractedplayers");
+		for(int i = 0; i < game.getNonContractedPlayers().size(); i++){
+			XMLTag player = new XMLTag("player");
+			player.addAttribute("id", game.getNonContractedPlayers().get(i).getID());
+			nonContractedPlayers.addElement(player);
+		}
+		root.addElement(nonContractedPlayers);
 		// Add info about past playrounds
 		XMLTag playrounds = new XMLTag("playrounds");
 		for (int i = 0; i < game.getCompetition().getPlayrounds().size(); i++) {
@@ -1485,6 +1491,13 @@ public class Save {
 		game.setCurrentRound(Integer.parseInt(file.getElement(
 				"savegame.currentround").getContent()));
 		game.computeStandings();
+		ArrayList<Player> nonContractedPlayers = new ArrayList<Player>();
+		for(int i = 1; i < file.getElement("savegame.noncontractedplayers").elements()+1; i++){
+			nonContractedPlayers.add(players.get(file
+					.getElement("savegame.noncontractedplayers")
+					.getElement("player", i).getAttribute("id")));
+		}
+		game.setNonContractedPlayers(nonContractedPlayers);
 		return game;
 	}
 
