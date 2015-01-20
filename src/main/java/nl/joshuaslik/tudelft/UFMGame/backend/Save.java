@@ -306,7 +306,6 @@ public class Save {
 	public static void saveGame(Game game, int slot) {
 		ArrayList<User> userlist = game.getUsers();
 		XMLTag root = new XMLTag("savegame");
-		XMLTag highscores = new XMLTag("savegame");
 		// Add info about current round
 		XMLTag currentround = new XMLTag("currentround");
 		currentround.setContent(Integer.toString(game.getCurrentRound()));
@@ -382,7 +381,6 @@ public class Save {
 			}
 
 			// Add team formation
-			// TODO Formation
 			Team team = user.getTeam();
 
 			LinkedHashMap<String, String> attsteam = new LinkedHashMap<String, String>();
@@ -391,8 +389,6 @@ public class Save {
 			attsteam.put("name", team.getTeamName());
 			XMLTag teamtag = new XMLTag("team", attsteam);
 
-			// Add team formation
-			// TODO More formations
 			XMLTag form = new XMLTag("formation");
 			form.addAttribute("name", user.getTeam().getFormation().getName());
 			if (user.getTeam().getFormation() instanceof Form343) {
@@ -770,19 +766,29 @@ public class Save {
 		savefile.save(saveloc);
 	}
 	
+	/**
+	 * Method to get the highscores from the highscore file
+	 * @return username with the highscore
+	 */
 	public static LinkedHashMap<String, Integer> getHighscore(){
 		LinkedHashMap<String, Integer> highscores = new LinkedHashMap<String, Integer>();
 		String saveloc = System.getenv("APPDATA")
 				+ "\\Ultimate Football Manager\\highscores\\highscores.xml";
 		XMLFile file = SAXParser.parseLocalFile(saveloc);
-		for (int i = 1; i < file.getElement("highscores")
-				.elements() + 1; i++) {
-			highscores.put(file.getElement("highscores").getElement("user", i).getAttribute("username"),
-					Integer.parseInt(file.getElement("highscores").getElement("user", i).getElement("avggoals").getContent()));
+		if(file != null){	
+			for (int i = 1; i < file.getElement("highscores")
+					.elements() + 1; i++) {
+						highscores.put(file.getElement("highscores").getElement("user", i).getAttribute("username"),
+								Integer.parseInt(file.getElement("highscores").getElement("user", i).getElement("avggoals").getContent()));
+			}
 		}
 		return highscores;
 	}
 
+	/**
+	 * Method to get all the usernames that have a saved game
+	 * @return LinkedHashMap<Integer, String> with the slot number and the string username
+	 */
 	public static LinkedHashMap<Integer, String> getUsernames() {
 		LinkedHashMap<Integer, String> usernames = new LinkedHashMap<Integer, String>();
 		for (int j = 1; j < 4; j++) {
@@ -807,13 +813,12 @@ public class Save {
 			}
 		}
 		return usernames;
-
 	}
 
 	/**
 	 * Load a saved game
 	 * 
-	 * @param slot
+	 * @param slot from where to load a game
 	 * @return Game object with all the data in the current slot
 	 */
 	public static Game loadGame(int slot) {

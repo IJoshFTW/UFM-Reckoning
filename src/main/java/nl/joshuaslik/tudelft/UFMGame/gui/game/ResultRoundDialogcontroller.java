@@ -61,7 +61,7 @@ public class ResultRoundDialogcontroller {
 		rankingaway.setText("" + match.getAwayTeam().getRanking());
 		hometeamname.setText(match.getHomeTeam().getTeamName());
 		awayteamname.setText(match.getAwayTeam().getTeamName());
-		if(((MainGame.game.getUsers().size()*(MainGame.game.getUsers().size()-1))/(MainGame.game.getUsers().size()/2)) == MainGame.game.getCurrentRound()){
+		if((((MainGame.game.getUsers().size()*(MainGame.game.getUsers().size()-1))/(MainGame.game.getUsers().size()/2))+1) == MainGame.game.getCurrentRound()){
 			last = true;
 			endrank = MainGame.game.getUser().getTeam().getRanking();
 			MainGame.game.newCompetition();
