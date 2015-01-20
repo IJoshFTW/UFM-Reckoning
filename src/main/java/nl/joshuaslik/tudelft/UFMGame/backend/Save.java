@@ -375,7 +375,10 @@ public class Save {
 			atts.put("budget", Integer.toString(user.getBudget()));
 			if (user instanceof Human) {
 				atts.put("type", "human");
-				saveHighscore(user.getUserName(), user.getTeam().getTotalGoals(), (game.getCurrentRound()-1));
+				// Only save highscore if a match has been played.
+				if (game.getCurrentRound() - 1 > 0) {
+					saveHighscore(user.getUserName(), user.getTeam().getTotalGoals(), (game.getCurrentRound()-1));
+				}
 			} else {
 				atts.put("type", "PC");
 			}
