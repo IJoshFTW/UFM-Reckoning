@@ -1,9 +1,15 @@
 package nl.joshuaslik.tudelft.UFMGame.backend;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedHashMap;
 
 import nl.joshuaslik.tudelft.UFMGame.backend.exceptions.UnableToBuyException;
+import nl.joshuaslik.tudelft.UFMGame.backend.formation.Form343;
+import nl.joshuaslik.tudelft.UFMGame.backend.formation.Form4321;
+import nl.joshuaslik.tudelft.UFMGame.backend.formation.Form433;
+import nl.joshuaslik.tudelft.UFMGame.backend.formation.Form442;
+import nl.joshuaslik.tudelft.UFMGame.backend.formation.Form532;
 
 /**
  * @author <a href="http://www.joshuaslik.nl/" target="_blank">Joshua Slik</a>
@@ -314,5 +320,109 @@ public class Game {
 	 */
 	public void setCurrentRound(int round){
 		currentround = round;
+	}
+	
+	/**
+	 * Method to Change the formation of all the PC teams randomly
+	 */
+	public void changeFormationRound(){
+		for(int i = 0; i < users.size(); i++){
+			if(users.get(i) instanceof PC){
+				Team team = users.get(i).getTeam();
+				ArrayList<Player> teamplayers = team.getAllPlayers();
+				Collections.shuffle(teamplayers);
+				ArrayList<Player> goalkeepers = new ArrayList<Player>();
+				ArrayList<Player> fieldplayers = new ArrayList<Player>();
+				
+				for(int j = 0; j<teamplayers.size(); j++){
+					if(teamplayers.get(j) instanceof Fieldplayer){
+						fieldplayers.add(teamplayers.get(j));
+					}
+					else if(teamplayers.get(j) instanceof Goalkeeper){
+						goalkeepers.add(teamplayers.get(j));
+					}
+				}
+				int formTypeChance = (int) (Math.random() * 5);
+				
+				if(formTypeChance == 0){	
+					Form433 form = new Form433(team);
+					team.changeFormationType(form);
+					team.getFormation().setGoalkeeper( (Goalkeeper) goalkeepers.get(0)); 
+					team.getFormation().setCB1( (Fieldplayer) fieldplayers.get(0));
+					team.getFormation().setCB2( (Fieldplayer) fieldplayers.get(1));
+					team.getFormation().setRB( (Fieldplayer) fieldplayers.get(2));
+					team.getFormation().setLB( (Fieldplayer) fieldplayers.get(3));
+					team.getFormation().setLM( (Fieldplayer) fieldplayers.get(4));
+					team.getFormation().setCM( (Fieldplayer) fieldplayers.get(5));
+					team.getFormation().setRM( (Fieldplayer) fieldplayers.get(6));
+					team.getFormation().setRW( (Fieldplayer) fieldplayers.get(7));
+					team.getFormation().setLW( (Fieldplayer) fieldplayers.get(8));
+					team.getFormation().setST( (Fieldplayer) fieldplayers.get(9));
+				}
+				else if(formTypeChance == 1){
+					Form343 form = new Form343(team);
+					team.changeFormationType(form);
+					team.getFormation().setGoalkeeper( (Goalkeeper) goalkeepers.get(0)); 
+					team.getFormation().setCB( (Fieldplayer) fieldplayers.get(0));
+					team.getFormation().setCM1( (Fieldplayer) fieldplayers.get(1));
+					team.getFormation().setRB( (Fieldplayer) fieldplayers.get(2));
+					team.getFormation().setLB( (Fieldplayer) fieldplayers.get(3));
+					team.getFormation().setLM( (Fieldplayer) fieldplayers.get(4));
+					team.getFormation().setCM2( (Fieldplayer) fieldplayers.get(5));
+					team.getFormation().setRM( (Fieldplayer) fieldplayers.get(6));
+					team.getFormation().setRW( (Fieldplayer) fieldplayers.get(7));
+					team.getFormation().setLW( (Fieldplayer) fieldplayers.get(8));
+					team.getFormation().setST( (Fieldplayer) fieldplayers.get(9));
+				}
+				else if(formTypeChance == 2){
+					Form4321 form = new Form4321(team);
+					team.changeFormationType(form);
+					
+					team.getFormation().setGoalkeeper( (Goalkeeper) goalkeepers.get(0)); 
+					team.getFormation().setCB1( (Fieldplayer) fieldplayers.get(0));
+					team.getFormation().setCB2( (Fieldplayer) fieldplayers.get(1));
+					team.getFormation().setRB( (Fieldplayer) fieldplayers.get(2));
+					team.getFormation().setLB( (Fieldplayer) fieldplayers.get(3));
+					team.getFormation().setLM( (Fieldplayer) fieldplayers.get(4));
+					team.getFormation().setCM( (Fieldplayer) fieldplayers.get(5));
+					team.getFormation().setRM( (Fieldplayer) fieldplayers.get(6));
+					team.getFormation().setORM( (Fieldplayer) fieldplayers.get(7));
+					team.getFormation().setOLM( (Fieldplayer) fieldplayers.get(8));
+					team.getFormation().setST( (Fieldplayer) fieldplayers.get(9));
+				}
+				else if(formTypeChance == 3){
+					Form442 form = new Form442(team);
+					team.changeFormationType(form);
+					
+					team.getFormation().setGoalkeeper( (Goalkeeper) goalkeepers.get(0)); 
+					team.getFormation().setCB1( (Fieldplayer) fieldplayers.get(0));
+					team.getFormation().setCB2( (Fieldplayer) fieldplayers.get(1));
+					team.getFormation().setRB( (Fieldplayer) fieldplayers.get(2));
+					team.getFormation().setLB( (Fieldplayer) fieldplayers.get(3));
+					team.getFormation().setLM( (Fieldplayer) fieldplayers.get(4));
+					team.getFormation().setCM1( (Fieldplayer) fieldplayers.get(5));
+					team.getFormation().setRM( (Fieldplayer) fieldplayers.get(6));
+					team.getFormation().setRW( (Fieldplayer) fieldplayers.get(7));
+					team.getFormation().setLW( (Fieldplayer) fieldplayers.get(8));
+					team.getFormation().setCM2( (Fieldplayer) fieldplayers.get(9));
+				}
+				else if(formTypeChance == 4){
+					Form532 form = new Form532(team);
+					team.changeFormationType(form);
+					
+					team.getFormation().setGoalkeeper( (Goalkeeper) goalkeepers.get(0)); 
+					team.getFormation().setCB1( (Fieldplayer) fieldplayers.get(0));
+					team.getFormation().setCB2( (Fieldplayer) fieldplayers.get(1));
+					team.getFormation().setRB( (Fieldplayer) fieldplayers.get(2));
+					team.getFormation().setLB( (Fieldplayer) fieldplayers.get(3));
+					team.getFormation().setLM( (Fieldplayer) fieldplayers.get(4));
+					team.getFormation().setCM( (Fieldplayer) fieldplayers.get(5));
+					team.getFormation().setRM( (Fieldplayer) fieldplayers.get(6));
+					team.getFormation().setRW( (Fieldplayer) fieldplayers.get(7));
+					team.getFormation().setLW( (Fieldplayer) fieldplayers.get(8));
+					team.getFormation().setCB3( (Fieldplayer) fieldplayers.get(9));
+				}
+			}
+		}
 	}
 }

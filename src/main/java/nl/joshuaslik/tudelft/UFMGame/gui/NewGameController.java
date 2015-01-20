@@ -68,6 +68,7 @@ public class NewGameController {
 	    	if (choosenteam != null) {
 				Team chosenTeam = teamtable.getSelectionModel().getSelectedItem();
 				Game Game1 = Save.newGame(chosenTeam, username);
+				Game1.changeFormationRound();
 				MainGame.setGame(Game1);
 			
 				MainGame.initialize();
