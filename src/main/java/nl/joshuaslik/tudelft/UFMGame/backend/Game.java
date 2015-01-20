@@ -32,7 +32,7 @@ public class Game {
 	public Game(ArrayList<User> users) {
 		this.users = users;
 		this.players = Save.loadPlayers();
-		newCompetition();
+		competition = new Competition(this);
 	}
 
 	/**
@@ -219,6 +219,14 @@ public class Game {
 	public void newCompetition() {
 		competition = new Competition(this);
 		currentround = 1;
+		for(int i = 0; i<users.size(); i++){
+			users.get(i).getTeam().setPoints(0);
+			users.get(i).getTeam().setTotalLosses(0);
+			users.get(i).getTeam().setTotalWins(0);
+			users.get(i).getTeam().setTotalDraws(0);
+			users.get(i).getTeam().setTotalGoals(0);
+			users.get(i).getTeam().setGoalsAgainst(0);
+		}
 	}
 
 	/**

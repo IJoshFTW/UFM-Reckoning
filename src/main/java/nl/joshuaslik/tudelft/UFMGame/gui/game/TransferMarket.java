@@ -229,7 +229,6 @@ public class TransferMarket {
 			Popupscreen.setMessage("You must first get enough money to buy this player");
 		}
 		//MainGame.game.getUser(otherteam));
-		
 	}
 
 	/**
