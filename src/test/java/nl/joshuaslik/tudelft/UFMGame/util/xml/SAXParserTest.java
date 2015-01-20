@@ -21,6 +21,9 @@ public class SAXParserTest {
 	@Rule
 	public ExpectedException thrown = ExpectedException.none();
 
+	/**
+	 * Constructs the file 
+	 */
 	public void constructFile() {
 
 	}
@@ -64,6 +67,9 @@ public class SAXParserTest {
 		SAXParser.parseString(xmlstring);
 	}
 
+	/**
+	 * Test to check if a string can be parsed
+	 */
 	@Test
 	public void testParseStringMalformed1() {
 		String xmlstring = new StringBuilder()

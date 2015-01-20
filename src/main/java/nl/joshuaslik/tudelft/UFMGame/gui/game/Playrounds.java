@@ -22,6 +22,12 @@ import nl.joshuaslik.tudelft.UFMGame.backend.Match;
 import nl.joshuaslik.tudelft.UFMGame.backend.Playround;
 import nl.joshuaslik.tudelft.UFMGame.gui.Main;
 
+/**
+ * Class to control the playrounds
+ * @author Naomi
+ * @author Bryan
+ *
+ */
 public class Playrounds {
 
 	private static int round;

@@ -9,9 +9,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -24,6 +22,7 @@ import nl.joshuaslik.tudelft.UFMGame.backend.Team;
 import nl.joshuaslik.tudelft.UFMGame.gui.Main;
 
 /**
+ * Class to control the transfermarket
  * @author <a href="http://www.joshuaslik.nl/" target="_blank">Joshua Slik</a>
  *
  */

@@ -2,16 +2,8 @@ package nl.joshuaslik.tudelft.UFMGame.backend;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
-import nl.joshuaslik.tudelft.UFMGame.backend.Fieldplayer;
-import nl.joshuaslik.tudelft.UFMGame.backend.Game;
-import nl.joshuaslik.tudelft.UFMGame.backend.Goalkeeper;
-import nl.joshuaslik.tudelft.UFMGame.backend.Player;
-import nl.joshuaslik.tudelft.UFMGame.backend.Save;
-import nl.joshuaslik.tudelft.UFMGame.backend.Team;
-import nl.joshuaslik.tudelft.UFMGame.backend.User;
 import nl.joshuaslik.tudelft.UFMGame.backend.formation.Form343;
 import nl.joshuaslik.tudelft.UFMGame.backend.formation.Form4321;
 import nl.joshuaslik.tudelft.UFMGame.backend.formation.Form433;

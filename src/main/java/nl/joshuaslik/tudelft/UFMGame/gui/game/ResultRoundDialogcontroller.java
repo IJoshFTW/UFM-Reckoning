@@ -4,9 +4,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javafx.animation.FadeTransition;
-import javafx.animation.KeyFrame;
-import javafx.util.Duration;
-import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -17,9 +14,15 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Popup;
+import javafx.util.Duration;
 import nl.joshuaslik.tudelft.UFMGame.backend.Match;
 import nl.joshuaslik.tudelft.UFMGame.gui.Main;
 
+/**
+ * Class to control the result per round
+ * @author Naomi
+ *
+ */
 public class ResultRoundDialogcontroller {
 	private static Popup popup;
 	private static AnchorPane page;

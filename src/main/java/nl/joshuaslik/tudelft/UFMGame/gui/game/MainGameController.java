@@ -1,14 +1,13 @@
 package nl.joshuaslik.tudelft.UFMGame.gui.game;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import nl.joshuaslik.tudelft.UFMGame.backend.Match;
 import nl.joshuaslik.tudelft.UFMGame.gui.MainMenu;
 
 /**
+ * Controller for the main game class 
  * @author <a href="http://www.joshuaslik.nl/" target="_blank">Joshua Slik</a>
  *
  */

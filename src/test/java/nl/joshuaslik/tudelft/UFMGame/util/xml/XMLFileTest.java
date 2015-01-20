@@ -13,6 +13,7 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 /**
+ * Test to check the XML file
  * @author <a href="http://www.joshuaslik.nl/" target="_blank">Joshua Slik</a>
  *
  */
@@ -20,9 +21,15 @@ public class XMLFileTest {
 
 	private XMLFile file;
 
+	/**
+	 * General rule for expected exceptions
+	 */
 	@Rule
 	public ExpectedException thrown = ExpectedException.none();
 
+	/**
+	 * Creating a constructor for the xml file
+	 */
 	public void construct() {
 		LinkedHashMap<String, String> atts = new LinkedHashMap<String, String>();
 		atts.put("attribute1", "value1");
@@ -36,23 +43,35 @@ public class XMLFileTest {
 		file = new XMLFile(tag);
 	}
 
+	/**
+	 * Testing the constructor
+	 */
 	@Test
 	public void testConstructor() {
 		construct();
 	}
 
+	/**
+	 * Test to check if you can get the content of the xml file
+	 */
 	@Test
 	public void testGetContent2() {
 		construct();
 		assertTrue(file.getContent("rootname").equals("rootcontent"));
 	}
 
+	/**
+	 * Test to check if you can get the content of the xml file
+	 */
 	@Test
 	public void testGetContent3() {
 		construct();
 		assertTrue(file.getContent("rootname.subname").equals("subcontent"));
 	}
 
+	/**
+	 * Test to check if you can get the content of the xml file
+	 */
 	@Test
 	public void testGetContent4() {
 		construct();
@@ -60,6 +79,9 @@ public class XMLFileTest {
 		file.getContent("rootname.falsesubname");
 	}
 
+	/**
+	 * Test to check if you can get the content of the xml file
+	 */
 	@Test
 	public void testGetContent5() {
 		construct();
@@ -67,6 +89,9 @@ public class XMLFileTest {
 		file.getContent("rootname.fakename");
 	}
 
+	/**
+	 * Test to check if you can get an element of the xml file
+	 */
 	@Test
 	public void testGetElement1() {
 		construct();
@@ -75,6 +100,9 @@ public class XMLFileTest {
 				.equals("rootcontent"));
 	}
 
+	/**
+	 * Test to check if you can get an element of the xml file
+	 */
 	@Test
 	public void testGetElement2() {
 		construct();
@@ -82,18 +110,27 @@ public class XMLFileTest {
 		file.getElement("rootname.fakename");
 	}
 
+	/**
+	 * Test to check if an xml file can be saved
+	 */
 	@Test
 	public void testSave1() {
 		construct();
 		file.save("build/testtarget/XMLFileTest/testSave1.xml");
 	}
 
+	/**
+	 * Test to check if an xml file can be saved
+	 */
 	@Test
 	public void testSave2() {
 		construct();
 		file.save("build/testtarget/XMLFileTest/testSave2.xml", "UTF-16");
 	}
 
+	/**
+	 * Test to check if an xml file can be saved
+	 */
 	@Test
 	public void testSave3() {
 		construct();
@@ -101,6 +138,9 @@ public class XMLFileTest {
 		file.save("build/testtarget/XMLFileTest/testSave3.xml", "NOAH-16");
 	}
 
+	/**
+	 * Test to check if an xml file can be saved
+	 */
 	@Test
 	public void testSave4() {
 		construct();
@@ -108,6 +148,9 @@ public class XMLFileTest {
 		file.save("build/testtarget/XMLFileTest/Hal\0lo.txt");
 	}
 
+	/**
+	 * Test to check if you can get a string of the xml
+	 */
 	@Test
 	public void testToString1() {
 		construct();
@@ -118,6 +161,9 @@ public class XMLFileTest {
 		assertTrue(file.toString().equals(expected));
 	}
 
+	/**
+	 * Test to check if you can get a string of the xml
+	 */
 	@Test
 	public void testToString2() {
 		construct();
@@ -129,6 +175,9 @@ public class XMLFileTest {
 		assertTrue(file.toString().equals(expected));
 	}
 
+	/**
+	 * Test to check if you can get a string of the xml
+	 */
 	@Test
 	public void testToString3() {
 		construct();
@@ -139,6 +188,9 @@ public class XMLFileTest {
 		assertTrue(file.toString().equals(expected));
 	}
 
+	/**
+	 * Test to check if you can get a string of the xml
+	 */
 	@Test
 	public void testToString4() {
 		construct();

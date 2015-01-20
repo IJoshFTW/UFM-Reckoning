@@ -14,7 +14,7 @@ import nl.joshuaslik.tudelft.UFMGame.util.xml.SAXParser;
 import nl.joshuaslik.tudelft.UFMGame.util.xml.XMLFile;
 
 /**
- * 
+ * Class to controll the application
  * @author <a href="http://www.joshuaslik.nl/" target="_blank">Joshua Slik</a>
  *
  */

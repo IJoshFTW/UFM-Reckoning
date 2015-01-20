@@ -3,19 +3,23 @@ package nl.joshuaslik.tudelft.UFMGame.gui.game;
 import java.io.IOException;
 import java.util.LinkedHashMap;
 
-import nl.joshuaslik.tudelft.UFMGame.backend.Save;
-import nl.joshuaslik.tudelft.UFMGame.gui.Main;
 import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Popup;
 import javafx.util.Duration;
+import nl.joshuaslik.tudelft.UFMGame.backend.Save;
+import nl.joshuaslik.tudelft.UFMGame.gui.Main;
 
+/**
+ * Controller of the save game class
+ * @author Naomi
+ *
+ */
 public class SaveGameController {
 	private static Popup popup;
 	private static AnchorPane page;
@@ -109,28 +113,25 @@ public class SaveGameController {
 
 	/**
 	 * handles clicking on the Slot 1 button
-	 * @throws IOException is thrown if the FXML file cannot be parsed.
 	 */
 	@FXML
-	protected void handleSlot1() throws IOException {
+	protected void handleSlot1()  {
 		saveGame(1);
 	}
 	
 	/**
 	 * handles clicking on the Slot 2 button
-	 * @throws IOException is thrown if the FXML file cannot be parsed.
-	 */
+	*/
 	@FXML
-	protected void handleSlot2() throws IOException {
+	protected void handleSlot2() {
 		saveGame(2);
 	}
 	
 	/**
 	 * handles clicking on the Slot 3 button
-	 * @throws IOException is thrown if the FXML file cannot be parsed.
 	 */
 	@FXML
-	protected void handleSlot3() throws IOException {
+	protected void handleSlot3() {
 		saveGame(3);
 	}
 	
