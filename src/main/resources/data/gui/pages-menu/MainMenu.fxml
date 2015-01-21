@@ -15,14 +15,11 @@
          <children>
             <AnchorPane maxHeight="800.0" maxWidth="1200.0" prefHeight="800.0" prefWidth="1200.0">
                <children>
-                  <Pane opacity="0.8" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #101010; -fx-border-width: 1px; -fx-border-color: #CECECE;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <Label layoutX="439.0" layoutY="18.0" text="Main Menu" textFill="WHITE">
-                           <font>
-                              <Font size="60.0" style="-fx-font-family: quicksand;"/>
-                           </font>
-                        </Label>
-                     </children></Pane>
+                  <Label alignment="TOP_LEFT" layoutX="30.0" layoutY="104.0" text="Main Menu" textFill="WHITE" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="770.0">
+                     <font>
+                        <Font size="60.0" style="-fx-font-family: quicksand;" />
+                     </font>
+                  </Label>
                   <HBox layoutX="30.0" layoutY="210.0" AnchorPane.bottomAnchor="90.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="210.0">
                      <children>
                         <VBox>
@@ -39,11 +36,6 @@
                               <Button id="btn_LoadGame" fx:id="loadgame" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleLoadGame" styleClass="btn_StartGame" text="Load Game" visible="false" />
                            </children>
                         </VBox>
-                        <ImageView fitHeight="273.0" fitWidth="498.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../img/frontlogo.png" />
-                           </image>
-                        </ImageView>
                      </children>
                   </HBox>
                </children>
