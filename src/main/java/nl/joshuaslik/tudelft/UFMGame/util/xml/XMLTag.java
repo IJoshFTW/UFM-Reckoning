@@ -58,10 +58,20 @@ public class XMLTag {
 		return true;
 	}
 
+	/**
+	 * check if elements contain a certain name
+	 * @param name is the name of the xml tag
+	 * @return elements
+	 */
 	public boolean hasElement(String name) {
 		return elementnames.contains(name);
 	}
 
+	/**
+	 * 
+	 * @param name
+	 * @return
+	 */
 	public boolean hasMoreThanOneElement(String name) {
 		return (Collections.frequency(elementnames, name) > 1);
 	}

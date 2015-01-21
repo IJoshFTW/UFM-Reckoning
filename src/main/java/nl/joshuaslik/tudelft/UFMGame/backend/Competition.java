@@ -146,6 +146,10 @@ public class Competition {
 		return false;
 	}
 	
+	/**
+	 * Setter
+	 * @param playrounds are the playrounds to be played in the competition
+	 */
 	public void setPlayrounds(ArrayList<Playround> playrounds){
 		this.playrounds = playrounds;
 	}
