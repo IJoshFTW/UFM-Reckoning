@@ -16,6 +16,9 @@ import org.junit.Test;
  */
 public class Form433Test {
 
+	/**
+	 * testing the constructor
+	 */
 	@Test
 	public void testConstructor() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");

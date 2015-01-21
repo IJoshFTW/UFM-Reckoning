@@ -164,7 +164,8 @@ public class Game {
 	}
 
 	/**
-	 * 
+	 * Gets the team 
+	 * @param teamid is the id of the team
 	 * @return Team object where id is teamid
 	 */
 	public Team getTeam(String teamid) {
@@ -177,7 +178,8 @@ public class Game {
 	}
 
 	/**
-	 * 
+	 * get the players
+	 * @param id is the id of the players
 	 * @return returns the player with id
 	 */
 	public Player getPlayer(String id) {
@@ -250,7 +252,8 @@ public class Game {
 	/**
 	 * returns 1 playround
 	 * 
-	 * @param round
+	 * @param round is the round number of that playround
+	 * @return the playround of a competition
 	 */
 	public Playround getPlayround(int round) {
 		return competition.getPlayround(round);
@@ -258,6 +261,7 @@ public class Game {
 
 	/**
 	 * returns all the playrounds of the current competition
+	 * @return the playround of a competition
 	 */
 	public ArrayList<Playround> getPlayrounds() {
 		return competition.getPlayrounds();
@@ -266,6 +270,7 @@ public class Game {
 	/**
 	 * determine the result of the currentround and returns the result of the
 	 * currentround
+	 * @return the result of a playround
 	 */
 	public LinkedHashMap<String, String> resultplayround() {
 		LinkedHashMap<String, String> result = null;
@@ -287,6 +292,8 @@ public class Game {
 
 	/**
 	 * determine the result of the specified round and returns the result of the
+	 * @param round is the round to be played
+	 * @return the result of the playround
 	 *
 	 */
 	public LinkedHashMap<String, String> resultplayround(int round) {

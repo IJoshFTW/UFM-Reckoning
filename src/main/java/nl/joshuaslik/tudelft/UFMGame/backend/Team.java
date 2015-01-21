@@ -33,6 +33,9 @@ public class Team {
 	/**
 	 * Constructs the Object
 	 * 
+	 * @param id
+	 *            is the id of a team.
+	 * 
 	 * @param tmName
 	 *            is the team name.
 	 * @param cchName
@@ -225,7 +228,7 @@ public class Team {
 
 			if (activePlayers.contains(player)) {
 				activePlayers.remove(activePlayers.indexOf(player));
-				if(player.equals(teamCaptain)){
+				if (player.equals(teamCaptain)) {
 					teamCaptain = null;
 				}
 
@@ -371,9 +374,12 @@ public class Team {
 	public void incTotalWins() {
 		this.totalWins = this.totalWins + 1;
 	}
-	
+
 	/**
 	 * sets the total wins
+	 * 
+	 * @param wins
+	 *            is the amount of wins by a team
 	 */
 	public void setTotalWins(int wins) {
 		this.totalWins = wins;
@@ -394,14 +400,16 @@ public class Team {
 	public void incTotalLosses() {
 		this.totalLosses = this.totalLosses + 1;
 	}
-	
+
 	/**
-	 * sets the totallosses
+	 * sets the total losses
+	 * 
+	 * @param losses
+	 *            is the amount of losses by a team
 	 */
 	public void setTotalLosses(int losses) {
 		this.totalLosses = losses;
 	}
-
 
 	/**
 	 * Get the amount of draws this team has
@@ -418,9 +426,12 @@ public class Team {
 	public void incTotalDraws() {
 		this.totalDraws = this.totalDraws + 1;
 	}
-	
+
 	/**
 	 * sets the total draws
+	 * 
+	 * @param draws
+	 *            is the amount of draws played by a team
 	 */
 	public void setTotalDraws(int draws) {
 		this.totalDraws = draws;
@@ -570,6 +581,9 @@ public class Team {
 
 	/**
 	 * Change the type of formation of the team
+	 * 
+	 * @param form
+	 *            is the formation chosen by a team
 	 */
 	public void changeFormationType(Formation form) {
 		for (int i = 0; i < activePlayers.size(); i++) {

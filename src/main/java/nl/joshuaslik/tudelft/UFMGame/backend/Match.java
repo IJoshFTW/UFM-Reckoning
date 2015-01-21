@@ -194,35 +194,39 @@ public class Match {
 	}
 
 	/**
-	 * 
+	 * Setter
+	 * @param goals is the awaygoals to set
 	 */
 	public void setawaygoals(int goals) {
 		awaygoals = goals;
 	}
 
 	/**
-	 * 
+	 * Setter
+	 * @param team is the team to set
 	 */
 	public void setWinner(Team team) {
 		winner = team;
 	}
 
 	/**
-	 * 
+	 * Setter
+	 * @param team is the team to set
 	 */
 	public void setLoser(Team team) {
 		loser = team;
 	}
 
 	/**
-	 * 
+	 * Setter
+	 * @param goals are the goals to set
 	 */
 	public void setHomegoals(int goals) {
 		homegoals = goals;
 	}
 
 	/**
-	 * 
+	 * Getter
 	 * @return the team playing HOME this match
 	 */
 	public Team getHomeTeam() {
@@ -230,7 +234,7 @@ public class Match {
 	}
 
 	/**
-	 * 
+	 * Getter
 	 * @return true or false depending on if it was a draw
 	 */
 	public boolean getDraw() {
@@ -238,7 +242,7 @@ public class Match {
 	}
 
 	/**
-	 * 
+	 * Getter
 	 * @return the team playing AWAY this match
 	 */
 	public Team getAwayTeam() {
@@ -246,7 +250,7 @@ public class Match {
 	}
 
 	/**
-	 * Test of two match objects are equal
+	 * Test if two match objects are equal
 	 */
 	public boolean equals(Object other) {
 		if (other instanceof Match & (other != null)) {

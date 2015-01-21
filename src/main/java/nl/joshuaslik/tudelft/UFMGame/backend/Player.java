@@ -26,8 +26,7 @@ public abstract class Player {
 	 *            is the first name of the player as a String
 	 * @param lastName
 	 *            is the last name of the player as a String
-	 * @param heritage
-	 *            is the country of birth from the player as a String
+	 * @param country is the country of the player as a string
 	 * @param pr
 	 *            is the price of the player as an int.
 	 */
@@ -133,7 +132,7 @@ public abstract class Player {
 	}
 
 	/**
-	 * @return
+	 * @return the first name
 	 */
 	public String getFirstName() {
 		return this.firstName;

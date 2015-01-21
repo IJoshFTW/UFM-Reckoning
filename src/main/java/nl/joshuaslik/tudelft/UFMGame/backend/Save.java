@@ -1,6 +1,5 @@
 package nl.joshuaslik.tudelft.UFMGame.backend;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
@@ -15,6 +14,7 @@ import nl.joshuaslik.tudelft.UFMGame.util.xml.XMLFile;
 import nl.joshuaslik.tudelft.UFMGame.util.xml.XMLTag;
 
 /**
+ * class to save the game
  * @author Bryan van Wijk
  * @author <a href="http://www.joshuaslik.nl/" target="_blank">Joshua Slik</a>
  *
@@ -801,7 +801,7 @@ public class Save {
 	/**
 	 * Method to get all the usernames that have a saved game
 	 * @return LinkedHashMap<Integer, String> with the slot number and the string username
-	 */
+	 * */
 	public static LinkedHashMap<Integer, String> getUsernames() {
 		LinkedHashMap<Integer, String> usernames = new LinkedHashMap<Integer, String>();
 		for (int j = 1; j < 4; j++) {
