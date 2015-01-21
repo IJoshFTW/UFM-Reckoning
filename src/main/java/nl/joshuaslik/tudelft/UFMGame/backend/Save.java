@@ -744,8 +744,12 @@ public class Save {
 		XMLTag highscores = new XMLTag("highscores");
 		String saveloc = System.getenv("APPDATA")
 				+ "\\Ultimate Football Manager\\highscores\\highscores.xml";
-		XMLFile file = SAXParser.parseLocalFile(saveloc);
-		if(file != null){	
+		
+		if (new File(saveloc).exists() == false){
+			
+		}
+		else{
+			XMLFile file = SAXParser.parseLocalFile(saveloc);
 			for (int i = 1; i < file.getElement("highscores")
 					.elements() + 1; i++) {
 				XMLTag user = new XMLTag("user");
@@ -804,19 +808,16 @@ public class Save {
 			String saveloc = System.getenv("APPDATA")
 					+ "\\Ultimate Football Manager\\saves\\slot" + j + ".xml";
 			XMLFile file = null;
-			try {
+			if (new File(saveloc).exists() == true){
 				file = SAXParser.parseLocalFile(saveloc);
-			} catch (Exception e) {
-			
-			}
-			if (file != null) {
-				for (int i = 1; i < file.getElement("savegame.users")
-						.elements() + 1; i++) {
-					if (file.getElement("savegame.users.user", i)
-							.getAttribute("type").equals("human")) {
-						usernames.put(j,
-								file.getElement("savegame.users.user", i)
+				if (file != null) {
+					for (int i = 1; i < file.getElement("savegame.users")
+							.elements() + 1; i++) {
+						if (file.getElement("savegame.users.user", i)
+								.getAttribute("type").equals("human")) {
+							usernames.put(j, file.getElement("savegame.users.user", i)
 										.getAttribute("username"));
+						}
 					}
 				}
 			}
@@ -835,6 +836,10 @@ public class Save {
 		ArrayList<User> users = new ArrayList<User>();
 		String saveloc = System.getenv("APPDATA")
 				+ "\\Ultimate Football Manager\\saves\\slot" + slot + ".xml";
+		if (new File(saveloc).exists() == false){
+			return null;
+		}
+		else{
 		XMLFile file = SAXParser.parseLocalFile(saveloc);
 
 		for (int i = 1; i < file.getElement("savegame.users").elements() + 1; i++) {
@@ -1500,5 +1505,5 @@ public class Save {
 		game.setNonContractedPlayers(nonContractedPlayers);
 		return game;
 	}
-
+	}
 }

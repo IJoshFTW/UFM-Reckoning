@@ -6,10 +6,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.paint.Color;
 import nl.joshuaslik.tudelft.UFMGame.backend.Game;
 import nl.joshuaslik.tudelft.UFMGame.backend.Save;
 import nl.joshuaslik.tudelft.UFMGame.backend.Team;
@@ -99,6 +105,9 @@ public class NewGameController {
 	 
 			AnchorPane scene = FXMLLoader.load(Class.class.getResource("/data/gui/pages-menu/NewGame.fxml"));
 			Main.setCenter(scene);
+			Main.rootLayout.getStyleClass().removeAll();
+			Main.rootLayout.getStyleClass().add("maingame");
+			Main.rootLayout.setStyle("pane");
 			Topbar.start(username);
 		}
 
