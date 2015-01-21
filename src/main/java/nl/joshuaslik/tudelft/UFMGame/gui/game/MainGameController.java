@@ -110,8 +110,8 @@ public class MainGameController {
 	}
 
 	/**
-	 * handles clicking on the otherteam button
-	 * @throws @throws IOException is thrown if the FXML file cannot be parsed.
+	 * handles clicking on the Other Team button
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
 	 */
 	@FXML
 	protected void handleOtherTeams() throws IOException {
