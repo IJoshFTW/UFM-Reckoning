@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import java.net.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -10,20 +13,46 @@
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="41.0">
          <children>
-            <AnchorPane maxHeight="800.0" maxWidth="1200.0" prefHeight="800.0" prefWidth="1200.0">
+            <AnchorPane maxHeight="1000.0" maxWidth="1900.0" prefHeight="1000.0" prefWidth="1900.0">
                <children>
-                  <Pane opacity="0.8" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #101010; -fx-border-width: 1px; -fx-border-color: #CECECE;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                  <CheckBox fx:id="checkboxfullscreen" layoutX="494.0" layoutY="250.0" mnemonicParsing="false" text="Fullscreen" textFill="#f8f5f5">
-                     <font>
-                        <Font size="34.0" />
-                     </font>
-                  </CheckBox>
-                  <Button layoutX="75.0" layoutY="645.0" prefWidth="220.0" mnemonicParsing="false" onAction="#handleReturn" text="Return" />
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="256.0" layoutY="25.0" prefHeight="50.0" prefWidth="689.0" text="Options" textAlignment="CENTER" textFill="#f2efef" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-                     <font>
-                        <Font size="34.0" />
-                     </font>
-                  </Label>
+                  <AnchorPane id="main" layoutX="618.0" layoutY="198.0" maxHeight="800.0" maxWidth="1200.0" prefHeight="759.0" prefWidth="1085.0" styleClass="main">
+                     <children>
+                        <Pane opacity="0.8" style="-fx-background-color: #101010; -fx-border-width: 1px; -fx-border-color: #CECECE;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="29.0" prefHeight="50.0" prefWidth="1085.0" text="Options" textAlignment="CENTER" textFill="#f2efef">
+                           <font>
+                              <Font size="34.0" />
+                           </font>
+                        </Label>
+                        <CheckBox fx:id="checkboxfullscreen" layoutX="437.0" layoutY="289.0" mnemonicParsing="false" text="Fullscreen" textFill="#f8f5f5">
+                           <font>
+                              <Font size="34.0" />
+                           </font>
+                        </CheckBox>
+                     </children>
+                  </AnchorPane>
+                  <ImageView fitHeight="201.0" fitWidth="1000.0" layoutX="312.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="312.0" AnchorPane.rightAnchor="588.0">
+                     <image>
+                        <Image url="@../img/logo.png" />
+                     </image>
+                  </ImageView>
+                  <HBox layoutX="201.0" layoutY="300.0" prefHeight="700.0" prefWidth="834.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="201.0" AnchorPane.rightAnchor="865.0" AnchorPane.topAnchor="300.0">
+                     <children>
+                        <VBox>
+                           <children>
+                              <Button id="btn_StartGame" fx:id="startgame" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleStart" prefHeight="75.0" prefWidth="332.0" styleClass="btn_StartGame" text="Start Game" />
+                              <Button id="btn_Options" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleOptions" prefHeight="75.0" styleClass="btn_Options" text="Options" />
+                              <Button id="btn_Highscore" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleHighscores" prefHeight="75.0" styleClass="btn_Highscore" text="Highscore" />
+                              <Button id="btn_QuitMenu" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleQuitMenu" prefHeight="75.0" styleClass="btn_QuitMenu" text="Quit game" />
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="500.0" prefWidth="328.0">
+                           <children>
+                              <Button id="btn_NewGame" fx:id="newgame" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleNewGame" prefHeight="75.0" styleClass="btn_StartGame" text="New Game" visible="false" />
+                              <Button id="btn_LoadGame" fx:id="loadgame" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleLoadGame" prefHeight="75.0" styleClass="btn_StartGame" text="Load Game" visible="false" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
                </children>
             </AnchorPane>
          </children>

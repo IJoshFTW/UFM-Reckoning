@@ -1,5 +1,6 @@
 package nl.joshuaslik.tudelft.UFMGame.backend;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
@@ -839,7 +840,6 @@ public class Save {
 		if (new File(saveloc).exists() == false){
 			return null;
 		}
-		else{
 		XMLFile file = SAXParser.parseLocalFile(saveloc);
 
 		for (int i = 1; i < file.getElement("savegame.users").elements() + 1; i++) {
@@ -1504,6 +1504,5 @@ public class Save {
 		}
 		game.setNonContractedPlayers(nonContractedPlayers);
 		return game;
-	}
 	}
 }
