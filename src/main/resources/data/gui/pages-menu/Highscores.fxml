@@ -30,7 +30,7 @@
                       <TableColumn fx:id="goals" prefWidth="168.0" text="Avg goals" />
                     </columns>
                   </TableView>
-                  <Button layoutX="74.0" layoutY="645.0" mnemonicParsing="false" onAction="#handleReturn" prefHeight="69.0" prefWidth="165.0" text="return" />
+                  <Button layoutX="75.0" layoutY="645.0" mnemonicParsing="false" onAction="#handleReturn" prefHeight="69.0" prefWidth="220.0" text="Return" />
                   <Label alignment="CENTER" layoutX="414.0" layoutY="35.0" text="Highscore" textAlignment="CENTER" textFill="#f8f1f1" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <font>
                         <Font size="33.0" />
