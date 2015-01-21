@@ -20,7 +20,6 @@ import javafx.util.Callback;
 import javafx.util.StringConverter;
 import nl.joshuaslik.tudelft.UFMGame.backend.Player;
 import nl.joshuaslik.tudelft.UFMGame.backend.Team;
-import nl.joshuaslik.tudelft.UFMGame.backend.User;
 import nl.joshuaslik.tudelft.UFMGame.backend.exceptions.UnableToBuyException;
 import nl.joshuaslik.tudelft.UFMGame.gui.Main;
 
@@ -177,6 +176,7 @@ public class TransferMarket {
 	/**
 	 * Selected player in tableit 
 	 * @param player that is selected
+	 * @param selectedtable is the table that is selected in the transfermarket 
 	 */
 	public void selectedPlayer(Player player, String selectedtable) {
 		if(selectedtable.equals("yourteam")){
@@ -309,8 +309,5 @@ public class TransferMarket {
 		Main.setBottom(bottom);
 	}
 	
-	public static void reloadTables(){
-		
-	}
-
+	
 }
