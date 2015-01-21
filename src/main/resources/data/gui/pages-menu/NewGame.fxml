@@ -25,7 +25,7 @@
                         <TableColumn fx:id="teamvalue" maxWidth="1000.0" prefWidth="177.0" text="Team value" />
                     </columns>
                   </TableView>
-                  <Button layoutX="350.0" layoutY="659.0" mnemonicParsing="false" onAction="#handleChooseTeam" prefHeight="72.0" prefWidth="500.0" text="Choose this team" />
+                  <Button layoutX="325.0" layoutY="659.0" mnemonicParsing="false" onAction="#handleChooseTeam" prefHeight="72.0" prefWidth="550.0" text="Choose this team" />
                </children>
             </AnchorPane>
          </children>

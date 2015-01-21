@@ -52,27 +52,27 @@
                               <Font size="20.0" />
                            </font>
                         </Label>
-                  <Label fx:id="showTotalGoals" layoutX="677.0" layoutY="590.0" prefHeight="30.0" prefWidth="334.0" text="?" textFill="WHITE" AnchorPane.leftAnchor="676.0" AnchorPane.topAnchor="589.0">
+                  <Label fx:id="showTotalGoals" layoutX="670.0" layoutY="590.0" prefHeight="30.0" prefWidth="334.0" text="?" textFill="WHITE" AnchorPane.leftAnchor="676.0" AnchorPane.topAnchor="589.0">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="showTotalDraws" layoutX="677.0" layoutY="558.0" prefHeight="30.0" prefWidth="334.0" text="?" textFill="WHITE" AnchorPane.leftAnchor="676.0" AnchorPane.topAnchor="557.0">
+                  <Label fx:id="showTotalDraws" layoutX="670.0" layoutY="558.0" prefHeight="30.0" prefWidth="334.0" text="?" textFill="WHITE" AnchorPane.leftAnchor="676.0" AnchorPane.topAnchor="557.0">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="showTotalLosses" layoutX="677.0" layoutY="526.0" prefHeight="30.0" prefWidth="334.0" text="?" textFill="WHITE" AnchorPane.leftAnchor="676.0" AnchorPane.topAnchor="525.0">
+                  <Label fx:id="showTotalLosses" layoutX="670.0" layoutY="526.0" prefHeight="30.0" prefWidth="334.0" text="?" textFill="WHITE" AnchorPane.leftAnchor="676.0" AnchorPane.topAnchor="525.0">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="showTotalWins" layoutX="676.0" layoutY="494.0" prefHeight="30.0" prefWidth="334.0" text="?" textFill="WHITE" AnchorPane.leftAnchor="675.0" AnchorPane.topAnchor="493.0">
+                  <Label fx:id="showTotalWins" layoutX="670.0" layoutY="494.0" prefHeight="30.0" prefWidth="334.0" text="?" textFill="WHITE" AnchorPane.leftAnchor="675.0" AnchorPane.topAnchor="493.0">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="showTotalGamesPlayed" layoutX="675.0" layoutY="463.0" prefHeight="30.0" prefWidth="334.0" text="?" textFill="WHITE" AnchorPane.leftAnchor="674.0" AnchorPane.topAnchor="462.0">
+                  <Label fx:id="showTotalGamesPlayed" layoutX="670.0" layoutY="463.0" prefHeight="30.0" prefWidth="334.0" text="?" textFill="WHITE" AnchorPane.leftAnchor="674.0" AnchorPane.topAnchor="462.0">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -92,7 +92,7 @@
                         <Image url="@../img/staminabar.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="coach" layoutX="677.0" layoutY="620.0" prefHeight="30.0" prefWidth="416.0" text="Coach: ">
+                  <Label fx:id="coach" layoutX="670.0" layoutY="620.0" prefHeight="30.0" prefWidth="416.0" text="Coach: ">
                      <font>
                         <Font size="20.0" />
                      </font>
