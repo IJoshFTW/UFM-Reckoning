@@ -6,7 +6,7 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
 /**
- *
+ *Class to create an xml file
  * @author <a href="http://www.joshuaslik.nl/" target="_blank">Joshua Slik</a>
  *
  */
@@ -40,8 +40,9 @@ public class XMLFile {
 	 * 
 	 * @param name
 	 *            is the name of the element to get
+	 * @param iteration
 	 * @return the content of the element at location <b>name</b>
-	 * @throws NoSuchElementException
+	 * @throws NoSuchElementException is thrown when there's no such element
 	 *             is thrown if element is not found
 	 */
 	public String getContent(String name, int iteration) throws NoSuchElementException {
@@ -64,6 +65,7 @@ public class XMLFile {
 	 * 
 	 * @param name
 	 *            is the name of the element to get
+	 * @param iteration 
 	 * @return the element at the location <b>name</b>
 	 * @throws NoSuchElementException
 	 *             is thrown if element is not found

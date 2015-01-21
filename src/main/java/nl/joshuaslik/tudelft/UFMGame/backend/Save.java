@@ -1,6 +1,5 @@
 package nl.joshuaslik.tudelft.UFMGame.backend;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
@@ -15,6 +14,7 @@ import nl.joshuaslik.tudelft.UFMGame.util.xml.XMLFile;
 import nl.joshuaslik.tudelft.UFMGame.util.xml.XMLTag;
 
 /**
+ * class to save the game
  * @author Bryan van Wijk
  * @author <a href="http://www.joshuaslik.nl/" target="_blank">Joshua Slik</a>
  *
@@ -770,6 +770,10 @@ public class Save {
 		savefile.save(saveloc);
 	}
 	
+	/**
+	 * Method to get the highscores
+	 * @return the highscores
+	 */
 	public static LinkedHashMap<String, Integer> getHighscore(){
 		LinkedHashMap<String, Integer> highscores = new LinkedHashMap<String, Integer>();
 		String saveloc = System.getenv("APPDATA")
@@ -783,6 +787,10 @@ public class Save {
 		return highscores;
 	}
 
+	/**
+	 * return the usernames of the saved games
+	 * @return the usernames of the saved games
+	 */
 	public static LinkedHashMap<Integer, String> getUsernames() {
 		LinkedHashMap<Integer, String> usernames = new LinkedHashMap<Integer, String>();
 		for (int j = 1; j < 4; j++) {

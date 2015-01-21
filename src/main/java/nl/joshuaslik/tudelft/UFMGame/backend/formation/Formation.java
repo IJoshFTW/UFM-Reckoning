@@ -23,8 +23,8 @@ public abstract class Formation {
 	
 	/**
 	 * Set the goalkeeper of the formation. and remove the old
-	 * @param new goalkeeper
-	 * @return old goalkeeper
+	 * @param goalkeeper is the  goalkeeper that will be playing.
+	 * @return the goalkeeper
 	 */
 	public Goalkeeper setGoalkeeper(Goalkeeper goalkeeper){
 		Goalkeeper tmp = this.goalkeeper;

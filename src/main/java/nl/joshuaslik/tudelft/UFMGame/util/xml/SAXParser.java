@@ -18,6 +18,8 @@ import org.xml.sax.helpers.DefaultHandler;
 import org.xml.sax.helpers.XMLReaderFactory;
 
 /**
+ * class for the saxparser
+ * 
  * @author <a href="http://www.joshuaslik.nl/" target="_blank">Joshua Slik</a>
  *
  */
@@ -27,12 +29,20 @@ public class SAXParser extends DefaultHandler {
 	private ArrayList<XMLTag> tagstack = new ArrayList<XMLTag>();
 	private boolean inElement = false;
 
-	public SAXParser() {
-	}
+	/*
+	 * public SAXParser() { }
+	 */
 
+	/**
+	 * parsing a file as an xml file
+	 * 
+	 * @param filename
+	 *            is a string for the name of the xml file
+	 * @return the xml file
+	 */
 	public static XMLFile parseFile(String filename) {
 		filename = filename.replace("\\", "/");
-		
+
 		XMLReader xr = null;
 		try {
 			xr = XMLReaderFactory.createXMLReader();
@@ -56,7 +66,14 @@ public class SAXParser extends DefaultHandler {
 		return handler.getXMLFile();
 
 	}
-	
+
+	/**
+	 * parsing a local xml file
+	 * 
+	 * @param filename
+	 *            name of the xml file
+	 * @return the xml file
+	 */
 	public static XMLFile parseLocalFile(String filename) {
 		XMLReader xr = null;
 		try {
@@ -89,6 +106,13 @@ public class SAXParser extends DefaultHandler {
 
 	}
 
+	/**
+	 * parsing a local xml file as a string
+	 * 
+	 * @param xmlstring
+	 *            is a string with the xml in it
+	 * @return the xml file
+	 */
 	public static XMLFile parseString(String xmlstring) {
 		XMLReader xr = null;
 		try {

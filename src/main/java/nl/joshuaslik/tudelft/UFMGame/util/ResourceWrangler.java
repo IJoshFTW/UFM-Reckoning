@@ -27,7 +27,7 @@ public class ResourceWrangler {
 	 * In other words, always lead with a forward slash.
 	 * 
 	 * @param name
-	 * @return
+	 * @return the name of the resource url
 	 */
 	public static URL getResource(String name) {
 		name = name.replace("\\", "/");
@@ -45,7 +45,7 @@ public class ResourceWrangler {
 	 * In other words, always lead with a forward slash.
 	 * 
 	 * @param name
-	 * @return
+	 * @return the resource as a stream
 	 */
 	public static InputStream getResourceAsStream(String name) {
 		name = name.replace("\\", "/");
@@ -54,6 +54,11 @@ public class ResourceWrangler {
 		return Class.class.getResourceAsStream(name);
 	}
 
+	/**
+	 * get the resource files as a string
+	 * @param name is a string
+	 * @return resource files
+	 */
 	public static ArrayList<String> listResourceFiles(String name) {
 		name = name.replace("\\", "/");
 		if (name.endsWith("/"))
@@ -102,6 +107,11 @@ public class ResourceWrangler {
 		return filenamelist;
 	}
 
+	/**
+	 * get the list with resource directories
+	 * @param name is a string 
+	 * @return resource files
+	 */
 	public static ArrayList<String> listResourceDirectories(String name) {
 		name = name.replace("\\", "/");
 		if (name.endsWith("/"))
@@ -145,6 +155,10 @@ public class ResourceWrangler {
 		return filenamelist;
 	}
 
+	/**
+	 * check if you have to run from a jar
+	 * @return boolean true or false if it's run as a jar
+	 */
 	public static boolean runFromJar() {
 		URL testpath = ClassLoader.getSystemResource("");
 		if (testpath == null) {
