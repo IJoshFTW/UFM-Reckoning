@@ -72,7 +72,6 @@ public class Highscores {
 	public static void start() throws IOException {	
 		AnchorPane scene = (AnchorPane) FXMLLoader.load(Class.class.getResource("/data/gui/pages-menu/Highscores.fxml"));
 		Main.setCenter(scene);
-		Topbar.start("HighScores");
 	}
 	
 	/**

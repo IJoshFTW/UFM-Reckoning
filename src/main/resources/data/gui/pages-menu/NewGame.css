@@ -6,14 +6,6 @@
 	
 }
 
-.maingame {
-	-fx-background-image: url("../img/soccer.png");
-	-fx-background-size: 100%;
-	-fx-background-repeat: stretch;
-	-fx-font-family: 'Quicksand';
-	
-}
-
 .label {
 	-fx-font-family: 'Quicksand';
 }

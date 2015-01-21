@@ -180,9 +180,9 @@ public class TeamBuilderController {
 	 * @throws IOException is thrown if the FXML file cannot be parsed.
 	 */
 	public static void start() throws IOException {
-
 		team = MainGame.game.getUser().getTeam();
-		
+		Main.rootLayout.getStyleClass().remove("mainmenu");
+		Main.rootLayout.getStyleClass().add("maingame");
 		AnchorPane root = FXMLLoader.load(Class.class
 				.getResource("/data/gui/pages-game/TeamBuilder.fxml"));
 
@@ -194,6 +194,12 @@ public class TeamBuilderController {
 		AnchorPane bottom = (AnchorPane) FXMLLoader.load(Class.class
 				.getResource("/data/gui/pages-game/GameBottomMenuBar.fxml"));
 		Main.setBottom(bottom);
+		Main.rootLayout.getStyleClass().removeAll();
+		
+		
+		Main.rootLayout.getStyleClass().removeAll("mainmenu");
+		Main.rootLayout.getStyleClass().add("maingame");
+		
 	}
 
 	/**

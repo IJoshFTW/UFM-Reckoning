@@ -102,13 +102,13 @@ public class NewGameController {
 	     */
 	    public static void start(String user) throws IOException {
 	    	username = user;
-	 
 			AnchorPane scene = FXMLLoader.load(Class.class.getResource("/data/gui/pages-menu/NewGame.fxml"));
 			Main.setCenter(scene);
-			Main.rootLayout.getStyleClass().removeAll();
-			Main.rootLayout.getStyleClass().add("maingame");
-			Main.rootLayout.setStyle("pane");
 			Topbar.start(username);
+	
+			Main.rootLayout.getStyleClass().removeAll("mainmenu");
+			Main.rootLayout.getStyleClass().add("maingame");
+			
 		}
 
 }
