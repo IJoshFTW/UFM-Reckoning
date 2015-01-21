@@ -14,15 +14,15 @@
             <AnchorPane maxHeight="800.0" maxWidth="1200.0" prefHeight="800.0" prefWidth="1200.0">
                <children>
                   <Pane opacity="0.8" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #101010; -fx-border-width: 1px; -fx-border-color: #CECECE;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                  <TableView fx:id="rankingtable" opacity="0.9" prefHeight="570.0" prefWidth="800.0" AnchorPane.leftAnchor="202.0" AnchorPane.topAnchor="120.0">
+                  <TableView fx:id="rankingtable" opacity="0.9" prefHeight="570.0" prefWidth="800.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="120.0">
                     <columns>
                       <TableColumn fx:id="nr" editable="false" prefWidth="63.0" text="Rank" />
-                      <TableColumn fx:id="team" editable="false" prefWidth="300.0" text="Team" />
+                      <TableColumn fx:id="team" editable="false" minWidth="90.0" prefWidth="300.0" text="Team" />
                         <TableColumn fx:id="totalWins" editable="false" prefWidth="54.0" text="Wins" />
-                        <TableColumn fx:id="totalLosses" editable="false" prefWidth="51.0" text="Losses" />
                         <TableColumn fx:id="totalDraws" editable="false" prefWidth="81.0" text="Draws" />
+                        <TableColumn fx:id="totalLosses" editable="false" prefWidth="51.0" text="Losses" />
                         <TableColumn fx:id="goals" editable="false" prefWidth="70.0" text="Goals" />
-                        <TableColumn fx:id="goalsagainst" editable="false" prefWidth="102.0" text="GoalsAgainst" />
+                        <TableColumn fx:id="goalsagainst" editable="false" minWidth="75.0" prefWidth="120.0" text="GoalsAgainst" />
                         <TableColumn fx:id="totalPoints" editable="false" prefWidth="76.0" text="Points" />
                     </columns>
                      <columnResizePolicy>
