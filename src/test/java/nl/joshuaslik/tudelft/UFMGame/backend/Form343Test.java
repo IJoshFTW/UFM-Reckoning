@@ -22,6 +22,7 @@ public class Form343Test {
 	public void testConstructor() {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
 		Form343 formation = new Form343(team1);
+		formation.toString();
 	}
 
 /**

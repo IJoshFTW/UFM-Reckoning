@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Enumeration;
-import java.util.LinkedHashMap;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
@@ -16,6 +15,11 @@ import java.util.zip.ZipFile;
  */
 public class Zipper {
 
+	/**
+	 * Prints the entries
+	 * @param stream is the stream you have to print
+	 * @param zip the file is a zip
+	 */
 	public static void printEntries(PrintStream stream, String zip) {
 		ZipFile zipFile = constructFile(zip);
 		Enumeration<? extends ZipEntry> entries = zipFile.entries();
@@ -25,6 +29,11 @@ public class Zipper {
 		}
 	}
 
+	/**
+	 * Making an arraylist of the zip
+	 * @param zip is the file in which it is
+	 * @return the zipfile as an array
+	 */
 	public static ArrayList<ZipEntry> listEntries(String zip) {
 //		System.out.println("Zip Called");
 		ZipFile zipFile = constructFile(zip);
@@ -40,6 +49,11 @@ public class Zipper {
 		return ret;
 	}
 	
+	/**
+	 * Listing the entries as a string
+	 * @param zip is the file 
+	 * @return the zipfile as an array
+	 */
 	public static ArrayList<String> listEntriesString(String zip) {
 		ZipFile zipFile = constructFile(zip);
 		
