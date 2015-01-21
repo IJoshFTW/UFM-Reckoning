@@ -15,7 +15,7 @@
          <children>
             <AnchorPane maxHeight="800.0" maxWidth="1200.0" prefHeight="800.0" prefWidth="1200.0">
                <children>
-                  <Label alignment="TOP_LEFT" layoutX="30.0" layoutY="104.0" text="Main Menu" textFill="WHITE" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="770.0">
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" layoutY="96.0" prefHeight="88.0" prefWidth="332.0" text="Main Menu" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="832.0">
                      <font>
                         <Font size="60.0" style="-fx-font-family: quicksand;" />
                      </font>

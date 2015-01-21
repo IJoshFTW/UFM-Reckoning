@@ -24,10 +24,10 @@
                         <Font name="Verdana Bold" size="24.0" />
                      </font>
                   </Label>
-                  <TableView fx:id="highscoretable" layoutX="348.0" layoutY="200.0" prefHeight="401.0" prefWidth="505.0">
+                  <TableView fx:id="highscoretable" layoutX="348.0" layoutY="200.0" prefHeight="401.0" prefWidth="524.0" AnchorPane.leftAnchor="282.0" AnchorPane.rightAnchor="282.0">
                     <columns>
-                      <TableColumn fx:id="usernames" prefWidth="336.0" text="Username" />
-                      <TableColumn fx:id="goals" prefWidth="168.0" text="Avg goals" />
+                      <TableColumn fx:id="usernames" prefWidth="325.0" text="Username" />
+                      <TableColumn fx:id="goals" prefWidth="300.0" text="Average Goals" />
                     </columns>
                   </TableView>
                   <Button layoutX="75.0" layoutY="645.0" mnemonicParsing="false" onAction="#handleReturn" prefHeight="69.0" prefWidth="220.0" text="Return" />
