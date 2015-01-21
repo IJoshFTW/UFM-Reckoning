@@ -1,5 +1,6 @@
 package nl.joshuaslik.tudelft.UFMGame.backend;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
