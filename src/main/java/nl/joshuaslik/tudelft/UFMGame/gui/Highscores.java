@@ -6,13 +6,17 @@ import java.util.LinkedHashMap;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.SortType;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Callback;
 import nl.joshuaslik.tudelft.UFMGame.backend.Human;
@@ -31,9 +35,114 @@ public class Highscores {
     private TableView<User> highscoretable;
     @FXML
     private TableColumn<User, String> usernames, goals;
+    
+    @FXML
+	private Button startgame;
+
+	@FXML
+	private Button newgame;
+
+	@FXML
+	private Button loadgame;
+
+	/**
+	 * Handles clicking on the new game button
+	 * @param event of clicking on the button
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
+	 */
+	@FXML
+	protected void handleNewGame(ActionEvent event) throws IOException {
+		UsernameController.start();
+	}
+
+	/**
+	 * Handles clicking on the load game button
+	 * @param event that occurs after clicking on the button
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
+	 */
+	@FXML
+	protected void handleLoadGame(ActionEvent event) throws IOException {
+		LoadGameController.start();
+	}
+
+	/**
+	 * Handles clicking on the options button
+	 * @param event of clicking on the options button
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
+	 */
+	@FXML
+	protected void handleOptions(ActionEvent event) throws IOException {
+		Options.start();
+	}
+
+	/**
+	 * Handles clicking on the highscores button
+	 * @param event of clicking on the highscores button
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
+	 */
+	@FXML
+	protected void handleHighscores(ActionEvent event) throws IOException {
+		Highscores.start();
+	}
+	
+	/**
+	 * Handles clicking on the start button
+	 * @param event of clicking on the start button
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
+	 */
+	@FXML
+	protected void handleStart(ActionEvent event) throws IOException {
+		MainMenu.start();
+	}
+
+	/**
+	 * Handles clicking on the quite button
+	 * @param event clicking on the quite button
+	 */
+	@FXML
+	protected void handleQuitMenu(ActionEvent event) {
+		System.exit(0);
+	}
 	
 	@FXML
 	private void initialize(){
+		startgame.setOnMouseEntered(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent me) {
+				newgame.setVisible(true);
+				loadgame.setVisible(true);
+			}
+		});
+		newgame.setOnMouseEntered(new EventHandler<MouseEvent>() {
+			
+			public void handle(MouseEvent me) {
+				newgame.setVisible(true);
+				loadgame.setVisible(true);
+			}
+		});
+		loadgame.setOnMouseEntered(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent me) {
+				newgame.setVisible(true);
+				loadgame.setVisible(true);
+			}
+		});
+		startgame.setOnMouseExited(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent me) {
+				newgame.setVisible(false);
+				loadgame.setVisible(false);
+			}
+		});
+		newgame.setOnMouseExited(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent me) {
+				newgame.setVisible(false);
+				loadgame.setVisible(false);
+			}
+		});
+		loadgame.setOnMouseExited(new EventHandler<MouseEvent>() {
+			public void handle(MouseEvent me) {
+				newgame.setVisible(false);
+				loadgame.setVisible(false);
+			}
+		});
 		LinkedHashMap<String, Integer> result = Save.getHighscore();
 		ArrayList<User> arraylistusernames = new ArrayList<User>();
 		for ( String key: result.keySet()){
@@ -72,15 +181,6 @@ public class Highscores {
 	public static void start() throws IOException {	
 		AnchorPane scene = (AnchorPane) FXMLLoader.load(Class.class.getResource("/data/gui/pages-menu/Highscores.fxml"));
 		Main.setCenter(scene);
-	}
-	
-	/**
-	 * handles clicking on the return button
-	 * @throws IOException is thrown if the FXML file cannot be parsed.
-	 */
-	@FXML
-	protected void handleReturn() throws IOException {
-		MainMenu.start();
 	}
 
 }

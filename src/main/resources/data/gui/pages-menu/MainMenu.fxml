@@ -15,17 +15,12 @@
          <children>
             <AnchorPane maxHeight="1000.0" maxWidth="1900.0" prefHeight="1000.0" prefWidth="1900.0">
                <children>
-                  <ImageView fitHeight="201.0" fitWidth="1000.0" layoutX="313.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="313.0" AnchorPane.rightAnchor="587.0">
+                  <ImageView fitHeight="201.0" fitWidth="1000.0" layoutX="313.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="313.0" AnchorPane.rightAnchor="587.0">
                      <image>
                         <Image url="@../img/logo.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="179.0" prefHeight="88.0" prefWidth="332.0" text="Main Menu" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="858.0">
-                     <font>
-                        <Font size="60.0" style="-fx-font-family: quicksand;" />
-                     </font>
-                  </Label>
-                  <HBox layoutX="185.0" layoutY="267.0" prefHeight="700.0" prefWidth="834.0" AnchorPane.bottomAnchor="33.0" AnchorPane.leftAnchor="185.0" AnchorPane.rightAnchor="881.0" AnchorPane.topAnchor="267.0">
+                  <HBox layoutX="185.0" layoutY="267.0" prefHeight="700.0" prefWidth="834.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="201.0" AnchorPane.rightAnchor="865.0" AnchorPane.topAnchor="300.0">
                      <children>
                         <VBox>
                            <children>
