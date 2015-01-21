@@ -17,7 +17,7 @@
             <Button fx:id="slot1" disable="true" layoutX="63.0" layoutY="96.0" mnemonicParsing="false" onAction="#handleSlot1" prefHeight="72.0" prefWidth="220.0" text="Slot 1" />
             <Button fx:id="slot2" disable="true" layoutX="63.0" layoutY="168.0" mnemonicParsing="false" onAction="#handleSlot2" prefHeight="72.0" prefWidth="220.0" text="Slot 2" />
             <Button fx:id="slot3" disable="true" layoutX="63.0" layoutY="240.0" mnemonicParsing="false" onAction="#handleSlot3" prefHeight="65.0" prefWidth="220.0" text="Slot 3" />
-            <Button layoutX="20.0" layoutY="344.0" mnemonicParsing="false" onAction="#handleReturnMainMenu" prefHeight="66.0" prefWidth="190.0" text="Return" />
+            <Button layoutX="240.0" layoutY="344.0" mnemonicParsing="false" onAction="#handleReturnMainMenu" prefHeight="66.0" prefWidth="220.0" text="Close" />
             <Label fx:id="username1" layoutX="312.0" layoutY="114.0" prefHeight="36.0" prefWidth="275.0" textFill="#f2ebeb">
                <font>
                   <Font size="25.0" />

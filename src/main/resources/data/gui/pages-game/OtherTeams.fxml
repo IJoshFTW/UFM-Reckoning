@@ -59,7 +59,7 @@
                         <TableColumn fx:id="position" prefWidth="117.0" text="Position" />
                      </columns>
                   </TableView>
-                  <ComboBox fx:id="teams" layoutX="280.0" layoutY="129.0" prefWidth="150.0" />
+                  <ComboBox fx:id="teams" layoutX="260.0" layoutY="129.0" prefWidth="190.0" />
                   <ImageView fx:id="otherteamlogo" fitHeight="273.0" fitWidth="334.0" layoutX="814.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true" />
                   <Label layoutX="470.0" layoutY="30.0" text="Other Teams" textFill="#f2eded">
                      <font>
@@ -96,6 +96,11 @@
                   <Pane layoutX="768.0" layoutY="435.0" prefHeight="20.0" prefWidth="333.33333333" style="-fx-border-color: #CECECE; -fx-border-width: 1px;" />
                   <Pane layoutX="768.0" layoutY="405.0" prefHeight="20.0" prefWidth="333.33333333" style="-fx-border-color: #CECECE; -fx-border-width: 1px;" />
                   <Pane layoutX="768.0" layoutY="375.0" prefHeight="20.0" prefWidth="333.33333333" style="-fx-border-color: #CECECE; -fx-border-width: 1px;" />
+                  <Label fx:id="formationlabel" layoutX="680.0" layoutY="620.0" prefHeight="30.0" prefWidth="416.0" text="Formation" textFill="WHITE" AnchorPane.leftAnchor="670.0" AnchorPane.topAnchor="639.0">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
          </children>

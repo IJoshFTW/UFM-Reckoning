@@ -85,9 +85,7 @@ public class ControllerMainMenu {
 	 */
 	@FXML
 	protected void handleLoadGame(ActionEvent event) throws IOException {
-		System.out.println("load game button pressed");
 		LoadGameController.start();
-
 	}
 
 	/**

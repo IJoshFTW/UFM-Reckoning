@@ -457,6 +457,14 @@ public class Team {
 	}
 
 	/**
+	 * Set the total amount of goals 
+	 * @param goals amount to set
+	 */
+	public void setTotalGoals(int goals){
+		totalGoals = goals;
+	}
+	
+	/**
 	 * Add to this team's goal count
 	 * 
 	 * @param goals
@@ -464,6 +472,14 @@ public class Team {
 	 */
 	public void addGoalsAgainst(int goals) {
 		goalsagainst = goalsagainst + goals;
+	}
+	
+	/**
+	 * Set the total amount of goals against
+	 * @param goals amount to set
+	 */
+	public void setGoalsAgainst(int goals){
+		goalsagainst = goals;
 	}
 
 	/**
@@ -502,6 +518,14 @@ public class Team {
 	 */
 	public void addPoints(int points) {
 		this.points = points + this.points;
+	}
+	
+	/**
+	 * Set the amount of points for this team
+	 * @param points amount of points to set
+	 */
+	public void setPoints(int points){
+		this.points = points;
 	}
 
 	/**
@@ -803,5 +827,13 @@ public class Team {
 	 */
 	public ObservableList<Player> getObservableBenchPlayersList() {
 		return FXCollections.observableArrayList(benchPlayers);
+	}
+	
+	/**
+	 * Set all the Bench Players
+	 * @param playerlist the list to set
+	 */
+	public void setAllBenchPlayers(ArrayList<Player> playerlist){
+		benchPlayers = playerlist;
 	}
 }

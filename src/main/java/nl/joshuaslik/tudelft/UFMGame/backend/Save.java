@@ -306,12 +306,17 @@ public class Save {
 	public static void saveGame(Game game, int slot) {
 		ArrayList<User> userlist = game.getUsers();
 		XMLTag root = new XMLTag("savegame");
-		XMLTag highscores = new XMLTag("savegame");
 		// Add info about current round
 		XMLTag currentround = new XMLTag("currentround");
 		currentround.setContent(Integer.toString(game.getCurrentRound()));
 		root.addElement(currentround);
-
+		XMLTag nonContractedPlayers = new XMLTag("noncontractedplayers");
+		for(int i = 0; i < game.getNonContractedPlayers().size(); i++){
+			XMLTag player = new XMLTag("player");
+			player.addAttribute("id", game.getNonContractedPlayers().get(i).getID());
+			nonContractedPlayers.addElement(player);
+		}
+		root.addElement(nonContractedPlayers);
 		// Add info about past playrounds
 		XMLTag playrounds = new XMLTag("playrounds");
 		for (int i = 0; i < game.getCompetition().getPlayrounds().size(); i++) {
@@ -376,13 +381,15 @@ public class Save {
 			atts.put("budget", Integer.toString(user.getBudget()));
 			if (user instanceof Human) {
 				atts.put("type", "human");
-				saveHighscore(user.getUserName(), user.getTeam().getTotalGoals(), (game.getCurrentRound()-1));
+				// Only save highscore if a match has been played.
+				if (game.getCurrentRound() - 1 > 0) {
+					saveHighscore(user.getUserName(), user.getTeam().getTotalGoals(), (game.getCurrentRound()-1));
+				}
 			} else {
 				atts.put("type", "PC");
 			}
 
 			// Add team formation
-			// TODO Formation
 			Team team = user.getTeam();
 
 			LinkedHashMap<String, String> attsteam = new LinkedHashMap<String, String>();
@@ -391,8 +398,6 @@ public class Save {
 			attsteam.put("name", team.getTeamName());
 			XMLTag teamtag = new XMLTag("team", attsteam);
 
-			// Add team formation
-			// TODO More formations
 			XMLTag form = new XMLTag("formation");
 			form.addAttribute("name", user.getTeam().getFormation().getName());
 			if (user.getTeam().getFormation() instanceof Form343) {
@@ -771,26 +776,28 @@ public class Save {
 	}
 	
 	/**
-	 * Method to get the highscores
-	 * @return the highscores
+	 * Method to get the highscores from the highscore file
+	 * @return username with the highscore
 	 */
 	public static LinkedHashMap<String, Integer> getHighscore(){
 		LinkedHashMap<String, Integer> highscores = new LinkedHashMap<String, Integer>();
 		String saveloc = System.getenv("APPDATA")
 				+ "\\Ultimate Football Manager\\highscores\\highscores.xml";
 		XMLFile file = SAXParser.parseLocalFile(saveloc);
-		for (int i = 1; i < file.getElement("highscores")
-				.elements() + 1; i++) {
-			highscores.put(file.getElement("highscores").getElement("user", i).getAttribute("username"),
-					Integer.parseInt(file.getElement("highscores").getElement("user", i).getElement("avggoals").getContent()));
+		if(file != null){	
+			for (int i = 1; i < file.getElement("highscores")
+					.elements() + 1; i++) {
+						highscores.put(file.getElement("highscores").getElement("user", i).getAttribute("username"),
+								Integer.parseInt(file.getElement("highscores").getElement("user", i).getElement("avggoals").getContent()));
+			}
 		}
 		return highscores;
 	}
 
 	/**
-	 * return the usernames of the saved games
-	 * @return the usernames of the saved games
-	 */
+	 * Method to get all the usernames that have a saved game
+	 * @return LinkedHashMap<Integer, String> with the slot number and the string username
+	 * */
 	public static LinkedHashMap<Integer, String> getUsernames() {
 		LinkedHashMap<Integer, String> usernames = new LinkedHashMap<Integer, String>();
 		for (int j = 1; j < 4; j++) {
@@ -815,13 +822,12 @@ public class Save {
 			}
 		}
 		return usernames;
-
 	}
 
 	/**
 	 * Load a saved game
 	 * 
-	 * @param slot
+	 * @param slot from where to load a game
 	 * @return Game object with all the data in the current slot
 	 */
 	public static Game loadGame(int slot) {
@@ -1485,6 +1491,13 @@ public class Save {
 		game.setCurrentRound(Integer.parseInt(file.getElement(
 				"savegame.currentround").getContent()));
 		game.computeStandings();
+		ArrayList<Player> nonContractedPlayers = new ArrayList<Player>();
+		for(int i = 1; i < file.getElement("savegame.noncontractedplayers").elements()+1; i++){
+			nonContractedPlayers.add(players.get(file
+					.getElement("savegame.noncontractedplayers")
+					.getElement("player", i).getAttribute("id")));
+		}
+		game.setNonContractedPlayers(nonContractedPlayers);
 		return game;
 	}
 

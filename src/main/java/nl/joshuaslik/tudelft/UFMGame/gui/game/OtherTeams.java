@@ -44,7 +44,7 @@ public class OtherTeams {
 	private TableColumn<Player, String> active, name, country, position;
 	
 	@FXML
-	private Label showTotalWins, showTotalLosses, showTotalDraws, showTotalGoals, showTotalGamesPlayed, coach;
+	private Label showTotalWins, showTotalLosses, showTotalDraws, showTotalGoals, showTotalGamesPlayed, coach, formationlabel;
 
 	@FXML
 	private ImageView otherteamlogo, staminaImg, defPwrImg, atkPwrImg;
@@ -102,6 +102,7 @@ public class OtherTeams {
 					staminaImg.setFitWidth(otherteam.getStamina() / 3);
 					
 					coach.setText("Coach: " + otherteam.getCoachName());
+					formationlabel.setText("Formation: "+ otherteam.getFormation().getName());
 				}   
    	});
    	 
@@ -166,6 +167,7 @@ public class OtherTeams {
 		staminaImg.setFitWidth(otherteam.getStamina() / 3);
 		
 		coach.setText("Coach: " + otherteam.getCoachName());
+		formationlabel.setText("Formation: "+ otherteam.getFormation().getName());
 	}
 	
 	/**

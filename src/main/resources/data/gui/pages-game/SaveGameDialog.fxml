@@ -17,7 +17,7 @@
             <Button layoutX="99.0" layoutY="123.0" mnemonicParsing="false" onAction="#handleSlot1" prefHeight="66.0" prefWidth="220.0" text="Slot 1" />
             <Button layoutX="99.0" layoutY="189.0" mnemonicParsing="false" onAction="#handleSlot2" prefHeight="66.0" prefWidth="220.0" text="Slot 2" />
             <Button layoutX="99.0" layoutY="255.0" mnemonicParsing="false" onAction="#handleSlot3" prefHeight="66.0" prefWidth="220.0" text="Slot 3" />
-            <Button layoutX="14.0" layoutY="339.0" mnemonicParsing="false" onAction="#handleReturnMainGame" prefHeight="66.0" prefWidth="190.0" text="Return" />
+            <Button layoutX="240.0" layoutY="339.0" mnemonicParsing="false" onAction="#handleReturnMainGame" prefHeight="66.0" prefWidth="220.0" text="Close" />
             <Label fx:id="username1" layoutX="345.0" layoutY="134.0" prefHeight="45.0" prefWidth="237.0" textFill="#f5f0f0">
                <font>
                   <Font size="30.0" />

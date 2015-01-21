@@ -39,6 +39,12 @@
                         <Font size="34.0" />
                      </font>
                   </Label>
+                  <Label layoutX="810.0" layoutY="70.0" text="Formation:" textFill="WHITE">
+                     <font>
+                     	<Font size="20.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="form" layoutX="925.0" layoutY="69.0" prefWidth="150.0" />
                   
                   <Button layoutX="46.0" layoutY="715.0" onAction="#handleReturnTeamBuilder" prefHeight="60" prefWidth="250" styleClass="button" text="Return" />
                   <AnchorPane layoutX="733.0" layoutY="117.0" prefHeight="614.0" prefWidth="397.0">
@@ -174,7 +180,6 @@
                         <TableColumn fx:id="position" prefWidth="109.0" text="Position" />
                      </columns>
                   </TableView>
-                  <ComboBox fx:id="form" layoutX="832.0" layoutY="64.0" prefWidth="150.0" />
                   <Label layoutX="323.0" layoutY="618.0" prefHeight="34.0" prefWidth="321.0" text="Active team values:" textFill="#f8f6f6">
                      <font>
                         <Font size="23.0" />

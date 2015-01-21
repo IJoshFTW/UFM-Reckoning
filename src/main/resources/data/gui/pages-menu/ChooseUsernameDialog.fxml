@@ -36,7 +36,7 @@
       <HBox layoutX="-4.0" layoutY="267.0" prefHeight="113.0" prefWidth="400.0" spacing="10.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="267.0">
          <children>
             <Button fx:id="okbutton" disable="true" mnemonicParsing="false" onAction="#handleUsername" prefHeight="90.0" prefWidth="220.0" text="OK" />
-            <Button fx:id="cancelbutton" mnemonicParsing="false" onAction="#handleReturnMainMenu" prefHeight="90.0" prefWidth="220.0" text="Cancel" />
+            <Button fx:id="cancelbutton" mnemonicParsing="false" onAction="#handleReturnMainMenu" prefHeight="90.0" prefWidth="270.0" text="Cancel" />
          </children>
       </HBox>
    </children>

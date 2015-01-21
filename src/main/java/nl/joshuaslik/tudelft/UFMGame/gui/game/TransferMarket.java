@@ -9,6 +9,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
@@ -19,6 +20,8 @@ import javafx.util.Callback;
 import javafx.util.StringConverter;
 import nl.joshuaslik.tudelft.UFMGame.backend.Player;
 import nl.joshuaslik.tudelft.UFMGame.backend.Team;
+import nl.joshuaslik.tudelft.UFMGame.backend.User;
+import nl.joshuaslik.tudelft.UFMGame.backend.exceptions.UnableToBuyException;
 import nl.joshuaslik.tudelft.UFMGame.gui.Main;
 
 /**
@@ -39,7 +42,9 @@ public class TransferMarket {
 	@FXML
 	private TableView<Player> playertable;
 	@FXML
-	private TableColumn<Player, String> active, name, country, position, price;
+	private TableColumn<Player, String> name, country, position, price;
+	@FXML
+	private Button buyplayerbutton, sellplayerbutton;
 
 	// yourteam table variables
 	@FXML
@@ -56,6 +61,9 @@ public class TransferMarket {
 		//Combobox team items in list
 		ObservableList<Team> teamslist = FXCollections
 				.observableArrayList(getteamList());
+		Team nonContractedTeam = new Team("Non-Contracted Players", "Non-Contracted Players", "Non-Contracted Players");
+		nonContractedTeam.setAllBenchPlayers(MainGame.game.getNonContractedPlayers());
+		teamslist.add(nonContractedTeam);
 		teams.setItems(teamslist);
 		teams.setConverter(new StringConverter<Team>() {
 			@Override
@@ -75,48 +83,19 @@ public class TransferMarket {
 			public void changed(ObservableValue<? extends Team> observable,
 					Team oldValue, Team newValue) {
 				otherteam = newValue;
-				ArrayList<Player> playerslist = otherteam.getAllPlayers();
+				ArrayList<Player> playerslist = otherteam.getBenchPlayers();
 				observablelistplayers = FXCollections
 						.observableArrayList(playerslist);
 				playertable.setItems(observablelistplayers);
 			}
 		});
+		teams.setValue(teamslist.get(0));
 		
 		//otherteams table
-		ArrayList<Team> teamarraylist = MainGame.game.getTeams();
-		teamarraylist.remove(MainGame.game.getUser().getTeam());
-		teams.setValue(teamarraylist.get(0));
-		ArrayList<Player> playerslist = otherteam.getAllPlayers();
+		ArrayList<Player> playerslist = otherteam.getBenchPlayers();
 		observablelistplayers = FXCollections.observableArrayList(playerslist);
 		playertable.setItems(observablelistplayers);
-		active.setCellValueFactory(new PropertyValueFactory<Player, String>(
-				"ID"));
-		active.setCellFactory(new Callback<TableColumn<Player, String>, TableCell<Player, String>>() {
-			@Override
-			public TableCell<Player, String> call(
-					TableColumn<Player, String> param) {
-				TableCell<Player, String> cell = new TableCell<Player, String>() {
-					@Override
-					public void updateItem(String item, boolean empty) {
-						if (item != null) {
-							boolean active = false;
-							for (int i = 0; i < otherteam.getActivePlayers()
-									.size(); i++) {
-								if (otherteam.getActivePlayers().get(i).getID()
-										.equals(item)) {
-									setText("✓");
-									active = true;
-								}
-							}
-							if (!active) {
-								setText("✗");
-							}
-						}
-					}
-				};
-				return cell;
-			}
-		});
+		
 		name.setCellValueFactory(new PropertyValueFactory<Player, String>(
 				"fullName"));
 		country.setCellValueFactory(new PropertyValueFactory<Player, String>(
@@ -130,7 +109,8 @@ public class TransferMarket {
 				.getSelectionModel()
 				.selectedItemProperty()
 				.addListener(
-						(observable, oldValue, newValue) -> selectedPlayer(newValue));
+						(observable, oldValue, newValue) -> selectedPlayer(newValue, "otherteamtable"));
+		
 
 		//your teamplayers table
 		ArrayList<Player> teamplayerslist = team.getAllPlayers();
@@ -165,6 +145,7 @@ public class TransferMarket {
 				return cell;
 			}
 		});
+		
 		name2.setCellValueFactory(new PropertyValueFactory<Player, String>(
 				"fullName"));
 		country2.setCellValueFactory(new PropertyValueFactory<Player, String>(
@@ -179,7 +160,7 @@ public class TransferMarket {
 				.getSelectionModel()
 				.selectedItemProperty()
 				.addListener(
-						(observable, oldValue, newValue) -> selectedPlayer(newValue));
+						(observable, oldValue, newValue) -> selectedPlayer(newValue, "yourteam"));
 	}
 
 	/**
@@ -194,10 +175,18 @@ public class TransferMarket {
 	}
 
 	/**
-	 * Selected player in table
+	 * Selected player in tableit 
 	 * @param player that is selected
 	 */
-	public void selectedPlayer(Player player) {
+	public void selectedPlayer(Player player, String selectedtable) {
+		if(selectedtable.equals("yourteam")){
+			buyplayerbutton.setDisable(true);
+			sellplayerbutton.setDisable(false);
+		}
+		else if(selectedtable.equals("otherteamtable")){
+			buyplayerbutton.setDisable(false);
+			sellplayerbutton.setDisable(true);
+		}
 		selectedplayer = player;
 	}
 
@@ -216,8 +205,38 @@ public class TransferMarket {
 	 */
 	@FXML
 	protected void sellingPlayer() throws IOException {
+		/**
+		if (!selectedplayer.getActiveState()) {
 		MainGame.game.sellPlayer(selectedplayer.getID());
+		}
 		start();
+		*/
+		
+		if(!team.getActivePlayers().contains(selectedplayer)){
+			MainGame.game.setNonContracted(selectedplayer.getID());
+			ArrayList<Player> teamplayerslist = team.getAllPlayers();
+			observablelistteamplayers = FXCollections
+					.observableArrayList(teamplayerslist);
+			yourteamtable.setItems(observablelistteamplayers);
+			ArrayList<Player> playerslist = otherteam.getBenchPlayers();
+			observablelistplayers = FXCollections
+					.observableArrayList(playerslist);
+			playertable.setItems(observablelistplayers);
+			sellplayerbutton.setDisable(true);
+			AnchorPane bottom = (AnchorPane) FXMLLoader.load(Class.class
+					.getResource("/data/gui/pages-game/GameBottomMenuBar.fxml"));
+			Main.setBottom(bottom);
+			buyplayerbutton.setDisable(true);
+			playertable.getSelectionModel().select(null);
+			playertable.getFocusModel().focus(null);
+			yourteamtable.getSelectionModel().select(null);
+			yourteamtable.getFocusModel().focus(null);
+		}
+		else{
+			Popupscreen.start();
+			Popupscreen.setTitle("Unable to sell");
+			Popupscreen.setMessage("You can not sell an active player.");
+		}
 	}
 
 	/**
@@ -226,9 +245,45 @@ public class TransferMarket {
 	 */
 	@FXML
 	protected void buyingPlayer() throws IOException {
-		MainGame.game.buyPlayer(selectedplayer.getID());
-		//MainGame.game.getUser(otherteam));
+
+		/**
+		if (!selectedplayer.getActiveState()) {
+		User user = MainGame.game.getUser(otherteam);
+		MainGame.game.buyPlayer(selectedplayer.getID(), user);
+		}
 		start();
+		*/
+
+		try{
+			if(otherteam.getTeamName().equals("Non-Contracted Players")){
+				MainGame.game.buyNonContractedPlayer(selectedplayer.getID(), MainGame.game.getUser());
+			}
+			else{
+				MainGame.game.buyPlayer(selectedplayer.getID(), MainGame.game.getUser());
+				MainGame.game.sellPlayer(selectedplayer.getID(), MainGame.game.getUser(otherteam));
+			}
+			ArrayList<Player> teamplayerslist = team.getAllPlayers();
+			observablelistteamplayers = FXCollections
+					.observableArrayList(teamplayerslist);
+			yourteamtable.setItems(observablelistteamplayers);
+			ArrayList<Player> playerslist = otherteam.getBenchPlayers();
+			observablelistplayers = FXCollections
+					.observableArrayList(playerslist);
+			playertable.setItems(observablelistplayers);
+			AnchorPane bottom = (AnchorPane) FXMLLoader.load(Class.class
+					.getResource("/data/gui/pages-game/GameBottomMenuBar.fxml"));
+			Main.setBottom(bottom);
+			buyplayerbutton.setDisable(true);
+			playertable.getSelectionModel().select(null);
+			playertable.getFocusModel().focus(null);
+			yourteamtable.getSelectionModel().select(null);
+			yourteamtable.getFocusModel().focus(null);
+		}
+		catch(UnableToBuyException e){
+			Popupscreen.start();
+			Popupscreen.setTitle("Not enough money");
+			Popupscreen.setMessage("You must first get enough money to buy this player");
+		}
 	}
 
 	/**
@@ -252,6 +307,10 @@ public class TransferMarket {
 		AnchorPane bottom = (AnchorPane) FXMLLoader.load(Class.class
 				.getResource("/data/gui/pages-game/GameBottomMenuBar.fxml"));
 		Main.setBottom(bottom);
+	}
+	
+	public static void reloadTables(){
+		
 	}
 
 }

@@ -22,7 +22,7 @@
                       <TableColumn fx:id="awaygoals" prefWidth="175.0" text="Away Goals" />
                     </columns>
                   </TableView>
-                  <ComboBox fx:id="playround" layoutX="525.0" layoutY="167.0" prefWidth="150.0" />
+                  <ComboBox fx:id="playround" layoutX="515.0" layoutY="167.0" prefWidth="170.0" />
                   <Label alignment="CENTER" layoutX="7.0" layoutY="43.0" prefHeight="75.0" prefWidth="712.0" text="Playrounds" textAlignment="CENTER" textFill="#fcf7f7" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <font>
                         <Font size="45.0" />
