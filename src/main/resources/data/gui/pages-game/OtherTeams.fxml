@@ -59,7 +59,7 @@
                         <TableColumn fx:id="position" prefWidth="117.0" text="Position" />
                      </columns>
                   </TableView>
-                  <ComboBox fx:id="teams" layoutX="280.0" layoutY="129.0" prefWidth="150.0" />
+                  <ComboBox fx:id="teams" layoutX="260.0" layoutY="129.0" prefWidth="190.0" />
                   <ImageView fx:id="otherteamlogo" fitHeight="273.0" fitWidth="334.0" layoutX="814.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true" />
                   <Label layoutX="470.0" layoutY="30.0" text="Other Teams" textFill="#f2eded">
                      <font>
