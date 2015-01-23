@@ -2,6 +2,7 @@ package nl.joshuaslik.tudelft.UFMGame.gui;
 
 import java.io.IOException;
 
+import nl.joshuaslik.tudelft.UFMGame.backend.Game;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -59,6 +60,7 @@ public class Main extends Application {
 		
 		primaryStage.show();
 		stage = primaryStage;
+		Game.setDifficulty(7);
 		MainMenu.start();
 	}
 	

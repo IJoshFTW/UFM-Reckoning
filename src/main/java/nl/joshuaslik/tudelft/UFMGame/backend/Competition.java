@@ -101,9 +101,9 @@ public class Competition {
 	/**
 	 * Compute the result of the total competition
 	 */
-	public void computeresultCompetition() {
+	public void computeresultCompetition(int difficulty) {
 		for (int i = 0; i < playrounds.size(); i++) {
-			playrounds.get(i).determineResultPlayround();
+			playrounds.get(i).determineResultPlayround(difficulty);
 		}
 	}
 

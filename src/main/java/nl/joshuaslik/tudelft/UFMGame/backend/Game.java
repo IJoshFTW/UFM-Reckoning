@@ -24,6 +24,7 @@ public class Game {
 	private Competition competition;
 	private LinkedHashMap<String, Player> players;
 	private ArrayList<Player> nonContractedPlayers = new ArrayList<Player>();
+	private static int difficulty;
 	
 	/**
 	 * 
@@ -277,7 +278,7 @@ public class Game {
 		if (currentround <= ((users.size() * (users.size() - 1)) / (users
 				.size() / 2))) {
 			ArrayList<Match> matches = getPlayround(currentround).getMatches();
-			getPlayround(currentround).determineResultPlayround();
+			getPlayround(currentround).determineResultPlayround(difficulty);
 			result = new LinkedHashMap<String, String>();
 			for (int i = 0; i < matches.size(); i++) {
 				Match match = matches.get(i);
@@ -298,7 +299,7 @@ public class Game {
 	 */
 	public LinkedHashMap<String, String> resultplayround(int round) {
 		ArrayList<Match> matches = getPlayround(round).getMatches();
-		this.getPlayround(round).determineResultPlayround();
+		this.getPlayround(round).determineResultPlayround(difficulty);
 		LinkedHashMap<String, String> result = new LinkedHashMap<String, String>();
 		for (int i = 0; i < matches.size(); i++) {
 			Match match = matches.get(i);
@@ -428,6 +429,14 @@ public class Game {
 				}
 			}
 		}
+	}
+	
+	/**
+	 * Set the difficulty of the game
+	 * @param difficulty int of the difficulty
+	 */
+	static public void setDifficulty(int diff){
+		difficulty = diff;
 	}
 
 	/**

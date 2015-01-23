@@ -1,6 +1,8 @@
 package nl.joshuaslik.tudelft.UFMGame.backend;
 
 import java.io.File;
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
@@ -740,7 +742,10 @@ public class Save {
 	 * @param matches amount of matches that are played
 	 */
 	public static void saveHighscore(String username, int goals, int matches){
-		int thisavgGoals = goals/matches;
+		BigDecimal bd = new BigDecimal((double)goals/ (double)matches);
+		bd = bd.setScale(2,BigDecimal.ROUND_HALF_UP);
+		Double thisavgGoals = bd.doubleValue();
+		
 		Boolean newuser = true;
 		XMLTag highscores = new XMLTag("highscores");
 		String saveloc = System.getenv("APPDATA")
@@ -756,7 +761,7 @@ public class Save {
 				XMLTag user = new XMLTag("user");
 				XMLTag avgGoals = new XMLTag("avggoals");
 				if(file.getElement("highscores").getElement("user", i).getAttribute("username").equals(username)){
-					avgGoals.setContent(Integer.toString(thisavgGoals));
+					avgGoals.setContent(Double.toString(thisavgGoals));
 					user.addAttribute("username", file.getElement("highscores").getElement("user", i).getAttribute("username"));
 					newuser = false;
 				}
@@ -771,7 +776,7 @@ public class Save {
 		if(newuser){
 			XMLTag user = new XMLTag("user");
 			XMLTag avgGoals = new XMLTag("avggoals");
-			avgGoals.setContent(Integer.toString(thisavgGoals));
+			avgGoals.setContent(Double.toString(thisavgGoals));
 			user.addAttribute("username", username);
 			user.addElement(avgGoals);
 			highscores.addElement(user);
@@ -784,8 +789,8 @@ public class Save {
 	 * Method to get the highscores from the highscore file
 	 * @return username with the highscore
 	 */
-	public static LinkedHashMap<String, Integer> getHighscore(){
-		LinkedHashMap<String, Integer> highscores = new LinkedHashMap<String, Integer>();
+	public static LinkedHashMap<String, Double> getHighscore(){
+		LinkedHashMap<String, Double> highscores = new LinkedHashMap<String, Double>();
 		String saveloc = System.getenv("APPDATA")
 				+ "\\Ultimate Football Manager\\highscores\\highscores.xml";
 		XMLFile file = SAXParser.parseLocalFile(saveloc);
@@ -793,7 +798,7 @@ public class Save {
 			for (int i = 1; i < file.getElement("highscores")
 					.elements() + 1; i++) {
 						highscores.put(file.getElement("highscores").getElement("user", i).getAttribute("username"),
-								Integer.parseInt(file.getElement("highscores").getElement("user", i).getElement("avggoals").getContent()));
+								Double.parseDouble(file.getElement("highscores").getElement("user", i).getElement("avggoals").getContent()));
 			}
 		}
 		return highscores;

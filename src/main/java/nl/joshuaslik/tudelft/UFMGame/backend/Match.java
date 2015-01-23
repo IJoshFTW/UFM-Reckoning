@@ -36,7 +36,7 @@ public class Match {
 	 *            chance to have a goal
 	 * @return amount of goals
 	 */
-	public int determinegoals(int goalchance) {
+	public int determinegoals(double goalchance) {
 		if (goalchance >= 0) {
 			if (goalchance <= 810) {
 				return 0;
@@ -61,7 +61,7 @@ public class Match {
 			} else if (goalchance <= 3000) {
 				return 10;
 			} else {
-				return -1;
+				return 11;
 			}
 		}
 		return -1;
@@ -70,7 +70,7 @@ public class Match {
 	/**
 	 * Method to determine the results of this match
 	 */
-	public void determineResult() {
+	public void determineResult(int difficulty) {
 		int attackhome = hometeam.getAttackPower();
 		int defencehome = hometeam.getDefencePower();
 		int staminahome = hometeam.getStamina();
@@ -79,21 +79,21 @@ public class Match {
 		int defenceaway = awayteam.getDefencePower();
 		int staminaaway = awayteam.getStamina();
 
-		int attackpowerhome = ((attackhome - defenceaway) * 4);
-		int homechance = (int) (Math.random() * 3000);
-		int homegoalschance = (int) (((homechance * 80)
-				+ ((attackpowerhome + staminahome) * 15 * 1.5) - ((awayteam
-				.getActiveGoalkeeper().getDiving()
-				+ awayteam.getActiveGoalkeeper().getDiving() + awayteam
-				.getActiveGoalkeeper().getDiving()) * 10 * 5)) / 100);
-
-		int attackpoweraway = ((attackaway - defencehome) * 4);
+		int attackpowerhome = (attackhome - defenceaway);
+		double homechance = Math.random() * 3000;
+		double homegoalschance = (
+				(homechance * (difficulty * 0.1)) +
+				((attackpowerhome + staminahome) * 1.5 * ((10-difficulty) * 0.1)) - 
+				((awayteam.getActiveGoalkeeper().getDiving() + awayteam.getActiveGoalkeeper().getPositioning() + awayteam.getActiveGoalkeeper().getReflexes())) + 300
+				);
+		
+		int attackpoweraway = (attackaway - defencehome);
 		int awaychance = (int) (Math.random() * 3000);
-		int awaygoalschance = ((awaychance * 80)
-				+ ((attackpoweraway + staminaaway) * 30) - ((hometeam
-				.getActiveGoalkeeper().getDiving()
-				+ hometeam.getActiveGoalkeeper().getDiving() + hometeam
-				.getActiveGoalkeeper().getDiving()) * 10 * 5)) / 100;
+		double awaygoalschance = (
+				(awaychance * (difficulty * 0.1)) + 
+				((attackpoweraway + staminaaway) * 1.5 * ((10-difficulty) * 0.1)) - 
+				((hometeam.getActiveGoalkeeper().getDiving() + hometeam.getActiveGoalkeeper().getPositioning() + hometeam.getActiveGoalkeeper().getReflexes())) + 300
+				);
 
 		homegoals = determinegoals(homegoalschance);
 		awaygoals = determinegoals(awaygoalschance);

@@ -143,7 +143,7 @@ public class Highscores {
 				loadgame.setVisible(false);
 			}
 		});
-		LinkedHashMap<String, Integer> result = Save.getHighscore();
+		LinkedHashMap<String, Double> result = Save.getHighscore();
 		ArrayList<User> arraylistusernames = new ArrayList<User>();
 		for ( String key: result.keySet()){
 			arraylistusernames.add(new Human(new Team("test", "test", "test"), key, 5));
@@ -162,7 +162,7 @@ public class Highscores {
 					@Override
 					public void updateItem(String item, boolean empty){
 						if(item!= null){
-							setText(Integer.toString(result.get(item)));
+							setText(Double.toString(result.get(item)));
 						}
 					}
 				};
