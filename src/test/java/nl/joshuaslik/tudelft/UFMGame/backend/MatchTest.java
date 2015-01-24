@@ -538,7 +538,7 @@ public class MatchTest {
 		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
 		Team team2 = new Team("ado", "ado", "Ronald de Boer");
 		Match match = new Match(team1, team2);
-		assertEquals(match.determinegoals(3001), -1);
+		assertEquals(match.determinegoals(3001), 11);
 	}
 
 	/**
