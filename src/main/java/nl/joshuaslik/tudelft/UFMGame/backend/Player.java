@@ -1,7 +1,8 @@
 package nl.joshuaslik.tudelft.UFMGame.backend;
 
 /**
- * The Player class is an abstract class.
+ * The Player class is an abstract class which stores common information about
+ * the players.
  * 
  * @author Sander Benoist
  * @author <a href="http://www.joshuaslik.nl/" target="_blank">Joshua Slik</a>
@@ -26,12 +27,13 @@ public abstract class Player {
 	 *            is the first name of the player as a String
 	 * @param lastName
 	 *            is the last name of the player as a String
-	 * @param country is the country of the player as a string
+	 * @param country
+	 *            is the country of the player as a string
 	 * @param pr
 	 *            is the price of the player as an int.
 	 */
-	public Player(String id, String firstName, String lastName,
-			String country, int pr) {
+	public Player(String id, String firstName, String lastName, String country,
+			int pr) {
 		playerID = id;
 		this.firstName = firstName;
 		fullName = firstName + " " + lastName;

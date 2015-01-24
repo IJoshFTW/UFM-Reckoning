@@ -25,9 +25,8 @@ import nl.joshuaslik.tudelft.UFMGame.backend.Team;
 import nl.joshuaslik.tudelft.UFMGame.gui.Main;
 
 /**
- * 
  * @author Bryan van Wijk
- *
+ * @author Sander Benoist
  */
 public class OtherTeams {
 	

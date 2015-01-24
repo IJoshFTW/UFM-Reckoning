@@ -26,7 +26,9 @@ import nl.joshuaslik.tudelft.UFMGame.gui.Main;
 /**
  * Class to control the transfermarket
  * @author <a href="http://www.joshuaslik.nl/" target="_blank">Joshua Slik</a>
- *
+ * @author Lisette Veldkamp
+ * @author Bryan van Wijk
+ * @author Sander Benoist
  */
 public class TransferMarket {
 	private static Team team;

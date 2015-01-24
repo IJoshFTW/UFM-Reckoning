@@ -244,6 +244,9 @@ public class Team {
 		calcAverageStats();
 	}
 
+	/**
+	 * Checks if the Team object is equal with the given Team object.
+	 */
 	public boolean equals(Object other) {
 		if (other instanceof Team) {
 			Team that = (Team) other;
@@ -457,13 +460,15 @@ public class Team {
 	}
 
 	/**
-	 * Set the total amount of goals 
-	 * @param goals amount to set
+	 * Set the total amount of goals
+	 * 
+	 * @param goals
+	 *            amount to set
 	 */
-	public void setTotalGoals(int goals){
+	public void setTotalGoals(int goals) {
 		totalGoals = goals;
 	}
-	
+
 	/**
 	 * Add to this team's goal count
 	 * 
@@ -473,12 +478,14 @@ public class Team {
 	public void addGoalsAgainst(int goals) {
 		goalsagainst = goalsagainst + goals;
 	}
-	
+
 	/**
 	 * Set the total amount of goals against
-	 * @param goals amount to set
+	 * 
+	 * @param goals
+	 *            amount to set
 	 */
-	public void setGoalsAgainst(int goals){
+	public void setGoalsAgainst(int goals) {
 		goalsagainst = goals;
 	}
 
@@ -519,12 +526,14 @@ public class Team {
 	public void addPoints(int points) {
 		this.points = points + this.points;
 	}
-	
+
 	/**
 	 * Set the amount of points for this team
-	 * @param points amount of points to set
+	 * 
+	 * @param points
+	 *            amount of points to set
 	 */
-	public void setPoints(int points){
+	public void setPoints(int points) {
 		this.points = points;
 	}
 
@@ -828,12 +837,14 @@ public class Team {
 	public ObservableList<Player> getObservableBenchPlayersList() {
 		return FXCollections.observableArrayList(benchPlayers);
 	}
-	
+
 	/**
 	 * Set all the Bench Players
-	 * @param playerlist the list to set
+	 * 
+	 * @param playerlist
+	 *            the list to set
 	 */
-	public void setAllBenchPlayers(ArrayList<Player> playerlist){
+	public void setAllBenchPlayers(ArrayList<Player> playerlist) {
 		benchPlayers = playerlist;
 	}
 }

@@ -20,8 +20,8 @@ import nl.joshuaslik.tudelft.UFMGame.backend.Player;
 import nl.joshuaslik.tudelft.UFMGame.gui.Main;
 
 /**
+ * @author Sander Benoist
  * @author <a href="http://www.joshuaslik.nl/" target="_blank">Joshua Slik</a>
- *
  */
 public class ViewPlayer {
 	private static Player player;

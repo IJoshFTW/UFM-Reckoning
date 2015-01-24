@@ -25,6 +25,7 @@ import nl.joshuaslik.tudelft.UFMGame.backend.Team;
 import nl.joshuaslik.tudelft.UFMGame.gui.Main;
 
 /**
+ * @author Sander Benoist
  * @author <a href="http://www.joshuaslik.nl/" target="_blank">Joshua Slik</a>
  * @author Bryan van Wijk
  *
