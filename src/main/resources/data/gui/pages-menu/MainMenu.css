@@ -75,3 +75,33 @@
 	-fx-border-color: #1d1d1d;
  	-fx-table-cell-border-color: transparent;
 }
+
+.choice-box {
+	-fx-background-color: #1d1d1d;
+	-fx-text-fill: white;
+	-fx-font-size: 22;
+    	-fx-font-family: 'Quicksand Book';
+	-fx-border-color: white;
+	-fx-border-size: 1px;
+	-fx-padding: 0;
+	-fx-text-fill: white;
+}
+
+.context-menu {
+	-fx-background-color: #1d1d1d;
+	-fx-text-fill: white;
+	-fx-font-size: 22;
+    	-fx-font-family: 'Quicksand Book';
+	-fx-border-color: white;
+	-fx-border-size: 1px;
+	-fx-padding: 0;
+	-fx-text-fill: white;
+}
+
+.choice-box-menu-item:hover {
+	-fx-opacity: 90%;
+}
+
+.choice-box .label:hover {
+	-fx-opacity: 90%;
+}

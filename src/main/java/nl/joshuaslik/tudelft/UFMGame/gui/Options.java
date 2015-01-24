@@ -2,6 +2,8 @@ package nl.joshuaslik.tudelft.UFMGame.gui;
 
 import java.io.IOException;
 
+import nl.joshuaslik.tudelft.UFMGame.backend.Game;
+import nl.joshuaslik.tudelft.UFMGame.backend.Save;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -11,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.input.MouseEvent;
@@ -34,6 +37,9 @@ public class Options {
 
 	@FXML
 	private Button loadgame;
+	
+	@FXML
+	private ChoiceBox<String> difficultychoose;
 
 	/**
 	 * Methods to control what happens on mouse-over. 
@@ -97,6 +103,7 @@ public class Options {
 				Main.rootLayout = rootLayout;
         		Main.stage.setTitle("Ultimate Football Manager");
         		Scene scene = new Scene(rootLayout);
+
             	if(newValue){
            			Main.stage.setScene(scene);
         			Main.stage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
@@ -112,6 +119,27 @@ public class Options {
         		}
             }     
         });
+		difficultychoose.getItems().add("Easy");
+		difficultychoose.getItems().add("Normal");
+		difficultychoose.getItems().add("Difficult");
+
+		difficultychoose.setValue("Normal");
+		difficultychoose.getSelectionModel().selectedIndexProperty().addListener(new
+				ChangeListener<Number>() {
+		            @Override
+					public void changed(ObservableValue<? extends Number> observable,
+							Number oldValue, Number newValue){
+		            	if(newValue.equals(0)){
+		            		Game.setDifficulty(10);
+		            	}
+		            	else if(newValue.equals(1)){
+		            		Game.setDifficulty(7);
+		            	}
+		            	else if(newValue.equals(2)){
+		            		Game.setDifficulty(5);
+		            	}
+		           }
+		});		
 	}
 
 	/**

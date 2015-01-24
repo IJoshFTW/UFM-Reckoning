@@ -1,7 +1,6 @@
 package nl.joshuaslik.tudelft.UFMGame.backend;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
@@ -284,6 +283,79 @@ public class GameTest {
 		Game game1 = new Game(users);
 		game1.getCompetition().definePlayrounds();
 		assertEquals(game1.getPlayrounds().size(), 6);
+	}
+	
+	/**
+	 * test to buy a player
+	 */
+	@Test
+	public void testbuyPlayer(){
+		ArrayList<User> users = new ArrayList<User>();
+		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
+		Team team2 = new Team("ado", "ado", "Frank de Boer");
+		Team team3 = new Team("az", "az", "piet");
+		Team team4 = new Team("psv", "psv", "jan");
+		users.add(new Human(team1, "Bryan", 500000000));
+		users.add(new PC(team2, "pc1", 5000));
+		users.add(new PC(team3, "pc2", 500));
+		users.add(new PC(team4, "pc3", 5000));
+		Game game1 = new Game(users);
+		game1.buyPlayer("jaspercillessen", game1.getUser());
+		assertTrue(game1.getUser().getTeam().getBenchPlayers().contains(game1.getPlayer("jaspercillessen")));
+	}
+	
+	/**
+	 * test to buy a non contracted player
+	 */
+	@Test
+	public void testbuyNonContractedPlayer(){
+		ArrayList<User> users = new ArrayList<User>();
+		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
+		Team team2 = new Team("ado", "ado", "Frank de Boer");
+		Team team3 = new Team("az", "az", "piet");
+		Team team4 = new Team("psv", "psv", "jan");
+		users.add(new Human(team1, "Bryan", 500000000));
+		users.add(new PC(team2, "pc1", 5000));
+		users.add(new PC(team3, "pc2", 500));
+		users.add(new PC(team4, "pc3", 5000));
+		Game game1 = new Game(users);
+		game1.getUser("Bryan").getTeam().addBenchPlayer(game1.getPlayer("jaspercillessen"));
+		game1.getUser("Bryan").getTeam().addBenchPlayer(game1.getPlayer("aaronmeijers"));
+		game1.setNonContracted("jaspercillessen");
+		game1.buyNonContractedPlayer("jaspercillessen", game1.getUser());
+		assertTrue(game1.getUser().getTeam().getBenchPlayers().contains(game1.getPlayer("jaspercillessen")));
+	}
+	
+	/**
+	 * test to sell a player
+	 */
+	@Test
+	public void testSellPlayer(){
+		ArrayList<User> users = new ArrayList<User>();
+		Team team1 = new Team("ajax", "ajax", "Frank de Boer");
+		Team team2 = new Team("ado", "ado", "Frank de Boer");
+		Team team3 = new Team("az", "az", "piet");
+		Team team4 = new Team("psv", "psv", "jan");
+		users.add(new Human(team1, "Bryan", 500000000));
+		users.add(new PC(team2, "pc1", 5000));
+		users.add(new PC(team3, "pc2", 500));
+		users.add(new PC(team4, "pc3", 5000));
+		Game game1 = new Game(users);
+		game1.getUser("Bryan").getTeam().addBenchPlayer(game1.getPlayer("jaspercillessen"));
+		game1.getUser("Bryan").getTeam().addBenchPlayer(game1.getPlayer("aaronmeijers"));
+		game1.sellPlayer("jaspercillessen", game1.getUser());
+		assertFalse(game1.getUser().getTeam().getBenchPlayers().contains(game1.getPlayer("jaspercillessen")));
+	}
+	
+	/**
+	 * test to change the formation of all the other teams as the human player
+	 */
+	@Test
+	public void testChangeFormationRound(){
+		Game game1 = Save.newGame(Save.loadTeam().get("ajax"), "Bryan");
+		game1.changeFormationRound();
+		game1.getUser("pc1").getTeam();
+		assertEquals(game1.getUser("pc1").getTeam().getActivePlayers().size(), 11);
 	}
 
 }

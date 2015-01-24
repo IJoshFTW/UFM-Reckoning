@@ -60,7 +60,6 @@ public class Main extends Application {
 		
 		primaryStage.show();
 		stage = primaryStage;
-		Game.setDifficulty(7);
 		MainMenu.start();
 	}
 	

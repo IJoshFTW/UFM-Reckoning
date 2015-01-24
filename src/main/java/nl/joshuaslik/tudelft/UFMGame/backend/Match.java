@@ -83,16 +83,20 @@ public class Match {
 		double homechance = Math.random() * 3000;
 		double homegoalschance = (
 				(homechance * (difficulty * 0.1)) +
-				((attackpowerhome + staminahome) * 1.5 * ((10-difficulty) * 0.1)) - 
-				((awayteam.getActiveGoalkeeper().getDiving() + awayteam.getActiveGoalkeeper().getPositioning() + awayteam.getActiveGoalkeeper().getReflexes())) + 300
+				(
+					((((attackpowerhome + staminahome) * 1.35)  - 
+					((awayteam.getActiveGoalkeeper().getDiving() + awayteam.getActiveGoalkeeper().getPositioning() + awayteam.getActiveGoalkeeper().getReflexes())) + 300)) * ((10-difficulty) * 0.1)
+				)
 				);
 		
 		int attackpoweraway = (attackaway - defencehome);
 		int awaychance = (int) (Math.random() * 3000);
 		double awaygoalschance = (
 				(awaychance * (difficulty * 0.1)) + 
-				((attackpoweraway + staminaaway) * 1.5 * ((10-difficulty) * 0.1)) - 
-				((hometeam.getActiveGoalkeeper().getDiving() + hometeam.getActiveGoalkeeper().getPositioning() + hometeam.getActiveGoalkeeper().getReflexes())) + 300
+				(
+				((((attackpoweraway + staminaaway) * 1.35 ) - 
+				((hometeam.getActiveGoalkeeper().getDiving() + hometeam.getActiveGoalkeeper().getPositioning() + hometeam.getActiveGoalkeeper().getReflexes())) + 300)) * ((10-difficulty) * 0.1)
+				)
 				);
 
 		homegoals = determinegoals(homegoalschance);

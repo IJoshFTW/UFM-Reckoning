@@ -785,6 +785,49 @@ public class Save {
 		savefile.save(saveloc);
 	}
 	
+
+	/**
+	 * Method to save a score of a human user
+	 * @param username score of this user
+	 * @param goals amount of goals this user made in the past matches
+	 * @param matches amount of matches that are played
+	 */
+	public static void saveOption(String optie, int value){
+		XMLTag options = new XMLTag("options");
+		String saveloc = System.getenv("APPDATA")
+				+ "\\Ultimate Football Manager\\optionss\\options.xml";
+		
+		if (new File(saveloc).exists() == false){
+			XMLFile savefile = new XMLFile(options);
+			XMLTag fullscreen = new XMLTag("fullscreen");
+			options.addElement(fullscreen);
+			XMLTag difficulty = new XMLTag("difficulty");
+			options.addElement(difficulty);
+			savefile.save(saveloc);
+		}
+		options = new XMLTag("options");
+		XMLFile file = SAXParser.parseLocalFile(saveloc);
+		if(optie.equals("fullscreen")){
+			XMLTag fullscreen = new XMLTag("fullscreen");
+			fullscreen.setContent(Integer.toString(value));
+			options.addElement(fullscreen);
+			XMLTag difficulty = new XMLTag("difficulty");
+			difficulty.setContent(file.getElement("options.difficulty").getContent());
+			options.addElement(difficulty);
+		}
+		if(optie.equals("difficulty")){
+			XMLTag fullscreen = new XMLTag("fullscreen");
+			fullscreen.setContent(file.getElement("options.fullscreen").getContent());
+			options.addElement(fullscreen);
+			XMLTag difficulty = new XMLTag("difficulty");
+			difficulty.setContent(Integer.toString(value));
+			options.addElement(difficulty);
+		}
+		
+		XMLFile savefile = new XMLFile(options);
+		savefile.save(saveloc);
+	}
+	
 	/**
 	 * Method to get the highscores from the highscore file
 	 * @return username with the highscore
