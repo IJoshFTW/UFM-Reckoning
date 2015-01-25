@@ -97,11 +97,8 @@ public class ChangeSetup {
 		public void changed(
 				ObservableValue<? extends Formation> observable,
 				Formation oldValue, Formation newValue) {
-   			
    					form.setValue(newValue);
-   					
 					formation = newValue;
-					
 					MainGame.game.getUser().getTeam().changeFormationType(formation);
 					ArrayList<Player> playerslist = team.getBenchPlayers();
 					observablelistplayers = FXCollections.observableArrayList(playerslist);
@@ -112,11 +109,10 @@ public class ChangeSetup {
 					diving.setText("Diving: 0");
 					positioning.setText("Positioning: 0");
 					reflexes.setText("Reflexes: 0");
-					
-					
 					initField();
 				}   
    	});
+   	 
    	initField();
 	ArrayList<Player> playerslist = team.getBenchPlayers();
 	observablelistplayers = FXCollections.observableArrayList(playerslist);
