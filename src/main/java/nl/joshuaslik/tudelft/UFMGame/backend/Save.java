@@ -852,8 +852,9 @@ public class Save {
 		LinkedHashMap<String, Double> highscores = new LinkedHashMap<String, Double>();
 		String saveloc = System.getenv("APPDATA")
 				+ "\\Ultimate Football Manager\\highscores\\highscores.xml";
-		XMLFile file = SAXParser.parseLocalFile(saveloc);
-		if(file != null){	
+		
+		if(new File(saveloc).exists() == true){	
+			XMLFile file = SAXParser.parseLocalFile(saveloc);
 			for (int i = 1; i < file.getElement("highscores")
 					.elements() + 1; i++) {
 						highscores.put(file.getElement("highscores").getElement("user", i).getAttribute("username"),

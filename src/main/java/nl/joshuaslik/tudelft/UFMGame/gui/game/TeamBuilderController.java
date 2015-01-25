@@ -45,7 +45,7 @@ public class TeamBuilderController {
 	private TableColumn<Player, String> active, name, country, position, captain;
 
 	@FXML
-	private Label showTotalWins, showTotalLosses, showTotalDraws, showTotalGoals, showTotalGamesPlayed, coach;
+	private Label showTotalWins, showTotalLosses, showTotalDraws, showTotalGoals, showTotalGamesPlayed, coach, attack, stamina, defence;
 
 	@FXML
 	private ImageView teamlogo, staminaImg, defPwrImg, atkPwrImg;
@@ -159,13 +159,16 @@ public class TeamBuilderController {
 		showTotalGoals.setText("Total Goals: "+team.getTotalGoals());
 		
 		// AttackPower bar inladen
-		atkPwrImg.setFitWidth(team.getAttackPower() / 3);
+		atkPwrImg.setFitWidth((team.getAttackPower() / 3)+1);
+		attack.setText(((int)(team.getAttackPower()*0.1))+"%");
 
 		// Defence bar inladen
-		defPwrImg.setFitWidth(team.getDefencePower() / 3);
+		defPwrImg.setFitWidth((team.getDefencePower() / 3)+1);
+		defence.setText(((int)(team.getDefencePower()*0.1))+"%");
 
 		// Stamina bar inladen
-		staminaImg.setFitWidth(team.getStamina() / 3);
+		staminaImg.setFitWidth((team.getStamina() / 3)+1);
+		stamina.setText(((int)(team.getStamina()*0.1))+"%");
 	}
 
 	/**
@@ -182,8 +185,6 @@ public class TeamBuilderController {
 	 */
 	public static void start() throws IOException {
 		team = MainGame.game.getUser().getTeam();
-		Main.rootLayout.getStyleClass().remove("mainmenu");
-		Main.rootLayout.getStyleClass().add("maingame");
 		AnchorPane root = FXMLLoader.load(Class.class
 				.getResource("/data/gui/pages-game/TeamBuilder.fxml"));
 
@@ -195,9 +196,7 @@ public class TeamBuilderController {
 		AnchorPane bottom = (AnchorPane) FXMLLoader.load(Class.class
 				.getResource("/data/gui/pages-game/GameBottomMenuBar.fxml"));
 		Main.setBottom(bottom);
-		Main.rootLayout.getStyleClass().removeAll();
-		
-		
+			
 		Main.rootLayout.getStyleClass().removeAll("mainmenu");
 		Main.rootLayout.getStyleClass().add("maingame");
 		

@@ -51,7 +51,7 @@ public class TransferMarket {
 	@FXML
 	private TableView<Player> yourteamtable;
 	@FXML
-	private TableColumn<Player, String> active2, name2, country2, position2,
+	private TableColumn<Player, String> active2, name2, position2,
 			value;
 
 	/**
@@ -111,14 +111,13 @@ public class TransferMarket {
 				.selectedItemProperty()
 				.addListener(
 						(observable, oldValue, newValue) -> selectedPlayer(newValue, "otherteamtable"));
-		
 
 		//your teamplayers table
 		ArrayList<Player> teamplayerslist = team.getAllPlayers();
 		observablelistteamplayers = FXCollections
 				.observableArrayList(teamplayerslist);
 		yourteamtable.setItems(observablelistteamplayers);
-
+		
 		active2.setCellValueFactory(new PropertyValueFactory<Player, String>(
 				"ID"));
 		active2.setCellFactory(new Callback<TableColumn<Player, String>, TableCell<Player, String>>() {
@@ -149,9 +148,7 @@ public class TransferMarket {
 		
 		name2.setCellValueFactory(new PropertyValueFactory<Player, String>(
 				"fullName"));
-		country2.setCellValueFactory(new PropertyValueFactory<Player, String>(
-				"country"));
-		position2.setCellValueFactory(new PropertyValueFactory<Player, String>(
+				position2.setCellValueFactory(new PropertyValueFactory<Player, String>(
 				"position"));
 		value.setCellValueFactory(new PropertyValueFactory<Player, String>(
 				"price"));

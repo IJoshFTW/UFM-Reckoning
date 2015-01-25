@@ -37,15 +37,16 @@ public class MainGame {
 	 */
 	public static void setGame(Game game) {
 		MainGame.game = game;
+		MainGame.game.loadAllNonContractedPlayers();
 	}
 
 	/**
-	 * Initializes the controller class. This method is automatically called
-	 * after the fxml file has been loaded.
+	 * Initializes the controller class. 
 	 */
 	public static void initialize() {
 		MainGame.game.getCompetition().definePlayrounds();
 		MainGame.game.computeStandings();
+		
 	}
 
 }

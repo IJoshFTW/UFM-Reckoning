@@ -14,7 +14,24 @@
          <children>
             <AnchorPane maxHeight="800.0" maxWidth="1200.0" prefHeight="800.0" prefWidth="1200.0">
                <children>
-                  <Pane opacity="0.8" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #101010; -fx-border-width: 1px; -fx-border-color: #CECECE;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <Pane opacity="0.8" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #101010; -fx-border-width: 1px; -fx-border-color: #CECECE;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label fx:id="stamina" layoutX="1112.0" layoutY="430.0" text="Label" textFill="#fffdfd">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="defence" layoutX="1112.0" layoutY="400.0" text="Label" textFill="#fffdfd">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="attack" layoutX="1112.0" layoutY="367.0" text="Label" textFill="#fffdfd">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children></Pane>
                   <Label fx:id="showTotalGamesPlayed" layoutX="670.0" layoutY="460.0" prefHeight="30.0" prefWidth="294.0" text="?" textFill="WHITE">
                      <font>
                         <Font size="20.0" />

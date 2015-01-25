@@ -29,8 +29,8 @@
                                     <Font size="49.0" />
                                  </font>
                               </Label>
-                              <ChoiceBox fx:id="difficultychoose" layoutX="443.0" layoutY="366.0" prefHeight="41.0" prefWidth="211.0" />
                            </children></Pane>
+                        <ChoiceBox fx:id="difficultychoose" prefHeight="41.0" prefWidth="211.0" AnchorPane.leftAnchor="435.0" AnchorPane.topAnchor="350.0" />
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutY="29.0" prefHeight="50.0" prefWidth="1085.0" text="Options" textAlignment="CENTER" textFill="#f2efef">
                            <font>
                               <Font size="34.0" />

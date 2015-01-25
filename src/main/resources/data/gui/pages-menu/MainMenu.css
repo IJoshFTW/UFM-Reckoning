@@ -78,12 +78,14 @@
 
 .choice-box {
 	-fx-background-color: #1d1d1d;
-	-fx-text-fill: white;
 	-fx-font-size: 22;
     	-fx-font-family: 'Quicksand Book';
 	-fx-border-color: white;
 	-fx-border-size: 1px;
 	-fx-padding: 0;
+}
+
+.choice-box .label {
 	-fx-text-fill: white;
 }
 
@@ -95,7 +97,6 @@
 	-fx-border-color: white;
 	-fx-border-size: 1px;
 	-fx-padding: 0;
-	-fx-text-fill: white;
 }
 
 .choice-box-menu-item:hover {

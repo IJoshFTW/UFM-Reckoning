@@ -17,7 +17,24 @@
          <children>			
       		<AnchorPane maxHeight="800.0" maxWidth="1200.0" prefHeight="800.0" prefWidth="1200.0">
                <children>
-                  <Pane opacity="0.8" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #101010; -fx-border-color: #CECECE; -fx-border-width: 1px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <Pane opacity="0.8" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #101010; -fx-border-color: #CECECE; -fx-border-width: 1px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label fx:id="attack" layoutX="1117.0" layoutY="370.0" text="Label" textFill="#fffdfd">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="defence" layoutX="1117.0" layoutY="403.0" text="Label" textFill="#fffdfd">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="stamina" layoutX="1117.0" layoutY="433.0" text="Label" textFill="#fffdfd">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children></Pane>
                     <Button layoutX="796.0" layoutY="699.0" onAction="#handleTransferMarket" prefHeight="60" prefWidth="324.0" styleClass="button" text="Transfer Market" AnchorPane.leftAnchor="796.0" AnchorPane.topAnchor="699.0" />
                     <Button fx:id="viewplayer" disable="true" layoutX="291.0" layoutY="699.0" onAction="#handleViewPlayer" prefHeight="60" prefWidth="250" styleClass="button" text="View Player" AnchorPane.leftAnchor="291.0" AnchorPane.topAnchor="700.0" />
                     <Button layoutX="42.0" layoutY="700.0" onAction="#handleChangeSetup" prefHeight="60" prefWidth="250" styleClass="button" text="Change Setup" AnchorPane.leftAnchor="42.0" AnchorPane.topAnchor="700.0" />
@@ -77,17 +94,17 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <ImageView fx:id="atkPwrImg" fitHeight="20.0" fitWidth="20.0" layoutX="764.0" layoutY="376.0" pickOnBounds="true" style="-fx-opacity: 200%">
+                  <ImageView fx:id="atkPwrImg" fitHeight="20.0" fitWidth="1.0" layoutX="764.0" layoutY="376.0" pickOnBounds="true" style="-fx-opacity: 200%">
                      <image>
                         <Image url="@../img/attackpowerbar.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="defPwrImg" fitHeight="20.0" fitWidth="20.0" layoutX="764.0" layoutY="406.0" pickOnBounds="true" style="-fx-opacity: 200%">
+                  <ImageView fx:id="defPwrImg" fitHeight="20.0" fitWidth="1.0" layoutX="764.0" layoutY="406.0" pickOnBounds="true" style="-fx-opacity: 200%">
                      <image>
                         <Image url="@../img/defencepowerbar.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="staminaImg" fitHeight="20.0" fitWidth="20.0" layoutX="764.0" layoutY="436.0" pickOnBounds="true" style="-fx-opacity: 200%">
+                  <ImageView fx:id="staminaImg" fitHeight="20.0" fitWidth="1.0" layoutX="764.0" layoutY="436.0" pickOnBounds="true" style="-fx-opacity: 200%">
                      <image>
                         <Image url="@../img/staminabar.png" />
                      </image>

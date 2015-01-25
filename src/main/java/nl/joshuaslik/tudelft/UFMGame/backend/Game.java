@@ -454,4 +454,19 @@ public class Game {
 	public void setNonContractedPlayers(ArrayList<Player> nonContractedPlayers) {
 		this.nonContractedPlayers = nonContractedPlayers;
 	}
+	
+	/**
+	 * Load all the players that are not in a team, but are in the files
+	 */
+	public void loadAllNonContractedPlayers(){
+		ArrayList<Player> allnoncontractedplayers = Save.loadplayersArrayList();
+		for(int i = 0; i < getUsers().size(); i++){
+			for(int j = 0; j < getUsers().get(i).getTeam().getAllPlayers().size(); j++){
+				if(allnoncontractedplayers.contains(getUsers().get(i).getTeam().getAllPlayers().get(j))){
+					allnoncontractedplayers .remove(getUsers().get(i).getTeam().getAllPlayers().get(j));
+				}
+			}
+		}
+		nonContractedPlayers.addAll(allnoncontractedplayers);
+	}
 }

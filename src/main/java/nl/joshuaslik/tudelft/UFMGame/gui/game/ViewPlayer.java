@@ -29,7 +29,7 @@ public class ViewPlayer {
 	private static AnchorPane page;
 
 	@FXML
-	private Label playerName, playerRole, attackLable, defenceLable, staminaLable, reflexesLable, positioningLable, showCountryLable, showPriceLable, divingLable;
+	private Label playerName, playerRole, attackLable, defenceLable, staminaLable, reflexesLable, positioningLable, showCountryLable, showPriceLable, divingLable, position, stamina, attack, defence, positioning, diving, reflexes;
 	@FXML
 	private ImageView playerPhoto, staminaImg, defPwrImg, atkPwrImg, positioningImg, reflexesImg, divingImg;
 	@FXML
@@ -50,13 +50,38 @@ public class ViewPlayer {
 		if (player instanceof Fieldplayer) {
 			Fieldplayer fieldplayer = (Fieldplayer) player;
 			playerRole.setText("Role: Fieldplayer");
-
+			position.setText("Position: " + fieldplayer.getPosition());
+			if(fieldplayer.getPosition().equals("RW")){
+				position.setText("Position: Right Wing");
+			}
+			else if(fieldplayer.getPosition().equals("LW")){
+				position.setText("Position: Left Wing");
+			}
+			else if(fieldplayer.getPosition().equals("RB")){
+				position.setText("Position: Right Back");
+			}
+			else if(fieldplayer.getPosition().equals("LB")){
+				position.setText("Position: Left Back");
+			}
+			else if(fieldplayer.getPosition().equals("CB")){
+				position.setText("Position: Central Back");
+			}
+			else if(fieldplayer.getPosition().equals("LM")){
+				position.setText("Position: Left Midfield");
+			}
+			else if(fieldplayer.getPosition().equals("RM")){
+				position.setText("Position: Right Midfield");
+			}
+			else if(fieldplayer.getPosition().equals("CM")){
+				position.setText("Position: Central Midfield");
+			}
 			// AttackPower bar inladen
 			attackLable.setVisible(true);
 			atkPwrImg.prefHeight(20);
 			atkPwrImg.minWidth(fieldplayer.getAttackPower() * 3);
 			atkPwrImg.setFitWidth(fieldplayer.getAttackPower() * 3);
 			atkPwrImg.setVisible(true);
+			attack.setText(fieldplayer.getAttackPower()+"%");
 
 			// Defence bar inladen
 			defenceLable.setVisible(true);
@@ -64,6 +89,8 @@ public class ViewPlayer {
 			defPwrImg.minWidth(fieldplayer.getDefencePower() * 3);
 			defPwrImg.setFitWidth(fieldplayer.getDefencePower() * 3);
 			defPwrImg.setVisible(true);
+			defence.setText(fieldplayer.getDefencePower()+"%");
+
 
 			// Stamina bar inladen
 			staminaLable.setVisible(true);
@@ -71,18 +98,22 @@ public class ViewPlayer {
 			staminaImg.minWidth(fieldplayer.getStamina() * 3);
 			staminaImg.setFitWidth(fieldplayer.getStamina() * 3);
 			staminaImg.setVisible(true);
+			stamina.setText(fieldplayer.getStamina()+"%");
+
 		}
 
 		if (player instanceof Goalkeeper) {
 			Goalkeeper goalkeeper = (Goalkeeper) player;
 			playerRole.setText("Role: Goalkeeper");
-
+			position.setText("");
 			// Diving bar inladen
 			divingLable.setVisible(true);
 			divingImg.prefHeight(20);
 			divingImg.minWidth(goalkeeper.getDiving() * 3);
 			divingImg.setFitWidth(goalkeeper.getDiving() * 3);
 			divingImg.setVisible(true);
+			diving.setText(goalkeeper.getDiving()+"%");
+
 
 			// Reflexes bar inladen
 			reflexesLable.setVisible(true);
@@ -90,6 +121,7 @@ public class ViewPlayer {
 			reflexesImg.minWidth(goalkeeper.getReflexes() * 3);
 			reflexesImg.setFitWidth(goalkeeper.getReflexes() * 3);
 			reflexesImg.setVisible(true);
+			reflexes.setText(goalkeeper.getReflexes()+"%");
 
 			// Positioning bar inladen
 			positioningLable.setVisible(true);
@@ -97,9 +129,11 @@ public class ViewPlayer {
 			positioningImg.minWidth(goalkeeper.getPositioning() * 3);
 			positioningImg.setFitWidth(goalkeeper.getPositioning() * 3);
 			positioningImg.setVisible(true);
+			positioning.setText(goalkeeper.getPositioning()+"%");
 		}
-		showCountryLable.setText(player.getCountry());
-		showPriceLable.setText(Integer.toString(player.getPrice()));
+		
+		showCountryLable.setText("Country: "+ player.getCountry());
+		showPriceLable.setText("Price: " + Integer.toString(player.getPrice()));
 
 	}
 
