@@ -3,9 +3,11 @@ package nl.joshuaslik.tudelft.UFMGame.gui;
 import java.io.IOException;
 
 import nl.joshuaslik.tudelft.UFMGame.backend.Game;
+import nl.joshuaslik.tudelft.UFMGame.backend.Save;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -31,11 +33,6 @@ public class Main extends Application {
 	public static BorderPane rootLayout;
 	
 	/**
-	 * set the page to fullscreen
-	 */
-	public static boolean fullscreen;
-	
-	/**
 	 * Launch the application
 	 * @param args
 	 */
@@ -51,11 +48,33 @@ public class Main extends Application {
 		Main.loadFonts();
 		rootLayout = (BorderPane) FXMLLoader.load(Class.class
 				.getResource("/data/gui/pages-menu/RootLayout.fxml"));
+		
 		primaryStage.setTitle("Ultimate Football Manager");
-		Scene scene = new Scene(rootLayout);
-		primaryStage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
-		primaryStage.setFullScreen(true);
-
+		Scene scene = null;
+		if(Save.getOption("difficulty") == null){
+			Game.setDifficulty(7);
+		}
+		else{
+			if(Save.getOption("difficulty").equals("Easy")){
+        		Game.setDifficulty(10);
+        	}
+        	else if(Save.getOption("difficulty").equals("Normal")){
+        		Game.setDifficulty(7);
+        	}
+        	else if(Save.getOption("difficulty").equals("Difficult")){
+        		Game.setDifficulty(5);
+        	}
+		}
+		if(Save.getOption("fullscreen") != null && !Boolean.parseBoolean(Save.getOption("fullscreen"))){
+			ScrollPane scroll = new ScrollPane(rootLayout);
+			scroll.setPrefSize(1400.0, 700.0);
+			scene = new Scene(scroll);
+		}
+		else{
+			scene = new Scene(rootLayout);
+			primaryStage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
+			primaryStage.setFullScreen(true);
+		}
 		primaryStage.setScene(scene);
 		
 		primaryStage.show();

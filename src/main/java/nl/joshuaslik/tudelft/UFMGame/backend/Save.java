@@ -787,15 +787,14 @@ public class Save {
 	
 
 	/**
-	 * Method to save a score of a human user
-	 * @param username score of this user
-	 * @param goals amount of goals this user made in the past matches
-	 * @param matches amount of matches that are played
+	 * Method to save a option
+	 * @param optie the option to save
+	 * @param value the value of the option to save
 	 */
-	public static void saveOption(String optie, int value){
+	public static void saveOption(String optie, String value){
 		XMLTag options = new XMLTag("options");
 		String saveloc = System.getenv("APPDATA")
-				+ "\\Ultimate Football Manager\\optionss\\options.xml";
+				+ "\\Ultimate Football Manager\\options\\options.xml";
 		
 		if (new File(saveloc).exists() == false){
 			XMLFile savefile = new XMLFile(options);
@@ -809,7 +808,7 @@ public class Save {
 		XMLFile file = SAXParser.parseLocalFile(saveloc);
 		if(optie.equals("fullscreen")){
 			XMLTag fullscreen = new XMLTag("fullscreen");
-			fullscreen.setContent(Integer.toString(value));
+			fullscreen.setContent(value);
 			options.addElement(fullscreen);
 			XMLTag difficulty = new XMLTag("difficulty");
 			difficulty.setContent(file.getElement("options.difficulty").getContent());
@@ -820,12 +819,29 @@ public class Save {
 			fullscreen.setContent(file.getElement("options.fullscreen").getContent());
 			options.addElement(fullscreen);
 			XMLTag difficulty = new XMLTag("difficulty");
-			difficulty.setContent(Integer.toString(value));
+			difficulty.setContent(value);
 			options.addElement(difficulty);
 		}
 		
 		XMLFile savefile = new XMLFile(options);
 		savefile.save(saveloc);
+	}
+	
+	/**
+	 * Method to get a option value
+	 * @param optie the option to get
+	 * @return value of the option
+	 */
+	public static String getOption(String optie){
+		String saveloc = System.getenv("APPDATA")
+				+ "\\Ultimate Football Manager\\options\\options.xml";
+		
+		if (new File(saveloc).exists() == true){
+			XMLFile file = SAXParser.parseLocalFile(saveloc);
+			return file.getElement("options."+optie).getContent();
+		}
+		
+		return null;
 	}
 	
 	/**

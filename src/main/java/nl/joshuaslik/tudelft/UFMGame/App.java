@@ -26,7 +26,6 @@ public class App {
 	 *            is an array of command line arguments
 	 */
 	public static void main(String[] args) {
-		Main.fullscreen=true;
 		System.out.println("Ultimate Football Manager");
 		System.out
 				.println("(c) 2014-2015 - Sander Benoist, Naomi de Ridder, Joshua Slik, Lisette Veldkamp, Bryan van Wijk");

@@ -83,47 +83,60 @@ public class Options {
 				loadgame.setVisible(false);
 			}
 		});
+		if(Save.getOption("fullscreen") != null){
+			checkboxfullscreen.setSelected(Boolean.parseBoolean(Save.getOption("fullscreen")));
+		}
+		else{
+			checkboxfullscreen.setSelected(true);
+		}
 		
-		checkboxfullscreen.setSelected(Main.fullscreen);
+		
 		checkboxfullscreen.selectedProperty().addListener(new ChangeListener<Boolean> () {
             public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-            	Main.fullscreen = newValue;
-            	BorderPane rootLayout = null;
-            	AnchorPane page = null;
-				try {
-					rootLayout = (BorderPane) FXMLLoader.load(Class.class
-							.getResource("/data/gui/pages-menu/RootLayout.fxml"));
-					
-					page = (AnchorPane) FXMLLoader.load(Class.class.getResource("/data/gui/pages-menu/Options.fxml"));
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				rootLayout.setCenter(page);
-				Main.rootLayout = rootLayout;
-        		Main.stage.setTitle("Ultimate Football Manager");
-        		Scene scene = new Scene(rootLayout);
-
+        		Save.saveOption("fullscreen", Boolean.toString(newValue));
             	if(newValue){
-           			Main.stage.setScene(scene);
+            		BorderPane rootLayout = null;
+        			try {
+						rootLayout = (BorderPane) FXMLLoader.load(Class.class
+								.getResource("/data/gui/pages-menu/RootLayout.fxml"));
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+        			
+        			rootLayout.setCenter(Main.rootLayout.getCenter());
+        			Main.rootLayout = rootLayout;
+        			Scene scene = new Scene(rootLayout);
+        			Main.stage.setScene(scene);
         			Main.stage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
         			Main.stage.setFullScreen(true);
+
  
-        			
         		}else{
-        			ScrollPane scroll = new ScrollPane();
-        			scroll.setContent(rootLayout);
-        			scroll.setPrefSize(1000.0, 700.0);
-        			scene = new Scene(scroll);
+        			BorderPane rootLayout = null;
+        			try {
+						rootLayout = (BorderPane) FXMLLoader.load(Class.class
+								.getResource("/data/gui/pages-menu/RootLayout.fxml"));
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+        			rootLayout.setCenter(Main.rootLayout.getCenter());
+        			Main.rootLayout = rootLayout;
+        			ScrollPane scroll = new ScrollPane(rootLayout);
+        			scroll.setPrefSize(1400.0, 700.0);
+        			Scene scene = new Scene(scroll);
         			Main.stage.setScene(scene);
+        			Main.stage.setFullScreen(false);
         		}
             }     
         });
+		
+		
+		
 		difficultychoose.getItems().add("Easy");
 		difficultychoose.getItems().add("Normal");
 		difficultychoose.getItems().add("Difficult");
 
-		difficultychoose.setValue("Normal");
+	
 		difficultychoose.getSelectionModel().selectedIndexProperty().addListener(new
 				ChangeListener<Number>() {
 		            @Override
@@ -131,15 +144,24 @@ public class Options {
 							Number oldValue, Number newValue){
 		            	if(newValue.equals(0)){
 		            		Game.setDifficulty(10);
+		            		Save.saveOption("difficulty", difficultychoose.getItems().get((int) newValue));
 		            	}
 		            	else if(newValue.equals(1)){
 		            		Game.setDifficulty(7);
+		            		Save.saveOption("difficulty", difficultychoose.getItems().get((int) newValue));
 		            	}
 		            	else if(newValue.equals(2)){
 		            		Game.setDifficulty(5);
+		            		Save.saveOption("difficulty", difficultychoose.getItems().get((int) newValue));
 		            	}
 		           }
 		});		
+		if(Save.getOption("difficulty") != null){
+			difficultychoose.setValue(Save.getOption("difficulty"));
+		}
+		else{
+			difficultychoose.setValue("Normal");
+		}
 	}
 
 	/**
