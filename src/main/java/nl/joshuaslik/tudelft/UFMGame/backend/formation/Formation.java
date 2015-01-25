@@ -53,14 +53,6 @@ public abstract class Formation {
 	}
 	
 	/**
-	 * Method to get the type of this formation
-	 * @return formation type
-	 */
-	public String getType(){
-		return null;
-	}
-	
-	/**
 	 * Sets the striker player of a formation
 	 * @param fieldplayer new striker player
 	 * @return old striker player

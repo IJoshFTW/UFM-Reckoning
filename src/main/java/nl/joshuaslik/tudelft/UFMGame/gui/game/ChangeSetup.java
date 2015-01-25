@@ -98,7 +98,22 @@ public class ChangeSetup {
 				ObservableValue<? extends Formation> observable,
 				Formation oldValue, Formation newValue) {
    					form.setValue(newValue);
-					formation = newValue;
+   					if(newValue instanceof Form433){
+   						formation = new Form433(MainGame.game.getUser().getTeam());
+   					}
+   					else if(newValue instanceof Form343){
+   						formation = new Form343(MainGame.game.getUser().getTeam());
+   					}
+   					else if(newValue instanceof Form442){
+   						formation = new Form442(MainGame.game.getUser().getTeam());
+   					}
+   					else if(newValue instanceof Form532){
+   						formation = new Form532(MainGame.game.getUser().getTeam());
+   					}
+   					else if(newValue instanceof Form4321){
+   						formation = new Form4321(MainGame.game.getUser().getTeam());
+   					}
+					
 					MainGame.game.getUser().getTeam().changeFormationType(formation);
 					ArrayList<Player> playerslist = team.getBenchPlayers();
 					observablelistplayers = FXCollections.observableArrayList(playerslist);

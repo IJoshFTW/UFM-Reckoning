@@ -143,7 +143,7 @@ public class Options {
 					public void changed(ObservableValue<? extends Number> observable,
 							Number oldValue, Number newValue){
 		            	if(newValue.equals(0)){
-		            		Game.setDifficulty(10);
+		            		Game.setDifficulty(9);
 		            		Save.saveOption("difficulty", difficultychoose.getItems().get((int) newValue));
 		            	}
 		            	else if(newValue.equals(1)){
@@ -151,7 +151,7 @@ public class Options {
 		            		Save.saveOption("difficulty", difficultychoose.getItems().get((int) newValue));
 		            	}
 		            	else if(newValue.equals(2)){
-		            		Game.setDifficulty(5);
+		            		Game.setDifficulty(4);
 		            		Save.saveOption("difficulty", difficultychoose.getItems().get((int) newValue));
 		            	}
 		           }

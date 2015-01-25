@@ -1,5 +1,10 @@
 package nl.joshuaslik.tudelft.UFMGame.backend;
 
+import nl.joshuaslik.tudelft.UFMGame.backend.formation.Form343;
+import nl.joshuaslik.tudelft.UFMGame.backend.formation.Form4321;
+import nl.joshuaslik.tudelft.UFMGame.backend.formation.Form433;
+import nl.joshuaslik.tudelft.UFMGame.backend.formation.Form442;
+import nl.joshuaslik.tudelft.UFMGame.backend.formation.Form532;
 import nl.joshuaslik.tudelft.UFMGame.gui.game.MainGame;
 
 /**
@@ -78,14 +83,54 @@ public class Match {
 		int attackaway = awayteam.getAttackPower();
 		int defenceaway = awayteam.getDefencePower();
 		int staminaaway = awayteam.getStamina();
-
+		if(hometeam.getFormation() instanceof Form532){
+			defencehome = (int) (defencehome * 1.6);
+			attackhome = (int) (attackhome * 0.4);
+		}
+		if(awayteam.getFormation() instanceof Form532){
+			defenceaway = (int) (defenceaway * 1.6);
+			attackaway = (int) (attackaway * 0.4);
+		}
+		if(hometeam.getFormation() instanceof Form433){
+			defencehome = (int) (defencehome * 0.9);
+			attackhome = (int) (attackhome * 1.1);
+		}
+		if(awayteam.getFormation() instanceof Form433){
+			defenceaway = (int) (defenceaway * 0.9);
+			attackaway = (int) (attackaway * 1.1);
+		}
+		if(hometeam.getFormation() instanceof Form4321){
+			defencehome = (int) (defencehome * 0.7);
+			attackhome = (int) (attackhome * 1.3);
+		}
+		if(awayteam.getFormation() instanceof Form4321){
+			defenceaway = (int) (defenceaway * 0.7);
+			attackaway = (int) (attackaway * 1.3);
+		}
+		if(hometeam.getFormation() instanceof Form442){
+			defencehome = (int) (defencehome * 1.4);
+			attackhome = (int) (attackhome * 0.6);
+		}
+		if(awayteam.getFormation() instanceof Form442){
+			defenceaway = (int) (defenceaway * 1.4);
+			attackaway = (int) (attackaway * 0.6);
+		}
+		if(hometeam.getFormation() instanceof Form343){
+			defencehome = (int) (defencehome * 0.4);
+			attackhome = (int) (attackhome * 1.6);
+		}
+		if(awayteam.getFormation() instanceof Form343){
+			defenceaway = (int) (defenceaway * 0.4);
+			attackaway = (int) (attackaway * 1.6);
+		}
+		
 		int attackpowerhome = (attackhome - defenceaway);
 		double homechance = Math.random() * 3000;
 		double homegoalschance = (
 				(homechance * (difficulty * 0.1)) +
 				(
 					((((attackpowerhome + staminahome) * 1.35)  - 
-					((awayteam.getActiveGoalkeeper().getDiving() + awayteam.getActiveGoalkeeper().getPositioning() + awayteam.getActiveGoalkeeper().getReflexes())) + 300)) * ((10-difficulty) * 0.1)
+					((awayteam.getActiveGoalkeeper().getDiving() + awayteam.getActiveGoalkeeper().getPositioning() + awayteam.getActiveGoalkeeper().getReflexes())))) * ((10-difficulty) * 0.1)
 				)
 				);
 		
@@ -95,7 +140,7 @@ public class Match {
 				(awaychance * (difficulty * 0.1)) + 
 				(
 				((((attackpoweraway + staminaaway) * 1.35 ) - 
-				((hometeam.getActiveGoalkeeper().getDiving() + hometeam.getActiveGoalkeeper().getPositioning() + hometeam.getActiveGoalkeeper().getReflexes())) + 300)) * ((10-difficulty) * 0.1)
+				((hometeam.getActiveGoalkeeper().getDiving() + hometeam.getActiveGoalkeeper().getPositioning() + hometeam.getActiveGoalkeeper().getReflexes())))) * ((10-difficulty) * 0.1)
 				)
 				);
 

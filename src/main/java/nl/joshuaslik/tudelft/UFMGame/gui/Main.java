@@ -56,13 +56,13 @@ public class Main extends Application {
 		}
 		else{
 			if(Save.getOption("difficulty").equals("Easy")){
-        		Game.setDifficulty(10);
+        		Game.setDifficulty(9);
         	}
         	else if(Save.getOption("difficulty").equals("Normal")){
         		Game.setDifficulty(7);
         	}
         	else if(Save.getOption("difficulty").equals("Difficult")){
-        		Game.setDifficulty(5);
+        		Game.setDifficulty(4);
         	}
 		}
 		if(Save.getOption("fullscreen") != null && !Boolean.parseBoolean(Save.getOption("fullscreen"))){
