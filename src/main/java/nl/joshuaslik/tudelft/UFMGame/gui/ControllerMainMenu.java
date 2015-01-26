@@ -107,6 +107,16 @@ public class ControllerMainMenu {
 	protected void handleHighscores(ActionEvent event) throws IOException {
 		Highscores.start();
 	}
+	
+	/**
+	 * Handles clicking on the credits button
+	 * @param event of clicking on the credits button
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
+	 */
+	@FXML
+	protected void handleCredits(ActionEvent event) throws IOException {
+		Creditscontroller.start();
+	}
 
 	/**
 	 * Handles clicking on the quite button

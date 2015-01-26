@@ -160,15 +160,15 @@ public class TeamBuilderController {
 		
 		// AttackPower bar inladen
 		atkPwrImg.setFitWidth((team.getAttackPower() / 3)+1);
-		attack.setText(((int)(team.getAttackPower()*0.1))+"%");
+		attack.setText(((int)(team.getAttackPower()*0.1))+"");
 
 		// Defence bar inladen
 		defPwrImg.setFitWidth((team.getDefencePower() / 3)+1);
-		defence.setText(((int)(team.getDefencePower()*0.1))+"%");
+		defence.setText(((int)(team.getDefencePower()*0.1))+"");
 
 		// Stamina bar inladen
 		staminaImg.setFitWidth((team.getStamina() / 3)+1);
-		stamina.setText(((int)(team.getStamina()*0.1))+"%");
+		stamina.setText(((int)(team.getStamina()*0.1))+"");
 	}
 
 	/**
