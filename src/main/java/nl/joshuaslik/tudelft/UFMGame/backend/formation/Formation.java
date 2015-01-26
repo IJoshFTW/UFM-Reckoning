@@ -10,12 +10,13 @@ import nl.joshuaslik.tudelft.UFMGame.backend.Team;
  */
 public abstract class Formation {
 	
-	Goalkeeper goalkeeper;
-	Team team;
+	private Goalkeeper goalkeeper;
+	private Team team;
 	
 	/**
-	 * Super contructor of all the formation types
-	 * @param team
+	 * Super constructor of all the formation types
+	 * 
+	 * @param team Team that is using this Formation
 	 */
 	public Formation(Team team){
 		this.team = team;

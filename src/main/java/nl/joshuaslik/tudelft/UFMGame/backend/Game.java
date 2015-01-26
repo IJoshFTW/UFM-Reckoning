@@ -442,7 +442,7 @@ public class Game {
 	/**
 	 * Set the difficulty of the game
 	 * 
-	 * @param difficulty
+	 * @param diff
 	 *            int of the difficulty
 	 */
 	static public void setDifficulty(int diff) {

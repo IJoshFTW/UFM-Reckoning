@@ -74,6 +74,9 @@ public class Match {
 
 	/**
 	 * Method to determine the results of this match
+	 * 
+	 * @param difficulty
+	 *            difficulty setting of the game
 	 */
 	public void determineResult(int difficulty) {
 		int attackhome = hometeam.getAttackPower();
@@ -83,66 +86,56 @@ public class Match {
 		int attackaway = awayteam.getAttackPower();
 		int defenceaway = awayteam.getDefencePower();
 		int staminaaway = awayteam.getStamina();
-		if(hometeam.getFormation() instanceof Form532){
+		if (hometeam.getFormation() instanceof Form532) {
 			defencehome = (int) (defencehome * 1.6);
 			attackhome = (int) (attackhome * 0.4);
 		}
-		if(awayteam.getFormation() instanceof Form532){
+		if (awayteam.getFormation() instanceof Form532) {
 			defenceaway = (int) (defenceaway * 1.6);
 			attackaway = (int) (attackaway * 0.4);
 		}
-		if(hometeam.getFormation() instanceof Form433){
+		if (hometeam.getFormation() instanceof Form433) {
 			defencehome = (int) (defencehome * 0.9);
 			attackhome = (int) (attackhome * 1.1);
 		}
-		if(awayteam.getFormation() instanceof Form433){
+		if (awayteam.getFormation() instanceof Form433) {
 			defenceaway = (int) (defenceaway * 0.9);
 			attackaway = (int) (attackaway * 1.1);
 		}
-		if(hometeam.getFormation() instanceof Form4321){
+		if (hometeam.getFormation() instanceof Form4321) {
 			defencehome = (int) (defencehome * 0.7);
 			attackhome = (int) (attackhome * 1.3);
 		}
-		if(awayteam.getFormation() instanceof Form4321){
+		if (awayteam.getFormation() instanceof Form4321) {
 			defenceaway = (int) (defenceaway * 0.7);
 			attackaway = (int) (attackaway * 1.3);
 		}
-		if(hometeam.getFormation() instanceof Form442){
+		if (hometeam.getFormation() instanceof Form442) {
 			defencehome = (int) (defencehome * 1.4);
 			attackhome = (int) (attackhome * 0.6);
 		}
-		if(awayteam.getFormation() instanceof Form442){
+		if (awayteam.getFormation() instanceof Form442) {
 			defenceaway = (int) (defenceaway * 1.4);
 			attackaway = (int) (attackaway * 0.6);
 		}
-		if(hometeam.getFormation() instanceof Form343){
+		if (hometeam.getFormation() instanceof Form343) {
 			defencehome = (int) (defencehome * 0.4);
 			attackhome = (int) (attackhome * 1.6);
 		}
-		if(awayteam.getFormation() instanceof Form343){
+		if (awayteam.getFormation() instanceof Form343) {
 			defenceaway = (int) (defenceaway * 0.4);
 			attackaway = (int) (attackaway * 1.6);
 		}
-		
+
 		int attackpowerhome = (attackhome - defenceaway);
 		double homechance = Math.random() * 3000;
-		double homegoalschance = (
-				(homechance * (difficulty * 0.1)) +
-				(
-					((((attackpowerhome + staminahome) * 1.35)  - 
-					((awayteam.getActiveGoalkeeper().getDiving() + awayteam.getActiveGoalkeeper().getPositioning() + awayteam.getActiveGoalkeeper().getReflexes())))) * ((10-difficulty) * 0.1)
-				)
-				);
-		
+		double homegoalschance = ((homechance * (difficulty * 0.1)) + (((((attackpowerhome + staminahome) * 1.35) - ((awayteam.getActiveGoalkeeper().getDiving()
+				+ awayteam.getActiveGoalkeeper().getPositioning() + awayteam.getActiveGoalkeeper().getReflexes())))) * ((10 - difficulty) * 0.1)));
+
 		int attackpoweraway = (attackaway - defencehome);
 		int awaychance = (int) (Math.random() * 3000);
-		double awaygoalschance = (
-				(awaychance * (difficulty * 0.1)) + 
-				(
-				((((attackpoweraway + staminaaway) * 1.35 ) - 
-				((hometeam.getActiveGoalkeeper().getDiving() + hometeam.getActiveGoalkeeper().getPositioning() + hometeam.getActiveGoalkeeper().getReflexes())))) * ((10-difficulty) * 0.1)
-				)
-				);
+		double awaygoalschance = ((awaychance * (difficulty * 0.1)) + (((((attackpoweraway + staminaaway) * 1.35) - ((hometeam.getActiveGoalkeeper().getDiving()
+				+ hometeam.getActiveGoalkeeper().getPositioning() + hometeam.getActiveGoalkeeper().getReflexes())))) * ((10 - difficulty) * 0.1)));
 
 		homegoals = determinegoals(homegoalschance);
 		awaygoals = determinegoals(awaygoalschance);
@@ -244,7 +237,9 @@ public class Match {
 
 	/**
 	 * Setter
-	 * @param goals is the awaygoals to set
+	 * 
+	 * @param goals
+	 *            is the awaygoals to set
 	 */
 	public void setawaygoals(int goals) {
 		awaygoals = goals;
@@ -252,7 +247,9 @@ public class Match {
 
 	/**
 	 * Setter
-	 * @param team is the team to set
+	 * 
+	 * @param team
+	 *            is the team to set
 	 */
 	public void setWinner(Team team) {
 		winner = team;
@@ -260,7 +257,9 @@ public class Match {
 
 	/**
 	 * Setter
-	 * @param team is the team to set
+	 * 
+	 * @param team
+	 *            is the team to set
 	 */
 	public void setLoser(Team team) {
 		loser = team;
@@ -268,7 +267,9 @@ public class Match {
 
 	/**
 	 * Setter
-	 * @param goals are the goals to set
+	 * 
+	 * @param goals
+	 *            are the goals to set
 	 */
 	public void setHomegoals(int goals) {
 		homegoals = goals;
@@ -276,6 +277,7 @@ public class Match {
 
 	/**
 	 * Getter
+	 * 
 	 * @return the team playing HOME this match
 	 */
 	public Team getHomeTeam() {
@@ -284,6 +286,7 @@ public class Match {
 
 	/**
 	 * Getter
+	 * 
 	 * @return true or false depending on if it was a draw
 	 */
 	public boolean getDraw() {
@@ -292,6 +295,7 @@ public class Match {
 
 	/**
 	 * Getter
+	 * 
 	 * @return the team playing AWAY this match
 	 */
 	public Team getAwayTeam() {
@@ -304,19 +308,12 @@ public class Match {
 	public boolean equals(Object other) {
 		if (other instanceof Match & (other != null)) {
 			Match that = (Match) other;
-			if (this.winner != null & this.loser != null & that.winner != null
-					& that.loser != null) {
-				if (this.hometeam.equals(that.hometeam)
-						& this.awayteam.equals(that.awayteam)
-						& this.awaygoals == that.awaygoals
-						& this.homegoals == that.homegoals
-						& this.loser == that.loser & this.winner == that.winner) {
+			if (this.winner != null & this.loser != null & that.winner != null & that.loser != null) {
+				if (this.hometeam.equals(that.hometeam) & this.awayteam.equals(that.awayteam) & this.awaygoals == that.awaygoals & this.homegoals == that.homegoals & this.loser == that.loser
+						& this.winner == that.winner) {
 					return true;
 				}
-			} else if (this.winner == null & that.winner == null
-					& this.hometeam.equals(that.hometeam)
-					& this.awayteam.equals(that.awayteam)
-					& this.awaygoals == that.awaygoals
+			} else if (this.winner == null & that.winner == null & this.hometeam.equals(that.hometeam) & this.awayteam.equals(that.awayteam) & this.awaygoals == that.awaygoals
 					& this.homegoals == that.homegoals) {
 				return true;
 			}

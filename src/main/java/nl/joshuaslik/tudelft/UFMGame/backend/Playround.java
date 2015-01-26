@@ -33,6 +33,9 @@ public class Playround implements Comparable<Object> {
 
 	/**
 	 * Determines the result of this playround
+	 * 
+	 * @param difficulty
+	 *            difficulty setting of the game
 	 */
 	public void determineResultPlayround(int difficulty) {
 		for (int i = 0; i < matches.size(); i++) {
