@@ -117,14 +117,7 @@ public class TeamBuilderController {
 							checkbox.selectedProperty().addListener(new ChangeListener<Boolean> () {
 				                public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
 				                	if(newValue == true){
-				                		if(MainGame.game.getUser().getTeam().getActivePlayers().contains(player)){
-				                			if(team.getTeamCaptain() instanceof Fieldplayer){
-			                					team.setStamina(MainGame.game.getUser().getTeam().getStamina() -
-			                							((Fieldplayer) MainGame.game.getUser().getTeam().getTeamCaptain()).getStamina());
-			                				}
-				                			if(player instanceof Fieldplayer){
-				                				team.setStamina(team.getStamina() + ((Fieldplayer) player).getStamina());	
-				                			}
+				                		if(MainGame.game.getUser().getTeam().getActivePlayers().contains(player)){				                			
 				                			MainGame.game.getUser().getTeam().setTeamCaptain(player);
 				                		}
 				                		else{

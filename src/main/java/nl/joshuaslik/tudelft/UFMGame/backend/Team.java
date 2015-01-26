@@ -6,6 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import nl.joshuaslik.tudelft.UFMGame.backend.exceptions.UnknownPlayerException;
 import nl.joshuaslik.tudelft.UFMGame.backend.formation.Formation;
+import nl.joshuaslik.tudelft.UFMGame.gui.game.MainGame;
 
 /**
  * The Team Object stores all players in a given team. It divides them into
@@ -181,6 +182,12 @@ public class Team {
 	 *            is a Player Object.
 	 */
 	public void setTeamCaptain(Player player) {
+		if(teamCaptain instanceof Fieldplayer){
+			stamina = stamina - ((Fieldplayer) teamCaptain).getStamina();
+		}
+		if(player instanceof Fieldplayer){
+			stamina =  stamina + ((Fieldplayer) player).getStamina();	
+		}
 		teamCaptain = player;
 	}
 
