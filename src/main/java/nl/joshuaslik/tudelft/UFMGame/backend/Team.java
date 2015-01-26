@@ -6,6 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import nl.joshuaslik.tudelft.UFMGame.backend.exceptions.UnknownPlayerException;
 import nl.joshuaslik.tudelft.UFMGame.backend.formation.Formation;
+import nl.joshuaslik.tudelft.UFMGame.gui.game.MainGame;
 
 /**
  * The Team Object stores all players in a given team. It divides them into
@@ -32,6 +33,9 @@ public class Team {
 
 	/**
 	 * Constructs the Object
+	 * 
+	 * @param id
+	 *            is the id of a team.
 	 * 
 	 * @param tmName
 	 *            is the team name.
@@ -178,6 +182,12 @@ public class Team {
 	 *            is a Player Object.
 	 */
 	public void setTeamCaptain(Player player) {
+		if(teamCaptain instanceof Fieldplayer){
+			stamina = stamina - ((Fieldplayer) teamCaptain).getStamina();
+		}
+		if(player instanceof Fieldplayer){
+			stamina =  stamina + ((Fieldplayer) player).getStamina();	
+		}
 		teamCaptain = player;
 	}
 
@@ -225,7 +235,7 @@ public class Team {
 
 			if (activePlayers.contains(player)) {
 				activePlayers.remove(activePlayers.indexOf(player));
-				if(player.equals(teamCaptain)){
+				if (player.equals(teamCaptain)) {
 					teamCaptain = null;
 				}
 
@@ -241,6 +251,9 @@ public class Team {
 		calcAverageStats();
 	}
 
+	/**
+	 * Checks if the Team object is equal with the given Team object.
+	 */
 	public boolean equals(Object other) {
 		if (other instanceof Team) {
 			Team that = (Team) other;
@@ -373,6 +386,16 @@ public class Team {
 	}
 
 	/**
+	 * sets the total wins
+	 * 
+	 * @param wins
+	 *            is the amount of wins by a team
+	 */
+	public void setTotalWins(int wins) {
+		this.totalWins = wins;
+	}
+
+	/**
 	 * Get the amount of losses this team has
 	 * 
 	 * @return the amount of losses of this team
@@ -389,6 +412,16 @@ public class Team {
 	}
 
 	/**
+	 * sets the total losses
+	 * 
+	 * @param losses
+	 *            is the amount of losses by a team
+	 */
+	public void setTotalLosses(int losses) {
+		this.totalLosses = losses;
+	}
+
+	/**
 	 * Get the amount of draws this team has
 	 * 
 	 * @return the amount of draws of this team
@@ -402,6 +435,16 @@ public class Team {
 	 */
 	public void incTotalDraws() {
 		this.totalDraws = this.totalDraws + 1;
+	}
+
+	/**
+	 * sets the total draws
+	 * 
+	 * @param draws
+	 *            is the amount of draws played by a team
+	 */
+	public void setTotalDraws(int draws) {
+		this.totalDraws = draws;
 	}
 
 	/**
@@ -424,6 +467,16 @@ public class Team {
 	}
 
 	/**
+	 * Set the total amount of goals
+	 * 
+	 * @param goals
+	 *            amount to set
+	 */
+	public void setTotalGoals(int goals) {
+		totalGoals = goals;
+	}
+
+	/**
 	 * Add to this team's goal count
 	 * 
 	 * @param goals
@@ -431,6 +484,16 @@ public class Team {
 	 */
 	public void addGoalsAgainst(int goals) {
 		goalsagainst = goalsagainst + goals;
+	}
+
+	/**
+	 * Set the total amount of goals against
+	 * 
+	 * @param goals
+	 *            amount to set
+	 */
+	public void setGoalsAgainst(int goals) {
+		goalsagainst = goals;
 	}
 
 	/**
@@ -469,6 +532,16 @@ public class Team {
 	 */
 	public void addPoints(int points) {
 		this.points = points + this.points;
+	}
+
+	/**
+	 * Set the amount of points for this team
+	 * 
+	 * @param points
+	 *            amount of points to set
+	 */
+	public void setPoints(int points) {
+		this.points = points;
 	}
 
 	/**
@@ -524,6 +597,9 @@ public class Team {
 
 	/**
 	 * Change the type of formation of the team
+	 * 
+	 * @param form
+	 *            is the formation chosen by a team
 	 */
 	public void changeFormationType(Formation form) {
 		for (int i = 0; i < activePlayers.size(); i++) {
@@ -767,5 +843,15 @@ public class Team {
 	 */
 	public ObservableList<Player> getObservableBenchPlayersList() {
 		return FXCollections.observableArrayList(benchPlayers);
+	}
+
+	/**
+	 * Set all the Bench Players
+	 * 
+	 * @param playerlist
+	 *            the list to set
+	 */
+	public void setAllBenchPlayers(ArrayList<Player> playerlist) {
+		benchPlayers = playerlist;
 	}
 }

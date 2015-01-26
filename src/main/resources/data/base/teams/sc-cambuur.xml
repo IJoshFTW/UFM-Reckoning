@@ -17,7 +17,7 @@
 			<NUM>4</NUM>
 		</PLAYER>
 		<PLAYER id="marlonpereira">
-			<ACTIVE>true</ACTIVE>
+			<ACTIVE>false</ACTIVE>
 			<TYPE>DF</TYPE>
 			<NUM>5</NUM>
 		</PLAYER>
@@ -42,7 +42,7 @@
 			<NUM>9</NUM>
 		</PLAYER>
 		<PLAYER id="dejanmeleg">
-			<ACTIVE>true</ACTIVE>
+			<ACTIVE>false</ACTIVE>
 			<TYPE>MF</TYPE>
 			<NUM>10</NUM>
 		</PLAYER>
@@ -82,7 +82,7 @@
 			<NUM>20</NUM>
 		</PLAYER>
 		<PLAYER id="mohamedelmakrini">
-			<ACTIVE>false</ACTIVE>
+			<ACTIVE>true</ACTIVE>
 			<TYPE>MF</TYPE>
 			<NUM>21</NUM>
 		</PLAYER>
@@ -102,7 +102,7 @@
 			<NUM>24</NUM>
 		</PLAYER>
 		<PLAYER id="berendschootstra">
-			<ACTIVE>false</ACTIVE>
+			<ACTIVE>true</ACTIVE>
 			<TYPE>MF</TYPE>
 			<NUM>25</NUM>
 		</PLAYER>

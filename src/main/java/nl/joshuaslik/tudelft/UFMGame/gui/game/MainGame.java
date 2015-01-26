@@ -5,31 +5,48 @@ import java.io.IOException;
 import nl.joshuaslik.tudelft.UFMGame.backend.Game;
 
 /**
+ * Class to handle maingame
+ * 
  * @author <a href="http://www.joshuaslik.nl/" target="_blank">Joshua Slik</a>
- *
+ * @author Naomi
  */
 public class MainGame {
 
+	/**
+	 * Sets an empty game
+	 */
 	public static Game game = null;
 
+	/**
+	 * loads the teambuilder
+	 * 
+	 * @throws IOException
+	 *             is thrown if the FXML file cannot be parsed.
+	 */
 	public static void start() throws IOException {
-		System.out.println("I HAVE A GAME OBJECT!");
-		System.out.println("USERNAME: " + game.getUser().getUserName());
-		System.out.println("MY TEAM NAME: "
-				+ game.getUser().getTeam().getTeamName());
-		System.out.println("COACH NAME OF MY TEAM: "
-				+ game.getUser().getTeam().getCoachName());
-		
 		TeamBuilderController.start();
-		
+
 	}
 
+	/**
+	 * Sets a game
+	 * 
+	 * @param game
+	 *            is the game to be set
+	 * 
+	 */
 	public static void setGame(Game game) {
 		MainGame.game = game;
+		MainGame.game.loadAllNonContractedPlayers();
 	}
-	
+
+	/**
+	 * Initializes the controller class. 
+	 */
 	public static void initialize() {
 		MainGame.game.getCompetition().definePlayrounds();
+		MainGame.game.computeStandings();
+		
 	}
 
 }

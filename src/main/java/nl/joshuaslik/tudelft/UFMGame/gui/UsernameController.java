@@ -5,6 +5,9 @@ import java.io.IOException;
 import javafx.animation.FadeTransition;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -17,19 +20,22 @@ import javafx.util.Duration;
 
 /**
  * Controller for the username.
- * @author Bryan
+ * @author Bryan van Wijk
  * @author Lisette
  */
 public class UsernameController {
+	
 	private static Popup popup;
 	private static AnchorPane page;
 	@FXML
-	private Button cancelbutton;
-	@FXML
-	private Button okbutton;
+	private Button cancelbutton, okbutton;
 	@FXML
 	private TextField textfield;
 
+	/**
+     * Initializes the controller class. This method is automatically called
+     * after the fxml file has been loaded.
+     */
 	@FXML
 	protected void initialize() {
 		textfield.textProperty().addListener(new ChangeListener<String>() {
@@ -45,6 +51,10 @@ public class UsernameController {
 		});
 	}
 
+	/**
+	 * Handles when the ok button is pressed
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
+	 */
 	@FXML
 	protected void handleUsername() throws IOException {
 		String username = textfield.getText();
@@ -53,10 +63,19 @@ public class UsernameController {
 		ft.setFromValue(0.97);
 		ft.setToValue(0.0);
 		ft.play();
-
-		popup.hide();
+		ft.setOnFinished(new EventHandler<ActionEvent>() {
+		    public void handle(ActionEvent event) {
+		    		popup.hide(); 
+		    	}
+		 });
 	}
 
+
+	/**
+	 * Handles when a key is pressed
+	 * @param event the event from the key that is pressed
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
+	 */
 	@FXML
 	protected void handleUsernamekey(KeyEvent event) throws IOException {
 		if (event.getCode().equals(KeyCode.ENTER) && !okbutton.isDisabled()) {
@@ -66,30 +85,59 @@ public class UsernameController {
 			ft.setFromValue(0.97);
 			ft.setToValue(0.0);
 			ft.play();
-			popup.hide();
+			ft.setOnFinished(new EventHandler<ActionEvent>() {
+					public void handle(ActionEvent event) {
+			    		popup.hide(); 
+			    	}
+			});
 		}
 	}
 
+	/**
+	 * handles when the return button is pressed
+	 */
 	@FXML
 	protected void handleReturnMainMenu() {
-		FadeTransition ft = new FadeTransition(Duration.millis(900), page);
+		FadeTransition ft = new FadeTransition(Duration.millis(500), page);
 		ft.setFromValue(0.97);
 		ft.setToValue(0.0);
 		ft.play();
-		popup.hide();
+		ft.setOnFinished(new EventHandler<ActionEvent>() {
+		    public void handle(ActionEvent event) {
+		    		popup.hide(); 
+		    	}
+		});
 	}
 
+	/**
+	 * THe start method to load the username dialog
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
+	 */
 	public static void start() throws IOException {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Class.class
 				.getResource("/data/gui/pages-menu/ChooseUsernameDialog.fxml"));
 		page = (AnchorPane) loader.load();
-		FadeTransition ft = new FadeTransition(Duration.millis(900), page);
+		FadeTransition ft = new FadeTransition(Duration.millis(500), page);
 		ft.setFromValue(0.0);
 		ft.setToValue(0.97);
 		ft.play();
 		page.setOpacity(0.85);
 		popup = new Popup();
+		popup.setOnAutoHide( new EventHandler<Event>() {
+	    	public void handle(Event event) {
+	    		FadeTransition ft = new FadeTransition(Duration.millis(900), page);
+	    		ft.setFromValue(0.97);
+	    		ft.setToValue(0.0);
+	    		ft.play();
+	    		ft.setOnFinished(new EventHandler<ActionEvent>() {
+	    		    public void handle(ActionEvent actionevent) {
+	    		    		popup.hide(); 
+	    		    	}
+	    		 });
+	    	}
+	    });
+		popup.setAutoHide(true);
 		popup.getContent().add(page);
 		popup.show(Main.stage);
 	}

@@ -52,7 +52,7 @@
 			<NUM>11</NUM>
 		</PLAYER>
 		<PLAYER id="geveromarkiet">
-			<ACTIVE>true</ACTIVE>
+			<ACTIVE>false</ACTIVE>
 			<TYPE>DF</TYPE>
 			<NUM>13</NUM>
 		</PLAYER>
@@ -62,7 +62,7 @@
 			<NUM>14</NUM>
 		</PLAYER>
 		<PLAYER id="markdiemers">
-			<ACTIVE>false</ACTIVE>
+			<ACTIVE>true</ACTIVE>
 			<TYPE>MF</TYPE>
 			<NUM>15</NUM>
 		</PLAYER>

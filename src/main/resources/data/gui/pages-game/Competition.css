@@ -2,6 +2,7 @@
 	-fx-background-image: url("../img/soccer.png");
 	-fx-background-size: 100%;
 	-fx-background-repeat: stretch;
+	-fx-font-family: 'Quicksand';
 }
 
 .highlightedRow {
@@ -16,8 +17,8 @@
 	-fx-margin: 0;
 	-fx-background-color: #101010;
 	-fx-text-fill: white;
-	-fx-font-size: 60;
-	-fx-font-family: 'Quicksand Book';
+	-fx-font-size: 30;
+	-fx-font-family: 'Quicksand';
 	-fx-opacity: 80%;
 	-fx-border-width: 1px;
 	-fx-border-color: #cecece;
@@ -38,6 +39,7 @@
    	-fx-table-header-border-color: transparent;
 	-fx-padding: 5;
 	-fx-opacity: 200%;
+	-fx-font-family: 'Quicksand';
 }
 
 .table-view .column-header-background {
@@ -46,24 +48,48 @@
 
 .table-view .column-header .label {
     -fx-font-size: 22;
-    -fx-font-family: 'Quicksand Book';
+    -fx-font-family: 'Quicksand';
     -fx-text-fill: white;
     -fx-alignment: center;
     -fx-opacity: 1;
 }
 
 .table-view:focused .table-row-cell:filled:focused:selected {
-    -fx-background-color: #000000;
+    	-fx-background-color: #000000;
+	-fx-table-cell-border-color: transparent;
 }
 
 .table-cell {
     -fx-alignment: CENTER;
 }
 
-.ComboBox {
-	-fx-background-color: #1d1d1d;
-}
-
 .table-cell.selected {
 	-fx-border-color: #1d1d1d;
+	-fx-table-cell-border-color: transparent;
+}
+
+.combo-box-base  
+{
+	-fx-background-color: #1d1d1d;
+	-fx-background-radius: 5, 5, 4, 3;
+	-fx-background-insets: 0 0 -1 0, 0, 1, 2;
+	-fx-border-color: white;
+	-fx-border-size: 1px;
+	-fx-padding: 0;
+}
+
+.combo-box .list-cell 
+{
+	-fx-background-color: #1d1d1d;
+	-fx-text-fill: white;
+}
+
+.combo-box-base:hover
+{
+	-fx-opacity: 90%;
+}
+
+.combo-box .list-cell:hover
+{
+	-fx-opacity: 90%;
 }

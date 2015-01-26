@@ -10,6 +10,7 @@ import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -23,6 +24,7 @@ import javafx.scene.input.Dragboard;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.shape.Circle;
 import javafx.util.StringConverter;
 import nl.joshuaslik.tudelft.UFMGame.backend.Fieldplayer;
 import nl.joshuaslik.tudelft.UFMGame.backend.Goalkeeper;
@@ -37,7 +39,7 @@ import nl.joshuaslik.tudelft.UFMGame.backend.formation.Formation;
 import nl.joshuaslik.tudelft.UFMGame.gui.Main;
 
 /**
- * @author <a href="http://www.joshuaslik.nl/" target="_blank">Joshua Slik</a>
+ * @author Bryan van Wijk
  *
  */
 public class ChangeSetup {
@@ -51,17 +53,24 @@ public class ChangeSetup {
 	@FXML
 	private TableView<Player> playertable;
 	@FXML
-	private Label LB1, LB2, LB3, LB4, LB5, LB6, LB7, LB8, LB9, LB10, attack, stamina, defence, diving, reflexes, positioning;
+	private Label LB1, LB2, LB3, LB4, LB5, LB6, LB7, LB8, LB9, LB10, LBGK, attack, stamina, defence, diving, reflexes, positioning;
 	@FXML
 	private AnchorPane POS1, POS2, POS3, POS4, POS5, POS6, POS7, POS8, POS9, POS10, field;
 	@FXML
 	private ImageView IMG1, IMG2, IMG3, IMG4, IMG5, IMG6, IMG7, IMG8, IMG9, IMG10, gkIMG;
 	@FXML
+	private Circle CK1, CK2, CK3, CK4, CK5, CK6, CK7, CK8, CK9, CK10, CK11, CKGK;
+	@FXML
 	private TableColumn<Player, String> name, country, position, captain;
+	@FXML
+	private Button viewplayer;
 	
+	/**
+	 * Initializes the controller class. This method is automatically called
+     * after the fxml file has been loaded.
+	 */
 	@FXML
 	private void initialize(){
-		
 		ArrayList<Formation> forms = new ArrayList<Formation>();
 		forms.add(new Form343(MainGame.game.getUser().getTeam()));
 		forms.add(new Form4321(MainGame.game.getUser().getTeam()));
@@ -89,21 +98,53 @@ public class ChangeSetup {
 				ObservableValue<? extends Formation> observable,
 				Formation oldValue, Formation newValue) {
    					form.setValue(newValue);
-					formation = newValue;
+   					if(newValue instanceof Form433){
+   						formation = new Form433(MainGame.game.getUser().getTeam());
+   					}
+   					else if(newValue instanceof Form343){
+   						formation = new Form343(MainGame.game.getUser().getTeam());
+   					}
+   					else if(newValue instanceof Form442){
+   						formation = new Form442(MainGame.game.getUser().getTeam());
+   					}
+   					else if(newValue instanceof Form532){
+   						formation = new Form532(MainGame.game.getUser().getTeam());
+   					}
+   					else if(newValue instanceof Form4321){
+   						formation = new Form4321(MainGame.game.getUser().getTeam());
+   					}
+					
 					MainGame.game.getUser().getTeam().changeFormationType(formation);
 					ArrayList<Player> playerslist = team.getBenchPlayers();
 					observablelistplayers = FXCollections.observableArrayList(playerslist);
 					playertable.setItems(observablelistplayers);
+					stamina.setText("Stamina: "+team.getStamina());
+					defence.setText("Defence: "+team.getDefencePower());
+					attack.setText("Attack: "+team.getAttackPower());
+					diving.setText("Diving: 0");
+					positioning.setText("Positioning: 0");
+					reflexes.setText("Reflexes: 0");
 					initField();
 				}   
    	});
+   	 
    	initField();
 	ArrayList<Player> playerslist = team.getBenchPlayers();
 	observablelistplayers = FXCollections.observableArrayList(playerslist);
 	playertable.setItems(observablelistplayers);
-	stamina.setText(""+team.getStamina());
-	defence.setText(""+team.getDefencePower());
-	attack.setText(""+team.getAttackPower());
+	playertable.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
+		if (playertable.getSelectionModel().getSelectedItem() != null) {
+            viewplayer.setDisable(false);
+         }
+    });
+	stamina.setText("Stamina: "+team.getStamina());
+	defence.setText("Defence: "+team.getDefencePower());
+	attack.setText("Attack: "+team.getAttackPower());
+	if(team.getActiveGoalkeeper() != null){
+		diving.setText("Diving: "+team.getActiveGoalkeeper().getDiving());
+		positioning.setText("Positioning: "+team.getActiveGoalkeeper().getPositioning());
+		reflexes.setText("Reflexes: "+team.getActiveGoalkeeper().getReflexes());
+	}
 	
 	name.setCellValueFactory(new PropertyValueFactory<Player, String>(
 			"fullName"));
@@ -138,9 +179,9 @@ public class ChangeSetup {
 				observablelistplayers = FXCollections.observableArrayList(playerslist);
 				playertable.setItems(observablelistplayers);
 				playertable.getSelectionModel().selectFirst();
-				stamina.setText(""+team.getStamina());
-				defence.setText(""+team.getDefencePower());
-				attack.setText(""+team.getAttackPower());
+				stamina.setText("Stamina: "+team.getStamina());
+				defence.setText("Defence: "+team.getDefencePower());
+				attack.setText("Attack: "+team.getAttackPower());
 			}
 		});
 		
@@ -160,9 +201,9 @@ public class ChangeSetup {
 				observablelistplayers = FXCollections.observableArrayList(playerslist);
 				playertable.setItems(observablelistplayers);
 				playertable.getSelectionModel().selectFirst();
-				stamina.setText(""+team.getStamina());
-				defence.setText(""+team.getDefencePower());
-				attack.setText(""+team.getAttackPower());
+				stamina.setText("Stamina: "+team.getStamina());
+				defence.setText("Defence: "+team.getDefencePower());
+				attack.setText("Attack: "+team.getAttackPower());
 			}
 		});
 		
@@ -182,9 +223,9 @@ public class ChangeSetup {
 				observablelistplayers = FXCollections.observableArrayList(playerslist);
 				playertable.setItems(observablelistplayers);
 				playertable.getSelectionModel().selectFirst();
-				stamina.setText(""+team.getStamina());
-				defence.setText(""+team.getDefencePower());
-				attack.setText(""+team.getAttackPower());;
+				stamina.setText("Stamina: "+team.getStamina());
+				defence.setText("Defence: "+team.getDefencePower());
+				attack.setText("Attack: "+team.getAttackPower());;
 			}
 		});
 		
@@ -207,9 +248,9 @@ public class ChangeSetup {
 				observablelistplayers = FXCollections.observableArrayList(playerslist);
 				playertable.setItems(observablelistplayers);
 				playertable.getSelectionModel().selectFirst();
-				stamina.setText(""+team.getStamina());
-				defence.setText(""+team.getDefencePower());
-				attack.setText(""+team.getAttackPower());
+				stamina.setText("Stamina: "+team.getStamina());
+				defence.setText("Defence: "+team.getDefencePower());
+				attack.setText("Attack: "+team.getAttackPower());
 			}
 		});
 		
@@ -235,9 +276,9 @@ public class ChangeSetup {
 				observablelistplayers = FXCollections.observableArrayList(playerslist);
 				playertable.setItems(observablelistplayers);
 				playertable.getSelectionModel().selectFirst();
-				stamina.setText(""+team.getStamina());
-				defence.setText(""+team.getDefencePower());
-				attack.setText(""+team.getAttackPower());
+				stamina.setText("Stamina: "+team.getStamina());
+				defence.setText("Defence: "+team.getDefencePower());
+				attack.setText("Attack: "+team.getAttackPower());
 			}
 		});
 		
@@ -260,9 +301,9 @@ public class ChangeSetup {
 				observablelistplayers = FXCollections.observableArrayList(playerslist);
 				playertable.setItems(observablelistplayers);
 				playertable.getSelectionModel().selectFirst();
-				stamina.setText(""+team.getStamina());
-				defence.setText(""+team.getDefencePower());
-				attack.setText(""+team.getAttackPower());
+				stamina.setText("Stamina: "+team.getStamina());
+				defence.setText("Defence: "+team.getDefencePower());
+				attack.setText("Attack: "+team.getAttackPower());
 			}
 		});
 		
@@ -282,9 +323,9 @@ public class ChangeSetup {
 				observablelistplayers = FXCollections.observableArrayList(playerslist);
 				playertable.setItems(observablelistplayers);
 				playertable.getSelectionModel().selectFirst();
-				stamina.setText(""+team.getStamina());
-				defence.setText(""+team.getDefencePower());
-				attack.setText(""+team.getAttackPower());
+				stamina.setText("Stamina: "+team.getStamina());
+				defence.setText("Defence: "+team.getDefencePower());
+				attack.setText("Attack: "+team.getAttackPower());
 			}
 		});
 		
@@ -307,9 +348,9 @@ public class ChangeSetup {
 				observablelistplayers = FXCollections.observableArrayList(playerslist);
 				playertable.setItems(observablelistplayers);
 				playertable.getSelectionModel().selectFirst();
-				stamina.setText(""+team.getStamina());
-				defence.setText(""+team.getDefencePower());
-				attack.setText(""+team.getAttackPower());
+				stamina.setText("Stamina: "+team.getStamina());
+				defence.setText("Defence: "+team.getDefencePower());
+				attack.setText("Attack: "+team.getAttackPower());
 			}
 		});
 		
@@ -329,9 +370,9 @@ public class ChangeSetup {
 				observablelistplayers = FXCollections.observableArrayList(playerslist);
 				playertable.setItems(observablelistplayers);
 				playertable.getSelectionModel().selectFirst();
-				stamina.setText(""+team.getStamina());
-				defence.setText(""+team.getDefencePower());
-				attack.setText(""+team.getAttackPower());
+				stamina.setText("Stamina: "+team.getStamina());
+				defence.setText("Defence: "+team.getDefencePower());
+				attack.setText("Attack: "+team.getAttackPower());
 			}
 		});
 		
@@ -351,9 +392,9 @@ public class ChangeSetup {
 				observablelistplayers = FXCollections.observableArrayList(playerslist);
 				playertable.setItems(observablelistplayers);
 				playertable.getSelectionModel().selectFirst();
-				stamina.setText(""+team.getStamina());
-				defence.setText(""+team.getDefencePower());
-				attack.setText(""+team.getAttackPower());
+				stamina.setText("Stamina: "+team.getStamina());
+				defence.setText("Defence: "+team.getDefencePower());
+				attack.setText("Attack: "+team.getAttackPower());
 			}
 		});
 		
@@ -468,6 +509,10 @@ public class ChangeSetup {
 						(observable, oldValue, newValue) -> selectedPlayer(newValue));
 	}
 
+	/**
+	 * Creates the maingame page
+	 * @throws IOException is thrown when the fxml cannot be parsed
+	 */
 	public static void start() throws IOException {
 		team = MainGame.game.getUser().getTeam();
 		formation = team.getFormation();
@@ -477,10 +522,17 @@ public class ChangeSetup {
 		Main.setBottom(bottom);
 	}
 	
+	/**
+	 * Method to set the selected player
+	 * @param player that is selected
+	 */
 	public void selectedPlayer(Player player) {	
 		selectedplayer = player;
 	}
 	
+	/**
+	 * Loads all the information of the visual field
+	 */
 	public void initField(){
 		IMG1.setImage(null);
 		IMG2.setImage(null);
@@ -493,9 +545,34 @@ public class ChangeSetup {
 		IMG9.setImage(null);
 		IMG10.setImage(null);
 		gkIMG.setImage(null);
+		CKGK.setVisible(true);
+		CK1.setVisible(true);
+		CK2.setVisible(true);
+		CK3.setVisible(true);
+		CK4.setVisible(true);
+		CK5.setVisible(true);
+		CK6.setVisible(true);
+		CK7.setVisible(true);
+		CK8.setVisible(true);
+		CK9.setVisible(true);
+		CK10.setVisible(true);
+		LBGK.setVisible(true);
+		LBGK.setText("GK");
+		LB1.setVisible(true);
+		LB2.setVisible(true);
+		LB3.setVisible(true);
+		LB4.setVisible(true);
+		LB5.setVisible(true);
+		LB6.setVisible(true);
+		LB7.setVisible(true);
+		LB8.setVisible(true);
+		LB9.setVisible(true);
+		LB10.setVisible(true);
 		if(formation.getGoalkeper() != null){
 			Image image = new Image("/data/base/players/pictures/" + formation.getGoalkeper().getID() + ".png");
 			gkIMG.setImage(image);
+			CKGK.setVisible(false);
+			LBGK.setVisible(false);
 			gkIMG.setOnMouseClicked(new EventHandler<MouseEvent>() {
 	            @Override
 	            public void handle(MouseEvent event) {
@@ -542,6 +619,8 @@ public class ChangeSetup {
 			if(formation343.getCB() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation343.getCB().getID() + ".png");
 				IMG1.setImage(image);
+				CK1.setVisible(false);
+				LB1.setVisible(false);
 				IMG1.setOnDragDetected(new EventHandler<MouseEvent>(){
 					@Override
 					public void handle(MouseEvent event){
@@ -567,6 +646,8 @@ public class ChangeSetup {
 			if(formation343.getLB() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation343.getLB().getID() + ".png");
 				IMG2.setImage(image);
+				CK2.setVisible(false);
+				LB2.setVisible(false);
 				IMG2.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -581,6 +662,8 @@ public class ChangeSetup {
 			if(formation343.getRB() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation343.getRB().getID() + ".png");
 				IMG3.setImage(image);
+				CK3.setVisible(false);
+				LB3.setVisible(false);
 				IMG3.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -595,6 +678,8 @@ public class ChangeSetup {
 			if(formation343.getCM1() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation343.getCM1().getID() + ".png");
 				IMG4.setImage(image);
+				CK4.setVisible(false);
+				LB4.setVisible(false);
 				IMG4.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -609,6 +694,8 @@ public class ChangeSetup {
 			if(formation343.getCM2() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation343.getCM2().getID() + ".png");
 				IMG5.setImage(image);
+				CK5.setVisible(false);
+				LB5.setVisible(false);
 				IMG5.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -623,6 +710,8 @@ public class ChangeSetup {
 			if(formation343.getRM() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation343.getRM().getID() + ".png");
 				IMG6.setImage(image);
+				CK6.setVisible(false);
+				LB6.setVisible(false);
 				IMG6.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -637,6 +726,8 @@ public class ChangeSetup {
 			if(formation343.getLM() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation343.getLM().getID() + ".png");
 				IMG7.setImage(image);
+				CK7.setVisible(false);
+				LB7.setVisible(false);
 				IMG7.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -651,6 +742,8 @@ public class ChangeSetup {
 			if(formation343.getLW() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation343.getLW().getID() + ".png");
 				IMG8.setImage(image);
+				CK8.setVisible(false);
+				LB8.setVisible(false);
 				IMG8.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -665,6 +758,8 @@ public class ChangeSetup {
 			if(formation343.getRW() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation343.getRW().getID() + ".png");
 				IMG9.setImage(image);
+				CK9.setVisible(false);
+				LB9.setVisible(false);
 				IMG9.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -679,6 +774,8 @@ public class ChangeSetup {
 			if(formation343.getST() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation343.getST().getID() + ".png");
 				IMG10.setImage(image);
+				CK10.setVisible(false);
+				LB10.setVisible(false);
 				IMG10.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -727,6 +824,8 @@ public class ChangeSetup {
 			if(formation4321.getLB() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation4321.getLB().getID() + ".png");
 				IMG1.setImage(image);
+				CK1.setVisible(false);
+				LB1.setVisible(false);
 				IMG1.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -741,6 +840,8 @@ public class ChangeSetup {
 			if(formation4321.getCB1() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation4321.getCB1().getID() + ".png");
 				IMG2.setImage(image);
+				CK2.setVisible(false);
+				LB2.setVisible(false);
 				IMG2.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -755,6 +856,8 @@ public class ChangeSetup {
 			if(formation4321.getCB2() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation4321.getCB2().getID() + ".png");
 				IMG3.setImage(image);
+				CK3.setVisible(false);
+				LB3.setVisible(false);
 				IMG3.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -769,6 +872,8 @@ public class ChangeSetup {
 			if(formation4321.getRB() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation4321.getRB().getID() + ".png");
 				IMG4.setImage(image);
+				CK4.setVisible(false);
+				LB4.setVisible(false);
 				IMG4.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -783,6 +888,8 @@ public class ChangeSetup {
 			if(formation4321.getCM() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation4321.getCM().getID() + ".png");
 				IMG5.setImage(image);
+				CK5.setVisible(false);
+				LB5.setVisible(false);
 				IMG5.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -797,6 +904,8 @@ public class ChangeSetup {
 			if(formation4321.getRM() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation4321.getRM().getID() + ".png");
 				IMG6.setImage(image);
+				CK6.setVisible(false);
+				LB6.setVisible(false);
 				IMG6.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -811,6 +920,8 @@ public class ChangeSetup {
 			if(formation4321.getLM() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation4321.getLM().getID() + ".png");
 				IMG7.setImage(image);
+				CK7.setVisible(false);
+				LB7.setVisible(false);
 				IMG7.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -825,6 +936,8 @@ public class ChangeSetup {
 			if(formation4321.getOLM() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation4321.getOLM().getID() + ".png");
 				IMG8.setImage(image);
+				CK8.setVisible(false);
+				LB8.setVisible(false);
 				IMG8.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -839,6 +952,8 @@ public class ChangeSetup {
 			if(formation4321.getORM() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation4321.getORM().getID() + ".png");
 				IMG9.setImage(image);
+				CK9.setVisible(false);
+				LB9.setVisible(false);
 				IMG9.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -853,6 +968,8 @@ public class ChangeSetup {
 			if(formation4321.getST() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation4321.getST().getID() + ".png");
 				IMG10.setImage(image);
+				CK10.setVisible(false);
+				LB10.setVisible(false);
 				IMG10.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -900,6 +1017,8 @@ public class ChangeSetup {
 			if(formation433.getLB() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation433.getLB().getID() + ".png");
 				IMG1.setImage(image);
+				CK1.setVisible(false);
+				LB1.setVisible(false);
 				IMG1.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -914,6 +1033,8 @@ public class ChangeSetup {
 			if(formation433.getCB1() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation433.getCB1().getID() + ".png");
 				IMG2.setImage(image);
+				CK2.setVisible(false);
+				LB2.setVisible(false);
 				IMG2.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -928,6 +1049,8 @@ public class ChangeSetup {
 			if(formation433.getCB2() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation433.getCB2().getID() + ".png");
 				IMG3.setImage(image);
+				CK3.setVisible(false);
+				LB3.setVisible(false);
 				IMG3.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -942,6 +1065,8 @@ public class ChangeSetup {
 			if(formation433.getRB() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation433.getRB().getID() + ".png");
 				IMG4.setImage(image);
+				CK4.setVisible(false);
+				LB4.setVisible(false);
 				IMG4.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -956,6 +1081,8 @@ public class ChangeSetup {
 			if(formation433.getCM() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation433.getCM().getID() + ".png");
 				IMG5.setImage(image);
+				CK5.setVisible(false);
+				LB5.setVisible(false);
 				IMG5.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -970,6 +1097,8 @@ public class ChangeSetup {
 			if(formation433.getRM() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation433.getRM().getID() + ".png");
 				IMG6.setImage(image);
+				CK6.setVisible(false);
+				LB6.setVisible(false);
 				IMG6.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -984,6 +1113,8 @@ public class ChangeSetup {
 			if(formation433.getLM() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation433.getLM().getID() + ".png");
 				IMG7.setImage(image);
+				CK7.setVisible(false);
+				LB7.setVisible(false);
 				IMG7.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -998,6 +1129,8 @@ public class ChangeSetup {
 			if(formation433.getLW() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation433.getLW().getID() + ".png");
 				IMG8.setImage(image);
+				CK8.setVisible(false);
+				LB8.setVisible(false);
 				IMG8.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -1012,6 +1145,8 @@ public class ChangeSetup {
 			if(formation433.getRW() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation433.getRW().getID() + ".png");
 				IMG9.setImage(image);
+				CK9.setVisible(false);
+				LB9.setVisible(false);
 				IMG9.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -1026,6 +1161,8 @@ public class ChangeSetup {
 			if(formation433.getST() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation433.getST().getID() + ".png");
 				IMG10.setImage(image);
+				CK10.setVisible(false);
+				LB10.setVisible(false);
 				IMG10.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -1073,6 +1210,8 @@ public class ChangeSetup {
 			if(formation442.getLB() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation442.getLB().getID() + ".png");
 				IMG1.setImage(image);
+				CK1.setVisible(false);
+				LB1.setVisible(false);
 				IMG1.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -1087,6 +1226,8 @@ public class ChangeSetup {
 			if(formation442.getCB1() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation442.getCB1().getID() + ".png");
 				IMG2.setImage(image);
+				CK2.setVisible(false);
+				LB2.setVisible(false);
 				IMG2.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -1101,6 +1242,8 @@ public class ChangeSetup {
 			if(formation442.getCB2() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation442.getCB2().getID() + ".png");
 				IMG3.setImage(image);
+				CK3.setVisible(false);
+				LB3.setVisible(false);
 				IMG3.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -1115,6 +1258,8 @@ public class ChangeSetup {
 			if(formation442.getRB() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation442.getRB().getID() + ".png");
 				IMG4.setImage(image);
+				CK4.setVisible(false);
+				LB4.setVisible(false);
 				IMG4.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -1129,6 +1274,8 @@ public class ChangeSetup {
 			if(formation442.getCM1() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation442.getCM1().getID() + ".png");
 				IMG5.setImage(image);
+				CK5.setVisible(false);
+				LB5.setVisible(false);
 				IMG5.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -1143,6 +1290,8 @@ public class ChangeSetup {
 			if(formation442.getCM2() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation442.getCM2().getID() + ".png");
 				IMG6.setImage(image);
+				CK6.setVisible(false);
+				LB6.setVisible(false);
 				IMG6.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -1157,6 +1306,8 @@ public class ChangeSetup {
 			if(formation442.getRM() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation442.getRM().getID() + ".png");
 				IMG7.setImage(image);
+				CK7.setVisible(false);
+				LB7.setVisible(false);
 				IMG7.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -1171,6 +1322,8 @@ public class ChangeSetup {
 			if(formation442.getLM() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation442.getLM().getID() + ".png");
 				IMG8.setImage(image);
+				CK8.setVisible(false);
+				LB8.setVisible(false);
 				IMG8.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -1185,6 +1338,8 @@ public class ChangeSetup {
 			if(formation442.getRW() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation442.getRW().getID() + ".png");
 				IMG9.setImage(image);
+				CK9.setVisible(false);
+				LB9.setVisible(false);
 				IMG9.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -1199,6 +1354,8 @@ public class ChangeSetup {
 			if(formation442.getLW() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation442.getLW().getID() + ".png");
 				IMG10.setImage(image);
+				CK10.setVisible(false);
+				LB10.setVisible(false);
 				IMG10.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -1246,6 +1403,8 @@ public class ChangeSetup {
 			if(formation532.getLB() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation532.getLB().getID() + ".png");
 				IMG1.setImage(image);
+				CK1.setVisible(false);
+				LB1.setVisible(false);
 				IMG1.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -1260,6 +1419,8 @@ public class ChangeSetup {
 			if(formation532.getCB1() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation532.getCB1().getID() + ".png");
 				IMG2.setImage(image);
+				CK2.setVisible(false);
+				LB2.setVisible(false);
 				IMG2.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -1274,6 +1435,8 @@ public class ChangeSetup {
 			if(formation532.getCB2() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation532.getCB2().getID() + ".png");
 				IMG3.setImage(image);
+				CK3.setVisible(false);
+				LB3.setVisible(false);
 				IMG3.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -1288,6 +1451,8 @@ public class ChangeSetup {
 			if(formation532.getCB3() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation532.getCB3().getID() + ".png");
 				IMG4.setImage(image);
+				CK4.setVisible(false);
+				LB4.setVisible(false);
 				IMG4.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -1302,6 +1467,8 @@ public class ChangeSetup {
 			if(formation532.getRB() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation532.getRB().getID() + ".png");
 				IMG5.setImage(image);
+				CK5.setVisible(false);
+				LB5.setVisible(false);
 				IMG5.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -1316,6 +1483,8 @@ public class ChangeSetup {
 			if(formation532.getCM() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation532.getCM().getID() + ".png");
 				IMG6.setImage(image);
+				CK6.setVisible(false);
+				LB6.setVisible(false);
 				IMG6.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -1330,6 +1499,8 @@ public class ChangeSetup {
 			if(formation532.getRM() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation532.getRM().getID() + ".png");
 				IMG7.setImage(image);
+				CK7.setVisible(false);
+				LB7.setVisible(false);
 				IMG7.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -1344,6 +1515,8 @@ public class ChangeSetup {
 			if(formation532.getLM() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation532.getLM().getID() + ".png");
 				IMG8.setImage(image);
+				CK8.setVisible(false);
+				LB8.setVisible(false);
 				IMG8.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -1358,6 +1531,8 @@ public class ChangeSetup {
 			if(formation532.getRW() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation532.getRW().getID() + ".png");
 				IMG9.setImage(image);
+				CK9.setVisible(false);
+				LB9.setVisible(false);
 				IMG9.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -1372,6 +1547,8 @@ public class ChangeSetup {
 			if(formation532.getLW() != null){
 				Image image = new Image("/data/base/players/pictures/" + formation532.getLW().getID() + ".png");
 				IMG10.setImage(image);
+				CK10.setVisible(false);
+				LB10.setVisible(false);
 				IMG10.setOnMouseClicked(new EventHandler<MouseEvent>() {
 		            @Override
 		            public void handle(MouseEvent event) {
@@ -1386,16 +1563,28 @@ public class ChangeSetup {
 		}
 	}
 	
+	/**
+	 * Handles clicking on the return button in the team builder
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
+	 */
 	@FXML
 	protected void handleReturnTeamBuilder() throws IOException {
 		TeamBuilderController.start();
 	}
 	
+	/**
+	 * Handles clicking on the view player button in the team builder
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
+	 */
 	@FXML
 	protected void handleViewPlayer() throws IOException {
 		ViewPlayer.start(selectedplayer);
 	}
 	
+	/**
+	 * handles clicking in the field img of a player
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
+	 */
 	@FXML
 	protected void handleActiveplayerview() throws IOException{
 		ViewPlayer.start(selectedplayer);

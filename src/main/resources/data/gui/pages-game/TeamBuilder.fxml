@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.*?>
@@ -10,105 +11,105 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="pane" prefHeight="1080.0" prefWidth="1920.0" styleClass="pane" stylesheets="@TeamBuilder.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.tudelft.UFMGame.gui.game.TeamBuilderController">
+<AnchorPane id="pane" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@TeamBuilder.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.tudelft.UFMGame.gui.game.TeamBuilderController">
 	<children>
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="41.0">
          <children>			
-      		<AnchorPane maxHeight="800.0" maxWidth="1200.0" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #101010; -fx-border-color: #CECECE; -fx-opacity: 80%; -fx-border-width: 1px;">
-               <children>      
+      		<AnchorPane maxHeight="800.0" maxWidth="1200.0" prefHeight="800.0" prefWidth="1200.0">
+               <children>
+                  <Pane opacity="0.8" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #101010; -fx-border-color: #CECECE; -fx-border-width: 1px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label fx:id="attack" layoutX="1117.0" layoutY="370.0" text="Label" textFill="#fffdfd">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="defence" layoutX="1117.0" layoutY="403.0" text="Label" textFill="#fffdfd">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="stamina" layoutX="1117.0" layoutY="433.0" text="Label" textFill="#fffdfd">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children></Pane>
+                    <Button layoutX="796.0" layoutY="699.0" onAction="#handleTransferMarket" prefHeight="60" prefWidth="324.0" styleClass="button" text="Transfer Market" AnchorPane.leftAnchor="796.0" AnchorPane.topAnchor="699.0" />
+                    <Button fx:id="viewplayer" disable="true" layoutX="291.0" layoutY="699.0" onAction="#handleViewPlayer" prefHeight="60" prefWidth="250" styleClass="button" text="View Player" AnchorPane.leftAnchor="291.0" AnchorPane.topAnchor="700.0" />
+                    <Button layoutX="42.0" layoutY="700.0" onAction="#handleChangeSetup" prefHeight="60" prefWidth="250" styleClass="button" text="Change Setup" AnchorPane.leftAnchor="42.0" AnchorPane.topAnchor="700.0" />
+                  	<TableView fx:id="playertable" layoutX="22.0" layoutY="105.0" prefHeight="543.0" prefWidth="627.0" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="105.0">
+                       <columns>
+                          <TableColumn fx:id="active" prefWidth="85.0" text="Active" />
+                          <TableColumn fx:id="name" prefWidth="144.0" text="Name" />
+                          <TableColumn fx:id="country" prefWidth="178.0" text="Country" />
+                          <TableColumn fx:id="position" prefWidth="110.0" text="Position" />
+                          <TableColumn fx:id="captain" prefWidth="103.0" text="Captain" />
+                       </columns>
+                    </TableView>      
                   <Label text="Current Team Setup" textFill="WHITE" AnchorPane.leftAnchor="469.0" AnchorPane.topAnchor="24.0">
                      <font>
                         <Font size="34.0" />
                      </font>
                   </Label>
-                  		<Label text="Attack:" textFill="WHITE" AnchorPane.leftAnchor="670.0" AnchorPane.topAnchor="370.0">
+                  		<Label text="Attack:" textFill="WHITE" AnchorPane.leftAnchor="670.0" AnchorPane.topAnchor="374.0">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Label>
                         
-                        <Label text="Defence:" textFill="WHITE" AnchorPane.leftAnchor="670.0" AnchorPane.topAnchor="400.0">
+                        <Label text="Defence:" textFill="WHITE" AnchorPane.leftAnchor="670.0" AnchorPane.topAnchor="404.0">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Label>
                         
-                              <Label text="Stamina:" textFill="WHITE" AnchorPane.leftAnchor="670.0" AnchorPane.topAnchor="430.0">
+                              <Label text="Stamina:" textFill="WHITE" AnchorPane.leftAnchor="670.0" AnchorPane.topAnchor="434.0">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        
-                        <Label text="Total Games Played:" textFill="WHITE" AnchorPane.leftAnchor="670.0" AnchorPane.topAnchor="460.0">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Label>
-                        
-                        <Label text="Total Wins:" textFill="WHITE" AnchorPane.leftAnchor="670.0" AnchorPane.topAnchor="490.0">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Label>
-                        
-                        <Label text="Total Losses:" textFill="WHITE" AnchorPane.leftAnchor="670.0" AnchorPane.topAnchor="520.0">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Label>
-                        
-                        <Label text="Total Draws:" textFill="WHITE" AnchorPane.leftAnchor="670.0" AnchorPane.topAnchor="550.0">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Label>
-                        
-                        <Label text="Total Goals:" textFill="WHITE" AnchorPane.leftAnchor="670.0" AnchorPane.topAnchor="580.0">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Label>
-                  <Label fx:id="showTotalGoals" layoutX="779.0" layoutY="582.0" prefHeight="30.0" prefWidth="39.0" text="?" textFill="WHITE" AnchorPane.leftAnchor="778.0" AnchorPane.topAnchor="581.0">
+                  <Label fx:id="showTotalGoals" layoutX="665.0" layoutY="590.0" prefHeight="30.0" prefWidth="334.0" text="?" textFill="WHITE" AnchorPane.leftAnchor="670.0" AnchorPane.topAnchor="589.0">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="showTotalDraws" layoutX="784.0" layoutY="552.0" prefHeight="30.0" prefWidth="39.0" text="?" textFill="WHITE" AnchorPane.leftAnchor="783.0" AnchorPane.topAnchor="551.0">
+                  <Label fx:id="showTotalDraws" layoutX="665.0" layoutY="558.0" prefHeight="30.0" prefWidth="334.0" text="?" textFill="WHITE" AnchorPane.leftAnchor="670.0" AnchorPane.topAnchor="557.0">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="showTotalLosses" layoutX="788.0" layoutY="522.0" prefHeight="30.0" prefWidth="39.0" text="?" textFill="WHITE" AnchorPane.leftAnchor="787.0" AnchorPane.topAnchor="521.0">
+                  <Label fx:id="showTotalLosses" layoutX="665.0" layoutY="526.0" prefHeight="30.0" prefWidth="334.0" text="?" textFill="WHITE" AnchorPane.leftAnchor="670.0" AnchorPane.topAnchor="525.0">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="showTotalWins" layoutX="775.0" layoutY="493.0" prefHeight="30.0" prefWidth="39.0" text="?" textFill="WHITE" AnchorPane.leftAnchor="774.0" AnchorPane.topAnchor="492.0">
+                  <Label fx:id="showTotalWins" layoutX="665.0" layoutY="494.0" prefHeight="30.0" prefWidth="334.0" text="?" textFill="WHITE" AnchorPane.leftAnchor="670.0" AnchorPane.topAnchor="493.0">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="showTotalGamesPlayed" layoutX="855.0" layoutY="463.0" prefHeight="30.0" prefWidth="39.0" text="?" textFill="WHITE" AnchorPane.leftAnchor="854.0" AnchorPane.topAnchor="462.0">
+                  <Label fx:id="showTotalGamesPlayed" layoutX="665.0" layoutY="463.0" prefHeight="30.0" prefWidth="334.0" text="?" textFill="WHITE" AnchorPane.leftAnchor="670.0" AnchorPane.topAnchor="462.0">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <ImageView fx:id="atkPwrImg" fitHeight="20.0" fitWidth="20.0" layoutX="758.0" layoutY="374.0" pickOnBounds="true" style="-fx-opacity: 200%">
+                  <ImageView fx:id="atkPwrImg" fitHeight="20.0" fitWidth="1.0" layoutX="764.0" layoutY="376.0" pickOnBounds="true" style="-fx-opacity: 200%">
                      <image>
                         <Image url="@../img/attackpowerbar.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="defPwrImg" fitHeight="20.0" fitWidth="20.0" layoutX="758.0" layoutY="404.0" pickOnBounds="true" style="-fx-opacity: 200%">
+                  <ImageView fx:id="defPwrImg" fitHeight="20.0" fitWidth="1.0" layoutX="764.0" layoutY="406.0" pickOnBounds="true" style="-fx-opacity: 200%">
                      <image>
                         <Image url="@../img/defencepowerbar.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="staminaImg" fitHeight="20.0" fitWidth="20.0" layoutX="758.0" layoutY="434.0" pickOnBounds="true" style="-fx-opacity: 200%">
+                  <ImageView fx:id="staminaImg" fitHeight="20.0" fitWidth="1.0" layoutX="764.0" layoutY="436.0" pickOnBounds="true" style="-fx-opacity: 200%">
                      <image>
                         <Image url="@../img/staminabar.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="coach" layoutX="670.0" layoutY="612.0" prefHeight="30.0" prefWidth="416.0" text="Coach: ">
+                  <Label fx:id="coach" layoutX="670.0" layoutY="620.0" prefHeight="30.0" prefWidth="416.0" text="Coach: ">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -121,24 +122,15 @@
                         </RadialGradient>
                      </textFill>
                   </Label>
+                  <Pane layoutX="764.0" layoutY="376.0" prefHeight="20.0" prefWidth="333.3333" style="-fx-border-width: 1px; -fx-border-color: #CECECE;" />
+                  <Pane layoutX="764.0" layoutY="406.0" prefHeight="20.0" prefWidth="333.3333" style="-fx-border-width: 1px; -fx-border-color: #CECECE;" />
+                  <Pane layoutX="764.0" layoutY="436.0" prefHeight="20.0" prefWidth="333.3333" style="-fx-border-width: 1px; -fx-border-color: #CECECE;" />
+                    <ImageView fx:id="teamlogo" fitHeight="258.0" fitWidth="300.0" layoutX="820.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true" />
                </children>
                </AnchorPane>
                  
                      
          </children>
       </VBox>
-      	<TableView fx:id="playertable" prefHeight="484.0" prefWidth="627.0" AnchorPane.leftAnchor="380.0" AnchorPane.topAnchor="201.0">
-           <columns>
-              <TableColumn fx:id="active" prefWidth="85.0" text="Active" />
-              <TableColumn fx:id="name" prefWidth="144.0" text="Name" />
-              <TableColumn fx:id="country" prefWidth="178.0" text="Country" />
-              <TableColumn fx:id="position" prefWidth="110.0" text="Position" />
-              <TableColumn fx:id="captain" prefWidth="103.0" text="Captain" />
-           </columns>
-        </TableView>
-        <Button onAction="#handleChangeSetup" prefHeight="60" prefWidth="250" styleClass="button" text="Change Setup" AnchorPane.leftAnchor="405.0" AnchorPane.topAnchor="738.0" />
-        <Button onAction="#handleViewPlayer" prefHeight="60" prefWidth="250" styleClass="button" text="View Player" AnchorPane.leftAnchor="655.0" AnchorPane.topAnchor="738.0" />
-        <Button onAction="#handleTransferMarket" prefHeight="60" prefWidth="324.0" styleClass="button" text="Transfer Market" AnchorPane.leftAnchor="1191.0" AnchorPane.topAnchor="738.0" />
-        <ImageView fx:id="teamlogo" fitHeight="273.0" fitWidth="334.0" layoutX="1118.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true" />
 	</children>
 </AnchorPane>

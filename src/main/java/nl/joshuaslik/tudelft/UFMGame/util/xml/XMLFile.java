@@ -6,7 +6,8 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
 /**
- *
+ * Class to create an xml file
+ * 
  * @author <a href="http://www.joshuaslik.nl/" target="_blank">Joshua Slik</a>
  *
  */
@@ -35,14 +36,18 @@ public class XMLFile {
 	public String getContent(String name) throws NoSuchElementException {
 		return root.getContent(name);
 	}
-	
+
 	/**
 	 * 
 	 * @param name
 	 *            is the name of the element to get
+	 * @param iteration
+	 *            is the iteration of the element to get. It will return the
+	 *            i-th element
 	 * @return the content of the element at location <b>name</b>
 	 * @throws NoSuchElementException
-	 *             is thrown if element is not found
+	 *             is thrown when there's no such element is thrown if element
+	 *             is not found
 	 */
 	public String getContent(String name, int iteration) throws NoSuchElementException {
 		return root.getContent(name, iteration);
@@ -59,11 +64,14 @@ public class XMLFile {
 	public XMLTag getElement(String name) throws NoSuchElementException {
 		return root.getElement(name);
 	}
-	
+
 	/**
 	 * 
 	 * @param name
 	 *            is the name of the element to get
+	 * @param iteration
+	 *            is the iteration of the element to get. It will return the
+	 *            i-th element
 	 * @return the element at the location <b>name</b>
 	 * @throws NoSuchElementException
 	 *             is thrown if element is not found
@@ -72,23 +80,23 @@ public class XMLFile {
 		return root.getElement(name, iteration);
 	}
 
-//	/**
-//	 * This method is depreciated. Please use
-//	 * {@link XMLTag#getAttribute(String)} until functionality has been added.
-//	 * 
-//	 * This method will get the attribute of an element in this XMLFile. It
-//	 * expects that you specify where to find the attribute like so:
-//	 * roottag.child1.child2.targetelement.attributeX
-//	 * 
-//	 * @param name
-//	 *            is the name of the attribute to get
-//	 * @return the attribute from element <b>name</b>
-//	 * @deprecated
-//	 */
-//	public String getAttribute(String name) {
-//		String retstr = null;
-//		return retstr;
-//	}
+	// /**
+	// * This method is depreciated. Please use
+	// * {@link XMLTag#getAttribute(String)} until functionality has been added.
+	// *
+	// * This method will get the attribute of an element in this XMLFile. It
+	// * expects that you specify where to find the attribute like so:
+	// * roottag.child1.child2.targetelement.attributeX
+	// *
+	// * @param name
+	// * is the name of the attribute to get
+	// * @return the attribute from element <b>name</b>
+	// * @deprecated
+	// */
+	// public String getAttribute(String name) {
+	// String retstr = null;
+	// return retstr;
+	// }
 
 	/**
 	 * 
@@ -107,15 +115,14 @@ public class XMLFile {
 		File target = new File(location);
 		makeDirs(location);
 		PrintWriter writer = null;
-		
+
 		try {
 			writer = new PrintWriter(location, encoding);
 		} catch (FileNotFoundException e) {
-			System.err.println("[ERROR] The file \"" + target
-					+ "\" is not writable or not acceptable!");
+			System.err.println("[ERROR] The file \"" + target + "\" is not writable or not acceptable!");
+			System.err.println(e.getMessage());
 		} catch (UnsupportedEncodingException e) {
-			System.err.println("[ERROR] The encoding \"" + encoding
-					+ "\" is not supported!");
+			System.err.println("[ERROR] The encoding \"" + encoding + "\" is not supported!");
 		}
 		writer.write(retstr);
 		writer.flush();
@@ -131,10 +138,9 @@ public class XMLFile {
 
 	private void makeDirs(String location) {
 		File target = new File(location);
-		String here = new File("").getAbsolutePath();
 		String apath = target.getAbsolutePath();
+		System.out.println(apath);
 		apath = apath.replace("\\", "/");
-		apath = apath.substring(here.length() + 1);
 		apath = apath.substring(0, apath.lastIndexOf('/'));
 		File file = new File(apath);
 		file.mkdirs();

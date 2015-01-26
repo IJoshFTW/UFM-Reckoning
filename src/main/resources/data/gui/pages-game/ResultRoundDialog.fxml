@@ -14,9 +14,9 @@
    <children>
       <GridPane alignment="CENTER" layoutY="-2.0" prefHeight="430.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="700.0" minWidth="10.0" prefWidth="250.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="700.0" minWidth="10.0" prefWidth="184.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="700.0" minWidth="10.0" prefWidth="250.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="700.0" minWidth="10.0" prefWidth="238.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="700.0" minWidth="10.0" prefWidth="201.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="700.0" minWidth="10.0" prefWidth="239.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="290.0" minWidth="0.0" prefWidth="0.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="290.0" minWidth="10.0" prefWidth="10.0" />
         </columnConstraints>
@@ -70,6 +70,16 @@
                </font>
             </Label>
             <Label fx:id="rankingaway" alignment="CENTER" prefHeight="30.0" prefWidth="307.0" text="Label" textFill="#ebe4e4" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="hometeamname" alignment="CENTER" prefHeight="30.0" prefWidth="246.0" text="Label" textFill="#ebe4e4">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="awayteamname" alignment="CENTER" prefHeight="30.0" prefWidth="246.0" text="Label" textFill="#ebe4e4" GridPane.columnIndex="2">
                <font>
                   <Font size="20.0" />
                </font>

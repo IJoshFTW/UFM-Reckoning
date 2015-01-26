@@ -12,7 +12,7 @@
 			<NUM>2</NUM>
 		</PLAYER>
 		<PLAYER id="iliashaddad">
-			<ACTIVE>true</ACTIVE>
+			<ACTIVE>false</ACTIVE>
 			<TYPE>DF</TYPE>
 			<NUM>3</NUM>
 		</PLAYER>
@@ -67,7 +67,7 @@
 			<NUM>13</NUM>
 		</PLAYER>
 		<PLAYER id="jorisvanovereem">
-			<ACTIVE>false</ACTIVE>
+			<ACTIVE>true</ACTIVE>
 			<TYPE>MF</TYPE>
 			<NUM>14</NUM>
 		</PLAYER>

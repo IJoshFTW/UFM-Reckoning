@@ -1,0 +1,28 @@
+Hello! So you want to modify the game Ultimate Football Manager?
+Well, you're in luck. We have written this handy tutorial to make it easy!
+
+Step 1:
+	If you go further into the JAR file, into /data/base/, you will see template files.
+	In these template files you can see exactly how we want to receive player and team information.
+
+Step 2:
+	Copy a template file to your desktop and fill it in according to our instructions.
+	You can delete the stuff between <!-- stuff --> when you're done, those are comments and don't matter.
+
+Step 3:
+	Rename the file to the ID you gave the player or team.
+	(If you are adding a team file, make sure all the players in it exist)
+
+Step 4:
+	Add a picture in the pictures folder with the same name as the team or player file.
+	We would like the picture to be in the PNG format and be 160 by 160 pixels large.
+
+Step 5:
+	Drag your player file to /data/base/players
+	Drag your team file to /data/base/teams
+
+Step 6:
+	???
+
+Step 7: 
+	Profit!

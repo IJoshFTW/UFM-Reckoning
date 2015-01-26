@@ -2,8 +2,8 @@
 <PLAYER id="richardstolte">
 	<NAME first="Richard" last="Stolte" />
 	<COUNTRY>Netherlands</COUNTRY>
-	<TYPE>FW</TYPE>
-	<POS>LW</POS>
+	<TYPE>MF</TYPE>
+	<POS>LM</POS>
 	<STATS>
 		<ATT>60</ATT>
 		<DEF>42</DEF>

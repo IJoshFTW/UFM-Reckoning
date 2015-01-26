@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.geometry.*?>
 <?import java.net.*?>
 <?import java.lang.*?>
@@ -7,25 +9,39 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="183.0" prefWidth="829.0" styleClass="pane" xmlns="http://javafx.com/javafx/8" stylesheets="@MainMenu.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.tudelft.UFMGame.gui.ControllerMainMenu">
+<AnchorPane prefHeight="1080.0" prefWidth="1920.0" stylesheets="@MainMenu.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.tudelft.UFMGame.gui.ControllerMainMenu">
    <children>
-      <HBox AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="300.0">
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="41.0">
          <children>
-            <VBox>
+            <AnchorPane maxHeight="1000.0" maxWidth="1900.0" prefHeight="1000.0" prefWidth="1900.0">
                <children>
-                  <Button id="btn_StartGame" fx:id="startgame" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="btn_StartGame" text="Start game" />
-                  <Button id="btn_Options" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleOptions" styleClass="btn_Options" text="Options" />
-                  <Button id="btn_Highscore" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleHighscores" styleClass="btn_Highscore" text="Highscore" />
-                  <Button id="btn_QuitMenu" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleQuitMenu" styleClass="btn_QuitMenu" text="Quit game" />
+                  <ImageView fitHeight="201.0" fitWidth="1000.0" layoutX="313.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="313.0" AnchorPane.rightAnchor="587.0">
+                     <image>
+                        <Image url="@../img/logo.png" />
+                     </image>
+                  </ImageView>
+                  <HBox layoutX="185.0" layoutY="267.0" prefHeight="700.0" prefWidth="834.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="201.0" AnchorPane.rightAnchor="865.0" AnchorPane.topAnchor="300.0">
+                     <children>
+                        <VBox>
+                           <children>
+                              <Button id="btn_StartGame" fx:id="startgame" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" prefWidth="332.0" styleClass="btn_StartGame" text="Start Game" />
+                              <Button id="btn_Options" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleOptions" prefHeight="75.0" styleClass="btn_Options" text="Options" />
+                              <Button id="btn_Highscore" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleHighscores" prefHeight="75.0" styleClass="btn_Highscore" text="Highscore" />
+                              <Button id="btn_QuitMenu" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleCredits" prefHeight="75.0" styleClass="btn_QuitMenu" text="Credits" />
+                              <Button id="btn_QuitMenu" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleQuitMenu" prefHeight="75.0" styleClass="btn_QuitMenu" text="Quit game" />
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="500.0" prefWidth="328.0">
+                           <children>
+                              <Button id="btn_NewGame" fx:id="newgame" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleNewGame" prefHeight="75.0" styleClass="btn_StartGame" text="New Game" visible="false" />
+                              <Button id="btn_LoadGame" fx:id="loadgame" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleLoadGame" prefHeight="75.0" styleClass="btn_StartGame" text="Load Game" visible="false" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
                </children>
-            </VBox>
-            <VBox>
-               <children>
-                  <Button id="btn_NewGame" fx:id="newgame" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleNewGame" styleClass="btn_StartGame" text="New Game" visible="false" />
-                  <Button id="btn_LoadGame" fx:id="loadgame" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="btn_StartGame" text="Load Game" visible="false" />
-               </children>
-            </VBox>
+            </AnchorPane>
          </children>
-      </HBox>
+      </VBox>
    </children>
 </AnchorPane>

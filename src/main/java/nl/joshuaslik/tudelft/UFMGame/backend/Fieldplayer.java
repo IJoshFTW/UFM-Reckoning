@@ -8,7 +8,7 @@ package nl.joshuaslik.tudelft.UFMGame.backend;
  * @author Sander Benoist
  */
 public class Fieldplayer extends Player {
-	private String position, firstname;
+	private String position;
 	private int attackPower, defencePower, stamina;
 
 	/**
@@ -41,7 +41,6 @@ public class Fieldplayer extends Player {
 		attackPower = atkP;
 		defencePower = defP;
 		stamina = sta;
-		this.setfirstname(firstName);
 	}
 
 	public boolean equals(Object other) {
@@ -95,24 +94,5 @@ public class Fieldplayer extends Player {
 	 */
 	public int getStamina() {
 		return stamina;
-	}
-
-	/**
-	 * Getter for firstname
-	 * 
-	 * @return the first name of this player
-	 */
-	public String getfirstname() {
-		return firstname;
-	}
-
-	/**
-	 * Setter for firstname
-	 * 
-	 * @param firstname
-	 *            name to set this player's first name to
-	 */
-	public void setfirstname(String firstname) {
-		this.firstname = firstname;
 	}
 }

@@ -1,6 +1,9 @@
 package nl.joshuaslik.tudelft.UFMGame.util.xml;
 
 import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
@@ -15,6 +18,8 @@ import org.xml.sax.helpers.DefaultHandler;
 import org.xml.sax.helpers.XMLReaderFactory;
 
 /**
+ * class for the saxparser
+ * 
  * @author <a href="http://www.joshuaslik.nl/" target="_blank">Joshua Slik</a>
  *
  */
@@ -24,10 +29,20 @@ public class SAXParser extends DefaultHandler {
 	private ArrayList<XMLTag> tagstack = new ArrayList<XMLTag>();
 	private boolean inElement = false;
 
-	public SAXParser() {
-	}
+	/*
+	 * public SAXParser() { }
+	 */
 
+	/**
+	 * parsing a file as an xml file
+	 * 
+	 * @param filename
+	 *            is a string for the name of the xml file
+	 * @return the xml file
+	 */
 	public static XMLFile parseFile(String filename) {
+		filename = filename.replace("\\", "/");
+
 		XMLReader xr = null;
 		try {
 			xr = XMLReaderFactory.createXMLReader();
@@ -39,6 +54,44 @@ public class SAXParser extends DefaultHandler {
 		xr.setErrorHandler(handler);
 
 		InputStream is = Class.class.getResourceAsStream(filename);
+		try {
+			xr.parse(new InputSource(is));
+		} catch (IOException | NullPointerException e) {
+			System.err.println("File \"" + filename + "\" does not exist");
+		} catch (SAXException e) {
+			System.err.println("Something went wrong parsing the file: \""
+					+ filename + "\"");
+			System.err.println(e.getMessage());
+		}
+		return handler.getXMLFile();
+
+	}
+
+	/**
+	 * parsing a local xml file
+	 * 
+	 * @param filename
+	 *            name of the xml file
+	 * @return the xml file
+	 */
+	public static XMLFile parseLocalFile(String filename) {
+		XMLReader xr = null;
+		try {
+			xr = XMLReaderFactory.createXMLReader();
+		} catch (SAXException e) {
+			e.printStackTrace();
+		}
+		SAXParser handler = new SAXParser();
+		xr.setContentHandler(handler);
+		xr.setErrorHandler(handler);
+
+		InputStream is = null;
+		try {
+			is = new FileInputStream(new File(filename));
+		} catch (FileNotFoundException e1) {
+			System.err.println("File \"" + filename + "\" does not exist");
+			System.err.println(e1.getMessage());
+		}
 
 		try {
 			xr.parse(new InputSource(is));
@@ -53,6 +106,13 @@ public class SAXParser extends DefaultHandler {
 
 	}
 
+	/**
+	 * parsing a local xml file as a string
+	 * 
+	 * @param xmlstring
+	 *            is a string with the xml in it
+	 * @return the xml file
+	 */
 	public static XMLFile parseString(String xmlstring) {
 		XMLReader xr = null;
 		try {

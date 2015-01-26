@@ -35,6 +35,7 @@ public class Form343 extends Formation {
 	private String Name = "3-4-3";
 
 	/**
+	 * Method to get the name of this formation type
 	 * 
 	 * @return The name of this Formation
 	 */
@@ -42,11 +43,18 @@ public class Form343 extends Formation {
 		return Name;
 	}
 
+	/**
+	 * contructor for the formation 343
+	 * 
+	 * @param team
+	 *            of this formation
+	 */
 	public Form343(Team team) {
 		super(team);
 	}
 
 	/**
+	 * Method to get the central back player
 	 * 
 	 * @return central back player
 	 */
@@ -55,6 +63,7 @@ public class Form343 extends Formation {
 	}
 
 	/**
+	 * Method to get the left back player
 	 * 
 	 * @return left back player
 	 */
@@ -63,6 +72,7 @@ public class Form343 extends Formation {
 	}
 
 	/**
+	 * Method to get the right back player
 	 * 
 	 * @return right back player
 	 */
@@ -71,6 +81,7 @@ public class Form343 extends Formation {
 	}
 
 	/**
+	 * Method to get central midfield player 1
 	 * 
 	 * @return central midfield player1
 	 */
@@ -79,6 +90,7 @@ public class Form343 extends Formation {
 	}
 
 	/**
+	 * Method to get the central midfield player 2
 	 * 
 	 * @return central midfield player2
 	 */
@@ -87,6 +99,7 @@ public class Form343 extends Formation {
 	}
 
 	/**
+	 * Method to get the right midfield player
 	 * 
 	 * @return right midfield player
 	 */
@@ -95,6 +108,7 @@ public class Form343 extends Formation {
 	}
 
 	/**
+	 * Method to get the left midfield player
 	 * 
 	 * @return Left midfield player
 	 */
@@ -103,6 +117,7 @@ public class Form343 extends Formation {
 	}
 
 	/**
+	 * Method to get the right wing player
 	 * 
 	 * @return Right wing player
 	 */
@@ -111,6 +126,7 @@ public class Form343 extends Formation {
 	}
 
 	/**
+	 * Method to get the left wing player
 	 * 
 	 * @return Left wing player
 	 */
@@ -119,6 +135,7 @@ public class Form343 extends Formation {
 	}
 
 	/**
+	 * Method to get the striker player
 	 * 
 	 * @return Striker player
 	 */

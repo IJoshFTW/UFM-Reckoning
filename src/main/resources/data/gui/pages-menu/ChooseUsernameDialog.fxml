@@ -5,8 +5,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane onKeyPressed="#handleUsernamekey" opacity="0.85" prefHeight="430.0" prefWidth="700.0" style="-fx-background-color: #101010;" stylesheets="@NewGame.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.tudelft.UFMGame.gui.UsernameController">
+<AnchorPane onKeyPressed="#handleUsernamekey" prefHeight="430.0" prefWidth="700.0" stylesheets="@MainMenu.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.tudelft.UFMGame.gui.UsernameController">
    <children>
+      <Pane prefHeight="430.0" prefWidth="700.0" style="-fx-background-color: #101010; -fx-border-width: 1px; -fx-border-color: #CECECE;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <GridPane layoutY="-2.0" prefHeight="263.0" prefWidth="519.0" AnchorPane.bottomAnchor="62.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="-2.0">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="700.0" minWidth="10.0" prefWidth="73.0" />
@@ -35,7 +36,7 @@
       <HBox layoutX="-4.0" layoutY="267.0" prefHeight="113.0" prefWidth="400.0" spacing="10.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="267.0">
          <children>
             <Button fx:id="okbutton" disable="true" mnemonicParsing="false" onAction="#handleUsername" prefHeight="90.0" prefWidth="220.0" text="OK" />
-            <Button fx:id="cancelbutton" mnemonicParsing="false" onAction="#handleReturnMainMenu" prefHeight="90.0" prefWidth="220.0" text="Cancel" />
+            <Button fx:id="cancelbutton" mnemonicParsing="false" onAction="#handleReturnMainMenu" prefHeight="90.0" prefWidth="270.0" text="Cancel" />
          </children>
       </HBox>
    </children>

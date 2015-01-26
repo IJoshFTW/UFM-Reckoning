@@ -1,5 +1,10 @@
 package nl.joshuaslik.tudelft.UFMGame.backend;
 
+import nl.joshuaslik.tudelft.UFMGame.backend.formation.Form343;
+import nl.joshuaslik.tudelft.UFMGame.backend.formation.Form4321;
+import nl.joshuaslik.tudelft.UFMGame.backend.formation.Form433;
+import nl.joshuaslik.tudelft.UFMGame.backend.formation.Form442;
+import nl.joshuaslik.tudelft.UFMGame.backend.formation.Form532;
 import nl.joshuaslik.tudelft.UFMGame.gui.game.MainGame;
 
 /**
@@ -36,7 +41,7 @@ public class Match {
 	 *            chance to have a goal
 	 * @return amount of goals
 	 */
-	public int determinegoals(int goalchance) {
+	public int determinegoals(double goalchance) {
 		if (goalchance >= 0) {
 			if (goalchance <= 810) {
 				return 0;
@@ -61,7 +66,7 @@ public class Match {
 			} else if (goalchance <= 3000) {
 				return 10;
 			} else {
-				return -1;
+				return 11;
 			}
 		}
 		return -1;
@@ -69,8 +74,11 @@ public class Match {
 
 	/**
 	 * Method to determine the results of this match
+	 * 
+	 * @param difficulty
+	 *            difficulty setting of the game
 	 */
-	public void determineResult() {
+	public void determineResult(int difficulty) {
 		int attackhome = hometeam.getAttackPower();
 		int defencehome = hometeam.getDefencePower();
 		int staminahome = hometeam.getStamina();
@@ -78,23 +86,63 @@ public class Match {
 		int attackaway = awayteam.getAttackPower();
 		int defenceaway = awayteam.getDefencePower();
 		int staminaaway = awayteam.getStamina();
+		if (hometeam.getFormation() instanceof Form532) {
+			defencehome = (int) (defencehome * 1.6);
+			attackhome = (int) (attackhome * 0.4);
+		}
+		if (awayteam.getFormation() instanceof Form532) {
+			defenceaway = (int) (defenceaway * 1.6);
+			attackaway = (int) (attackaway * 0.4);
+		}
+		if (hometeam.getFormation() instanceof Form433) {
+			defencehome = (int) (defencehome * 0.9);
+			attackhome = (int) (attackhome * 1.1);
+		}
+		if (awayteam.getFormation() instanceof Form433) {
+			defenceaway = (int) (defenceaway * 0.9);
+			attackaway = (int) (attackaway * 1.1);
+		}
+		if (hometeam.getFormation() instanceof Form4321) {
+			defencehome = (int) (defencehome * 0.7);
+			attackhome = (int) (attackhome * 1.3);
+		}
+		if (awayteam.getFormation() instanceof Form4321) {
+			defenceaway = (int) (defenceaway * 0.7);
+			attackaway = (int) (attackaway * 1.3);
+		}
+		if (hometeam.getFormation() instanceof Form442) {
+			defencehome = (int) (defencehome * 1.4);
+			attackhome = (int) (attackhome * 0.6);
+		}
+		if (awayteam.getFormation() instanceof Form442) {
+			defenceaway = (int) (defenceaway * 1.4);
+			attackaway = (int) (attackaway * 0.6);
+		}
+		if (hometeam.getFormation() instanceof Form343) {
+			defencehome = (int) (defencehome * 0.4);
+			attackhome = (int) (attackhome * 1.6);
+		}
+		if (awayteam.getFormation() instanceof Form343) {
+			defenceaway = (int) (defenceaway * 0.4);
+			attackaway = (int) (attackaway * 1.6);
+		}
 
-		int attackpowerhome = ((attackhome - defenceaway) * 4);
-		int homechance = (int) (Math.random() * 3000);
-		int homegoalschance = (int) (((homechance * 80)
-				+ ((attackpowerhome + staminahome) * 15 * 1.5) - ((awayteam
-				.getActiveGoalkeeper().getDiving()
-				+ awayteam.getActiveGoalkeeper().getDiving() + awayteam
-				.getActiveGoalkeeper().getDiving()) * 10 * 5)) / 100);
+		int attackpowerhome = (attackhome - defenceaway);
+		double homechance = Math.random() * 3000;
+		double homegoalschance = ((homechance * (difficulty * 0.1)) + (((((attackpowerhome + staminahome) * 1.35) - ((awayteam.getActiveGoalkeeper().getDiving()
+				+ awayteam.getActiveGoalkeeper().getPositioning() + awayteam.getActiveGoalkeeper().getReflexes())))) * ((10 - difficulty) * 0.1)));
 
-		int attackpoweraway = ((attackaway - defencehome) * 4);
+		int attackpoweraway = (attackaway - defencehome);
 		int awaychance = (int) (Math.random() * 3000);
-		int awaygoalschance = ((awaychance * 80)
-				+ ((attackpoweraway + staminaaway) * 30) - ((hometeam
-				.getActiveGoalkeeper().getDiving()
-				+ hometeam.getActiveGoalkeeper().getDiving() + hometeam
-				.getActiveGoalkeeper().getDiving()) * 10 * 5)) / 100;
+		double awaygoalschance = ((awaychance * (difficulty * 0.1)) + (((((attackpoweraway + staminaaway) * 1.35) - ((hometeam.getActiveGoalkeeper().getDiving()
+				+ hometeam.getActiveGoalkeeper().getPositioning() + hometeam.getActiveGoalkeeper().getReflexes())))) * ((10 - difficulty) * 0.1)));
 
+		if(hometeam.getTeamCaptain() instanceof Goalkeeper){
+			homegoalschance = -100 + homegoalschance + (((Goalkeeper) hometeam.getTeamCaptain()).getReflexes());
+		}
+		if(awayteam.getTeamCaptain() instanceof Goalkeeper){
+			awaygoalschance = -100 + awaygoalschance + (((Goalkeeper) awayteam.getTeamCaptain()).getReflexes());
+		}
 		homegoals = determinegoals(homegoalschance);
 		awaygoals = determinegoals(awaygoalschance);
 		if (homegoals > awaygoals) {
@@ -194,34 +242,47 @@ public class Match {
 	}
 
 	/**
+	 * Setter
 	 * 
+	 * @param goals
+	 *            is the awaygoals to set
 	 */
 	public void setawaygoals(int goals) {
 		awaygoals = goals;
 	}
 
 	/**
+	 * Setter
 	 * 
+	 * @param team
+	 *            is the team to set
 	 */
 	public void setWinner(Team team) {
 		winner = team;
 	}
 
 	/**
+	 * Setter
 	 * 
+	 * @param team
+	 *            is the team to set
 	 */
 	public void setLoser(Team team) {
 		loser = team;
 	}
 
 	/**
+	 * Setter
 	 * 
+	 * @param goals
+	 *            are the goals to set
 	 */
 	public void setHomegoals(int goals) {
 		homegoals = goals;
 	}
 
 	/**
+	 * Getter
 	 * 
 	 * @return the team playing HOME this match
 	 */
@@ -230,6 +291,7 @@ public class Match {
 	}
 
 	/**
+	 * Getter
 	 * 
 	 * @return true or false depending on if it was a draw
 	 */
@@ -238,6 +300,7 @@ public class Match {
 	}
 
 	/**
+	 * Getter
 	 * 
 	 * @return the team playing AWAY this match
 	 */
@@ -245,22 +308,18 @@ public class Match {
 		return awayteam;
 	}
 
+	/**
+	 * Test if two match objects are equal
+	 */
 	public boolean equals(Object other) {
 		if (other instanceof Match & (other != null)) {
 			Match that = (Match) other;
-			if (this.winner != null & this.loser != null & that.winner != null
-					& that.loser != null) {
-				if (this.hometeam.equals(that.hometeam)
-						& this.awayteam.equals(that.awayteam)
-						& this.awaygoals == that.awaygoals
-						& this.homegoals == that.homegoals
-						& this.loser == that.loser & this.winner == that.winner) {
+			if (this.winner != null & this.loser != null & that.winner != null & that.loser != null) {
+				if (this.hometeam.equals(that.hometeam) & this.awayteam.equals(that.awayteam) & this.awaygoals == that.awaygoals & this.homegoals == that.homegoals & this.loser == that.loser
+						& this.winner == that.winner) {
 					return true;
 				}
-			} else if (this.winner == null & that.winner == null
-					& this.hometeam.equals(that.hometeam)
-					& this.awayteam.equals(that.awayteam)
-					& this.awaygoals == that.awaygoals
+			} else if (this.winner == null & that.winner == null & this.hometeam.equals(that.hometeam) & this.awayteam.equals(that.awayteam) & this.awaygoals == that.awaygoals
 					& this.homegoals == that.homegoals) {
 				return true;
 			}

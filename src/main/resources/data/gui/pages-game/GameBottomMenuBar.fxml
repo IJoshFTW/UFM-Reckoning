@@ -8,18 +8,22 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane style="-fx-background-color: black;" stylesheets="@GameBottomMenuBar.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.tudelft.UFMGame.gui.game.MainGameController">
+<AnchorPane stylesheets="@GameBottomMenuBar.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.tudelft.UFMGame.gui.game.MainGameController">
    <children>
+      <Pane opacity="0.8" style="-fx-background-color: #101010; -fx-border-color: #CECECE; -fx-border-width: 1px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <HBox alignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleNextround" prefHeight="67.0" prefWidth="225.0" styleClass="bottombarbutton" text="Play round" />
             <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleTeamBuilder" prefHeight="67.0" prefWidth="150.0" styleClass="bottombarbutton" text="Team" />
             <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handlePlayrounds" prefHeight="67.0" prefWidth="225.0" styleClass="bottombarbutton" text="Playrounds" />
             <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleRanking" prefWidth="175.0" styleClass="bottombarbutton" text="Ranking" />
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleOtherTeams" prefWidth="240.0" styleClass="bottombarbutton" text="Other Teams" />
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="125.0" styleClass="bottombarbutton" text="Save" />
+            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleOtherTeams" prefWidth="270.0" styleClass="bottombarbutton" text="Other Teams" />
+            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleSave" prefWidth="125.0" styleClass="bottombarbutton" text="Save" />
             <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#handleQuitGame" prefWidth="125.0" styleClass="bottombarbutton" text="Quit" />
          </children>
+         <padding>
+            <Insets bottom="5.0" top="5.0" />
+         </padding>
       </HBox>
       <HBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -30,8 +34,11 @@
             </Label>
          </children>
          <opaqueInsets>
-            <Insets right="10.0" />
+            <Insets />
          </opaqueInsets>
+         <padding>
+            <Insets right="10.0" />
+         </padding>
       </HBox>
       <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -42,8 +49,14 @@
             </Label>
          </children>
          <opaqueInsets>
-            <Insets left="20.0" />
+            <Insets />
          </opaqueInsets>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
       </HBox>
    </children>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" />
+   </padding>
 </AnchorPane>

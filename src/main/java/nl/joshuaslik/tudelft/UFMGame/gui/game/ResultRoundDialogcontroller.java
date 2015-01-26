@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javafx.animation.FadeTransition;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -16,6 +18,11 @@ import javafx.util.Duration;
 import nl.joshuaslik.tudelft.UFMGame.backend.Match;
 import nl.joshuaslik.tudelft.UFMGame.gui.Main;
 
+/**
+ * Class to control the result per round
+ * @author Naomi
+ * @author Bryan van Wijk
+ */
 public class ResultRoundDialogcontroller {
 	private static Popup popup;
 	private static AnchorPane page;
@@ -23,20 +30,19 @@ public class ResultRoundDialogcontroller {
 	@FXML
 	private Button okbutton;
 	@FXML
-	private Label score;
+	private Label score, hometeamname, awayteamname, round, rankinghome, rankingaway;
 	@FXML
-	private Label round;
+	private ImageView homelogo, awaylogo;
 	@FXML
-	private Label rankinghome;
-	@FXML
-	private Label rankingaway;
-	@FXML
-	private ImageView homelogo;
-	@FXML
-	private ImageView awaylogo;
+	private Boolean last = false;
+	private int endrank;
 	
 	private Match match;
 	
+	/**
+	 * initialize the result dialog
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
+	 */
 	@FXML
 	private void initialize() throws IOException {
 		ArrayList<Match> matches = MainGame.game.getPlayround(MainGame.game.getCurrentRound() - 1).getMatches();
@@ -53,20 +59,53 @@ public class ResultRoundDialogcontroller {
 		round.setText("Result Round: " + match.getPlayround());
 		rankinghome.setText("" + match.getHomeTeam().getRanking());
 		rankingaway.setText("" + match.getAwayTeam().getRanking());
+		hometeamname.setText(match.getHomeTeam().getTeamName());
+		awayteamname.setText(match.getAwayTeam().getTeamName());
+		if((((MainGame.game.getUsers().size()*(MainGame.game.getUsers().size()-1))/(MainGame.game.getUsers().size()/2))+1) == MainGame.game.getCurrentRound()){
+			last = true;
+			endrank = MainGame.game.getUser().getTeam().getRanking();
+			MainGame.game.newCompetition();
+			MainGame.game.getCompetition().definePlayrounds();
+			MainGame.game.computeStandings();
+		}
+		AnchorPane top = (AnchorPane) FXMLLoader.load(Class.class.getResource("/data/gui/pages-game/GameTopMenuBar.fxml"));
+		Main.setTop(top);
 		AnchorPane bottom = (AnchorPane) FXMLLoader.load(Class.class.getResource("/data/gui/pages-game/GameBottomMenuBar.fxml"));
 		Main.setBottom(bottom);
 		
+		
 	}
 	
-	
+	/**
+	 * handles clicking on the ok button in the dialog
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
+	 */
 	@FXML
-	protected void handleOK() {
+	protected void handleOK() throws IOException {
 		FadeTransition ft = new FadeTransition(Duration.millis(500), page);
-		ft.setFromValue(0.97);
-		ft.setToValue(0.0);
-		ft.play();
+     	ft.setFromValue(0.97);
+     	ft.setToValue(0.0);
+     	ft.play();
+	    ft.setOnFinished(new EventHandler<ActionEvent>() {
+	    	public void handle(ActionEvent event) {
+	    		popup.hide(); 
+	    	}
+	    });
+	  
+		if(last){
+			Popupscreen.start();
+			Popupscreen.setTitle("Last round played");
+			Popupscreen.setMessage("This season has come to an end.\n You're end rank of this season is: " + endrank 
+					+ "\nThere is automatically started a new competition.");
+			TeamBuilderController.start();
+			last = false;
+		}
 	}
 	
+	/**
+	 * Loads the result of a round dialog
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
+	 */
 	public static void start() throws IOException{
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Class.class
@@ -78,8 +117,6 @@ public class ResultRoundDialogcontroller {
 		ft.play();
 		popup = new Popup();
 		popup.setAutoHide(true);
-		popup.setOnAutoHide(null
-		);
 		page.setOpacity(0.85);
 		popup.getContent().add(page);
 		popup.show(Main.stage);

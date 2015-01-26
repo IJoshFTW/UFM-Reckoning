@@ -32,7 +32,7 @@
 			<NUM>7</NUM>
 		</PLAYER>
 		<PLAYER id="valeriqazaishvili">
-			<ACTIVE>true</ACTIVE>
+			<ACTIVE>false</ACTIVE>
 			<TYPE>MF</TYPE>
 			<NUM>8</NUM>
 		</PLAYER>
@@ -77,7 +77,7 @@
 			<NUM>25</NUM>
 		</PLAYER>
 		<PLAYER id="bertrandtraore">
-			<ACTIVE>false</ACTIVE>
+			<ACTIVE>true</ACTIVE>
 			<TYPE>MF</TYPE>
 			<NUM>27</NUM>
 		</PLAYER>

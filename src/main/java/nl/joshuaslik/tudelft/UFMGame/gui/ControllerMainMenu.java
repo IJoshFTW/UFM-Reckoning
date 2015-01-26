@@ -68,36 +68,62 @@ public class ControllerMainMenu {
 		});
 	}
 
+	/**
+	 * Handles clicking on the new game button
+	 * @param event of clicking on the button
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
+	 */
 	@FXML
 	protected void handleNewGame(ActionEvent event) throws IOException {
 		UsernameController.start();
 	}
 
+	/**
+	 * Handles clicking on the load game button
+	 * @param event that occurs after clicking on the button
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
+	 */
 	@FXML
-	protected void handleLoadGame(ActionEvent event) {
-		System.out.println("btn_LoadGame pressed");
-		System.out.println(event.getSource());
-
+	protected void handleLoadGame(ActionEvent event) throws IOException {
+		LoadGameController.start();
 	}
 
+	/**
+	 * Handles clicking on the options button
+	 * @param event of clicking on the options button
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
+	 */
 	@FXML
 	protected void handleOptions(ActionEvent event) throws IOException {
-		System.out.println("btn_Options pressed");
-		System.out.println(event.getSource());
 		Options.start();
 	}
 
+	/**
+	 * Handles clicking on the highscores button
+	 * @param event of clicking on the highscores button
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
+	 */
 	@FXML
 	protected void handleHighscores(ActionEvent event) throws IOException {
-		System.out.println("btn_Highscores pressed");
-		System.out.println(event.getSource());
 		Highscores.start();
 	}
+	
+	/**
+	 * Handles clicking on the credits button
+	 * @param event of clicking on the credits button
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
+	 */
+	@FXML
+	protected void handleCredits(ActionEvent event) throws IOException {
+		Creditscontroller.start();
+	}
 
+	/**
+	 * Handles clicking on the quite button
+	 * @param event clicking on the quite button
+	 */
 	@FXML
 	protected void handleQuitMenu(ActionEvent event) {
-		System.out.println("btn_QuitMenu pressed");
-		System.out.println(event.getSource());
 		System.exit(0);
 	}
 }

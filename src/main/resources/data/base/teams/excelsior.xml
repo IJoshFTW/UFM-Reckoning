@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TEAM name="Excelsior" id="excelsior" coach="Marinus Dijkhuizen">
+  
 	<PLAYERS>
 		<PLAYER id="jordydeckers">
 			<ACTIVE>true</ACTIVE>
@@ -12,7 +13,7 @@
 			<NUM>2</NUM>
 		</PLAYER>
 		<PLAYER id="kevinvandiermen">
-			<ACTIVE>true</ACTIVE>
+			<ACTIVE>false</ACTIVE>
 			<TYPE>DF</TYPE>
 			<NUM>3</NUM>
 		</PLAYER>
@@ -62,7 +63,7 @@
 			<NUM>12</NUM>
 		</PLAYER>
 		<PLAYER id="richardstolte">
-			<ACTIVE>false</ACTIVE>
+			<ACTIVE>true</ACTIVE>
 			<TYPE>MF</TYPE>
 			<NUM>15</NUM>
 		</PLAYER>

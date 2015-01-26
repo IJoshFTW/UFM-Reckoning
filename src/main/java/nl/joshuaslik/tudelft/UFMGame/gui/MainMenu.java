@@ -20,11 +20,13 @@ public class MainMenu {
 	 * @throws IOException is thrown if the FXML file cannot be parsed.
 	 */
 	public static void start() throws IOException {
-		Main.loadFonts();
 		AnchorPane scene = (AnchorPane) FXMLLoader.load(Class.class.getResource("/data/gui/pages-menu/MainMenu.fxml"));
-		System.out.println(scene);
 		Main.setCenter(scene);
-		Main.setTop(null);
 		Main.setBottom(null);
+		Main.setTop(null);
+		
+		Main.rootLayout.getStyleClass().removeAll("maingame");
+		
+		Main.rootLayout.getStyleClass().add("mainmenu");
 	}
 }

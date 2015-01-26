@@ -23,6 +23,4 @@
 	</STATS>
 	<!-- http://www.transfermarkt.com/ for the TPRICE -->
 	<TPRICE></TPRICE>
-	<!-- If the player is playing in a team, fill this in WITH THE TEAM ID. If not, leave it empty -->
-	<TEAM></TEAM>
 </PLAYER>
