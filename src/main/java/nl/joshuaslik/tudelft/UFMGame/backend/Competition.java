@@ -96,7 +96,8 @@ public class Competition {
 	/**
 	 * Compute the result of the total competition
 	 * 
-	 * @param difficulty difficulty setting of the game
+	 * @param difficulty
+	 *            difficulty setting of the game
 	 */
 	public void computeresultCompetition(int difficulty) {
 		for (int i = 0; i < playrounds.size(); i++) {

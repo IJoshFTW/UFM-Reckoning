@@ -26,15 +26,17 @@ public class Main extends Application {
 	 * Create new variables
 	 */
 	public static Stage stage;
-	
+
 	/**
 	 * Create a borderpane
 	 */
 	public static BorderPane rootLayout;
-	
+
 	/**
 	 * Launch the application
+	 * 
 	 * @param args
+	 *            is an array of command line arguments
 	 */
 	public static void main(String[] args) {
 		launch(args);
@@ -46,54 +48,52 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) throws IOException {
 		Main.loadFonts();
-		rootLayout = (BorderPane) FXMLLoader.load(Class.class
-				.getResource("/data/gui/pages-menu/RootLayout.fxml"));
-		
+		rootLayout = (BorderPane) FXMLLoader.load(Class.class.getResource("/data/gui/pages-menu/RootLayout.fxml"));
+
 		primaryStage.setTitle("Ultimate Football Manager");
 		Scene scene = null;
-		if(Save.getOption("difficulty") == null){
+		if (Save.getOption("difficulty") == null) {
 			Game.setDifficulty(7);
+		} else {
+			if (Save.getOption("difficulty").equals("Easy")) {
+				Game.setDifficulty(9);
+			} else if (Save.getOption("difficulty").equals("Normal")) {
+				Game.setDifficulty(7);
+			} else if (Save.getOption("difficulty").equals("Difficult")) {
+				Game.setDifficulty(4);
+			}
 		}
-		else{
-			if(Save.getOption("difficulty").equals("Easy")){
-        		Game.setDifficulty(9);
-        	}
-        	else if(Save.getOption("difficulty").equals("Normal")){
-        		Game.setDifficulty(7);
-        	}
-        	else if(Save.getOption("difficulty").equals("Difficult")){
-        		Game.setDifficulty(4);
-        	}
-		}
-		if(Save.getOption("fullscreen") != null && !Boolean.parseBoolean(Save.getOption("fullscreen"))){
+		if (Save.getOption("fullscreen") != null && !Boolean.parseBoolean(Save.getOption("fullscreen"))) {
 			ScrollPane scroll = new ScrollPane(rootLayout);
 			scroll.setPrefSize(1400.0, 700.0);
 			scene = new Scene(scroll);
-		}
-		else{
+		} else {
 			scene = new Scene(rootLayout);
 			primaryStage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
 			primaryStage.setFullScreen(true);
 		}
 		primaryStage.setScene(scene);
-		
+
 		primaryStage.show();
 		stage = primaryStage;
 		MainMenu.start();
 	}
-	
+
 	/**
 	 * Sets the scene of main
 	 * 
-	 * @param scn is set
+	 * @param scn
+	 *            is set
 	 */
 	public static void setScene(Scene scn) {
 		stage.setScene(scn);
 	}
 
 	/**
-	 * Set the center of the border pane 
-	 * @param scene to be displayed in the center
+	 * Set the center of the border pane
+	 * 
+	 * @param scene
+	 *            to be displayed in the center
 	 */
 	public static void setCenter(AnchorPane scene) {
 		rootLayout.setCenter(scene);
@@ -101,7 +101,9 @@ public class Main extends Application {
 
 	/**
 	 * Sets the Top of the border pane
-	 * @param pane to be displayed in the top of the screen
+	 * 
+	 * @param pane
+	 *            to be displayed in the top of the screen
 	 */
 	public static void setTop(AnchorPane pane) {
 		rootLayout.setTop(pane);
@@ -109,7 +111,9 @@ public class Main extends Application {
 
 	/**
 	 * Sets the bottom of the border pane
-	 * @param pane to be displayed in the bottom
+	 * 
+	 * @param pane
+	 *            to be displayed in the bottom
 	 */
 	public static void setBottom(AnchorPane pane) {
 		rootLayout.setBottom(pane);
@@ -117,6 +121,7 @@ public class Main extends Application {
 
 	/**
 	 * Get the stage of the game
+	 * 
 	 * @return current stage
 	 */
 	public static Stage stage() {
@@ -127,8 +132,7 @@ public class Main extends Application {
 	 * Method to load the quicksand font
 	 */
 	public static void loadFonts() {
-		Font.loadFont(Class.class.getResource("/data/gui/fonts/Quicksand.ttf")
-				.toExternalForm(), 10);
+		Font.loadFont(Class.class.getResource("/data/gui/fonts/Quicksand.ttf").toExternalForm(), 10);
 	}
 
 }
