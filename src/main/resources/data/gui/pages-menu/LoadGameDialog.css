@@ -1,0 +1,108 @@
+.maingame {
+	-fx-background-image: url("../img/soccer.png");
+	-fx-background-size: 100%;
+	-fx-background-repeat: stretch;
+	-fx-font-family: 'Quicksand';
+}
+.mainmenu {
+	-fx-background-image: url("../img/shoe.png");
+	-fx-background-size: 100%;
+	-fx-background-repeat: stretch;
+	-fx-font-family: 'Quicksand';
+}
+
+.label {
+	-fx-font-family: 'Quicksand';
+}
+.textfield {
+	-fx-font-family: 'Quicksand';
+}
+
+.button {
+	-fx-padding: 0;
+	-fx-margin: 0;
+	-fx-background-color: #101010;
+	-fx-text-fill: white;
+	-fx-font-size: 200%;
+	-fx-font-family: 'Quicksand';
+	-fx-opacity: 80%;
+	-fx-border-width: 1px;
+	-fx-border-color: #cecece;
+	-fx-border-style: solid;
+}
+
+.button: hover{
+	-fx-background-color: #000000;
+	-fx-opacity: 90%;
+	-fx-cursor: hand;
+}
+
+.table-view {
+    	-fx-base: #1d1d1d;
+	-fx-font-family: 'Quicksand';
+	-fx-font-size: 18;
+    	-fx-control-inner-background: #1d1d1d;
+    	-fx-background-color: #1d1d1d;
+   	-fx-table-cell-border-color: transparent;
+   	-fx-table-header-border-color: transparent;
+	-fx-padding: 5;
+	-fx-opacity: 200%;
+}
+
+.table-view .column-header-background {
+  
+}
+
+
+.table-view .column-header .label {
+    -fx-font-size: 22;
+    -fx-font-family: 'Quicksand Book';
+    -fx-text-fill: white;
+    -fx-alignment: center;
+    -fx-opacity: 1;
+}
+
+.table-view:focused .table-row-cell:filled:focused:selected {
+   	-fx-background-color: #000000;
+	-fx-table-cell-border-color: transparent;
+}
+
+.table-cell {
+    -fx-alignment: CENTER;
+}
+
+.table-cell.selected {
+	-fx-border-color: #1d1d1d;
+ 	-fx-table-cell-border-color: transparent;
+}
+
+.choice-box {
+	-fx-background-color: #1d1d1d;
+	-fx-font-size: 22;
+    	-fx-font-family: 'Quicksand Book';
+	-fx-border-color: white;
+	-fx-border-size: 1px;
+	-fx-padding: 0;
+}
+
+.choice-box .label {
+	-fx-text-fill: white;
+}
+
+.context-menu {
+	-fx-background-color: #1d1d1d;
+	-fx-text-fill: white;
+	-fx-font-size: 22;
+    	-fx-font-family: 'Quicksand Book';
+	-fx-border-color: white;
+	-fx-border-size: 1px;
+	-fx-padding: 0;
+}
+
+.choice-box-menu-item:hover {
+	-fx-opacity: 90%;
+}
+
+.choice-box .label:hover {
+	-fx-opacity: 90%;
+}

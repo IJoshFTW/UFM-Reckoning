@@ -5,42 +5,42 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="430.0" prefWidth="700.0" stylesheets="@MainMenu.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.tudelft.UFMGame.gui.Creditscontroller">
+<AnchorPane prefHeight="430.0" prefWidth="700.0" stylesheets="@CreditsDialog.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.tudelft.UFMGame.gui.Creditscontroller">
    <children>
       <Pane prefHeight="430.0" prefWidth="700.0" style="-fx-background-color: #101010; -fx-border-width: 1px; -fx-border-color: #CECECE;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button layoutX="455.0" layoutY="303.0" mnemonicParsing="false" onAction="#handleOk" prefHeight="86.0" prefWidth="219.0" text="OK" />
-            <Label layoutX="155.0" layoutY="176.0" text="Sander Benoist" textFill="#f2f0f0">
+            <Button layoutX="455.0" layoutY="356.0" mnemonicParsing="false" onAction="#handleOk" prefHeight="40.0" prefWidth="219.0" stylesheets="@CreditsDialog.css" text="OK" />
+            <Label layoutX="126.0" layoutY="176.0" text="Sander Benoist" textFill="#f2f0f0">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="155.0" layoutY="200.0" text="Lisette Veldkamp" textFill="#f2f0f0">
+            <Label layoutX="203.0" layoutY="216.0" text="Lisette Veldkamp" textFill="#f2f0f0">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="369.0" layoutY="214.0" text="Joshua Slik" textFill="#f2f0f0">
+            <Label layoutX="472.0" layoutY="176.0" text="Joshua Slik" textFill="#f2f0f0">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="369.0" layoutY="190.0" text="Naomi de Ridder" textFill="#f2f0f0">
+            <Label layoutX="288.0" layoutY="176.0" text="Naomi de Ridder" textFill="#f2f0f0">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="156.0" layoutY="227.0" text="Bryan van Wijk" textFill="#f2f0f0">
+            <Label layoutX="397.0" layoutY="216.0" text="Bryan van Wijk" textFill="#f2f0f0">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="169.0" layoutY="114.0" prefHeight="40.0" prefWidth="402.0" text="//noComment" textFill="#f2f0f0">
+            <Label alignment="CENTER" layoutX="149.0" layoutY="115.0" prefHeight="40.0" prefWidth="402.0" text="//noComment" textFill="#f2f0f0">
                <font>
                   <Font size="28.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="222.0" layoutY="25.0" prefHeight="57.0" prefWidth="295.0" text="Credits" textFill="#f5ecec">
+            <Label alignment="CENTER" layoutX="203.0" layoutY="28.0" prefHeight="57.0" prefWidth="295.0" text="Credits" textFill="#f5ecec">
                <font>
                   <Font size="36.0" />
                </font>
