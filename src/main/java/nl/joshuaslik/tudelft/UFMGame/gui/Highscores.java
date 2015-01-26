@@ -34,7 +34,10 @@ public class Highscores {
 	@FXML
     private TableView<User> highscoretable;
     @FXML
-    private TableColumn<User, String> usernames, goals;
+    private TableColumn<User, Double> goals;
+    
+    @FXML
+    private TableColumn<User, String> usernames;
     
     @FXML
 	private Button startgame;
@@ -156,31 +159,20 @@ public class Highscores {
 		LinkedHashMap<String, Double> result = Save.getHighscore();
 		ArrayList<User> arraylistusernames = new ArrayList<User>();
 		for ( String key: result.keySet()){
-			arraylistusernames.add(new Human(new Team("test", "test", "test"), key, 5));
+			Human human = new Human(new Team("test", "test", "test"), key, 5);
+			human.setHighscore(result.get(key));
+			arraylistusernames.add(human);
 		}
 		ObservableList<User> observableUsernames = FXCollections.observableArrayList(arraylistusernames);
 
 		highscoretable.setItems(observableUsernames);
 		usernames.setCellValueFactory(new PropertyValueFactory<User, String>(
 				"userName"));
-		goals.setCellValueFactory(new PropertyValueFactory<User, String>(
-				"userName"));
-		goals.setCellFactory(new Callback<TableColumn<User, String>, TableCell<User, String>>(){
-			@Override
-			public TableCell<User, String> call(TableColumn<User, String> param){
-				TableCell<User, String> cell = new TableCell<User, String>(){
-					@Override
-					public void updateItem(String item, boolean empty){
-						if(item!= null){
-							setText(Double.toString(result.get(item)));
-						}
-					}
-				};
-				return cell;
-			}
-		});
-		highscoretable.getSortOrder().add(goals);
+		goals.setCellValueFactory(new PropertyValueFactory<User, Double>(
+				"highscore"));
+		
 		goals.setSortType(SortType.DESCENDING);
+		highscoretable.getSortOrder().add(goals);
 		goals.setSortable(true);
 	}
 	

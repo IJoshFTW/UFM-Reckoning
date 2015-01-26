@@ -10,6 +10,7 @@ public abstract class User {
 	protected Team team;
 	protected String userName;
 	protected int budget;
+	private double highscore;
 
 	/**
 	 * Contructor of a use
@@ -88,6 +89,22 @@ public abstract class User {
 			return true;
 		}
 		return false;
+	}
+
+	/**
+	 * get the highscore of this user
+	 * @return the highscore of this user
+	 */
+	public double getHighscore() {
+		return highscore;
+	}
+
+	/**
+	 * sets the highscore of this user
+	 * @param highscore the higshscore to set
+	 */
+	public void setHighscore(double highscore) {
+		this.highscore = highscore;
 	}
 
 
