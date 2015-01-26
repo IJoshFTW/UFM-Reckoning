@@ -48,6 +48,7 @@
                               <Button id="btn_StartGame" fx:id="startgame" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleStart" prefHeight="75.0" prefWidth="332.0" styleClass="btn_StartGame" text="Start Game" />
                               <Button id="btn_Options" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleOptions" prefHeight="75.0" styleClass="btn_Options" text="Options" />
                               <Button id="btn_Highscore" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleHighscores" prefHeight="75.0" styleClass="btn_Highscore" text="Highscore" />
+                              <Button id="btn_QuitMenu" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleCredits" prefHeight="75.0" styleClass="btn_QuitMenu" text="Credits" />
                               <Button id="btn_QuitMenu" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleQuitMenu" prefHeight="75.0" styleClass="btn_QuitMenu" text="Quit game" />
                            </children>
                         </VBox>

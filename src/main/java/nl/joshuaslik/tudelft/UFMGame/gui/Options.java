@@ -182,6 +182,16 @@ public class Options {
 	protected void handleLoadGame(ActionEvent event) throws IOException {
 		LoadGameController.start();
 	}
+	
+	/**
+	 * Handles clicking on the credits button
+	 * @param event of clicking on the credits button
+	 * @throws IOException is thrown if the FXML file cannot be parsed.
+	 */
+	@FXML
+	protected void handleCredits(ActionEvent event) throws IOException {
+		Creditscontroller.start();
+	}
 
 	/**
 	 * Handles clicking on the options button
