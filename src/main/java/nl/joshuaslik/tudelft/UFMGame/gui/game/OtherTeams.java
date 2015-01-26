@@ -93,15 +93,15 @@ public class OtherTeams {
 					
 					// AttackPower bar inladen
 					atkPwrImg.setFitWidth(otherteam.getAttackPower() / 3);
-					attack.setText(((int)(otherteam.getAttackPower()*0.1))+"%");
+					attack.setText(((int)(otherteam.getAttackPower()*0.1))+"");
 
 					// Defence bar inladen
 					defPwrImg.setFitWidth(otherteam.getDefencePower() / 3);
-					defence.setText(((int)(otherteam.getDefencePower()*0.1))+"%");
+					defence.setText(((int)(otherteam.getDefencePower()*0.1))+"");
 
 					// Stamina bar inladen
 					staminaImg.setFitWidth(otherteam.getStamina() / 3);
-					stamina.setText(((int)(otherteam.getStamina()*0.1))+"%");
+					stamina.setText(((int)(otherteam.getStamina()*0.1))+"");
 					
 					coach.setText("Coach: " + otherteam.getCoachName());
 					formationlabel.setText("Formation: "+ otherteam.getFormation().getName());

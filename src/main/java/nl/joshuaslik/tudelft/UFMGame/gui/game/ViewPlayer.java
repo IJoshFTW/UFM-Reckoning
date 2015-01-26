@@ -81,7 +81,7 @@ public class ViewPlayer {
 			atkPwrImg.minWidth(fieldplayer.getAttackPower() * 3);
 			atkPwrImg.setFitWidth(fieldplayer.getAttackPower() * 3);
 			atkPwrImg.setVisible(true);
-			attack.setText(fieldplayer.getAttackPower()+"%");
+			attack.setText(fieldplayer.getAttackPower()+"");
 
 			// Defence bar inladen
 			defenceLable.setVisible(true);
@@ -89,7 +89,7 @@ public class ViewPlayer {
 			defPwrImg.minWidth(fieldplayer.getDefencePower() * 3);
 			defPwrImg.setFitWidth(fieldplayer.getDefencePower() * 3);
 			defPwrImg.setVisible(true);
-			defence.setText(fieldplayer.getDefencePower()+"%");
+			defence.setText(fieldplayer.getDefencePower()+"");
 
 
 			// Stamina bar inladen
@@ -98,7 +98,7 @@ public class ViewPlayer {
 			staminaImg.minWidth(fieldplayer.getStamina() * 3);
 			staminaImg.setFitWidth(fieldplayer.getStamina() * 3);
 			staminaImg.setVisible(true);
-			stamina.setText(fieldplayer.getStamina()+"%");
+			stamina.setText(fieldplayer.getStamina()+"");
 
 		}
 
@@ -112,7 +112,7 @@ public class ViewPlayer {
 			divingImg.minWidth(goalkeeper.getDiving() * 3);
 			divingImg.setFitWidth(goalkeeper.getDiving() * 3);
 			divingImg.setVisible(true);
-			diving.setText(goalkeeper.getDiving()+"%");
+			diving.setText(goalkeeper.getDiving()+"");
 
 
 			// Reflexes bar inladen
@@ -121,7 +121,7 @@ public class ViewPlayer {
 			reflexesImg.minWidth(goalkeeper.getReflexes() * 3);
 			reflexesImg.setFitWidth(goalkeeper.getReflexes() * 3);
 			reflexesImg.setVisible(true);
-			reflexes.setText(goalkeeper.getReflexes()+"%");
+			reflexes.setText(goalkeeper.getReflexes()+"");
 
 			// Positioning bar inladen
 			positioningLable.setVisible(true);
@@ -129,7 +129,7 @@ public class ViewPlayer {
 			positioningImg.minWidth(goalkeeper.getPositioning() * 3);
 			positioningImg.setFitWidth(goalkeeper.getPositioning() * 3);
 			positioningImg.setVisible(true);
-			positioning.setText(goalkeeper.getPositioning()+"%");
+			positioning.setText(goalkeeper.getPositioning()+"");
 		}
 		
 		showCountryLable.setText("Country: "+ player.getCountry());
