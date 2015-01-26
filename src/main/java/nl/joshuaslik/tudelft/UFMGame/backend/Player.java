@@ -35,6 +35,8 @@ public abstract class Player {
 	public Player(String id, String firstName, String lastName, String country,
 			int pr) {
 		playerID = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		fullName = firstName + " " + lastName;
 		this.country = country;
 		price = pr;
@@ -49,6 +51,24 @@ public abstract class Player {
 	 */
 	public String getID() {
 		return playerID;
+	}
+	
+	/**
+	 * Getter for this player's first name
+	 * 
+	 * @return the first name of this player
+	 */
+	public String getFirstName() {
+		return firstName;
+	}
+	
+	/**
+	 * Getter for this player's last name
+	 * 
+	 * @return the last name of this player
+	 */
+	public String getLastName() {
+		return lastName;
 	}
 
 	/**

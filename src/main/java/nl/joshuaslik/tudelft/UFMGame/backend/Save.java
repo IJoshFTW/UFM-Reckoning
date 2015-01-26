@@ -2,7 +2,6 @@ package nl.joshuaslik.tudelft.UFMGame.backend;
 
 import java.io.File;
 import java.math.BigDecimal;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
