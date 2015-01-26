@@ -20,6 +20,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Callback;
+import nl.joshuaslik.tudelft.UFMGame.backend.Fieldplayer;
 import nl.joshuaslik.tudelft.UFMGame.backend.Player;
 import nl.joshuaslik.tudelft.UFMGame.backend.Team;
 import nl.joshuaslik.tudelft.UFMGame.gui.Main;
@@ -117,6 +118,13 @@ public class TeamBuilderController {
 				                public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
 				                	if(newValue == true){
 				                		if(MainGame.game.getUser().getTeam().getActivePlayers().contains(player)){
+				                			if(team.getTeamCaptain() instanceof Fieldplayer){
+			                					team.setStamina(MainGame.game.getUser().getTeam().getStamina() -
+			                							((Fieldplayer) MainGame.game.getUser().getTeam().getTeamCaptain()).getStamina());
+			                				}
+				                			if(player instanceof Fieldplayer){
+				                				team.setStamina(team.getStamina() + ((Fieldplayer) player).getStamina());	
+				                			}
 				                			MainGame.game.getUser().getTeam().setTeamCaptain(player);
 				                		}
 				                		else{

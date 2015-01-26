@@ -435,6 +435,7 @@ public class Game {
 					team.getFormation().setLW((Fieldplayer) fieldplayers.get(8));
 					team.getFormation().setCB3((Fieldplayer) fieldplayers.get(9));
 				}
+				team.setTeamCaptain(team.getActivePlayers().get(0));
 			}
 		}
 	}
