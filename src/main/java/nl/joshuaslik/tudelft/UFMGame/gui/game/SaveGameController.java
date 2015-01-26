@@ -18,7 +18,7 @@ import nl.joshuaslik.tudelft.UFMGame.gui.Main;
 /**
  * Controller of the save game class
  * @author Naomi
- *
+ * @autor Bryan van Wijk
  */
 public class SaveGameController {
 	private static Popup popup;
@@ -28,7 +28,9 @@ public class SaveGameController {
 	@FXML
 	private Label username1, username2, username3;
 
-	
+	/**
+	 * initialize the save game popup
+	 */
 	@FXML
 	private void initialize(){
 		usernames = Save.getUsernames();
@@ -80,6 +82,10 @@ public class SaveGameController {
 		 });
 	}
 	
+	/**
+	 * method to save the game in slot
+	 * @param slot number of slot to save the game in 
+	 */
 	private void saveGame(int slot){
 		if(usernames.containsKey(slot)){
 			FadeTransition ft = new FadeTransition(Duration.millis(900), page);
@@ -94,7 +100,6 @@ public class SaveGameController {
 			try {
 				OverwriteController.start(slot);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		} else{

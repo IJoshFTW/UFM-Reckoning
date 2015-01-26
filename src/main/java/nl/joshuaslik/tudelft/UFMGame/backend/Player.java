@@ -35,9 +35,7 @@ public abstract class Player {
 	public Player(String id, String firstName, String lastName, String country,
 			int pr) {
 		playerID = id;
-		this.firstName = firstName;
 		fullName = firstName + " " + lastName;
-		this.lastName = lastName;
 		this.country = country;
 		price = pr;
 		active = "✗";
@@ -81,25 +79,6 @@ public abstract class Player {
 	}
 
 	/**
-	 * Getter for this player's last name
-	 * 
-	 * @return the last name of this player
-	 */
-	public String getLastName() {
-		return lastName;
-	}
-
-	/**
-	 * Setter for this player's last name
-	 * 
-	 * @param lastName
-	 *            the last name to assign to this player
-	 */
-	public void setlastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	/**
 	 * Getter for the activity icon of this player
 	 * 
 	 * @return A check mark or a cross depending on if this player is in his
@@ -131,12 +110,5 @@ public abstract class Player {
 			active = "✓";
 		else
 			active = "✗";
-	}
-
-	/**
-	 * @return the first name
-	 */
-	public String getFirstName() {
-		return this.firstName;
 	}
 }

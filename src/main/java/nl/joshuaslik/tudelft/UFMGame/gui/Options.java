@@ -129,9 +129,7 @@ public class Options {
         		}
             }     
         });
-		
-		
-		
+			
 		difficultychoose.getItems().add("Easy");
 		difficultychoose.getItems().add("Normal");
 		difficultychoose.getItems().add("Difficult");
@@ -155,7 +153,8 @@ public class Options {
 		            		Save.saveOption("difficulty", difficultychoose.getItems().get((int) newValue));
 		            	}
 		           }
-		});		
+		});	
+		
 		if(Save.getOption("difficulty") != null){
 			difficultychoose.setValue(Save.getOption("difficulty"));
 		}

@@ -31,7 +31,6 @@ public class Game {
 	 */
 	private int currentround = 1;
 	
-	//TODO
 	
 	/**
 	 * Constructor

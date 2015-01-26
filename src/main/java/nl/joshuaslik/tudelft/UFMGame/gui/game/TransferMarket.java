@@ -204,12 +204,6 @@ public class TransferMarket {
 	 */
 	@FXML
 	protected void sellingPlayer() throws IOException {
-		/**
-		if (!selectedplayer.getActiveState()) {
-		MainGame.game.sellPlayer(selectedplayer.getID());
-		}
-		start();
-		*/
 		
 		if(!team.getActivePlayers().contains(selectedplayer)){
 			MainGame.game.setNonContracted(selectedplayer.getID());
@@ -244,15 +238,6 @@ public class TransferMarket {
 	 */
 	@FXML
 	protected void buyingPlayer() throws IOException {
-
-		/**
-		if (!selectedplayer.getActiveState()) {
-		User user = MainGame.game.getUser(otherteam);
-		MainGame.game.buyPlayer(selectedplayer.getID(), user);
-		}
-		start();
-		*/
-
 		try{
 			if(otherteam.getTeamName().equals("Non-Contracted Players")){
 				MainGame.game.buyNonContractedPlayer(selectedplayer.getID(), MainGame.game.getUser());

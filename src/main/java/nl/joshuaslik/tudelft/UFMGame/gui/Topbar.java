@@ -13,6 +13,7 @@ import javafx.scene.layout.AnchorPane;
  *
  */
 public class Topbar {
+	
 	private static String title;
 	@FXML
 	private Label page;

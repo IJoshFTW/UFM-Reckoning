@@ -24,6 +24,7 @@ import javafx.util.Duration;
  * @author Lisette
  */
 public class UsernameController {
+	
 	private static Popup popup;
 	private static AnchorPane page;
 	@FXML

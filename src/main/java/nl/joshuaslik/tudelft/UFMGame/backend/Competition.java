@@ -119,8 +119,6 @@ public class Competition {
 				return playrounds.get(i);
 			}
 		}
-		// TODO DONT RETURN NULL!!!! Throw an exception instead.
-		// NullPointerExceptions are the worst to figure out why they are thrown
 		return null;
 	}
 

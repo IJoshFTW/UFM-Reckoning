@@ -20,6 +20,7 @@ import nl.joshuaslik.tudelft.UFMGame.gui.Main;
  *
  */
 public class OverwriteController {
+	
 	private static Popup popup;
 	private static AnchorPane page;
 	private static int saveslot;
@@ -30,7 +31,7 @@ public class OverwriteController {
 	}
 
 	/**
-	 * THe start method to load the overwrite dialog
+	 * THe start method to load the are you sure to overwrite dialog
 	 * 
 	 * @param slot
 	 *            in where is game is saved
@@ -56,7 +57,7 @@ public class OverwriteController {
 	}
 
 	/**
-	 * handles clicking on the Slot 1 button
+	 * handles clicking on the CANCEL button
 	 * 
 	 * @throws IOException
 	 *             is thrown if the FXML file cannot be parsed.
@@ -76,8 +77,7 @@ public class OverwriteController {
 	}
 
 	/**
-	 * handles clicking on the Slot 2 button
-	 * 
+	 * handles clicking on the ok button
 	 */
 	@FXML
 	protected void handleOK() {
