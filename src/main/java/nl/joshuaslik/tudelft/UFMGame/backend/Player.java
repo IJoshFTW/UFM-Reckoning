@@ -32,8 +32,7 @@ public abstract class Player {
 	 * @param pr
 	 *            is the price of the player as an int.
 	 */
-	public Player(String id, String firstName, String lastName, String country,
-			int pr) {
+	public Player(String id, String firstName, String lastName, String country, int pr) {
 		playerID = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -52,7 +51,7 @@ public abstract class Player {
 	public String getID() {
 		return playerID;
 	}
-	
+
 	/**
 	 * Getter for this player's first name
 	 * 
@@ -61,7 +60,7 @@ public abstract class Player {
 	public String getFirstName() {
 		return firstName;
 	}
-	
+
 	/**
 	 * Getter for this player's last name
 	 * 

@@ -14,10 +14,11 @@ import javafx.util.Duration;
 
 /**
  * Controller for the credits dialog.
+ * 
  * @author Bryan van Wijk
  */
 public class Creditscontroller {
-	
+
 	private static Popup popup;
 	private static AnchorPane page;
 
@@ -31,20 +32,21 @@ public class Creditscontroller {
 		ft.setToValue(0.0);
 		ft.play();
 		ft.setOnFinished(new EventHandler<ActionEvent>() {
-		    public void handle(ActionEvent event) {
-		    		popup.hide(); 
-		    	}
+			public void handle(ActionEvent event) {
+				popup.hide();
+			}
 		});
 	}
 
 	/**
 	 * THe start method to load the credits dialog
-	 * @throws IOException is thrown if the FXML file cannot be parsed.
+	 * 
+	 * @throws IOException
+	 *             is thrown if the FXML file cannot be parsed.
 	 */
 	public static void start() throws IOException {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(Class.class
-				.getResource("/data/gui/pages-menu/CreditsDialog.fxml"));
+		loader.setLocation(Class.class.getResource("/data/gui/pages-menu/CreditsDialog.fxml"));
 		page = (AnchorPane) loader.load();
 		FadeTransition ft = new FadeTransition(Duration.millis(500), page);
 		ft.setFromValue(0.0);
@@ -52,19 +54,19 @@ public class Creditscontroller {
 		ft.play();
 		page.setOpacity(0.85);
 		popup = new Popup();
-		popup.setOnAutoHide( new EventHandler<Event>() {
-	    	public void handle(Event event) {
-	    		FadeTransition ft = new FadeTransition(Duration.millis(900), page);
-	    		ft.setFromValue(0.97);
-	    		ft.setToValue(0.0);
-	    		ft.play();
-	    		ft.setOnFinished(new EventHandler<ActionEvent>() {
-	    		    public void handle(ActionEvent actionevent) {
-	    		    		popup.hide(); 
-	    		    	}
-	    		 });
-	    	}
-	    });
+		popup.setOnAutoHide(new EventHandler<Event>() {
+			public void handle(Event event) {
+				FadeTransition ft = new FadeTransition(Duration.millis(900), page);
+				ft.setFromValue(0.97);
+				ft.setToValue(0.0);
+				ft.play();
+				ft.setOnFinished(new EventHandler<ActionEvent>() {
+					public void handle(ActionEvent actionevent) {
+						popup.hide();
+					}
+				});
+			}
+		});
 		popup.setAutoHide(true);
 		popup.getContent().add(page);
 		popup.show(Main.stage);

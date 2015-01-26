@@ -14,7 +14,9 @@ public class Playround implements Comparable<Object> {
 
 	/**
 	 * Method to set the playround nr of this playround
-	 * @param nr to set to this playround
+	 * 
+	 * @param nr
+	 *            to set to this playround
 	 */
 	public void setPlayroundnr(int nr) {
 		playroundnr = nr;
@@ -22,6 +24,7 @@ public class Playround implements Comparable<Object> {
 
 	/**
 	 * Method to get the playround number of this playround
+	 * 
 	 * @return number of this playround
 	 */
 	public int getPlayroundnr() {
@@ -41,6 +44,7 @@ public class Playround implements Comparable<Object> {
 	 * add a match to this playround
 	 * 
 	 * @param match
+	 *            Match to add to this Playround
 	 */
 	public void addmatch(Match match) {
 		matches.add(match);
@@ -58,13 +62,13 @@ public class Playround implements Comparable<Object> {
 	 * Checks how many times a team is in this Playround
 	 * 
 	 * @param team
+	 *            Team to check against
 	 * @return How many times the specified Team is in this Playround
 	 */
 	public int contains(Team team) {
 		int result = 0;
 		for (int i = 0; i < matches.size(); i++) {
-			if (matches.get(i).getHomeTeam().equals(team)
-					| matches.get(i).getAwayTeam().equals(team)) {
+			if (matches.get(i).getHomeTeam().equals(team) | matches.get(i).getAwayTeam().equals(team)) {
 				result = result + 1;
 			}
 		}
