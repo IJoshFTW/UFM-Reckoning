@@ -355,12 +355,6 @@ public class GameTest {
 		Game game1 = Save.newGame(Save.loadTeam().get("ajax"), "Bryan");
 		game1.changeFormationRound();
 		game1.getUser("pc1").getTeam();
-		for(int i = 0; i < game1.getUsers().size(); i++){
-			System.out.println(game1.getUsers().get(i).getTeam().getFormation().getName());
-			System.out.println(game1.getUsers().get(i).getTeam().getActivePlayers().size());
-			System.out.println(game1.getUsers().get(i).getTeam().getTeamName());
-			System.out.println();
-		}
 		assertEquals(game1.getUser("pc2").getTeam().getActivePlayers().size(), 11);
 	}
 
