@@ -26,5 +26,6 @@
 1421242200|[Scrum] Start of Sprint #07!
 1421843400|[Scrum] End of Sprint #07!
 1421847000|[Scrum] Start of Sprint #08!
+1422308612|[Release] v1.0.0 released!
 1422448200|[Scrum] End of Sprint #08!
 1422448201|[Scrum] Official end of the project!
