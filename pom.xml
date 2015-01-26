@@ -83,9 +83,11 @@
                         <ignoreTrivial>true</ignoreTrivial>
                         <ignores>
                             <ignore>nl.joshuaslik.tudelft.UFMGame.gui.*</ignore>
+                            <ignore>nl.joshuaslik.tudelft.UFMGame.util.*.class</ignore>
                         </ignores>
                         <excludes>
                             <exclude>nl/joshuaslik/tudelft/UFMGame/gui/**/*.class</exclude>
+                            <exclude>nl/joshuaslik/tudelft/UFMGame/util/*.class</exclude>
                         </excludes>
                     </instrumentation>
                 </configuration>
