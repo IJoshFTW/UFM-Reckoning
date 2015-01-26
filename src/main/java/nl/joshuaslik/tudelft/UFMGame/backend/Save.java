@@ -1081,7 +1081,6 @@ public class Save {
 			Playround playround = new Playround();
 			playround.setPlayroundnr(Integer.parseInt(file.getElement("savegame.playrounds.playround", i).getAttribute("nr")));
 			for (int j = 1; j < file.getElement("savegame.playrounds.playround", i).elements() + 1; j++) {
-				System.out.println("Match " + i + " " + j);
 				Match match = new Match(game.getTeam(file.getElement("savegame.playrounds.playround", i).getElement("match", j).getElement("hometeam").getContent()), game.getTeam(file
 						.getElement("savegame.playrounds.playround", i).getElement("match", j).getElement("awayteam").getContent()));
 				if (file.getElement("savegame.playrounds.playround", i).getElement("match", j).getElement("homegoals").getContent() != null) {
