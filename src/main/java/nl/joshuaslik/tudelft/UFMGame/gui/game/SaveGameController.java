@@ -18,7 +18,7 @@ import nl.joshuaslik.tudelft.UFMGame.gui.Main;
 /**
  * Controller of the save game class
  * @author Naomi
- * @autor Bryan van Wijk
+ * @author Bryan van Wijk
  */
 public class SaveGameController {
 	private static Popup popup;

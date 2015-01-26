@@ -813,8 +813,7 @@ public class Save {
 	/**
 	 * Method to get all the usernames that have a saved game
 	 * 
-	 * @return LinkedHashMap<Integer, String> with the slot number and the
-	 *         string username
+	 * @return LinkedHashMap with the slot number and the string username
 	 * */
 	public static LinkedHashMap<Integer, String> getUsernames() {
 		LinkedHashMap<Integer, String> usernames = new LinkedHashMap<Integer, String>();

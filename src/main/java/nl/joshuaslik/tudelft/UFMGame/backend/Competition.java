@@ -10,9 +10,10 @@ import java.util.Collections;
  * @author <a href="http://www.joshuaslik.nl/" target="_blank">Joshua Slik</a>
  */
 public class Competition {
-	ArrayList<Playround> playrounds = new ArrayList<Playround>();
-	Game game;
-	ArrayList<User> users;
+
+	private ArrayList<Playround> playrounds = new ArrayList<Playround>();
+	private Game game;
+	private ArrayList<User> users;
 
 	/**
 	 * @param game

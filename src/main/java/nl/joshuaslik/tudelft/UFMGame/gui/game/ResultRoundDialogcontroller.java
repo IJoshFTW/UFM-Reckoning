@@ -21,7 +21,7 @@ import nl.joshuaslik.tudelft.UFMGame.gui.Main;
 /**
  * Class to control the result per round
  * @author Naomi
- * @autor Bryan van Wijk
+ * @author Bryan van Wijk
  */
 public class ResultRoundDialogcontroller {
 	private static Popup popup;
