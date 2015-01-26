@@ -36,6 +36,7 @@ public class Form343 extends Formation {
 
 	/**
 	 * Method to get the name of this formation type
+	 * 
 	 * @return The name of this Formation
 	 */
 	public String getName() {
@@ -44,7 +45,9 @@ public class Form343 extends Formation {
 
 	/**
 	 * contructor for the formation 343
-	 * @param team of this formation
+	 * 
+	 * @param team
+	 *            of this formation
 	 */
 	public Form343(Team team) {
 		super(team);
@@ -52,6 +55,7 @@ public class Form343 extends Formation {
 
 	/**
 	 * Method to get the central back player
+	 * 
 	 * @return central back player
 	 */
 	public Fieldplayer getCB() {
@@ -60,6 +64,7 @@ public class Form343 extends Formation {
 
 	/**
 	 * Method to get the left back player
+	 * 
 	 * @return left back player
 	 */
 	public Fieldplayer getLB() {
@@ -68,6 +73,7 @@ public class Form343 extends Formation {
 
 	/**
 	 * Method to get the right back player
+	 * 
 	 * @return right back player
 	 */
 	public Fieldplayer getRB() {
@@ -76,6 +82,7 @@ public class Form343 extends Formation {
 
 	/**
 	 * Method to get central midfield player 1
+	 * 
 	 * @return central midfield player1
 	 */
 	public Fieldplayer getCM1() {
@@ -84,6 +91,7 @@ public class Form343 extends Formation {
 
 	/**
 	 * Method to get the central midfield player 2
+	 * 
 	 * @return central midfield player2
 	 */
 	public Fieldplayer getCM2() {
@@ -92,6 +100,7 @@ public class Form343 extends Formation {
 
 	/**
 	 * Method to get the right midfield player
+	 * 
 	 * @return right midfield player
 	 */
 	public Fieldplayer getRM() {
@@ -100,6 +109,7 @@ public class Form343 extends Formation {
 
 	/**
 	 * Method to get the left midfield player
+	 * 
 	 * @return Left midfield player
 	 */
 	public Fieldplayer getLM() {
@@ -108,6 +118,7 @@ public class Form343 extends Formation {
 
 	/**
 	 * Method to get the right wing player
+	 * 
 	 * @return Right wing player
 	 */
 	public Fieldplayer getLW() {
@@ -116,6 +127,7 @@ public class Form343 extends Formation {
 
 	/**
 	 * Method to get the left wing player
+	 * 
 	 * @return Left wing player
 	 */
 	public Fieldplayer getRW() {
@@ -124,6 +136,7 @@ public class Form343 extends Formation {
 
 	/**
 	 * Method to get the striker player
+	 * 
 	 * @return Striker player
 	 */
 	public Fieldplayer getST() {

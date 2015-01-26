@@ -17,8 +17,10 @@ public class UnableToBuyException extends RuntimeException {
 	}
 	
 	/**
-	 * Message that is generated when a player cannot be bought. 
-	 * @param message that says that a player cannot be bought. 
+	 * Message that is generated when a player cannot be bought.
+	 * 
+	 * @param message
+	 *            is the exception message to pass through.
 	 */
 	public UnableToBuyException(String message) {
 		super(message);

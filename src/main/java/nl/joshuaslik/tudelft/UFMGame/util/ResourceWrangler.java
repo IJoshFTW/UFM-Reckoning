@@ -27,6 +27,7 @@ public class ResourceWrangler {
 	 * In other words, always lead with a forward slash.
 	 * 
 	 * @param name
+	 *            is the name of the resource file to get
 	 * @return the name of the resource url
 	 */
 	public static URL getResource(String name) {
@@ -45,6 +46,7 @@ public class ResourceWrangler {
 	 * In other words, always lead with a forward slash.
 	 * 
 	 * @param name
+	 *            is the name of the resource file to get
 	 * @return the resource as a stream
 	 */
 	public static InputStream getResourceAsStream(String name) {
@@ -56,7 +58,9 @@ public class ResourceWrangler {
 
 	/**
 	 * get the resource files as a string
-	 * @param name is a string
+	 * 
+	 * @param name
+	 *            is a string
 	 * @return resource files
 	 */
 	public static ArrayList<String> listResourceFiles(String name) {
@@ -73,8 +77,7 @@ public class ResourceWrangler {
 					if (filelist.get(i).getName().startsWith(name)) {
 						// Make a string cutting off the root, to check if it
 						// goes down another directory
-						String root = filelist.get(i).getName()
-								.substring(name.length() + 1);
+						String root = filelist.get(i).getName().substring(name.length() + 1);
 						if (root.contains("/") == false && root.length() > 0) {
 							filenamelist.add("/" + filelist.get(i).getName());
 						}
@@ -86,22 +89,23 @@ public class ResourceWrangler {
 
 		// Code to list directories when not in a JAR
 		String rootres = Class.class.getResource("/root").getPath();
-//		System.out.println("Root: " + rootres);
-//		System.out.println("Name: " + name);
+		// System.out.println("Root: " + rootres);
+		// System.out.println("Name: " + name);
 		name = rootres.substring(0, rootres.length() - 5) + name;
-//		System.out.println("Finl: " + name);
+		// System.out.println("Finl: " + name);
 		File folder = new File(name);
-//		System.out.println(folder);
+		// System.out.println(folder);
 		List<File> filelist = Arrays.asList(folder.listFiles());
-//		System.out.println(folder.listFiles());
-//		System.out.println(folder.listFiles()[0].toURI());
+		// System.out.println(folder.listFiles());
+		// System.out.println(folder.listFiles()[0].toURI());
 		ArrayList<String> filenamelist = new ArrayList<String>();
 		for (int i = 0; i < filelist.size(); i++) {
 			if (filelist.get(i).isFile()) {
 				String filename = filelist.get(i).toURI().toString();
 				filename = filename.replace("\\", "/");
 				filenamelist.add(filename.substring(rootres.length()));
-//				System.out.println("Added: " + filename.substring(rootres.length()));
+				// System.out.println("Added: " +
+				// filename.substring(rootres.length()));
 			}
 		}
 		return filenamelist;
@@ -109,7 +113,9 @@ public class ResourceWrangler {
 
 	/**
 	 * get the list with resource directories
-	 * @param name is a string 
+	 * 
+	 * @param name
+	 *            is a string
 	 * @return resource files
 	 */
 	public static ArrayList<String> listResourceDirectories(String name) {
@@ -126,12 +132,10 @@ public class ResourceWrangler {
 					if (filelist.get(i).getName().startsWith(name)) {
 						// Make a string cutting off the root, to check if it
 						// goes down another directory
-						String root = filelist.get(i).getName()
-								.substring(name.length() + 1);
+						String root = filelist.get(i).getName().substring(name.length() + 1);
 						// Check if there is only one / in the name and if it is
 						// not 0 chars long
-						if (root.indexOf("/") == root.lastIndexOf("/")
-								&& root.length() > 0) {
+						if (root.indexOf("/") == root.lastIndexOf("/") && root.length() > 0) {
 							filenamelist.add("/" + filelist.get(i).getName());
 						}
 					}
@@ -157,6 +161,7 @@ public class ResourceWrangler {
 
 	/**
 	 * check if you have to run from a jar
+	 * 
 	 * @return boolean true or false if it's run as a jar
 	 */
 	public static boolean runFromJar() {

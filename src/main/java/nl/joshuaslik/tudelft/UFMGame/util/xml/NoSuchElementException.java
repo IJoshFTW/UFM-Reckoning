@@ -20,10 +20,11 @@ public class NoSuchElementException extends RuntimeException {
 
 	/**
 	 * 
-	 * @param s
+	 * @param message
+	 *            is the exception message to pass through.
 	 */
-	public NoSuchElementException(String s) {
-		super(s);
+	public NoSuchElementException(String message) {
+		super(message);
 	}
 
 }
