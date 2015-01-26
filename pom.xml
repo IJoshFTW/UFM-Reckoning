@@ -1,12 +1,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>nl.joshuaslik</groupId>
-    <artifactId>UFM-Reckoning</artifactId>
-    <version>0.7.0-alpha-0</version>
+    <groupId>nl.joshuaslik.tudelft</groupId>
+    <artifactId>UFMGame</artifactId>
+    <version>0.7.0-alpha-1</version>
     <packaging>jar</packaging>
 
-    <name>Ultimate Football Manager: RECKONING</name>
+    <name>Ultimate Football Manager</name>
     <url>http://joshcode.github.io/UFMGame/</url>
 
     <properties>
