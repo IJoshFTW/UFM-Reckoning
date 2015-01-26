@@ -7,7 +7,7 @@
 
 <AnchorPane prefHeight="430.0" prefWidth="700.0" stylesheets="@TeamBuilder.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nl.joshuaslik.tudelft.UFMGame.gui.game.SaveGameController">
    <children>
-      <Pane opacity="0.85" prefHeight="430.0" prefWidth="700.0" style="-fx-background-color: #101010; -fx-border-width: 1px; -fx-border-color: #CECECE;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane prefHeight="430.0" prefWidth="700.0" style="-fx-background-color: #101010; -fx-border-width: 1px; -fx-border-color: #CECECE;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label alignment="CENTER" layoutX="-9.0" layoutY="20.0" prefHeight="79.0" prefWidth="708.0" text="Choose a slot to save your game" textAlignment="CENTER" textFill="WHITE">
                <font>
