@@ -85,5 +85,20 @@ public class AppTest {
 	public void testXMLSaveNoArgument() {
 		App.main(new String[] { "xmlsave" });
 	}
+	
+	@Test
+	public void testAppDataTest() {
+		App.main(new String[] { "appdatatest" });
+	}
+	
+	@Test
+	public void testFileListTest() {
+		App.main(new String[] { "filelisttest" });
+	}
+	
+	@Test
+	public void testResourceListTest() {
+		App.main(new String[] { "resourcelisttest" });
+	}
 
 }

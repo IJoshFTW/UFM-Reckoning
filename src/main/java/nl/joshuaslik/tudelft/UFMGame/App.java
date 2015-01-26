@@ -81,11 +81,6 @@ public class App {
 					file.save(args[2]);
 				}
 			}
-
-			if (args[0].equals("loadtest")) {
-				System.out.println(Save.loadPlayers().get(63).getID());
-				Save.loadTeams();
-			}
 			
 			if (args[0].equals("appdatatest")) {
 				String saveloc = System.getenv("APPDATA") + "\\Ultimate Football Manager\\saves\\slot" + 1 + ".xml";
@@ -97,7 +92,6 @@ public class App {
 				rootloc = rootloc.substring(0, rootloc.length() - 5);
 				rootloc = rootloc.substring(5, rootloc.length() - 1);
 				System.out.println(rootloc);
-				Zipper.printEntries(System.out, rootloc);
 				System.out.println(Class.class.getResourceAsStream("/root"));
 				System.out.println(Class.class.getResourceAsStream("/data/base/players/adamsarota.xml"));
 			}
