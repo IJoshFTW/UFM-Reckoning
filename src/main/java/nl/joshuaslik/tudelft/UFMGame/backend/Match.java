@@ -137,6 +137,18 @@ public class Match {
 		double awaygoalschance = ((awaychance * (difficulty * 0.1)) + (((((attackpoweraway + staminaaway) * 1.35) - ((hometeam.getActiveGoalkeeper().getDiving()
 				+ hometeam.getActiveGoalkeeper().getPositioning() + hometeam.getActiveGoalkeeper().getReflexes())))) * ((10 - difficulty) * 0.1)));
 
+		if(hometeam.getTeamCaptain() instanceof Fieldplayer){
+			homegoalschance =- 100 + homegoalschance + (((Fieldplayer) hometeam.getTeamCaptain()).getStamina());
+		}
+		else if(hometeam.getTeamCaptain() instanceof Goalkeeper){
+			homegoalschance = -100 + homegoalschance + (((Goalkeeper) hometeam.getTeamCaptain()).getReflexes());
+		}
+		if(awayteam.getTeamCaptain() instanceof Fieldplayer){
+			awaygoalschance = -100 + awaygoalschance + (((Fieldplayer) awayteam.getTeamCaptain()).getStamina());
+		}
+		else if(awayteam.getTeamCaptain() instanceof Goalkeeper){
+			awaygoalschance = -100 + awaygoalschance + (((Goalkeeper) awayteam.getTeamCaptain()).getReflexes());
+		}
 		homegoals = determinegoals(homegoalschance);
 		awaygoals = determinegoals(awaygoalschance);
 		if (homegoals > awaygoals) {
