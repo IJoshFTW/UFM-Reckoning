@@ -355,7 +355,7 @@ public class GameTest {
 		Game game1 = Save.newGame(Save.loadTeam().get("ajax"), "Bryan");
 		game1.changeFormationRound();
 		game1.getUser("pc1").getTeam();
-		assertEquals(game1.getUser("pc2").getTeam().getActivePlayers().size(), 11);
+		assertEquals(game1.getUser("Bryan").getTeam().getActivePlayers().size(), 11);
 	}
 
 }
