@@ -24,7 +24,7 @@
                                     <Font size="34.0" />
                                  </font>
                               </CheckBox>
-                              <Label alignment="CENTER" layoutY="261.0" prefHeight="17.0" prefWidth="1085.0" text="Difficuly level" textFill="#fff9f9">
+                              <Label alignment="CENTER" layoutY="261.0" prefHeight="17.0" prefWidth="1085.0" text="Difficulty level" textFill="#fff9f9">
                                  <font>
                                     <Font size="49.0" />
                                  </font>
