@@ -11,18 +11,18 @@ Ultimate Football Manager
     </tr>
     <tr>
       <td>
-        <a href="https://travis-ci.org/JoshCode/UFMGame/branches">
-          <img src="https://travis-ci.org/JoshCode/UFMGame.svg?branch=master" alt="Master Build Status" />
+        <a href="https://travis-ci.org/nocomment/UFMGame/branches">
+          <img src="https://travis-ci.org/nocomment/UFMGame.svg?branch=master" alt="Master Build Status" />
         </a>
       </td>
       <td>
-        <a href="https://travis-ci.org/JoshCode/UFMGame/branches">
-          <img src="https://travis-ci.org/JoshCode/UFMGame.svg?branch=dev" alt="Dev Build Status" />
+        <a href="https://travis-ci.org/nocomment/UFMGame/branches">
+          <img src="https://travis-ci.org/nocomment/UFMGame.svg?branch=dev" alt="Dev Build Status" />
         </a>
       </td>
       <td>
-        <a href="https://travis-ci.org/JoshCode/UFMGame/branches">
-          <img src="https://travis-ci.org/JoshCode/UFMGame.svg" alt="Latest Build" />
+        <a href="https://travis-ci.org/nocomment/UFMGame/branches">
+          <img src="https://travis-ci.org/nocomment/UFMGame.svg" alt="Latest Build" />
         </a>
       </td>
     </tr>
